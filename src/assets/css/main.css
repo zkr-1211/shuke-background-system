@@ -1,11 +1,11 @@
 html, body, h1, h2, h3, h4, h5, h6, p, textarea, input, select, ul, ol, li, fieldset, figure {
     margin: 0;
     padding: 0;
-    border: none;
+    
   }
   html,body{
     height: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     background-color: #F6F6F8;
   }
   ul, li {
@@ -36,6 +36,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, textarea, input, select, ul, ol, li, fiel
       border: none; }
    
   div{
+    box-sizing: border-box !important;
   -webkit-highlight:none;
   -webkit-tap-highlight-color:transparent;
   -webkit-user-select:none;
