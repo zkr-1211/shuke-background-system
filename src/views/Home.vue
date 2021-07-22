@@ -21,34 +21,97 @@
           <el-row class="tac">
             <el-col>
               <el-menu
+                router
+                active-text-color="#fff"
+                active-background-color="red"
                 text-color="#666666"
-                default-active="1"
+                :default-active="activePath"
                 class="el-menu-vertical-demo"
+                @select="handleSelect"
                 @open="handleOpen"
                 @close="handleClose"
               >
-                <el-menu-item index="1">
-                  <i class="el-icon-menu"></i>
+                <el-menu-item
+                  @click="saveNavState('/main')"
+                  index="/main"
+                  :class="selectIndex == '/main' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/main'"
+                    src="@/assets/image/leftbar/leftbar_home_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_home_n.svg"
+                    alt=""
+                  />
+                  <!-- <i class="el-icon-menu"></i> -->
                   <span>首页</span>
                 </el-menu-item>
 
-                <el-menu-item index="2">
-                  <i class="el-icon-menu"></i>
+                <el-menu-item
+                  @click="saveNavState('/course')"
+                  index="/course"
+                  :class="selectIndex == '/course' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/course'"
+                    src="@/assets/image/leftbar/leftbar_course_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_course_n.svg"
+                    alt=""
+                  />
                   <span>课程</span>
                 </el-menu-item>
-                <el-menu-item index="3">
-                  <i class="el-icon-menu"></i>
+                <el-menu-item
+                  @click="saveNavState('/recordVideo')"
+                  index="/recordVideo"
+                  :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/recordVideo'"
+                    src="@/assets/image/leftbar/leftbar_recordvideo_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_recordvideo_n.svg"
+                    alt=""
+                  />
                   <span>录播资源</span>
                 </el-menu-item>
-                <el-menu-item index="4">
-                  <i class="el-icon-menu"></i>
+                <el-menu-item
+                  @click="saveNavState('/recovery')"
+                  index="/recovery"
+                  :class="selectIndex == '/recovery' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/recovery'"
+                    src="@/assets/image/leftbar/leftbar_recovery_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_recovery_n.svg"
+                    alt=""
+                  />
                   <span>课程回收站</span>
                 </el-menu-item>
               </el-menu>
             </el-col>
           </el-row>
+          <div class="aside-bottom">
+            <div>树课社区</div>
+            <div>客服帮助</div>
+          </div>
         </el-aside>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view />
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -64,9 +127,24 @@ export default {
     HelloWorld,
   },
   data() {
-    return {};
+    return {
+      selectIndex: 1,
+      activePath: "",
+    };
+  },
+  created() {
+    this.activePath = window.sessionStorage.getItem("activePath");
+    this.selectIndex = this.activePath;
   },
   methods: {
+    saveNavState(activePath) {
+      window.sessionStorage.setItem("activePath", activePath);
+      this.activePath = activePath;
+    },
+    handleSelect(index) {
+      console.log("index", index);
+      this.selectIndex = index;
+    },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -77,6 +155,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.selectStyle {
+  background: linear-gradient(90deg, #2a77ff 0%, #5592fe 100%);
+  box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
+  opacity: 1;
+  border-radius: 4px;
+}
 .el-header {
   background-color: #ffffff;
   color: #333;
@@ -146,16 +230,19 @@ export default {
 }
 
 .el-aside {
+  position: relative;
   background-color: #fff;
   color: #333;
   width: 256px;
-  height: 100%;
+  height: 700px;
   .tac {
     margin-top: 26px;
     .el-menu {
       padding-left: 20px;
       padding-right: 20px;
       .el-menu-item {
+        display: flex;
+        align-items: center;
         margin-top: 12px;
         font-size: 14px;
         font-weight: bold;
@@ -163,11 +250,30 @@ export default {
         // background: linear-gradient(90deg, #2a77ff 0%, #5592fe 100%);
         box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
         border-radius: 4px;
+        span {
+          margin-left: 20px;
+        }
       }
       .el-menu-item:hover {
         border-radius: 4px;
         background-color: #f6f6f6;
       }
+    }
+  }
+  .aside-bottom {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    color: #666666;
+    > div:nth-of-type(1) {
+      cursor: pointer;
+    }
+    > div:nth-of-type(2) {
+      margin-left: 48px;
+      cursor: pointer;
     }
   }
 }
