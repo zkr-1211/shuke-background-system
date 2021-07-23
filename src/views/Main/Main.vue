@@ -54,7 +54,7 @@
           </div>
           <div class="name">大数据中心</div>
           <div class="img1">
-            <img src="@/assets/image/home/ic_forward_h.svg" alt="" />
+            <!-- <img src="@/assets/image/home/ic_forward_n.svg" alt="" /> -->
           </div>
         </div>
         <div class="shuke-yunpan">
@@ -63,7 +63,7 @@
           </div>
           <div class="name">树课云盘</div>
           <div class="img1">
-            <img src="@/assets/image/home/ic_forward_h.svg" alt="" />
+            <!-- <img src="@/assets/image/home/ic_forward_h.svg" alt="" /> -->
           </div>
         </div>
       </div>
@@ -91,13 +91,28 @@
           <div class="name">最近课程</div>
         </div>
         <div class="course-content">
-          <div class="course-item" v-for="(item, index) in 6" :key="index">
+          <div class="empty" v-if="false">
+            <div class="img">
+              <img src="@/assets/image/home/img_empty_big.svg" alt="" />
+            </div>
+            <div class="text">还未创建任何课程</div>
+            <div class="button">
+              <el-button type="primary">前往创建</el-button>
+            </div>
+          </div>
+          <div
+            class="course-item"
+            v-for="(item, index) in 6"
+            :key="index"
+            v-else
+          >
             <div><img src="@/assets/image/home/course_img1.svg" alt="" /></div>
             <div class="course-message">
               <div>大数据科学与技术</div>
               <div>所在团队：电信教学团队</div>
-              <div>
-                班级个数：1000 学生人数：1000 题库题目：1000 访问次数：1000
+              <div class="num">
+                <span>班级个数：1000</span> <span>学生人数：1000</span>
+                <span>题库题目：1000</span> <span>访问次数：1000</span>
               </div>
             </div>
           </div>
@@ -190,6 +205,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: all 1s;
       .item {
         position: relative;
         width: 154px;
@@ -201,6 +217,9 @@ export default {
         cursor: pointer;
         &:hover {
           background-color: #fafafa;
+        }
+        &:hover img {
+          transform: scale(1.2);
         }
         &:hover .tiaozi {
           border-top: 9px solid #2a77ff;
@@ -219,9 +238,12 @@ export default {
           height: 60px;
           background: #5592fe;
           border-radius: 50%;
+          img {
+            transition: all 0.25s;
+          }
         }
         .name {
-          margin-top: 10px;
+          margin-top: 14px;
           font-size: 14px;
           color: #666666;
         }
@@ -261,6 +283,12 @@ export default {
         font-weight: 400;
         color: #666666;
         cursor: pointer;
+        &:hover .img1 {
+          background-image: url(../../assets/image/home/ic_forward_h.svg) !important;
+        }
+        &:active .img1 {
+          background-image: url(../../assets/image/home/ic_forward_p.svg) !important;
+        }
         .name {
         }
         .img {
@@ -269,8 +297,11 @@ export default {
           margin-left: 15px;
         }
         .img1 {
+          width: 16px;
+          height: 24px;
           display: flex;
           align-items: center;
+          background-image: url(../../assets/image/home/ic_forward_n.svg) !important;
         }
         &:hover {
           background-color: #fafafa;
@@ -293,9 +324,18 @@ export default {
           align-items: center;
           margin-left: 12px;
         }
+        &:hover .img1 {
+          background-image: url(../../assets/image/home/ic_forward_h.svg) !important;
+        }
+        &:active .img1 {
+          background-image: url(../../assets/image/home/ic_forward_p.svg) !important;
+        }
         .img1 {
+          width: 16px;
+          height: 24px;
           display: flex;
           align-items: center;
+          background-image: url(../../assets/image/home/ic_forward_n.svg) !important;
         }
         &:hover {
           background-color: #fafafa;
@@ -336,6 +376,12 @@ export default {
         .el-button {
           background: #2a77ff;
           box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+          &:hover {
+            background: #5592fe;
+          }
+          &:active {
+            background: #2065e0;
+          }
         }
       }
     }
@@ -390,7 +436,44 @@ export default {
         height: 528px;
         overflow-x: hidden;
         background-color: #fafafa;
-
+        .empty {
+          margin-top: 100px;
+          height: 330px;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          // background-color: #2a77ff;
+          .img {
+            width: 300px;
+            height: 191px;
+            img {
+              width: 300px;
+              height: 191px;
+            }
+          }
+          .text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #999999;
+          }
+          .button {
+            font-size: 14px;
+            font-weight: bold;
+            color: #f4f4f4;
+            .el-button {
+              background: #2a77ff;
+              box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+              &:hover {
+                background: #5592fe;
+              }
+              &:active {
+                background: #2065e0;
+              }
+            }
+          }
+        }
         .course-item {
           display: flex;
           align-items: center;
@@ -421,9 +504,19 @@ export default {
               font-size: 16px;
               color: #666666;
             }
-            > div:nth-of-type(3) {
+
+            .num {
               font-size: 12px;
               color: #999999;
+              span:nth-of-type(2) {
+                margin-left: 30px;
+              }
+              span:nth-of-type(3) {
+                margin-left: 30px;
+              }
+              span:nth-of-type(4) {
+                margin-left: 30px;
+              }
             }
           }
         }
