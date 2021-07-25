@@ -135,7 +135,13 @@
           <div class="title">
             <div class="name">访问量与平均学习时长</div>
           </div>
-          <div></div>
+          <div class="chart">
+            <div>
+              <ChartLine ref="myChart"/>
+            </div>
+
+            <!-- <div id="myChart" style="width: 600px;height: 400px;"></div> -->
+          </div>
           <!-- </div> -->
         </div>
       </div>
@@ -144,14 +150,24 @@
 </template>
 
 <script>
+import ChartLine from "@/components/chartLint/ChartLint.vue";
 export default {
-  components: {},
+  components: {
+    ChartLine
+  },
   data() {
-    return {};
+    return {
+      name: "张雪",
+      xData: ["2020-02", "2020-03", "2020-04", "2020-05"],
+      yData: [30, 132, 80, 134],
+    };
   },
   computed: {},
 
-  mounted() {},
+  mounted() {
+    // const { name, xData, yData } = this;
+    this.$refs.myChart.drawLine();
+  },
 
   methods: {},
 };
@@ -284,10 +300,10 @@ export default {
         color: #666666;
         cursor: pointer;
         &:hover .img1 {
-          background-image: url(../../assets/image/home/ic_forward_h.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_h.svg) !important;
         }
         &:active .img1 {
-          background-image: url(../../assets/image/home/ic_forward_p.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_p.svg) !important;
         }
         .name {
         }
@@ -301,7 +317,7 @@ export default {
           height: 24px;
           display: flex;
           align-items: center;
-          background-image: url(../../assets/image/home/ic_forward_n.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_n.svg) !important;
         }
         &:hover {
           background-color: #fafafa;
@@ -325,17 +341,17 @@ export default {
           margin-left: 12px;
         }
         &:hover .img1 {
-          background-image: url(../../assets/image/home/ic_forward_h.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_h.svg) !important;
         }
         &:active .img1 {
-          background-image: url(../../assets/image/home/ic_forward_p.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_p.svg) !important;
         }
         .img1 {
           width: 16px;
           height: 24px;
           display: flex;
           align-items: center;
-          background-image: url(../../assets/image/home/ic_forward_n.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_n.svg) !important;
         }
         &:hover {
           background-color: #fafafa;
@@ -619,6 +635,11 @@ export default {
         .name {
           margin-left: 12px;
         }
+      }
+      .chart {
+        height: 100%;
+        width: 100%;
+        // background-color: #2a77ff;
       }
       // }
     }

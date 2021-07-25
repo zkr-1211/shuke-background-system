@@ -29,12 +29,12 @@
                     />
                   </el-badge>
                 </span>
-                <el-dropdown-menu slot="dropdown" >
-                  <div style="width: 460px; height: 536px"  >
+                <el-dropdown-menu slot="dropdown">
+                  <div style="width: 460px; height: 536px">
                     <el-tabs
                       value="first"
                       @tab-click="handleClick"
-                     v-if="isNotic"
+                      v-if="isNotic"
                     >
                       <el-tab-pane label="用户管理" name="first">
                         <div class="notice-message">
@@ -60,7 +60,8 @@
                         </div>
                       </el-tab-pane>
                       <el-tab-pane label="配置管理" name="second"
-                        ><div class="notice-message">
+                        >
+                        <div class="notice-message">
                           <div
                             class="notice"
                             v-for="(item, index) in 0"
@@ -240,9 +241,10 @@ export default {
 <style lang="scss" scoped>
 .home {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   // background-color: royalblue;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .selectStyle {
   background: linear-gradient(90deg, #2a77ff 0%, #5592fe 100%);

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="214" height="106" viewBox="0 0 214 106">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #287aa3;
+        opacity: 0.324;
+      }
+
+      .cls-4 {
+        filter: url(#路径_28722);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.5" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#88d4fc"/>
+      <stop offset="1" stop-color="#49a9db"/>
+    </linearGradient>
+    <filter id="路径_28722" x="-30" y="-28" width="274" height="166" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#61d6f9" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, 0, 0)">
+        <path id="路径_28722-2" data-name="路径 28722" class="cls-1" d="M8.025,0h197.95A7.988,7.988,0,0,1,214,7.95V106H8.025A7.988,7.988,0,0,1,0,98.05V7.95A7.988,7.988,0,0,1,8.025,0Z" transform="translate(1392 372)"/>
+      </g>
+    </clipPath>
+  </defs>
+  <g id="icon_course_homework" transform="translate(-1151 -2424)">
+    <path id="路径_28720" data-name="路径 28720" class="cls-1" d="M8.025,0H214V106H0V0Z" transform="translate(1151 2424)"/>
+    <g id="蒙版组_35" data-name="蒙版组 35" class="cls-2" transform="translate(-241 2052)">
+      <path id="减去_69" data-name="减去 69" class="cls-3" d="M44.576,81.838h-.944v-.966a12.409,12.409,0,0,0-11.345-7.4l-.267,0a12.949,12.949,0,0,0-1.388.069v-.069H27.848v-.088H11.768A11.777,11.777,0,0,1,0,61.6V11.784A11.776,11.776,0,0,1,11.768,0h21.2V.049A12.782,12.782,0,0,1,44.1,9.36,12.78,12.78,0,0,1,55.243.049V0H76.43A11.766,11.766,0,0,1,88.2,11.794V61.61A11.777,11.777,0,0,1,76.43,73.394H60.35v.088H57.566v.069a12.95,12.95,0,0,0-1.388-.069l-.244,0a12.423,12.423,0,0,0-11.358,7.392v.965Zm6.969-43.952a4,4,0,0,0-4,4v.229a4,4,0,0,0,4,4H76.415a4,4,0,0,0,4-4v-.229a4,4,0,0,0-4-4Zm-39.328-.48a4,4,0,0,0-4,4v.228a4,4,0,0,0,4,4H37.087a4.005,4.005,0,0,0,4-4v-.228a4,4,0,0,0-4-4ZM51.25,18.893a4,4,0,0,0-4,4v.228a4,4,0,0,0,4,4H76.121a4.005,4.005,0,0,0,4-4v-.228a4.005,4.005,0,0,0-4-4Zm-39.034,0a4,4,0,0,0-4,4v.228a4,4,0,0,0,4,4H37.087a4.005,4.005,0,0,0,4-4v-.228a4.005,4.005,0,0,0-4-4Z" transform="matrix(0.966, 0.259, -0.259, 0.966, 1537.109, 399.781)"/>
+    </g>
+  </g>
+</svg>
