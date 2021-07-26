@@ -3,47 +3,8 @@
   <div class="body">
     <p>首页</p>
     <div class="top-content">
-      <div class="person-message">
-        <div class="header"></div>
-        <div class="name">张克榕</div>
-        <div class="number">工号：182718144</div>
-      </div>
-      <div class="my-message">
-        <!-- <div> -->
-        <div class="item">
-          <div class="tiaozi"></div>
-          <div class="img">
-            <img src="@/assets/image/home/icon_home_mycourse.svg" alt="" />
-          </div>
-          <div class="name">我的课程</div>
-          <div class="number">10</div>
-        </div>
-        <div class="item">
-          <div class="tiaozi"></div>
-          <div class="img">
-            <img src="@/assets/image/home/icon_home_myclass.svg" alt="" />
-          </div>
-          <div class="name">我的班级</div>
-          <div class="number">10</div>
-        </div>
-        <div class="item">
-          <div class="tiaozi"></div>
-          <div class="img">
-            <img src="@/assets/image/home/icon_home_myteam.svg" alt="" />
-          </div>
-          <div class="name">我的团队</div>
-          <div class="number">10</div>
-        </div>
-        <div class="item">
-          <div class="tiaozi"></div>
-          <div class="img">
-            <img src="@/assets/image/home/icon_home_mytask.svg" alt="" />
-          </div>
-          <div class="name">作业待改</div>
-          <div class="number">10</div>
-        </div>
-        <!-- </div> -->
-      </div>
+      <PersonCard />
+      <PersonFourItem />
       <div class="shuke-tools">
         <div class="title">
           <div class="name">树课工具</div>
@@ -74,13 +35,17 @@
         <div v-if="false">
           <div class="school-name">福州大学阳光学院</div>
           <div class="button">
-            <el-button type="primary">查看管理</el-button>
+            <a href="/organization">
+              <el-button type="primary">查看管理</el-button></a
+            >
           </div>
         </div>
         <div v-else>
           <div class="school-name">暂无归属学校/机构</div>
           <div class="button">
-            <el-button type="primary">加入认证</el-button>
+            <a href="/organization">
+              <el-button type="primary">加入认证</el-button></a
+            >
           </div>
         </div>
       </div>
@@ -137,7 +102,7 @@
           </div>
           <div class="chart">
             <div>
-              <ChartLine ref="myChart"/>
+              <ChartLine ref="myChart" />
             </div>
 
             <!-- <div id="myChart" style="width: 600px;height: 400px;"></div> -->
@@ -151,15 +116,17 @@
 
 <script>
 import ChartLine from "@/components/chartLint/ChartLint.vue";
+import PersonCard from "@/components/personCard/PersonCard.vue";
+import PersonFourItem from "@/components/personFourItem/PersonFourItem.vue";
 export default {
   components: {
-    ChartLine
+    ChartLine,
+    PersonCard,
+    PersonFourItem
   },
   data() {
     return {
-      name: "张雪",
-      xData: ["2020-02", "2020-03", "2020-04", "2020-05"],
-      yData: [30, 132, 80, 134],
+      
     };
   },
   computed: {},
@@ -180,97 +147,10 @@ export default {
     margin-bottom: 5px;
   }
   .top-content {
+    margin-top: 12px;
     display: flex;
     width: 100%;
     height: 240px;
-    .person-message {
-      width: 100%;
-      min-width: 240px;
-      height: 240px;
-      background: linear-gradient(153deg, #5592fe 0%, #2a77ff 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-      .header {
-        width: 110px;
-        height: 110px;
-        background: rgba(118, 213, 236, 1);
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        border-radius: 50%;
-      }
-      .name {
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff;
-      }
-      .number {
-        font-size: 14px;
-        font-weight: bold;
-        color: #f4f4f4;
-      }
-    }
-    .my-message {
-      width: 100%;
-      height: 240px;
-      background: #ffffff;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-      border-radius: 8px;
-      margin-left: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 1s;
-      .item {
-        position: relative;
-        width: 154px;
-        height: 240px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        &:hover {
-          background-color: #fafafa;
-        }
-        &:hover img {
-          transform: scale(1.2);
-        }
-        &:hover .tiaozi {
-          border-top: 9px solid #2a77ff;
-          color: #2a77ff;
-        }
-        &:hover .number {
-          color: #2a77ff;
-        }
-        .tiaozi {
-          position: absolute;
-          top: 0;
-          width: 154px;
-        }
-        .img {
-          width: 60px;
-          height: 60px;
-          background: #5592fe;
-          border-radius: 50%;
-          img {
-            transition: all 0.25s;
-          }
-        }
-        .name {
-          margin-top: 14px;
-          font-size: 14px;
-          color: #666666;
-        }
-        .number {
-          margin-top: 20px;
-          font-size: 30px;
-          font-weight: bold;
-          color: #666666;
-        }
-      }
-    }
     .shuke-tools {
       min-width: 288px;
       width: 100%;
@@ -278,7 +158,7 @@ export default {
       background: #fff;
       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
       border-radius: 8px;
-      margin-left: 32px;
+      margin-left: 64px;
       .title {
         margin: 20px;
         font-size: 20px;
@@ -424,28 +304,6 @@ export default {
         .name {
           margin-left: 12px;
         }
-      }
-      //滚动条
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        width: 10px;
-        height: 580px;
-        background: #ffffff;
-      }
-      ::-webkit-scrollbar-thumb {
-        width: 6px;
-        height: 120px;
-        background: #e5e5e5;
-        opacity: 1;
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        // background: #5e5353;
-      }
-      ::-webkit-scrollbar-thumb:active {
-        // background: #5e5353;
       }
       .course-content {
         width: 100%;

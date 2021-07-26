@@ -75,3 +75,25 @@ html, body, h1, h2, h3, h4, h5, h6, p, textarea, input, select, ul, ol, li, fiel
   .float-r{
     float: right;
   }
+  /* //滚动条 */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    width: 10px;
+    height: 580px;
+    background: #ffffff;
+  }
+  ::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 120px;
+    background: #e5e5e5;
+    opacity: 1;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    /* // background: #5e5353; */
+  }
+  ::-webkit-scrollbar-thumb:active {
+    /* // background: #5e5353; */
+  }

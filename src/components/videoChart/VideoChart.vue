@@ -6,13 +6,36 @@
 
 <script>
 export default {
-  name: "ChartLine",
   methods: {
     drawLine() {
       // 基于准备好的dom，初始化echarts实例
       let myChart = this.$echarts.init(document.getElementById("myChart"));
       // 绘制图表
       myChart.setOption({
+        //添加横线滚动条
+        dataZoom: {
+          start: 0, //默认为0
+          end: 20, //默认为100
+          type: "slider",
+          show: true,
+          xAxisIndex: [0],
+          handleSize: 0, //滑动条的 左右2个滑动条的大小
+          height: 8, //组件高度
+          //   top:50,
+          left: 90, //左边的距离
+          right: 90, //右边的距离
+          bottom: 20, //右边的距离
+          handleColor: "#000", //h滑动图标的颜色
+          backgroundColor: "#FAFAFA",
+          fillerColor: "#5592FE",
+          handleStyle: {
+            borderColor: "#FAFAFA",
+            borderWidth: "1",
+            shadowBlur: 2,
+            background: "#FAFAFA",
+            shadowColor: "#FAFAFA",
+          },
+        },
         tooltip: {
           // trigger: 'axis',
           // axisPointer: {
@@ -37,7 +60,7 @@ export default {
         xAxis: [
           {
             type: "category",
-            data: ["1月", "2月", "3月", "4月"],
+            data: ["1月", "2月", "3月", "4月","1月", "2月", "3月", "4月","1月", "2月", "3月", "4月","1月", "2月", "3月", "4月","1月", "2月", "3月", "4月"],
             axisPointer: {
               type: "shadow",
             },
@@ -159,6 +182,6 @@ export default {
   min-width: 400px;
   width: 100%;
   // width: 500px;
-  height: 300px;
+  height: 290px;
 }
 </style>

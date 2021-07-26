@@ -33,10 +33,8 @@
         </div>
       </div>
       <div class="top-right">
-        <div class="nav">
-          学员评价
+        <HeaderTitle name="学员评价"/>
           <a href="">共有100条评价>></a>
-        </div>
         <div class="center-content">
           <el-carousel
             :interval="10000"
@@ -145,9 +143,10 @@
         </div>
         <!--  -->
         <div class="chart">
-          <div class="nav">
+          <!-- <div class="nav">
             <div class="title">视频播放完成率对比</div>
-          </div>
+          </div> -->
+          <HeaderTitle name="视频播放完成率对比" />
           <div>
             <VideoChart ref="myChart" />
           </div>
@@ -159,9 +158,11 @@
 
 <script>
 import VideoChart from "@/components/videoChart/VideoChart.vue";
+import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 export default {
   components: {
     VideoChart,
+    HeaderTitle,
   },
   data() {
     return {
@@ -321,30 +322,19 @@ export default {
     }
     .top-right {
       margin-left: 32px;
-      width: 516px;
+      min-width: 516px;
       height: 236px;
       background: #ffffff;
       opacity: 1;
-      .nav {
-        position: relative;
-        min-width: 516px;
-        height: 30px;
-        line-height: 30px;
-        margin: 30px 0px 20px 20px;
-        padding-left: 10px;
-        border-left: 8px solid #2a77ff;
-        // background-color: #2a77ff;
-        font-size: 20px;
-        font-weight: bold;
-        color: #666666;
-        a {
+      position: relative;
+       a {
           font-size: 14px;
           color: #5592fe;
           text-decoration: underline;
           position: absolute;
-          right: 60px;
+          right: 30px;
+          top: 30px;
         }
-      }
       .center-content {
         width: 100%;
         height: 100%;
@@ -636,27 +626,5 @@ export default {
       }
     }
   }
-}
-//滚动条
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  width: 10px;
-  height: 580px;
-  background: #ffffff;
-}
-::-webkit-scrollbar-thumb {
-  width: 6px;
-  height: 120px;
-  background: #e5e5e5;
-  opacity: 1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  // background: #5e5353;
-}
-::-webkit-scrollbar-thumb:active {
-  // background: #5e5353;
 }
 </style>

@@ -5,7 +5,7 @@
       <div class="course-content">
         <div class="course-item" v-for="(item, index) in 25" :key="index">
           <div class="checkbox">
-            <div class="name">UI设计1班</div>
+            <div class="name">函数相关题目</div>
             <div v-if="isCheckBox">
               <el-checkbox v-model="checked"></el-checkbox>
             </div>
@@ -14,7 +14,7 @@
           <div class="bottom-message">
             <div class="classnum">班级：1000</div>
             <div class="dot-bottom">
-              <div class="num">所属课程：ui设计入门课程</div>
+              <div class="num">最后编辑时间：2019/10/15 19:45</div>
               <div class="dot" v-if="isCheckBox"></div>
               <el-dropdown trigger="click" placement="bottom-end" v-else>
                 <span class="el-dropdown-link">
@@ -89,7 +89,7 @@ export default {
   props: {
     isCheckBox: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
   data() {

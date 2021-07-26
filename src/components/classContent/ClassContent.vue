@@ -1,35 +1,36 @@
 <!--  -->
 <template>
   <div class="body">
-    <div class="course-content">
-      <div class="course-item" v-for="(item, index) in 25" :key="index">
-        <div class="img" @click="toDetail()">
-          <img src="@/assets/image/home/course_img1.svg" alt="" />
-        </div>
-        <div class="checkbox">
-          <div class="name">UI设计教育课程</div>
-          <div v-if="isCheckBox">
-            <el-checkbox v-model="checked"></el-checkbox>
+    <div>
+      <div class="course-content">
+        <div class="course-item" v-for="(item, index) in 25" :key="index">
+          <div class="checkbox">
+            <div class="name">UI设计1班</div>
+            <div v-if="isCheckBox">
+              <el-checkbox v-model="checked"></el-checkbox>
+            </div>
           </div>
-        </div>
-        <div class="create">创建者：电信教学团队</div>
-        <div class="bottom-message">
-          <div class="classnum">班级：1000</div>
-          <div class="num">学生数：1000</div>
-          <div class="dot" v-if="isCheckBox"></div>
-          <el-dropdown trigger="click" placement="bottom-end" v-else>
-            <span class="el-dropdown-link">
-              <Dot />
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <div @click="dialogVisible1 = true">
-                <el-dropdown-item>重命名</el-dropdown-item>
-              </div>
-              <div @click="dialogVisible = true">
-                <el-dropdown-item>删除</el-dropdown-item>
-              </div>
-            </el-dropdown-menu>
-          </el-dropdown>
+          <div class="create">创建者：张老师</div>
+          <div class="bottom-message">
+            <div class="classnum">班级：1000</div>
+            <div class="dot-bottom">
+              <div class="num">所属课程：ui设计入门课程</div>
+              <div class="dot" v-if="isCheckBox"></div>
+              <el-dropdown trigger="click" placement="bottom-end" v-else>
+                <span class="el-dropdown-link">
+                  <Dot />
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <div @click="dialogVisible1 = true">
+                    <el-dropdown-item>重命名</el-dropdown-item>
+                  </div>
+                  <div @click="dialogVisible = true">
+                    <el-dropdown-item>删除</el-dropdown-item>
+                  </div>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -43,7 +44,7 @@
     >
       <h2>删除</h2>
       <span class="delete-text"
-        >您确认删除课程么？该课程将移入回收站，30天内可前往恢复或清理。</span
+        >您确认删除本班级么？该班级将移入回收站，30天内可前往恢复或清理。</span
       >
       <span slot="footer" class="dialog-footer">
         <el-button class="cancel-button" @click="dialogVisible = false"
@@ -62,7 +63,7 @@
       :show-close="false"
       top="40vh"
     >
-      <h2>修改课程名称</h2>
+      <h2>修改班级名称</h2>
       <input class="course-input" type="text" />
       <span slot="footer" class="dialog-footer">
         <el-button class="cancel-button" @click="dialogVisible1 = false"
@@ -99,11 +100,7 @@ export default {
 
   mounted() {},
 
-  methods: {
-    toDetail() {
-      this.$router.push("course/courseDetail");
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang='scss' scoped>
@@ -172,13 +169,14 @@ h2 {
   // padding-right: 32px;
   .course-item {
     width: 291px;
-    height: 310px;
+    height: 180px;
     margin-top: 30px;
     // margin-left: 3px;
     margin-right: 29.5px;
     background: #ffffff;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
     // margin-left: 32px;
+    border-radius: 8px;
     .img {
       width: 291px;
       height: 168px;
@@ -200,52 +198,45 @@ h2 {
       }
     }
     .name {
+      width: 100%;
+      border-left: 7px solid #2a77ff;
       font-size: 20px;
       font-weight: bold;
       line-height: 34px;
       color: #333333;
-      margin: 15px 15px 20px 15px;
+      padding-left: 10px;
+      margin: 20px 15px 20px 0px;
     }
     .create {
       font-size: 16px;
-      font-weight: 400;
       line-height: 27px;
       color: #666666;
-      margin: 15px 15px 10px 15px;
+      margin: 15px 15px 10px 20px;
     }
     .bottom-message {
       font-size: 12px;
       font-weight: 400;
       line-height: 18px;
       color: #999999;
-      display: flex;
+      //   display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 5px 15px 15px 15px;
+      margin: 5px 15px 15px 20px;
       .classnum {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #666666;
+        opacity: 0.8;
       }
-      .num {
-        margin-right: 35px;
-      }
-      .dot {
-        width: 27px;
-        height: 27px;
-        .dynamic_right2 {
-          width: 27px;
-          height: 27px;
-          // background-color: red;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          flex-direction: column;
-          .dynamic_right2_dot {
-            margin-bottom: 2px;
-            margin-right: 10px;
-            width: 3.5px;
-            height: 3.5px;
-            background: #999999;
-            border-radius: 50%;
-          }
+      .dot-bottom {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .num {
+          font-size: 12px;
+          color: #999999;
+          margin-right: 35px;
         }
       }
     }

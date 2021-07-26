@@ -9,7 +9,7 @@
       stripe
       style="width: 85vw"
     >
-      <el-table-column class="check" type="selection" min-width="65">
+      <el-table-column class="check" type="selection" width="65">
       </el-table-column>
       <el-table-column prop="date" label="序号" min-width="100">
         <template slot-scope="scope">
@@ -64,6 +64,66 @@ export default {
     return {
       tableData: [
         {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄",
+        },
+                {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄",
+        },
+                {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄",
+        },
+        {
+          date: "000001",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄",
+        },
+                {
           date: "000001",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",

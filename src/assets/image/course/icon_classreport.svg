@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50.001" viewBox="0 0 50 50.001">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #707070;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #f96164;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="icon_classreport" transform="translate(-1220 -154.999)">
+    <g id="矩形_1738" data-name="矩形 1738" class="cls-1" transform="translate(1220 155)">
+      <rect class="cls-3" width="50" height="50"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="49" height="49"/>
+    </g>
+    <path id="路径_28643" data-name="路径 28643" class="cls-2" d="M167.4,96h-33.34A6.058,6.058,0,0,0,128,102.062V139.19a6.058,6.058,0,0,0,6.062,6.062H167.4a6.058,6.058,0,0,0,6.062-6.062V102.062A6.058,6.058,0,0,0,167.4,96Zm-28.036,12.881h11.366a2.273,2.273,0,1,1,0,4.546H139.366a2.273,2.273,0,1,1,0-4.546Zm18.943,23.489H139.366a2.273,2.273,0,1,1,0-4.546h18.943a2.273,2.273,0,1,1,0,4.546ZM162.1,122.9H139.366a2.273,2.273,0,1,1,0-4.546H162.1a2.273,2.273,0,0,1,0,4.546Z" transform="translate(1094 58.999)"/>
+  </g>
+</svg>

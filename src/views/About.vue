@@ -1,25 +1,37 @@
 <!--  -->
 <template>
-  <div class='body'>
-          <div class="top-right">
-        <div class="nav">
-          学员评价
-          <a href="">共有100条评价>></a>
-        </div>
-        <div class="center-content">
-          <el-pagination layout="prev, slot,next" :total="50">
-            <div class="content">
-              本专业旨在培养社会急需的具备大数据处理及分析能力的高级复合型人才。具体包括：掌握计算机科学、大数据科学与信息技术的基本理论、方法和技能，受到系统的科学研究训练，具备一定的大数据科学研究
+  <div class="body">
+             <div class="left-bottom">
+        <div class="recent">
+          <HeaderTitle name="近期提交" />
+          <div class="content">
+            <div class="item">
+              <div class="title">UI设计图标作业</div>
+              <div class="time">2021.01.10 10:20:35</div>
             </div>
-          </el-pagination>
-        </div>
-        <div class="bottom">
-          <div class="bottom-msg">
-            <div class="header"><img src="" alt="" /></div>
-            <div class="name">张克榕</div>
-            <div class="time">2019/10/15 12:20:23</div>
           </div>
-          <div class="delete-img"><img src="" alt="" /></div>
+        </div>
+        <div class="tianti">
+          <HeaderTitle name="天梯对战情况" />
+          <div class="content">
+            <div class="item">
+              <div class="person-message">
+                <div class="header"><img src="" alt="" /></div>
+                <div class="message">
+                  <div class="name">张克榕</div>
+                  <div class="num">182718144</div>
+                </div>
+              </div>
+              <div class="VS">VS</div>
+              <div class="person-message">
+                <div class="message">
+                  <div class="name">张克榕</div>
+                  <div class="num">182718144</div>
+                </div>
+                <div class="header"><img src="" alt="" /></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   </div>
@@ -28,42 +40,58 @@
 <script>
 export default {
   components: {},
-  data () {
-    return {
-    };
+  data() {
+    return {};
   },
   computed: {},
 
   mounted() {},
 
-  methods: {}
-}
-
+  methods: {},
+};
 </script>
 <style lang='scss' scoped>
 .body {
-    .top-right {
-        .nav {
-            a {
-            }
-        }
-        .center-content {
+    .left-bottom {
+        .recent {
             .content {
-            }
-        }
-        .bottom {
-            .bottom-msg {
-                .header {
-                    img {
+                .item {
+                    .title {
+                    }
+                    .time {
                     }
                 }
-                .name {
-                }
-                .time {
-                }
             }
-            .delete-img {
-                img {
+        }
+        .tianti {
+            .content {
+                .item {
+                    .person-message {
+                        .header {
+                            img {
+                            }
+                        }
+                        .message {
+                            .name {
+                            }
+                            .num {
+                            }
+                        }
+                    }
+                    .VS {
+                    }
+                    .person-message {
+                        .message {
+                            .name {
+                            }
+                            .num {
+                            }
+                        }
+                        .header {
+                            img {
+                            }
+                        }
+                    }
                 }
             }
         }

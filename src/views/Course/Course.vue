@@ -14,10 +14,7 @@
     </div>
     <div class="navigation">
       <div>
-        <Tabs :tabList="tabList" @tabsIndex="tabsIndex">
-     
-          <!-- <ProblemSet/> -->
-        </Tabs>
+        <Tabs :tabList="tabList" @tabsIndex="tabsIndex" />
         <div class="empty" v-if="false">
           <div class="img">
             <img src="@/assets/image/home/img_empty_big.svg" alt="" />
@@ -27,9 +24,10 @@
             <el-button type="primary">前往创建</el-button>
           </div>
         </div>
-        <CourseContent v-if="tabIndex == 0"/>
-        <Work v-if="tabIndex == 1"/>
-        <ProblemSetDetail  v-if="tabIndex == 2"/>
+        <CourseContent v-if="tabIndex == 0" />
+        <Work v-if="tabIndex == 1" />
+        <ProblemSetDetail v-if="tabIndex == 2" />
+        <ProblemSet v-if="tabIndex == 3" />
       </div>
       <div class="right-search">
         <div>共10个</div>
@@ -118,9 +116,9 @@ export default {
   mounted() {},
 
   methods: {
-     tabsIndex(index) {
+    tabsIndex(index) {
       this.tabIndex = index;
-    //   console.log("index", index);
+      //   console.log("index", index);
     },
   },
 };
@@ -185,6 +183,7 @@ p {
   margin-bottom: 5px;
 }
 .top-bar {
+  margin-top: 12px;
   min-width: 1584px;
   width: 100%;
   height: 80px;

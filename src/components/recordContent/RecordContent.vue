@@ -3,19 +3,11 @@
   <div class="body">
     <div class="course-content">
       <div class="course-item" v-for="(item, index) in 25" :key="index">
-        <div class="img" @click="toDetail()">
-          <img src="@/assets/image/home/course_img1.svg" alt="" />
+        <div class="button">
+          <Button name="下载" v-if="false" />
+          <Button name="存至网盘并下载" v-else />
         </div>
-        <div class="checkbox">
-          <div class="name">UI设计教育课程</div>
-          <div v-if="isCheckBox">
-            <el-checkbox v-model="checked"></el-checkbox>
-          </div>
-        </div>
-        <div class="create">创建者：电信教学团队</div>
-        <div class="bottom-message">
-          <div class="classnum">班级：1000</div>
-          <div class="num">学生数：1000</div>
+        <div class="dot3">
           <div class="dot" v-if="isCheckBox"></div>
           <el-dropdown trigger="click" placement="bottom-end" v-else>
             <span class="el-dropdown-link">
@@ -30,6 +22,21 @@
               </div>
             </el-dropdown-menu>
           </el-dropdown>
+        </div>
+
+        <div class="img" @click="toDetail()">
+          <img src="@/assets/image/home/course_img1.svg" alt="" />
+        </div>
+        <div class="checkbox">
+          <div class="name">2020.0101.11:11-229</div>
+          <div v-if="isCheckBox">
+            <el-checkbox v-model="checked"></el-checkbox>
+          </div>
+        </div>
+        <div class="create">录课班级：电信教学团队</div>
+        <div class="bottom-message">
+          <div class="classnum">录制时间：2019、10、15 19：45</div>
+          <!-- <div class="num">学生数：1000</div> -->
         </div>
       </div>
     </div>
@@ -78,9 +85,11 @@
 
 <script>
 import Dot from "@/components/dot/Dot.vue";
+import Button from "@/components/button/Button.vue";
 export default {
   components: {
-    Dot,
+    Button,
+    Dot
   },
   props: {
     isCheckBox: {
@@ -158,27 +167,30 @@ h2 {
 }
 .course-content {
   margin-top: -15px;
-  // padding-right: 132px;
   height: 100%;
   width: 100%;
-  // width: 90%;
-  // min-height: 1800px;
   overflow: auto;
-  // background-color: red;
   display: flex;
-  // align-items: center;
-  // justify-content: space-between;
   flex-wrap: wrap;
-  // padding-right: 32px;
   .course-item {
     width: 291px;
-    height: 310px;
+    height: 373px;
     margin-top: 30px;
-    // margin-left: 3px;
     margin-right: 29.5px;
     background: #ffffff;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-    // margin-left: 32px;
+    position: relative;
+    .button {
+      position: absolute;
+      bottom: 20px;
+      left: 15px;
+    }
+    .dot3 {
+      position: absolute;
+      right: 12px;
+      bottom: 25px;
+    }
+
     .img {
       width: 291px;
       height: 168px;
@@ -186,7 +198,6 @@ h2 {
         width: 291px;
         height: 168px;
         background: rgba(0, 0, 0, 0);
-
         border-radius: 8px;
       }
     }
@@ -215,38 +226,15 @@ h2 {
     }
     .bottom-message {
       font-size: 12px;
-      font-weight: 400;
       line-height: 18px;
       color: #999999;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 5px 15px 15px 15px;
-      .classnum {
-      }
+
       .num {
         margin-right: 35px;
-      }
-      .dot {
-        width: 27px;
-        height: 27px;
-        .dynamic_right2 {
-          width: 27px;
-          height: 27px;
-          // background-color: red;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          flex-direction: column;
-          .dynamic_right2_dot {
-            margin-bottom: 2px;
-            margin-right: 10px;
-            width: 3.5px;
-            height: 3.5px;
-            background: #999999;
-            border-radius: 50%;
-          }
-        }
       }
     }
   }

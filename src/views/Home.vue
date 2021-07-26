@@ -12,7 +12,8 @@
                 <div class="header"><!-- <img src="" alt="" /> --></div>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>账户信息</el-dropdown-item>
+                <a href="/accountInfomation"> <el-dropdown-item>账户信息</el-dropdown-item></a>
+
                 <el-dropdown-item>退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
@@ -59,8 +60,7 @@
                           </div>
                         </div>
                       </el-tab-pane>
-                      <el-tab-pane label="配置管理" name="second"
-                        >
+                      <el-tab-pane label="配置管理" name="second">
                         <div class="notice-message">
                           <div
                             class="notice"
@@ -507,27 +507,5 @@ body > .el-container {
       color: #c3c3c3;
     }
   }
-}
-//滚动条
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  width: 10px;
-  height: 580px;
-  background: #ffffff;
-}
-::-webkit-scrollbar-thumb {
-  width: 6px;
-  height: 120px;
-  background: #e5e5e5;
-  opacity: 1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  // background: #5e5353;
-}
-::-webkit-scrollbar-thumb:active {
-  // background: #5e5353;
 }
 </style>

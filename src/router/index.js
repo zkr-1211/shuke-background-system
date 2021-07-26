@@ -9,20 +9,26 @@ import AllNotice from '../views/homePage/allNotice/AllNotice.vue'
 import Organization from '../views/homePage/organization/Organization.vue'
 import AccountInfomation from '../views/homePage/accountInfomation/AccountInfomation.vue'
 import CourseDetail from '../views/course/courseDetail/CourseDetail.vue'
+import MyClass from '../views/homePage/myClass/MyClass.vue'
+import ClassDetail from '../views/course/classDetail/ClassDetail.vue'
+import StudentInfo from '../views/homePage/studentInfo/StudentInfo.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/main',
+    redirect: '/homePage/StudentInfo',
     children: [
       { path: '/main', component: Main },
       { path: '/course', component: Course },
       { path: '/recordVideo', component:  RecordVideo },
       { path: '/recovery', component:  Recovery },
       { path: '/course/courseDetail', component:  CourseDetail },
+      { path: '/homePage/MyClass', component:  MyClass },
+      { path: '/course/classDetail', component:  ClassDetail },
+      { path: '/homePage/StudentInfo', component:  StudentInfo },
     ]
   },
   {
@@ -47,7 +53,7 @@ const routes = [
   },
   {
     // path: '/accountInfomation',
-    path: '/',
+    path: '/accountInfomation',
     name: 'AccountInfomation',
     component: AccountInfomation,
   }

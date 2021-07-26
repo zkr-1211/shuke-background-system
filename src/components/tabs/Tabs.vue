@@ -81,7 +81,7 @@ export default {
   color: #333333;
 }
 ::v-deep .el-tabs__item {
-  padding: 0 20px;
+  padding: 0 30px;
   height: 40px;
   box-sizing: border-box;
   line-height: 40px;
