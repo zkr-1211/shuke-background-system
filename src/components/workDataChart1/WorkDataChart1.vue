@@ -50,7 +50,10 @@ export default {
         ],
       });
       window.addEventListener("resize", () => {
-        myChart.resize();
+           myChart.resize();
+        setTimeout(() => {
+          myChart.resize();
+        }, 1000);
       });
     },
   },

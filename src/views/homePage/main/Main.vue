@@ -86,7 +86,7 @@
       <div class="right-content">
         <div>
           <div class="block">
-            <el-carousel trigger="click" height="200px">
+            <el-carousel trigger="click">
               <el-carousel-item v-for="item in 4" :key="item">
                 <div class="banner">
                   <img src="@/assets/image/home/course_img1.svg" alt="" />
@@ -97,13 +97,14 @@
         </div>
         <div class="data">
           <!-- <div class="map"> -->
-          <div class="title">
+          <!-- <div class="title">
             <div class="name">访问量与平均学习时长</div>
-          </div>
+          </div> -->
+          <HeaderTitle name="访问量与平均学习时长"/>
           <div class="chart">
-            <div>
+            <!-- <div> -->
               <ChartLine ref="myChart" />
-            </div>
+            <!-- </div> -->
 
             <!-- <div id="myChart" style="width: 600px;height: 400px;"></div> -->
           </div>
@@ -115,19 +116,19 @@
 </template>
 
 <script>
+import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 import ChartLine from "@/components/chartLint/ChartLint.vue";
 import PersonCard from "@/components/personCard/PersonCard.vue";
 import PersonFourItem from "@/components/personFourItem/PersonFourItem.vue";
 export default {
   components: {
+    HeaderTitle,
     ChartLine,
     PersonCard,
-    PersonFourItem
+    PersonFourItem,
   },
   data() {
-    return {
-      
-    };
+    return {};
   },
   computed: {},
 
@@ -191,6 +192,10 @@ export default {
           display: flex;
           align-items: center;
           margin-left: 15px;
+          img {
+            width: 40px;
+            height: 40px;
+          }
         }
         .img1 {
           width: 16px;
@@ -198,6 +203,8 @@ export default {
           display: flex;
           align-items: center;
           background-image: url(../../../assets/image/home/ic_forward_n.svg) !important;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &:hover {
           background-color: #fafafa;
@@ -219,6 +226,10 @@ export default {
           display: flex;
           align-items: center;
           margin-left: 12px;
+          img {
+            width: 40px;
+            height: 40px;
+          }
         }
         &:hover .img1 {
           background-image: url(../../../assets/image/home/ic_forward_h.svg) !important;
@@ -231,7 +242,9 @@ export default {
           height: 24px;
           display: flex;
           align-items: center;
-          background-image: url(../../../assets/image/home/ic_forward_n.svg) !important;
+          background-image: url(../../../assets/image/home/ic_forward_n.svg)  !important ;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &:hover {
           background-color: #fafafa;
@@ -288,8 +301,7 @@ export default {
     height: 664px;
     margin-top: 32px;
     .recent-course {
-      min-width: 938px;
-      width: 100%;
+      width: 938px;
       height: 664px;
       background: #ffffff;
       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -398,8 +410,7 @@ export default {
     }
     .right-content {
       margin-left: 32px;
-      min-width: 620px;
-      width: 100%;
+      width: 620px;
       height: 100%;
       // background-color: #fff;
       border-radius: 8px;
@@ -407,6 +418,7 @@ export default {
       .el-carousel {
         border-radius: 8px;
         position: relative;
+        height: 200px;
       }
       .el-carousel__item h3 {
         color: #475669;
@@ -417,14 +429,13 @@ export default {
       }
 
       .banner {
-        min-width: 620px;
-        width: 100%;
-        height: 100%;
+        width: 620px;
+        height: 300px;
         background-color: #2a77ff;
         object-fit: cover;
         img {
-          width: 100%;
-          height: 100%;
+          width: 620px;
+        height: 300px;
           object-fit: cover;
         }
       }
@@ -468,15 +479,14 @@ export default {
       }
     }
     .data {
-      min-width: 620px;
-      width: 100%;
+      width: 620px;
       height: 432px;
       background: #ffffff;
       opacity: 1;
       margin-top: 32px;
       border-radius: 8px;
       // display: flex;
-      overflow: hidden;
+      // overflow: auto;
       // .map {
       // display: flex;
       flex-direction: column;
@@ -495,8 +505,6 @@ export default {
         }
       }
       .chart {
-        height: 100%;
-        width: 100%;
         // background-color: #2a77ff;
       }
       // }

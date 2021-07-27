@@ -141,6 +141,8 @@ export default {
           width: 32px;
           height: 32px;
           background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &:hover .img {
           background-image: url(../../../assets/image/home/ic_back_h.svg) !important;
@@ -175,7 +177,7 @@ export default {
       height: 670px;
       width: 700px;
       overflow: hidden;
-        // background-color: red;
+      // background-color: red;
       padding-right: 30px;
       .message {
         width: 700px;

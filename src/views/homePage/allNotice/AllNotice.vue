@@ -117,6 +117,8 @@ export default {
           width: 32px;
           height: 32px;
           background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &:hover .img {
           background-image: url(../../../assets/image/home/ic_back_h.svg) !important;

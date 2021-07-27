@@ -9,7 +9,9 @@ export default {
   methods: {
     LearnScoreChart() {
       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById("LearnScoreChart"));
+      let myChart = this.$echarts.init(
+        document.getElementById("LearnScoreChart")
+      );
       // 绘制图表
       myChart.setOption({
         //添加横线滚动条
@@ -21,13 +23,13 @@ export default {
           xAxisIndex: [0],
           handleSize: 0, //滑动条的 左右2个滑动条的大小
           height: 8, //组件高度
-        //   top:50,
+          //   top:50,
           left: 90, //左边的距离
           right: 90, //右边的距离
           bottom: 20, //右边的距离
           handleColor: "#000", //h滑动图标的颜色
           backgroundColor: "#FAFAFA",
-          fillerColor:'#5592FE',
+          fillerColor: "#5592FE",
           handleStyle: {
             borderColor: "#FAFAFA",
             borderWidth: "1",
@@ -204,6 +206,9 @@ export default {
       });
       window.addEventListener("resize", () => {
         myChart.resize();
+        setTimeout(() => {
+          myChart.resize();
+        }, 1000);
       });
     },
   },
@@ -216,6 +221,6 @@ export default {
   //   max-width: 500px;
   // width: 500px;
   height: 290px;
-//   background: #000;
+  //   background: #000;
 }
 </style>

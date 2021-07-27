@@ -32,7 +32,7 @@
         <div class="message">
           <div class="label">备注</div>
           <div class="content">张克榕</div>
-           <div class="edit">修改备注</div>
+          <div class="edit">修改备注</div>
         </div>
         <div class="message">
           <div class="label">手机号</div>
@@ -130,6 +130,8 @@ export default {
           width: 32px;
           height: 32px;
           background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
+          background-repeat: no-repeat;
+          background-size: cover;
         }
         &:hover .img {
           background-image: url(../../../assets/image/home/ic_back_h.svg) !important;

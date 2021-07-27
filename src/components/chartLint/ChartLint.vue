@@ -100,7 +100,7 @@ export default {
             min: 0,
             max: 100,
             interval: 20,
-            offset: 15,
+            offset: 5,
             axisLabel: {
               formatter: "{value} min",
             },
@@ -151,6 +151,9 @@ export default {
       });
       window.addEventListener("resize", () => {
         myChart.resize();
+        setTimeout(() => {
+          myChart.resize();
+        }, 1000);
       });
     },
   },
@@ -158,9 +161,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 #myChart {
-  min-width: 400px;
   width: 100%;
-  // width: 500px;
+  // width: 100%;
   height: 350px;
 }
 </style>

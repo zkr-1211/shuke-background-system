@@ -98,9 +98,11 @@ export default {
     .img {
       width: 60px;
       height: 60px;
-      background: #5592fe;
+      // background: #5592fe;
       border-radius: 50%;
       img {
+         width: 60px;
+      height: 60px;
         transition: all 0.25s;
       }
     }

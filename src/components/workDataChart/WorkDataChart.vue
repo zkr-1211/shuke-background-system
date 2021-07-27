@@ -9,7 +9,9 @@ export default {
   methods: {
     WorkDataChartData() {
       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById("WorkDataChart"));
+      let myChart = this.$echarts.init(
+        document.getElementById("WorkDataChart")
+      );
       // 绘制图表
       myChart.setOption({
         tooltip: {
@@ -49,9 +51,11 @@ export default {
       });
       window.addEventListener("resize", () => {
         myChart.resize();
+        setTimeout(() => {
+          myChart.resize();
+        }, 1000);
       });
     },
-
   },
 };
 </script>
@@ -62,6 +66,6 @@ export default {
   //   max-width: 500px;
   // width: 500px;
   height: 220px;
-    // background: rgb(209, 42, 42);
+  // background: rgb(209, 42, 42);
 }
 </style>

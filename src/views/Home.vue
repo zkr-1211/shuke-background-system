@@ -211,6 +211,9 @@ export default {
   created() {
     this.activePath = window.sessionStorage.getItem("activePath");
     this.selectIndex = this.activePath || "/main";
+     window.addEventListener("resize", () => {
+         console.log("resize")
+      });
   },
   methods: {
     saveNavState(activePath) {
@@ -241,11 +244,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 1920px;
   // background-color: royalblue;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+.el-menu{
+  border: none;
 }
 .selectStyle {
   background: linear-gradient(90deg, #2a77ff 0%, #5592fe 100%);
@@ -254,19 +260,24 @@ export default {
   border-radius: 4px;
   color: #fff !important;
 }
-.el-header {
+::v-deep .el-header {
   background-color: #ffffff;
   color: #333;
   text-align: center;
   // line-height: 60px;
   width: 100%;
-  height: 64px;
+  height: 64px !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px;
   .shuke-logo {
+    
     margin-left: 40px;
+    img{
+      width: 176px;
+      height: 36px;
+    }
   }
   .right-person {
     width: 316px;
@@ -298,6 +309,7 @@ export default {
         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         border-radius: 50%;
         img {
+         
         }
       }
 
@@ -320,12 +332,12 @@ export default {
   }
 }
 
-.el-aside {
+::v-deep .el-aside {
   position: relative;
   background-color: #fff;
   color: #333;
-  width: 256px;
-  height: 100vh-5vh;
+  width: 256px !important;
+  height: 1080px;
   overflow: hidden;
   .tac {
     width: 257px;
