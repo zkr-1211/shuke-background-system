@@ -6,6 +6,7 @@
           <img src="@/assets/image/home/icon_shuke.svg" alt="" />
         </div>
         <div class="right-person">
+          <div class="trigon"></div>
           <div class="right">
             <el-dropdown trigger="click" placement="bottom-end">
               <span class="el-dropdown-link">
@@ -268,11 +269,21 @@ export default {
     margin-left: 40px;
   }
   .right-person {
-    width: 356px;
+    width: 316px;
     height: 64px;
     background-color: #2a77ff;
     display: flex;
     justify-content: center;
+    position: relative;
+    .trigon{
+      left: -34px;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: #2a77ff transparent;
+      border-width: 0 0 64px 34px;
+      border-style: solid;
+    }
     .right {
       width: 220px;
       margin-left: 20px;
