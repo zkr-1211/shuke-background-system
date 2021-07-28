@@ -141,6 +141,10 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+::v-deep .el-carousel__container {
+    position: relative;
+    height: 200px;
+}
 .body {
   p {
     font-size: 14px;
@@ -414,11 +418,8 @@ export default {
       height: 100%;
       // background-color: #fff;
       border-radius: 8px;
-
-      .el-carousel {
+       .el-carousel {
         border-radius: 8px;
-        position: relative;
-        height: 200px;
       }
       .el-carousel__item h3 {
         color: #475669;
@@ -440,11 +441,11 @@ export default {
         }
       }
       .el-carousel__item:nth-child(2n) {
-        background-color: #99a9bf;
+        // background-color: #99a9bf;
       }
 
       .el-carousel__item:nth-child(2n + 1) {
-        background-color: #d3dce6;
+        // background-color: #d3dce6;
       }
       ::v-deep .el-carousel__indicators {
         // position: absolute;

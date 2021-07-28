@@ -13,7 +13,9 @@
                 <div class="header"><!-- <img src="" alt="" /> --></div>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <a href="/accountInfomation"> <el-dropdown-item>账户信息</el-dropdown-item></a>
+                <a href="/accountInfomation">
+                  <el-dropdown-item>账户信息</el-dropdown-item></a
+                >
 
                 <el-dropdown-item>退出登录</el-dropdown-item>
               </el-dropdown-menu>
@@ -32,7 +34,11 @@
                   </el-badge>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <div style="width: 460px; height: 536px">
+                  <div class="notices">
+                    <div class="time-img">
+                      <a href="/allNotice"> <div class="img1"></div></a>
+                     
+                    </div>
                     <el-tabs
                       value="first"
                       @tab-click="handleClick"
@@ -48,7 +54,7 @@
                             <div class="left-item">
                               <div class="img">
                                 <img
-                                  src="@/assets/image/home/topbar_notice.svg"
+                                  src="@/assets/image/home/topbar_notice_label.svg"
                                   alt=""
                                 />
                               </div>
@@ -71,7 +77,7 @@
                             <div class="left-item">
                               <div class="img">
                                 <img
-                                  src="@/assets/image/home/topbar_notice.svg"
+                                  src="@/assets/image/home/topbar_notice_label.svg"
                                   alt=""
                                 />
                               </div>
@@ -93,7 +99,7 @@
         </div>
       </el-header>
       <el-container>
-        <el-aside width="256px">
+        <el-aside>
           <el-row class="tac">
             <el-col>
               <el-menu
@@ -211,9 +217,9 @@ export default {
   created() {
     this.activePath = window.sessionStorage.getItem("activePath");
     this.selectIndex = this.activePath || "/main";
-     window.addEventListener("resize", () => {
-         console.log("resize")
-      });
+    window.addEventListener("resize", () => {
+      console.log("resize");
+    });
   },
   methods: {
     saveNavState(activePath) {
@@ -250,7 +256,7 @@ export default {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-.el-menu{
+.el-menu {
   border: none;
 }
 .selectStyle {
@@ -260,7 +266,7 @@ export default {
   border-radius: 4px;
   color: #fff !important;
 }
-::v-deep .el-header {
+.el-header {
   background-color: #ffffff;
   color: #333;
   text-align: center;
@@ -271,10 +277,12 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0px;
+  position: fixed;
+  top: 0;
+  z-index: 9;
   .shuke-logo {
-    
     margin-left: 40px;
-    img{
+    img {
       width: 176px;
       height: 36px;
     }
@@ -286,7 +294,7 @@ export default {
     display: flex;
     justify-content: center;
     position: relative;
-    .trigon{
+    .trigon {
       left: -34px;
       position: absolute;
       width: 0;
@@ -309,7 +317,6 @@ export default {
         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         border-radius: 50%;
         img {
-         
         }
       }
 
@@ -331,14 +338,16 @@ export default {
     }
   }
 }
-
-::v-deep .el-aside {
-  position: relative;
+.el-aside {
+  position: fixed;
+  top: 64px;
+  z-index: 9;
   background-color: #fff;
   color: #333;
   width: 256px !important;
   height: 1080px;
   overflow: hidden;
+  margin-right: 256px !important;
   .tac {
     width: 257px;
     margin-top: 26px;
@@ -352,8 +361,6 @@ export default {
         font-size: 14px;
         font-weight: bold;
         color: #ffffff;
-        // background: linear-gradient(90deg, #2a77ff 0%, #5592fe 100%);
-        box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
         border-radius: 4px;
         img {
           width: 24px;
@@ -388,14 +395,13 @@ export default {
 }
 
 .el-main {
-  height: 100vh;
-  overflow: auto;
+  height: 100%;
+  overflow-y: auto;
   width: 100%;
-  padding-left: 30px;
+  margin: 66px 0px 0px 256px;
 }
 
 body > .el-container {
-  margin-bottom: 40px;
 }
 
 .el-container:nth-child(5) .el-aside,
@@ -452,7 +458,35 @@ body > .el-container {
   border: 1px solid #ebeef5;
   border-radius: 4px;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.16);
+  .notices {
+    width: 460px;
+    height: 536px;
+    position: relative;
+    .time-img {
+      &:hover .img1 {
+        background-image: url(../assets/image/home/topbar_notice_history_h.svg) !important;
+      }
+      &:active .img1 {
+        background-image: url(../assets/image/home/topbar_notice_history_p.svg) !important;
+      }
+      .img1 {
+        position: absolute;
+        z-index: 98;
+        right: 40px;
+        top: 12px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        background-image: url(../assets/image/home/topbar_notice_history_n.svg) !important ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+      }
+    }
+  }
 }
+
 .el-tabs {
   padding-left: 30px;
 }
