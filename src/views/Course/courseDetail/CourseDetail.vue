@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="top-right">
-        <HeaderTitle name="学员评价"/>
-          <a href="">共有100条评价>></a>
+        <HeaderTitle name="学员评价" />
+        <a href="">共有100条评价>></a>
         <div class="center-content">
           <el-carousel
             :interval="10000"
@@ -102,13 +102,17 @@
           </div>
         </div>
         <div class="course-outline">
-          <el-collapse v-model="activeName" accordion>
+          <el-collapse v-model="activeName" accordion @change="changeCollapse">
             <el-collapse-item
-              title="第一章：Python"
               :name="index"
               v-for="(item, index) in 5"
               :key="index"
             >
+              <template slot="title">
+                <div class="title">第一章：Python</div>
+                <div class="dot"><Dot /></div>
+              </template>
+
               <div
                 class="outline-item"
                 v-for="(item1, index1) in item"
@@ -159,10 +163,12 @@
 <script>
 import VideoChart from "@/components/videoChart/VideoChart.vue";
 import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
+import Dot from "@/components/dot/Dot.vue";
 export default {
   components: {
     VideoChart,
     HeaderTitle,
+    Dot,
   },
   data() {
     return {
@@ -178,10 +184,35 @@ export default {
     this.$refs.myChart.drawLine();
   },
 
-  methods: {},
+  methods: {
+    changeCollapse(e) {
+      console.log("e", e);
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>
+::v-deep .el-icon-arrow-right:before {
+  background-image: url(../../../assets/image/course/right.svg);
+  background-repeat: no-repeat;
+  background-size: 28px;
+  position: relative;
+  right: 500px;
+  bottom: 3px;
+  // background-color: red;
+  content: "\e6e";
+}
+::v-deep .el-collapse-item__arrow.is-active {
+  bottom: 3px;
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+  background-image: url(../../../assets/image/course/bottom.svg);
+  background-repeat: no-repeat;
+  background-size: 28px;
+  position: relative;
+  right: 500px;
+  content: "\e6e";
+}
 ::v-deep .el-collapse-item__header {
   display: flex;
   align-items: center;
@@ -194,9 +225,18 @@ export default {
   background: #f6f6f8;
   font-size: 20px;
   color: #333333;
-  padding-left: 30px;
+  padding-left: 65px;
   border: none;
   padding-right: 30px;
+}
+.el-collapse-item {
+  position: relative;
+  .dot {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    // background-color: rgba(151, 3, 250, 1);
+  }
 }
 
 .body {
@@ -327,14 +367,14 @@ export default {
       background: #ffffff;
       opacity: 1;
       position: relative;
-       a {
-          font-size: 14px;
-          color: #5592fe;
-          text-decoration: underline;
-          position: absolute;
-          right: 30px;
-          top: 30px;
-        }
+      a {
+        font-size: 14px;
+        color: #5592fe;
+        text-decoration: underline;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+      }
       .center-content {
         width: 100%;
         height: 100%;

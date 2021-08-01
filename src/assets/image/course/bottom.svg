@@ -1,0 +1,17 @@
+<svg id="组_2903" data-name="组 2903" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #999;
+        opacity: 0.001;
+      }
+
+      .cls-2 {
+        fill: #2a77ff;
+      }
+    </style>
+  </defs>
+  <circle id="椭圆_17" data-name="椭圆 17" class="cls-1" cx="15" cy="15" r="15"/>
+  <rect id="矩形_978" data-name="矩形 978" class="cls-2" width="10" height="2" rx="1" transform="translate(13.586 19) rotate(-45)"/>
+  <rect id="矩形_979" data-name="矩形 979" class="cls-2" width="10" height="2" rx="1" transform="translate(9.343 11.929) rotate(45)"/>
+</svg>

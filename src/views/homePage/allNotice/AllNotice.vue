@@ -8,9 +8,12 @@
     <div class="center">
       <div class="content-title">
         <div class="left-item">
-          <div class="img">
-            <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
-          </div>
+          <a href="/main">
+            <div class="img">
+              <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
+            </div>
+          </a>
+
           <span>返回首页</span>
         </div>
         <div class="title">全部消息</div>
@@ -24,7 +27,7 @@
         <div class="notice" v-for="(item, index) in 10" :key="index">
           <div class="left-item">
             <div class="img">
-              <img src="@/assets/image/home/topbar_notice.svg" alt="" />
+              <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
             </div>
             <div class="info">陈小平 提醒您修改 课程:UI设计 标设计</div>
           </div>
@@ -35,7 +38,7 @@
         <div class="notice" v-for="(item, index) in 10" :key="index">
           <div class="left-item">
             <div class="img">
-              <img src="@/assets/image/home/topbar_notice.svg" alt="" />
+              <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
             </div>
             <div class="info">陈小平标设计</div>
           </div>
@@ -177,7 +180,7 @@ export default {
           .img {
             width: 15px;
             height: 15px;
-            background-color: #2a77ff;
+            // background-color: #2a77ff;
             img {
               width: 15px;
               height: 15px;

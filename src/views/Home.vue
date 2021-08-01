@@ -251,7 +251,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   height: 100%;
-  width: 1920px;
+  width: 100%;
   // background-color: royalblue;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -543,7 +543,7 @@ body > .el-container {
       .img {
         width: 15px;
         height: 15px;
-        background-color: #2a77ff;
+        // background-color: #2a77ff;
         img {
           width: 15px;
           height: 15px;

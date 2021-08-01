@@ -20,7 +20,7 @@
     <div class="navigation">
       <div>
         <Tabs :tabList="tabList" @tabsIndex="tabsIndex"> </Tabs>
-        <div class="empty" v-if="false">
+        <div class="empty" v-if="true">
           <div class="img">
             <img src="@/assets/image/home/img_empty_big.svg" alt="" />
           </div>
@@ -29,10 +29,12 @@
             <el-button type="primary">前往创建</el-button>
           </div>
         </div>
-        <CourseContent v-if="tabIndex == 0" />
-        <Work v-if="tabIndex == 1" />
-        <ProblemSetDetail v-if="tabIndex == 2" />
-        <ProblemSet v-if="tabIndex == 3" />
+        <div v-else>
+          <ClassContent v-if="tabIndex == 0" />
+          <ClassContent v-if="tabIndex == 1" />
+          <ClassContent v-if="tabIndex == 2" />
+          <ClassContent v-if="tabIndex == 3" />
+        </div>
       </div>
       <div class="right-search">
         <div>共10个</div>
@@ -81,6 +83,7 @@ import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
 import Work from "@/components/work/Work.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
+import ClassContent from "@/components/classContent/ClassContent.vue";
 export default {
   components: {
     Tabs,
@@ -88,6 +91,7 @@ export default {
     ProblemSet,
     Work,
     ProblemSetDetail,
+    ClassContent,
   },
   data() {
     return {
@@ -235,7 +239,8 @@ p {
   justify-content: space-between;
   // background-color: #2a77ff;
   position: relative;
-
+  width: 100%;
+  // background-color: red;
   .right-search {
     min-width: 650px;
     // width: 100%;
@@ -295,19 +300,15 @@ p {
     }
   }
   .empty {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // transform: translate(-50%, -50%);
-    margin: 200px 600px 200px 200px;
+    margin: 180px auto 0;
     height: 330px;
-    // width: 100%;
+    width: 1620px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    // background-color: #2a77ff;
     .img {
+      margin: 0 auto;
       width: 300px;
       height: 191px;
       img {

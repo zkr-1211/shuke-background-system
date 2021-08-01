@@ -1,45 +1,73 @@
 <!--  -->
 <template>
   <div class="body">
-             <div class="left-bottom">
-        <div class="recent">
-          <HeaderTitle name="近期提交" />
-          <div class="content">
-            <div class="item">
-              <div class="title">UI设计图标作业</div>
-              <div class="time">2021.01.10 10:20:35</div>
-            </div>
-          </div>
-        </div>
-        <div class="tianti">
-          <HeaderTitle name="天梯对战情况" />
-          <div class="content">
-            <div class="item">
-              <div class="person-message">
-                <div class="header"><img src="" alt="" /></div>
-                <div class="message">
-                  <div class="name">张克榕</div>
-                  <div class="num">182718144</div>
-                </div>
-              </div>
-              <div class="VS">VS</div>
-              <div class="person-message">
-                <div class="message">
-                  <div class="name">张克榕</div>
-                  <div class="num">182718144</div>
-                </div>
-                <div class="header"><img src="" alt="" /></div>
-              </div>
-            </div>
+    <div class="breadcrumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>我的团队</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
+
+    <!-- 左侧 -->
+    <div class="left">
+      <HeaderTitle name="所有团队" />
+      <div class="content">
+        <div class="item">
+          <div class="team-name">UI设计教育团队</div>
+          <div class="num">20人</div>
+          <div class="dot">
+            <Dot />
           </div>
         </div>
       </div>
+      <div class="add">
+        <div class="img"><img src="" alt="" /></div>
+        <div class="text">创建团队</div>
+      </div>
+    </div>
+    <!-- 右侧 -->
+    <div class="right">
+      <HeaderTitle name="管理团队成员" />
+      <div class="add-img">
+        <img src="@/assets/image/home/ic_team_invitation.svg" alt="" />
+      </div>
+      <div class="team-search">
+        <div class="team-name">UI设计教育团队</div>
+        <div class="search"></div>
+      </div>
+      <div class="nav-title">
+        <div class="people">成员</div>
+        <div class="number">工号</div>
+        <div class="quanxian">
+          权限<img src="@/assets/image/home/ic_help.svg" alt="" />
+        </div>
+      </div>
+      <div class="content">
+        <div class="item">
+          <div class="check"></div>
+          <div class="person">
+            <div class="header">
+              <img src="@/assets/image/home/ic_help.svg" alt="" />
+            </div>
+            <div class="name">张克榕</div>
+          </div>
+          <div class="num">154455211</div>
+          <div class="guanliyuan">超级管理员</div>
+          <div class="set">
+            <img src="@/assets/image/home/ic_help.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import HeaderTitle from "@/components/headerTitle/HeaderTitle";
 export default {
-  components: {},
+  components: {
+    HeaderTitle,
+  },
   data() {
     return {};
   },
@@ -51,50 +79,5 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-.body {
-    .left-bottom {
-        .recent {
-            .content {
-                .item {
-                    .title {
-                    }
-                    .time {
-                    }
-                }
-            }
-        }
-        .tianti {
-            .content {
-                .item {
-                    .person-message {
-                        .header {
-                            img {
-                            }
-                        }
-                        .message {
-                            .name {
-                            }
-                            .num {
-                            }
-                        }
-                    }
-                    .VS {
-                    }
-                    .person-message {
-                        .message {
-                            .name {
-                            }
-                            .num {
-                            }
-                        }
-                        .header {
-                            img {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+
 </style>

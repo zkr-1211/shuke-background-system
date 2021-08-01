@@ -9,6 +9,7 @@ import AllNotice from '../views/homePage/allNotice/AllNotice.vue'
 import Organization from '../views/homePage/organization/Organization.vue'
 import AccountInfomation from '../views/homePage/accountInfomation/AccountInfomation.vue'
 import CourseDetail from '../views/course/courseDetail/CourseDetail.vue'
+import MyTeam from '../views/homePage/myTeam/MyTeam.vue'
 import MyClass from '../views/homePage/myClass/MyClass.vue'
 import ClassDetail from '../views/course/classDetail/ClassDetail.vue'
 import StudentInfo from '../views/homePage/studentInfo/StudentInfo.vue'
@@ -19,14 +20,15 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/homePage/StudentInfo',
+    redirect: '/homePage/myTeam',
     children: [
       { path: '/main', component: Main },
       { path: '/course', component: Course },
       { path: '/recordVideo', component:  RecordVideo },
       { path: '/recovery', component:  Recovery },
       { path: '/course/courseDetail', component:  CourseDetail },
-      { path: '/homePage/MyClass', component:  MyClass },
+      { path: '/homePage/myClass', component:  MyClass },
+      { path: '/homePage/myTeam', component:  MyTeam },
       { path: '/course/classDetail', component:  ClassDetail },
       { path: '/homePage/StudentInfo', component:  StudentInfo },
     ]

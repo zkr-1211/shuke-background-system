@@ -11,7 +11,7 @@
         <div class="name">我的课程</div>
         <div class="number">10</div>
       </div>
-      <a href="/homePage/MyClass">
+      <a href="/homePage/myClass">
         <div class="item">
           <div class="tiaozi"></div>
           <div class="img">
@@ -21,15 +21,17 @@
           <div class="number">10</div>
         </div></a
       >
-
-      <div class="item">
-        <div class="tiaozi"></div>
-        <div class="img">
-          <img src="@/assets/image/home/icon_home_myteam.svg" alt="" />
+      <a href="/homePage/myTeam">
+        <div class="item">
+          <div class="tiaozi"></div>
+          <div class="img">
+            <img src="@/assets/image/home/icon_home_myteam.svg" alt="" />
+          </div>
+          <div class="name">我的团队</div>
+          <div class="number">10</div>
         </div>
-        <div class="name">我的团队</div>
-        <div class="number">10</div>
-      </div>
+      </a>
+
       <div class="item">
         <div class="tiaozi"></div>
         <div class="img">
@@ -101,8 +103,8 @@ export default {
       // background: #5592fe;
       border-radius: 50%;
       img {
-         width: 60px;
-      height: 60px;
+        width: 60px;
+        height: 60px;
         transition: all 0.25s;
       }
     }

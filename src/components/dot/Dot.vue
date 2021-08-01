@@ -37,10 +37,10 @@ export default {
     justify-content: center;
     flex-direction: column;
     .dynamic_right2_dot {
-      margin-bottom: 2px;
+      margin-bottom: 3px;
       margin-right: 10px;
-      width: 4px;
-      height: 4px;
+      width: 5px;
+      height: 5px;
       background: #999999;
       border-radius: 50%;
     }
