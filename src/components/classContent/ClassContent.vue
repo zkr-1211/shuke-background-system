@@ -5,7 +5,7 @@
       <div class="course-content">
         <div class="course-item" v-for="(item, index) in 25" :key="index">
           <div class="checkbox">
-            <div class="name">UI设计1班</div>
+            <a href="/course/classDetail"><div class="name">UI设计1班</div></a>
             <div v-if="isCheckBox">
               <el-checkbox v-model="checked"></el-checkbox>
             </div>

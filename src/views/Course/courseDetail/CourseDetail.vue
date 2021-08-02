@@ -36,12 +36,7 @@
         <HeaderTitle name="学员评价" />
         <a href="">共有100条评价>></a>
         <div class="center-content">
-          <el-carousel
-            :interval="10000"
-            arrow="always"
-            height="130px"
-            indicator-position="none"
-          >
+          <el-carousel :interval="10000" arrow="always" height="130px" indicator-position="none">
             <el-carousel-item v-for="item in 100" :key="item">
               <div class="content">
                 本专业旨在培养社会急需的具备
@@ -103,21 +98,15 @@
         </div>
         <div class="course-outline">
           <el-collapse v-model="activeName" accordion @change="changeCollapse">
-            <el-collapse-item
-              :name="index"
-              v-for="(item, index) in 5"
-              :key="index"
-            >
+            <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
               <template slot="title">
                 <div class="title">第一章：Python</div>
-                <div class="dot"><Dot /></div>
+                <div class="dot">
+                  <Dot />
+                </div>
               </template>
 
-              <div
-                class="outline-item"
-                v-for="(item1, index1) in item"
-                :key="index1"
-              >
+              <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
                 第一节：什么是web程序应用
               </div>
             </el-collapse-item>
@@ -376,10 +365,10 @@ export default {
         top: 30px;
       }
       .center-content {
-        width: 100%;
-        height: 100%;
-        .el-carousel {
-          height: 220px;
+        width: 516px;
+        height: 236px;
+        ::v-deep .el-carousel {
+          height: 280px !important;
           //   background-color: #2a77ff;
           .content {
             position: absolute;
@@ -442,12 +431,14 @@ export default {
     display: flex;
     width: 100%;
     .img-item1 {
-      min-width: 214px;
-      width: 100%;
+      width: 214px;
       position: relative;
       height: 100%;
       img {
         border-radius: 8px;
+        width: 214px;
+        height: 106px;
+        border-radius: 10px;
       }
       span {
         left: 20px;
@@ -460,12 +451,14 @@ export default {
     }
     .img-item2 {
       height: 106px;
-      min-width: 214px;
-      width: 100%;
+      width: 214px;
       position: relative;
       margin-left: 60px;
       img {
         border-radius: 8px;
+        width: 214px;
+        height: 106px;
+        border-radius: 10px;
       }
       span {
         left: 20px;
@@ -477,13 +470,15 @@ export default {
       }
     }
     .img-item3 {
-      min-width: 214px;
-      width: 100%;
+      width: 214px;
       position: relative;
       height: 106px;
       margin-left: 60px;
       img {
         border-radius: 8px;
+        width: 214px;
+        height: 106px;
+        border-radius: 10px;
       }
       span {
         left: 20px;
@@ -495,13 +490,15 @@ export default {
       }
     }
     .img-item4 {
-      min-width: 214px;
-      width: 100%;
+      width: 214px;
       position: relative;
       height: 106px;
       margin-left: 60px;
       img {
         border-radius: 8px;
+        width: 214px;
+        height: 106px;
+        border-radius: 10px;
       }
       span {
         left: 20px;
@@ -513,13 +510,15 @@ export default {
       }
     }
     .img-item5 {
-      min-width: 214px;
-      width: 100%;
+      width: 214px;
       position: relative;
       height: 106px;
       margin-left: 60px;
       img {
-        border-radius: 8px;
+       border-radius: 8px;
+        width: 214px;
+        height: 106px;
+        border-radius: 10px;
       }
       span {
         left: 20px;
@@ -531,13 +530,15 @@ export default {
       }
     }
     .img-item6 {
-      min-width: 214px;
-      width: 100%;
+      width: 214px;
       position: relative;
       height: 106px;
       margin-left: 60px;
       img {
         border-radius: 8px;
+        width: 214px;
+        height: 106px;
+        border-radius: 10px;
       }
       span {
         left: 20px;

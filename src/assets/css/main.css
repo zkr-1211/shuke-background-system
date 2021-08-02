@@ -6,6 +6,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, textarea, input, select, ul, ol, li, fiel
   html,body{
     height: 100%;
     box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
     background-color: #F6F6F8;
   }
   ul, li {
@@ -18,7 +19,6 @@ html, body, h1, h2, h3, h4, h5, h6, p, textarea, input, select, ul, ol, li, fiel
   select {
     font-size: 14px;
     color: #222222;
-   
     font-weight: normal;
    font-family:"Helvetica Neue", Helvetica, STHeiTi, 'Microsoft Yahei',sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -37,6 +37,7 @@ html, body, h1, h2, h3, h4, h5, h6, p, textarea, input, select, ul, ol, li, fiel
    
   div{
     box-sizing: border-box !important;
+    -webkit-box-sizing: border-box !important;
   -webkit-highlight:none;
   -webkit-tap-highlight-color:transparent;
   -webkit-user-select:none;

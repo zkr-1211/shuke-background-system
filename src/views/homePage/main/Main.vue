@@ -157,8 +157,8 @@ export default {
     width: 100%;
     height: 240px;
     .shuke-tools {
-      min-width: 288px;
-      width: 100%;
+      width: 288px;
+      // width: 100%;
       height: 240px;
       background: #fff;
       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -257,8 +257,7 @@ export default {
       }
     }
     .school {
-      width: 100%;
-      min-width: 300px;
+      width: 300px;
       height: 240px;
       background: #fff;
       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -305,7 +304,7 @@ export default {
     height: 664px;
     margin-top: 32px;
     .recent-course {
-      width: 938px;
+      width: 920px;
       height: 664px;
       background: #ffffff;
       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -325,7 +324,7 @@ export default {
         width: 100%;
         height: 528px;
         overflow-x: hidden;
-        background-color: #fafafa;
+        background-color: #ffffff;
         .empty {
           margin-top: 100px;
           height: 330px;
@@ -369,7 +368,12 @@ export default {
           align-items: center;
           width: 932px;
           height: 176px;
-
+          &:hover{
+            background-color: #fafafa;
+          }
+          &:active{
+            background-color: #f4f4f4;
+          }
           img {
             margin-left: 40px;
             width: 240px;

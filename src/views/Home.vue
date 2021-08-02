@@ -398,7 +398,7 @@ export default {
   height: 100%;
   overflow-y: auto;
   width: 100%;
-  margin: 66px 0px 0px 256px;
+  margin: 66px 0px 0px 270px;
 }
 
 body > .el-container {

@@ -27,13 +27,13 @@
                   <el-dropdown-item>退出团队</el-dropdown-item>
                 </div>
                 <div v-else>
-                  <div @click="dialogVisible = true">
+                  <div @click="deleteDV = true">
                     <el-dropdown-item> 解散团队 </el-dropdown-item>
                   </div>
-                  <div @click="dialogVisible1 = true">
+                  <div @click="createDV = true">
                     <el-dropdown-item> 重命名 </el-dropdown-item>
                   </div>
-                  <div @click="dialogVisible1 = true">
+                  <div @click="createDV = true">
                     <el-dropdown-item> 移交团队 </el-dropdown-item>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
           <img src="@/assets/image/home/ic_team_invitation.svg" alt="" />
         </div>
         <div class="team-search">
-          <div class="team-name">UI设计教育团队</div>
+          <div class="team-name">UI设计教育团队<img @click="createDV = true" src="@/assets/image/home/ic_edit.svg" alt=""></div>
           <div class="search">
             <input type="text" placeholder="搜索你想要的班级" />
             <i class="el-icon-search"></i>
@@ -80,52 +80,55 @@
               <div class="me" v-if="index == 0">我</div>
             </div>
             <div class="num">154455211</div>
-            <div class="guanliyuan">超级管理员</div>
+            <div class="guanliyuan" @click="quanXianDV = true">超级管理员</div>
             <div class="set">
-              <img src="@/assets/image/home/ic_help.svg" alt="" />
+              <img @click="noQuanXianDV = true" src="@/assets/image/home/ic_help.svg" alt="" />
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- 创建课程 -->
-    <el-dialog
-      title=""
-      :visible.sync="dialogVisible1"
-      width="30%"
-      :show-close="false"
-      top="40vh"
-    >
+    <el-dialog title="" :visible.sync="createDV" width="30%" :show-close="false" top="40vh">
       <h2>修改团队名称</h2>
       <input class="course-input" type="text" />
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible1 = false"
-          >取 消</el-button
-        >
-        <el-button type="primary" @click="dialogVisible1 = false"
-          >修 改</el-button
-        >
+        <el-button class="cancel-button" @click="createDV = false">取 消</el-button>
+        <el-button type="primary" @click="createDV = false">修 改</el-button>
       </span>
     </el-dialog>
     <!-- 删除课程 -->
-    <el-dialog
-      title="UI设计教程"
-      :visible.sync="dialogVisible"
-      width="30%"
-      :show-close="false"
-      top="40vh"
-    >
+    <el-dialog title="UI设计教程" :visible.sync="deleteDV" width="30%" :show-close="false" top="40vh">
       <h2>解散</h2>
-      <span class="delete-text"
-        >解散团队将无法找回，您确认要解散么？</span
-      >
+      <span class="delete-text">解散团队将无法找回，您确认要解散么？</span>
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible = false"
-          >取 消</el-button
-        >
-        <el-button type="primary" @click="dialogVisible = false"
-          >确认删除</el-button
-        >
+        <el-button class="cancel-button" @click="deleteDV = false">取 消</el-button>
+        <el-button type="primary" @click="deleteDV = false">确认解散</el-button>
+      </span>
+    </el-dialog>
+    <!-- 没有权限 -->
+    <el-dialog title="" :visible.sync="noQuanXianDV" width="30%" :show-close="false" top="40vh">
+      <h2>很抱歉，没有权限呢</h2>
+      <span class="delete-text">您当前权限无法使用该功能呢，可联系超级管理员修改权限哦</span>
+      <span slot="footer" class="dialog-footer">
+      </span>
+    </el-dialog>
+    <!--权限设置  -->
+    <el-dialog title="" :visible.sync="quanXianDV" width="30%" :show-close="false" top="10vh">
+      <h2>权限设置</h2>
+      <span class="select-num">已选中10人</span>
+      <div class="quan-xian">
+        <div class="quanxian-item" v-for="(item,index) in 10" :key="index">
+          <div class="chick">
+            <el-checkbox v-model="checked"></el-checkbox>
+          </div>
+          <div class="title">录播权限</div>
+        </div>
+      </div>
+      <span slot="footer" class="dialog-footer">
+        <span class="delete-man">删除成员</span>
+        <el-button class="cancel-button" @click="quanXianDV = false">取 消</el-button>
+        <el-button type="primary" @click="quanXianDV = false">确 认</el-button>
       </span>
     </el-dialog>
   </div>
@@ -141,8 +144,11 @@ export default {
   },
   data() {
     return {
-      dialogVisible1: false,
-      dialogVisible: false,
+      createDV: false,
+      deleteDV: false,
+      noQuanXianDV: false,
+      quanXianDV: false,
+      checked: false,
     };
   },
   computed: {},
@@ -153,6 +159,82 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+.quan-xian {
+  width: 530px;
+  height: 590px;
+  overflow-y: auto;
+  position: relative;
+  .quanxian-item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+}
+.select-num{
+font-size: 16px;
+color: #2A77FF;
+position: absolute;
+right: 30px;
+top: 30px;
+}
+.title {
+  font-size: 20px;
+  color: #666666;
+  margin-left: 20px;
+  line-height: 20px;
+}
+.delete-man {
+  font-size: 14px;
+  font-weight: bold;
+  color: #f96164;
+  margin-right: 280px;
+  cursor: pointer;
+}
+::v-deep .el-dialog__body {
+  padding: 10px 30px 30px;
+  color: #606266;
+  font-size: 15px;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+}
+::v-deep .el-checkbox__inner {
+  display: inline-block;
+  position: relative;
+  border: 2px solid #999999;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  z-index: 1;
+  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+}
+::v-deep .el-checkbox__inner::after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  content: "";
+  border-left: 0;
+  border-top: 0;
+  height: 7px;
+  left: 6px;
+  position: absolute;
+  top: 2px;
+  -webkit-transform: rotate(45deg) scaleY(0);
+  transform: rotate(45deg) scaleY(0);
+  width: 0.015625rem;
+  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
+  transition: -webkit-transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s,
+    -webkit-transform 0.15s ease-in 0.05s;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
 ::v-deep .el-dialog__title {
   font-size: 20px;
   font-weight: bold;
@@ -216,6 +298,7 @@ h2 {
         overflow-y: auto;
         // padding: 0px 30px 30px 50px;
         .item {
+          position: relative;
           padding: 0px 10px 0px 30px;
           display: flex;
           align-items: center;
@@ -229,6 +312,10 @@ h2 {
           &:hover {
             background-color: #f6f7f9;
           }
+          &:hover .dot {
+            display: block;
+            // background-color: red;
+          }
           &:active {
             background-color: #edeff3;
           }
@@ -237,12 +324,16 @@ h2 {
             color: #666666;
           }
           .num {
-            margin-left: 120px;
+            margin-left: 140px;
             font-size: 16px;
             color: #999999;
+            position: absolute;
+            right: 55px;
           }
           .dot {
+            cursor: pointer;
             margin-top: 5px;
+            display: none;
           }
         }
       }
@@ -283,6 +374,8 @@ h2 {
         top: 20px;
         right: 40px;
         img {
+          width: 80px;
+          height: 80px;
           cursor: pointer;
         }
       }
@@ -299,6 +392,14 @@ h2 {
           font-size: 30px;
           font-weight: bold;
           color: #666666;
+          display: flex;
+          align-items: center;
+          img {
+            margin-left: 24px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+          }
         }
         .search {
           font-size: 16px;
@@ -384,16 +485,23 @@ h2 {
         overflow-y: auto;
         overflow-x: hidden;
         .item {
+          position: relative;
           display: flex;
           align-items: center;
           width: 1084px;
-          height: 72px;
+          height: 64px;
           background: #ffffff;
-          font-size: 20px;
+          font-size: 16px;
           line-height: 34px;
           color: #666666;
           &:hover {
             background-color: #f6f7f9;
+          }
+          &:hover .check {
+            display: block;
+          }
+          &:hover .set {
+            display: block;
           }
           &:active {
             background-color: #edeff3;
@@ -405,11 +513,14 @@ h2 {
             border: 2px solid #999999;
             border-radius: 2px;
             margin-left: 24px;
+            display: none;
+            position: absolute;
+            cursor: pointer;
           }
           .person {
             display: flex;
             align-items: center;
-            margin-left: 44px;
+            margin-left: 82px;
             width: 190px;
             .header {
               display: flex;
@@ -438,13 +549,14 @@ h2 {
             }
           }
           .num {
-            margin-left: 225px;
+            margin-left: 222px;
           }
           .guanliyuan {
-            margin-left: 260px;
+            margin-left: 283px;
           }
           .set {
             margin-left: 57px;
+            display: none;
             img {
               display: flex;
               align-items: center;

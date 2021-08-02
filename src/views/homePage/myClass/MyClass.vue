@@ -20,7 +20,7 @@
     <div class="navigation">
       <div>
         <Tabs :tabList="tabList" @tabsIndex="tabsIndex"> </Tabs>
-        <div class="empty" v-if="true">
+        <div class="empty" v-if="false">
           <div class="img">
             <img src="@/assets/image/home/img_empty_big.svg" alt="" />
           </div>
