@@ -176,7 +176,7 @@ h2 {
     width: 291px;
     height: 373px;
     margin-top: 30px;
-    margin-right: 29.5px;
+    margin-right: 29px;
     background: #ffffff;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
     position: relative;

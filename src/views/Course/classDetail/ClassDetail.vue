@@ -127,7 +127,7 @@
     <el-dialog title="" :visible.sync="addDV" width="30%" :show-close="false" top="20vh">
       <h2>添加成员</h2>
       <Tabs class="tabs" :tabList="tabList" @tabsIndex="tabsIndex" />
-      <div class="content">
+      <div class="contentDv">
         <div v-if="tabIndex == 0">
           <div class="jiaowu">
             <div class="school">
@@ -270,8 +270,8 @@ export default {
   margin-left: 30px;
   margin-bottom: 30px;
 }
-.content {
-  margin-left: 28px;
+.contentDv {
+  margin-left: 30px;
   .dialog-footer {
     text-align: right;
   }
@@ -324,6 +324,9 @@ export default {
         // background-color: rosybrown;
          cursor: pointer;
         img {
+           width: 30px;
+          height: 30px;
+          cursor: pointer;
         }
       }
       .text-title {
@@ -691,7 +694,7 @@ h2 {
         // width: 400px;
         height: 48px;
         // background: #977b7b;
-        padding-left: 30px;
+        padding-left: 20px;
         // justify-content: space-between;
         .people {
           padding-left: 20px;
@@ -715,7 +718,7 @@ h2 {
           // width: 100%;
           display: flex;
           align-items: center;
-          padding-left: 20px;
+          padding-left: 40px;
           position: relative;
           height: 60px;
           font-size: 14px;

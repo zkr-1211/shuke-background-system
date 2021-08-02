@@ -9,7 +9,7 @@
       stripe
       style="width: 85vw"
     >
-      <el-table-column class="check" type="selection" width="65">
+      <el-table-column class="check" type="selection" width="100">
       </el-table-column>
       <el-table-column prop="date" label="序号" min-width="100">
         <template slot-scope="scope">
@@ -192,7 +192,7 @@ export default {
   vertical-align: middle;
   padding-left: 10px;
   padding-right: 10px;
-  width: 100%;
+  // width: 100%;
   //   width: 40px;
   font-size: 20px;
   font-weight: bold;

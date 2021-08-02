@@ -381,6 +381,7 @@ export default {
             background: rgba(0, 0, 0, 0);
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
             border-radius: 8px;
+            object-fit: cover;
           }
           .course-message {
             margin-left: 25px;
