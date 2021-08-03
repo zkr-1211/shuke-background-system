@@ -81,7 +81,7 @@
 import Tabs from "@/components/tabs/Tabs.vue";
 import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
-import Work from "@/components/work/Work.vue";
+import WorkContent from "@/components/workContent/WorkContent.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
 import ClassContent from "@/components/classContent/ClassContent.vue";
 export default {
@@ -89,7 +89,7 @@ export default {
     Tabs,
     CourseContent,
     ProblemSet,
-    Work,
+    WorkContent,
     ProblemSetDetail,
     ClassContent,
   },
@@ -187,8 +187,7 @@ p {
 }
 .top-bar {
   margin-top: 20px;
-  min-width: 1584px;
-  width: 100%;
+  width: 1584px;
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);

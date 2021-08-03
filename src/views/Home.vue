@@ -10,12 +10,14 @@
           <div class="right">
             <el-dropdown trigger="click" placement="bottom-end">
               <span class="el-dropdown-link">
-                <div class="header"><!-- <img src="" alt="" /> --></div>
+                <div class="header">
+                  <!-- <img src="" alt="" /> -->
+                </div>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <a href="/accountInfomation">
-                  <el-dropdown-item>账户信息</el-dropdown-item></a
-                >
+                  <el-dropdown-item>账户信息</el-dropdown-item>
+                </a>
 
                 <el-dropdown-item>退出登录</el-dropdown-item>
               </el-dropdown-menu>
@@ -26,37 +28,24 @@
               <el-dropdown trigger="click" placement="bottom-end">
                 <span class="el-dropdown-link">
                   <el-badge :value="12" class="item">
-                    <img
-                      src="@/assets/image/home/topbar_notice.svg"
-                      alt=""
-                      @click="isNoticF()"
-                    />
+                    <img src="@/assets/image/home/topbar_notice.svg" alt="" @click="isNoticF()" />
                   </el-badge>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <div class="notices">
                     <div class="time-img">
-                      <a href="/allNotice"> <div class="img1"></div></a>
-                     
+                      <a href="/allNotice">
+                        <div class="img1"></div>
+                      </a>
+
                     </div>
-                    <el-tabs
-                      value="first"
-                      @tab-click="handleClick"
-                      v-if="isNotic"
-                    >
+                    <el-tabs value="first" @tab-click="handleClick" v-if="isNotic">
                       <el-tab-pane label="用户管理" name="first">
                         <div class="notice-message">
-                          <div
-                            class="notice"
-                            v-for="(item, index) in 10"
-                            :key="index"
-                          >
+                          <div class="notice" v-for="(item, index) in 10" :key="index">
                             <div class="left-item">
                               <div class="img">
-                                <img
-                                  src="@/assets/image/home/topbar_notice_label.svg"
-                                  alt=""
-                                />
+                                <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
                               </div>
                               <div class="info">
                                 陈小平 提醒您修改 课程:UI设计 标设计
@@ -69,17 +58,10 @@
                       </el-tab-pane>
                       <el-tab-pane label="配置管理" name="second">
                         <div class="notice-message">
-                          <div
-                            class="notice"
-                            v-for="(item, index) in 0"
-                            :key="index"
-                          >
+                          <div class="notice" v-for="(item, index) in 0" :key="index">
                             <div class="left-item">
                               <div class="img">
-                                <img
-                                  src="@/assets/image/home/topbar_notice_label.svg"
-                                  alt=""
-                                />
+                                <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
                               </div>
                               <div class="info">
                                 陈小平 提醒您修改 课程:UI设计 标设计
@@ -88,8 +70,8 @@
 
                             <div class="time">01月21日</div>
                           </div>
-                        </div></el-tab-pane
-                      >
+                        </div>
+                      </el-tab-pane>
                     </el-tabs>
                   </div>
                 </el-dropdown-menu>
@@ -102,83 +84,27 @@
         <el-aside>
           <el-row class="tac">
             <el-col>
-              <el-menu
-                router
-                text-color="#666666"
-                :default-active="activePath"
-                class="el-menu-vertical-demo"
-                @select="handleSelect"
-                @open="handleOpen"
-                @close="handleClose"
-              >
-                <el-menu-item
-                  @click="saveNavState('/main')"
-                  index="/main"
-                  :class="selectIndex == '/main' ? 'selectStyle' : ''"
-                >
-                  <img
-                    v-if="selectIndex == '/main'"
-                    src="@/assets/image/leftbar/leftbar_home_s.svg"
-                    alt=""
-                  />
-                  <img
-                    v-else
-                    src="@/assets/image/leftbar/leftbar_home_n.svg"
-                    alt=""
-                  />
+              <el-menu router text-color="#666666" :default-active="activePath" class="el-menu-vertical-demo" @select="handleSelect" @open="handleOpen" @close="handleClose">
+                <el-menu-item @click="saveNavState('/main')" index="/main" :class="selectIndex == '/main' ? 'selectStyle' : ''">
+                  <img v-if="selectIndex == '/main'" src="@/assets/image/leftbar/leftbar_home_s.svg" alt="" />
+                  <img v-else src="@/assets/image/leftbar/leftbar_home_n.svg" alt="" />
                   <!-- <i class="el-icon-menu"></i> -->
                   <span>首页</span>
                 </el-menu-item>
 
-                <el-menu-item
-                  @click="saveNavState('/course')"
-                  index="/course"
-                  :class="selectIndex == '/course' ? 'selectStyle' : ''"
-                >
-                  <img
-                    v-if="selectIndex == '/course'"
-                    src="@/assets/image/leftbar/leftbar_course_s.svg"
-                    alt=""
-                  />
-                  <img
-                    v-else
-                    src="@/assets/image/leftbar/leftbar_course_n.svg"
-                    alt=""
-                  />
+                <el-menu-item @click="saveNavState('/course')" index="/course" :class="selectIndex == '/course' ? 'selectStyle' : ''">
+                  <img v-if="selectIndex == '/course'" src="@/assets/image/leftbar/leftbar_course_s.svg" alt="" />
+                  <img v-else src="@/assets/image/leftbar/leftbar_course_n.svg" alt="" />
                   <span>课程</span>
                 </el-menu-item>
-                <el-menu-item
-                  @click="saveNavState('/recordVideo')"
-                  index="/recordVideo"
-                  :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''"
-                >
-                  <img
-                    v-if="selectIndex == '/recordVideo'"
-                    src="@/assets/image/leftbar/leftbar_recordvideo_s.svg"
-                    alt=""
-                  />
-                  <img
-                    v-else
-                    src="@/assets/image/leftbar/leftbar_recordvideo_n.svg"
-                    alt=""
-                  />
+                <el-menu-item @click="saveNavState('/recordVideo')" index="/recordVideo" :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''">
+                  <img v-if="selectIndex == '/recordVideo'" src="@/assets/image/leftbar/leftbar_recordvideo_s.svg" alt="" />
+                  <img v-else src="@/assets/image/leftbar/leftbar_recordvideo_n.svg" alt="" />
                   <span>录播资源</span>
                 </el-menu-item>
-                <el-menu-item
-                  @click="saveNavState('/recovery')"
-                  index="/recovery"
-                  :class="selectIndex == '/recovery' ? 'selectStyle' : ''"
-                >
-                  <img
-                    v-if="selectIndex == '/recovery'"
-                    src="@/assets/image/leftbar/leftbar_recovery_s.svg"
-                    alt=""
-                  />
-                  <img
-                    v-else
-                    src="@/assets/image/leftbar/leftbar_recovery_n.svg"
-                    alt=""
-                  />
+                <el-menu-item @click="saveNavState('/recovery')" index="/recovery" :class="selectIndex == '/recovery' ? 'selectStyle' : ''">
+                  <img v-if="selectIndex == '/recovery'" src="@/assets/image/leftbar/leftbar_recovery_s.svg" alt="" />
+                  <img v-else src="@/assets/image/leftbar/leftbar_recovery_n.svg" alt="" />
                   <span>课程回收站</span>
                 </el-menu-item>
               </el-menu>
@@ -378,7 +304,7 @@ export default {
   }
   .aside-bottom {
     position: absolute;
-    bottom: 30px;
+    bottom: 200px;
     display: flex;
     width: 100%;
     justify-content: center;

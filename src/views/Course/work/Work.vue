@@ -1,14 +1,23 @@
 <!--  -->
 <template>
   <div class="body">
-    <p>课程</p>
+     <div class="breadcrumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/main' }">课程</el-breadcrumb-item>
+        <el-breadcrumb-item>UI设计教育课程</el-breadcrumb-item>
+        <el-breadcrumb-item>班级</el-breadcrumb-item>
+        <el-breadcrumb-item>班级详情</el-breadcrumb-item>
+        <el-breadcrumb-item>作业</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div>
     <div class="top-bar">
       <div class="title">
-        <div class="name">回收站</div>
+        <div class="name">作业</div>
       </div>
       <div class="button" @click="dialogVisible2 = true">
-        <Button name="清空全部" />
-        <Button name="恢复选中" class="Button" />
+        <el-button class="create-button" type="primary"
+          ><i class="el-icon-plus"></i>创建</el-button
+        >
       </div>
     </div>
     <div class="navigation">
@@ -23,15 +32,16 @@
             <el-button type="primary">前往创建</el-button>
           </div>
         </div>
-        <ProblemSetDetail v-if="tabIndex == 0" />
-        <ProblemSet v-if="tabIndex == 1" :isCheckBox="true"/>
-        <CourseContent v-if="tabIndex == 2" :isCheckBox="true" />
+        <WorkContent v-if="tabIndex == 0" />
+        <WorkContent v-if="tabIndex == 1" />
+        <WorkContent v-if="tabIndex == 2" />
+        <WorkContent v-if="tabIndex == 3" />
       </div>
       <div class="right-search">
-        <div></div>
+        <div>共10个</div>
         <el-dropdown trigger="click" placement="bottom-end">
           <span class="el-dropdown-link">
-            <div></div>
+            <div>按名称A-Z <i class="el-icon-caret-bottom"></i></div>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>A</el-dropdown-item>
@@ -54,7 +64,7 @@
       :show-close="false"
       top="40vh"
     >
-      <h2>输入课程名称</h2>
+      <h2>输入作业名称</h2>
       <input class="course-input" type="text" />
       <span slot="footer" class="dialog-footer">
         <el-button class="cancel-button" @click="dialogVisible2 = false"
@@ -70,20 +80,16 @@
 
 <script>
 import Tabs from "@/components/tabs/Tabs.vue";
-import Button from "@/components/button/Button.vue";
-import RecordContent from "@/components/recordContent/RecordContent.vue";
+import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
 import WorkContent from "@/components/workContent/WorkContent.vue";
-import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
 export default {
   components: {
     Tabs,
-    Button,
-    RecordContent,
+    CourseContent,
     ProblemSet,
     WorkContent,
-    CourseContent,
     ProblemSetDetail,
   },
   data() {
@@ -91,13 +97,19 @@ export default {
       tabIndex: 0,
       tabList: [
         {
-          title: "题目",
+          title: "全部",
         },
         {
-          title: "题集",
+          title: "我创建的",
         },
         {
-          title: "课程",
+          title: "进行中",
+        },
+        {
+          title: "未开始",
+        },
+        {
+          title: "已结束",
         },
       ],
 
@@ -117,43 +129,6 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-::v-deep .el-checkbox__inner {
-  display: inline-block;
-  position: relative;
-  border: 2px solid #999999;
-  border-radius: 2px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  z-index: 1;
-  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-}
-::v-deep .el-checkbox__inner::after {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  content: "";
-  border-left: 0;
-  border-top: 0;
-  height: 7px;
-  left: 6px;
-  position: absolute;
-  top: 2px;
-  -webkit-transform: rotate(45deg) scaleY(0);
-  transform: rotate(45deg) scaleY(0);
-  width: 0.015625rem;
-  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s,
-    -webkit-transform 0.15s ease-in 0.05s;
-  -webkit-transform-origin: center;
-  transform-origin: center;
-}
 ::v-deep .el-dialog {
   // height: 300px;
 }
@@ -236,13 +211,25 @@ p {
     }
   }
   .button {
-    display: flex;
     margin-right: 30px;
     font-size: 14px;
     font-weight: bold;
     color: #f4f4f4;
-    .Button {
-      margin-left: 20px;
+    width: 120px;
+    .el-icon-plus {
+      margin-right: 7px;
+      font-size: 14px;
+    }
+    .create-button {
+      margin-bottom: 40px;
+      background: #2a77ff;
+      box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+      &:hover {
+        background: #5592fe;
+      }
+      &:active {
+        background: #2065e0;
+      }
     }
   }
 }
@@ -254,7 +241,7 @@ p {
   // background-color: #2a77ff;
   position: relative;
 
-  .right-search {
+   .right-search {
     width: 650px;
     margin-bottom: 12px;
     position: absolute;

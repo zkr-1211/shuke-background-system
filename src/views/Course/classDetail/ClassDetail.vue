@@ -88,8 +88,7 @@
           </div>
           <div class="work-data">
             <HeaderTitle name="作业数据" />
-            <div class="button"><Button name="查看作业" /></div>
-
+            <a href="/course/work"> <div class="button"><Button name="查看作业" /></div></a>
             <div>
               <WorkDataChart ref="myChart1" />
             </div>
@@ -497,7 +496,7 @@ h2 {
         width: 124px;
         height: 110px;
         background: #e7e6e642;
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        // box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         // opacity: 0.2;
         display: flex;
         align-items: center;
@@ -550,7 +549,7 @@ h2 {
         width: 124px;
         height: 110px;
         background: #e7e6e642;
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        // box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         // opacity: 0.2;
         display: flex;
         align-items: center;
@@ -698,14 +697,15 @@ h2 {
         // justify-content: space-between;
         .people {
           padding-left: 20px;
-          width: 160px;
+          // margin-left: 160px;
           // background-color: red;
         }
         .num-text {
-          width: 140px;
+          margin-left: 110px;
           // background-color: coral;
         }
         .process {
+          margin-left: 120px;
         }
       }
       .content {

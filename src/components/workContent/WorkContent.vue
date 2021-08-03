@@ -18,13 +18,7 @@
               <div class="dot" v-if="isCheckBox"></div>
               <el-dropdown trigger="click" placement="bottom-end" v-else>
                 <span class="el-dropdown-link">
-                  <div class="dot">
-                    <div class="dynamic_right2">
-                      <div class="dynamic_right2_dot"></div>
-                      <div class="dynamic_right2_dot"></div>
-                      <div class="dynamic_right2_dot"></div>
-                    </div>
-                  </div>
+                  <Dot />
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <div @click="dialogVisible1 = true">
@@ -40,52 +34,33 @@
         </div>
       </div>
     </div>
-        <!-- 删除课程 -->
-    <el-dialog
-      title="UI设计教程"
-      :visible.sync="dialogVisible"
-      width="30%"
-      :show-close="false"
-      top="40vh"
-    >
+    <!-- 删除课程 -->
+    <el-dialog title="UI设计教程" :visible.sync="dialogVisible" width="30%" :show-close="false" top="40vh">
       <h2>删除</h2>
-      <span class="delete-text"
-        >您确认删除本作业么？该作业将移入回收站，30天内可前往恢复或清理。</span
-      >
+      <span class="delete-text">您确认删除本作业么？该作业将移入回收站，30天内可前往恢复或清理。</span>
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible = false"
-          >取 消</el-button
-        >
-        <el-button type="primary" @click="dialogVisible = false"
-          >确认删除</el-button
-        >
+        <el-button class="cancel-button" @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确认删除</el-button>
       </span>
     </el-dialog>
     <!-- 重命名课程 -->
-    <el-dialog
-      title=""
-      :visible.sync="dialogVisible1"
-      width="30%"
-      :show-close="false"
-      top="40vh"
-    >
+    <el-dialog title="" :visible.sync="dialogVisible1" width="30%" :show-close="false" top="40vh">
       <h2>修改作业</h2>
       <input class="course-input" type="text" />
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible1 = false"
-          >取 消</el-button
-        >
-        <el-button type="primary" @click="dialogVisible1 = false"
-          >确 认</el-button
-        >
+        <el-button class="cancel-button" @click="dialogVisible1 = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible1 = false">确 认</el-button>
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
+import Dot from "@/components/dot/Dot";
 export default {
-  components: {},
+  components: {
+    Dot,
+  },
   props: {
     isCheckBox: {
       type: Boolean,
@@ -94,7 +69,7 @@ export default {
   },
   data() {
     return {
-         dialogVisible: false,
+      dialogVisible: false,
       dialogVisible1: false,
       checked: false,
     };
@@ -178,7 +153,7 @@ h2 {
     margin-right: 29px;
     background: #ffffff;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-    // margin-left: 32px;   
+    // margin-left: 32px;
     border-radius: 8px;
     .img {
       width: 291px;
@@ -224,7 +199,7 @@ h2 {
       //   display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 5px 15px 15px 20px;;
+      margin: 5px 15px 15px 20px;
       .classnum {
         margin-top: 15px;
         font-size: 16px;

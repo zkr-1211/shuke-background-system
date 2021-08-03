@@ -2,7 +2,10 @@
 <template>
   <div class="body">
     <div class="person-message">
-      <div class="header"></div>
+      <a href="/homePage/studentInfo">
+        <div class="header"></div>
+      </a>
+
       <div class="name">张克榕</div>
       <div class="number">工号：182718144</div>
     </div>

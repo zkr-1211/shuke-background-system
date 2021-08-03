@@ -13,6 +13,9 @@ import MyTeam from '../views/homePage/myTeam/MyTeam.vue'
 import MyClass from '../views/homePage/myClass/MyClass.vue'
 import ClassDetail from '../views/course/classDetail/ClassDetail.vue'
 import StudentInfo from '../views/homePage/studentInfo/StudentInfo.vue'
+import Work from '../views/course/work/Work.vue'
+import WorkDetail from '../views/course/workDetail/WorkDetail.vue'
+import TaskSituation from '../views/course/taskSituation/TaskSituation.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +23,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/homePage/myTeam',
+    redirect: '/course/taskSituation',
     children: [
       { path: '/main', component: Main },
       { path: '/course', component: Course },
@@ -30,7 +33,10 @@ const routes = [
       { path: '/homePage/myClass', component:  MyClass },
       { path: '/homePage/myTeam', component:  MyTeam },
       { path: '/course/classDetail', component:  ClassDetail },
-      { path: '/homePage/StudentInfo', component:  StudentInfo },
+      { path: '/homePage/studentInfo', component:  StudentInfo },
+      { path: '/course/work', component:  Work },
+      { path: '/course/workDetail', component:  WorkDetail },
+      { path: '/course/taskSituation', component:  TaskSituation },
     ]
   },
   {

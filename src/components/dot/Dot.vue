@@ -26,6 +26,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .dot {
+  cursor: pointer;
   width: 27px;
   height: 27px;
   .dynamic_right2 {
@@ -39,8 +40,8 @@ export default {
     .dynamic_right2_dot {
       margin-bottom: 3px;
       margin-right: 10px;
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
       background: #999999;
       border-radius: 50%;
     }

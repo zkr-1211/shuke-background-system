@@ -1,14 +1,7 @@
 <!--  -->
 <template>
   <div class="body">
-    <el-table
-      @selection-change="handleSelectionChange"
-      tooltip-effect="dark"
-      ref="multipleTable"
-      :data="tableData"
-      stripe
-      style="width: 85vw"
-    >
+    <el-table @selection-change="handleSelectionChange" tooltip-effect="dark" ref="multipleTable" :data="tableData" stripe style="width: 82vw">
       <el-table-column class="check" type="selection" width="100">
       </el-table-column>
       <el-table-column prop="date" label="序号" min-width="100">
@@ -33,7 +26,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="name" label="创建者" min-width="500">
-         <template slot-scope="scope">
+        <template slot-scope="scope">
           <div class="CreateColor">
             {{ scope.row.name }}
           </div>
@@ -41,13 +34,7 @@
       </el-table-column>
       <el-table-column fixed="right" label="操作" min-width="280">
         <template slot-scope="scope">
-          <el-button
-            @click="handleClick(scope.row)"
-            type="text"
-            size="small"
-            class="look"
-            >查看</el-button
-          >
+          <el-button @click="handleClick(scope.row)" type="text" size="small" class="look">查看</el-button>
           <!-- <span class="edit"> -->
           <el-button type="text" size="small" class="delete">删除</el-button>
           <!-- </span> -->
@@ -83,7 +70,7 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄",
         },
-                {
+        {
           date: "000001",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
@@ -103,7 +90,7 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄",
         },
-                {
+        {
           date: "000001",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
@@ -123,7 +110,7 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄",
         },
-                {
+        {
           date: "000001",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
@@ -208,25 +195,48 @@ export default {
 .el-table tr {
   background: #edeff3;
 }
+// ::v-deep .el-checkbox__inner {
+//   
+//   width: 20px;
+//   height: 20px;
+//   text-align: center;
+// }
 ::v-deep .el-checkbox__inner {
   margin-left: 20px;
+  display: inline-block;
+  position: relative;
+  border: 2px solid #999999;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   width: 20px;
   height: 20px;
-  text-align: center;
-}
-::v-deep .el-checkbox__input.is-checked .el-checkbox__inner::after {
-  margin-left: 3px;
-  margin-top: 3px;
-}
-::v-deep .el-checkbox__input.is-indeterminate .el-checkbox__inner::before {
-  content: "";
-  position: absolute;
-  display: block;
   background-color: #fff;
-  height: 2px;
-  transform: scale(0.5);
-  left: 0;
-  right: 0;
-  top: 8px;
+  z-index: 1;
+  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+}
+::v-deep .el-checkbox__inner::after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  content: "";
+  border-left: 0;
+  border-top: 0;
+  height: 7px;
+  left: 6px;
+  position: absolute;
+  top: 3px;
+  -webkit-transform: rotate(45deg) scaleY(0);
+  transform: rotate(45deg) scaleY(0);
+  width: 15px;
+  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
+  transition: -webkit-transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s;
+  transition: transform 0.15s ease-in 0.05s,
+    -webkit-transform 0.15s ease-in 0.05s;
+  -webkit-transform-origin: center;
+  transform-origin: center;
 }
 </style>

@@ -71,14 +71,14 @@
 import Tabs from "@/components/tabs/Tabs.vue";
 import RecordContent from "@/components/recordContent/RecordContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
-import Work from "@/components/work/Work.vue";
+import WorkContent from "@/components/workContent/WorkContent.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
 export default {
   components: {
     Tabs,
     RecordContent,
     ProblemSet,
-    Work,
+    WorkContent,
     ProblemSetDetail,
   },
   data() {
@@ -166,8 +166,7 @@ p {
 }
 .top-bar {
   margin-top: 12px;
-  min-width: 1584px;
-  width: 100%;
+  width: 1584px;
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -219,9 +218,8 @@ p {
   // background-color: #2a77ff;
   position: relative;
 
-  .right-search {
-    min-width: 650px;
-    // width: 100%;
+ .right-search {
+    width: 650px;
     margin-bottom: 12px;
     position: absolute;
     right: 0;
@@ -231,11 +229,9 @@ p {
     justify-content: space-between;
     > div {
       font-size: 16px;
-      font-family: Source Han Sans CN;
       font-weight: bold;
-      line-height: 27px;
       color: #c3c3c3;
-
+      margin-right: 30px;
       input {
         width: 366px;
         height: 38px;
@@ -251,7 +247,7 @@ p {
       .el-icon-search {
         font-size: 20px;
         position: absolute;
-        right: 20px;
+        right: 50px;
         top: 10px;
         font-weight: 900;
       }

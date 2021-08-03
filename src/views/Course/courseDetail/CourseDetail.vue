@@ -36,7 +36,7 @@
         <HeaderTitle name="学员评价" />
         <a href="">共有100条评价>></a>
         <div class="center-content">
-          <el-carousel :interval="10000" arrow="always" height="130px" indicator-position="none">
+          <el-carousel :interval="10000" arrow="always" indicator-position="none">
             <el-carousel-item v-for="item in 100" :key="item">
               <div class="content">
                 本专业旨在培养社会急需的具备
@@ -61,30 +61,42 @@
     </div>
     <!-- 中 -->
     <div class="center">
-      <div class="img-item1">
-        <img src="@/assets/image/course/icon_course_correction.svg" alt="" />
-        <span>作业/任务批改</span>
-      </div>
-      <div class="img-item2">
-        <img src="@/assets/image/course/icon_course_exercises.svg" alt="" />
-        <span>题库</span>
-      </div>
-      <div class="img-item3">
-        <img src="@/assets/image/course/icon_course_match.svg" alt="" />
-        <span>天梯赛</span>
-      </div>
-      <div class="img-item4">
-        <img src="@/assets/image/course/icon_course_class.svg" alt="" />
-        <span>班级</span>
-      </div>
-      <div class="img-item5">
-        <img src="@/assets/image/course/icon_course_homework.svg" alt="" />
-        <span>发布作业</span>
-      </div>
-      <div class="img-item6">
-        <img src="@/assets/image/course/icon_course_team.svg" alt="" />
-        <span>我的团队</span>
-      </div>
+      <a href="">
+        <div class="img-item1">
+          <img src="@/assets/image/course/icon_course_correction.svg" alt="" />
+          <span>作业/任务批改</span>
+        </div>
+      </a>
+      <a href="">
+        <div class="img-item2">
+          <img src="@/assets/image/course/icon_course_exercises.svg" alt="" />
+          <span>题库</span>
+        </div>
+      </a>
+      <a href="">
+        <div class="img-item3">
+          <img src="@/assets/image/course/icon_course_match.svg" alt="" />
+          <span>天梯赛</span>
+        </div>
+      </a>
+      <a href="/homePage/myClass">
+        <div class="img-item4">
+          <img src="@/assets/image/course/icon_course_class.svg" alt="" />
+          <span>班级</span>
+        </div>
+      </a>
+      <a href="">
+        <div class="img-item5">
+          <img src="@/assets/image/course/icon_course_homework.svg" alt="" />
+          <span>发布作业</span>
+        </div>
+      </a>
+      <a href="/homePage/myTeam">
+        <div class="img-item6">
+          <img src="@/assets/image/course/icon_course_team.svg" alt="" />
+          <span>我的团队</span>
+        </div>
+      </a>
     </div>
     <!-- 下 -->
     <div class="bottom">
@@ -96,22 +108,9 @@
             <el-button type="primary">编辑大纲</el-button>
           </div>
         </div>
-        <div class="course-outline">
-          <el-collapse v-model="activeName" accordion @change="changeCollapse">
-            <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
-              <template slot="title">
-                <div class="title">第一章：Python</div>
-                <div class="dot">
-                  <Dot />
-                </div>
-              </template>
 
-              <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
-                第一节：什么是web程序应用
-              </div>
-            </el-collapse-item>
-          </el-collapse>
-        </div>
+        <CourseOutline />
+
       </div>
 
       <!-- 右 -->
@@ -152,11 +151,13 @@
 <script>
 import VideoChart from "@/components/videoChart/VideoChart.vue";
 import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
+import CourseOutline from "@/components/courseOutline/CourseOutline.vue";
 import Dot from "@/components/dot/Dot.vue";
 export default {
   components: {
     VideoChart,
     HeaderTitle,
+    CourseOutline,
     Dot,
   },
   data() {
@@ -181,52 +182,34 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-::v-deep .el-icon-arrow-right:before {
-  background-image: url(../../../assets/image/course/right.svg);
-  background-repeat: no-repeat;
-  background-size: 28px;
-  position: relative;
-  right: 500px;
-  bottom: 3px;
-  // background-color: red;
-  content: "\e6e";
+::v-deep .el-carousel__container {
+  // position: relative;
+  height: 130px;
 }
-::v-deep .el-collapse-item__arrow.is-active {
-  bottom: 3px;
-  -webkit-transform: rotate(0);
-  transform: rotate(0);
-  background-image: url(../../../assets/image/course/bottom.svg);
-  background-repeat: no-repeat;
-  background-size: 28px;
-  position: relative;
-  right: 500px;
-  content: "\e6e";
-}
-::v-deep .el-collapse-item__header {
-  display: flex;
-  align-items: center;
-  line-height: 60px;
-  cursor: pointer;
-  transition: border-bottom-color 0.3s;
-  outline: 0;
-  width: 578px;
-  height: 60px;
-  background: #f6f6f8;
-  font-size: 20px;
-  color: #333333;
-  padding-left: 65px;
+
+::v-deep .el-carousel__arrow {
   border: none;
-  padding-right: 30px;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  // border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  color: #2a77ff;
+  font-weight: 900;
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 20px;
 }
-.el-collapse-item {
-  position: relative;
-  .dot {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    // background-color: rgba(151, 3, 250, 1);
-  }
-}
+
 
 .body {
   width: 100%;
@@ -515,7 +498,7 @@ export default {
       height: 106px;
       margin-left: 60px;
       img {
-       border-radius: 8px;
+        border-radius: 8px;
         width: 214px;
         height: 106px;
         border-radius: 10px;

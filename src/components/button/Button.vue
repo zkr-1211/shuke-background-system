@@ -36,7 +36,7 @@ export default {
   font-weight: bold;
   color: #f4f4f4;
   .el-button {
-    min-width: 104px;
+    min-width: 80px;
     height: 40px;
     background: #2a77ff;
     box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
