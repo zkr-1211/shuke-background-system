@@ -396,7 +396,9 @@ export default {
 }
 ::v-deep .el-select .el-input__inner {
   cursor: pointer;
-  padding: 10px 0px 10px 30px;
+  // padding: 10px 0px 10px 30px;
 }
-
+.el-select{
+  width: 168px;
+}
 </style>

@@ -16,6 +16,7 @@ import StudentInfo from '../views/homePage/studentInfo/StudentInfo.vue'
 import Work from '../views/course/work/Work.vue'
 import WorkDetail from '../views/course/workDetail/WorkDetail.vue'
 import TaskSituation from '../views/course/taskSituation/TaskSituation.vue'
+import GoupingSituation from '../views/course/goupingSituation/GoupingSituation.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,7 +24,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/taskSituation',
+    redirect: '/course/goupingSituation',
     children: [
       { path: '/main', component: Main },
       { path: '/course', component: Course },
@@ -37,6 +38,7 @@ const routes = [
       { path: '/course/work', component:  Work },
       { path: '/course/workDetail', component:  WorkDetail },
       { path: '/course/taskSituation', component:  TaskSituation },
+      { path: '/course/goupingSituation', component:  GoupingSituation },
     ]
   },
   {
