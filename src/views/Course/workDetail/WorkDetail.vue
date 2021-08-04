@@ -398,4 +398,5 @@ export default {
   cursor: pointer;
   padding: 10px 0px 10px 30px;
 }
+
 </style>

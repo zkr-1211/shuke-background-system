@@ -1,64 +1,31 @@
 <!--  -->
 <template>
   <div class="body">
-    <div class="breadcrumb">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>我的团队</el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
 
-    <!-- 左侧 -->
-    <div class="left">
-      <HeaderTitle name="所有团队" />
-      <div class="content">
-        <div class="item">
-          <div class="team-name">UI设计教育团队</div>
-          <div class="num">20人</div>
-          <div class="dot">
-            <Dot />
-          </div>
-        </div>
-      </div>
-      <div class="add">
-        <div class="img"><img src="" alt="" /></div>
-        <div class="text">创建团队</div>
-      </div>
-    </div>
-    <!-- 右侧 -->
     <div class="right">
-      <HeaderTitle name="管理团队成员" />
-      <div class="add-img">
-        <img src="@/assets/image/home/ic_team_invitation.svg" alt="" />
-      </div>
-      <div class="team-search">
-        <div class="team-name">UI设计教育团队</div>
-        <div class="search"></div>
-      </div>
-      <div class="nav-title">
-        <div class="people">成员</div>
-        <div class="number">工号</div>
-        <div class="quanxian">
-          权限<img src="@/assets/image/home/ic_help.svg" alt="" />
+        <div class="right-top-text">
+          <span>当前作业：</span>
+          <span>子任务01:完成10个线性图标的设计</span>
         </div>
-      </div>
-      <div class="content">
-        <div class="item">
-          <div class="check"></div>
-          <div class="person">
-            <div class="header">
-              <img src="@/assets/image/home/ic_help.svg" alt="" />
+        <div class="right-left">
+          <div class="score">
+            <div class="score-left">
+              <span>得分</span>
+              <div></div>
+              <span>此作业为补交作业</span>
+              <span>逾期：12天3小时64分</span>
             </div>
-            <div class="name">张克榕</div>
+
+            <div class="score-right">
+              <span>89.65</span>
+              <span>分</span>
+            </div>
           </div>
-          <div class="num">154455211</div>
-          <div class="guanliyuan">超级管理员</div>
-          <div class="set">
-            <img src="@/assets/image/home/ic_help.svg" alt="" />
-          </div>
+          <div class="icon-content"></div>
+          <div class="comment"></div>
         </div>
+        <div class="right-right"></div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -79,5 +46,32 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-
+.body {
+    .right {
+        .right-top-text {
+            span {
+            }
+        }
+        .right-left {
+            .score {
+                .score-left {
+                    span {
+                    }
+                    div {
+                    }
+                }
+                .score-right {
+                    span {
+                    }
+                }
+            }
+            .icon-content {
+            }
+            .comment {
+            }
+        }
+        .right-right {
+        }
+    }
+}
 </style>
