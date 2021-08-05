@@ -1,116 +1,126 @@
 <!--  -->
 <template>
+
   <div class="body">
-    <p>首页</p>
-    <div class="top-content">
-      <PersonCard />
-      <PersonFourItem />
-      <div class="shuke-tools">
-        <div class="title">
-          <div class="name">树课工具</div>
-        </div>
-        <div class="big-data">
-          <div class="img">
-            <img src="@/assets/image/home/icon_home_bigdate.svg" alt="" />
-          </div>
-          <div class="name">大数据中心</div>
-          <div class="img1">
-            <!-- <img src="@/assets/image/home/ic_forward_n.svg" alt="" /> -->
-          </div>
-        </div>
-        <div class="shuke-yunpan">
-          <div class="img">
-            <img src="@/assets/image/home/icon_home_networkdisk.svg" alt="" />
-          </div>
-          <div class="name">树课云盘</div>
-          <div class="img1">
-            <!-- <img src="@/assets/image/home/ic_forward_h.svg" alt="" /> -->
-          </div>
-        </div>
-      </div>
-      <div class="school">
-        <div class="title">
-          <div class="name">所在学校/机构</div>
-        </div>
-        <div v-if="false">
-          <div class="school-name">福州大学阳光学院</div>
-          <div class="button">
-            <a href="/organization">
-              <el-button type="primary">查看管理</el-button></a
-            >
-          </div>
-        </div>
-        <div v-else>
-          <div class="school-name">暂无归属学校/机构</div>
-          <div class="button">
-            <a href="/organization">
-              <el-button type="primary">加入认证</el-button></a
-            >
-          </div>
-        </div>
-      </div>
+
+    <div class="breadcrumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
-    <div class="bottom-content">
-      <div class="recent-course">
-        <div class="title">
-          <div class="name">最近课程</div>
-        </div>
-        <div class="course-content">
-          <div class="empty" v-if="false">
-            <div class="img">
-              <img src="@/assets/image/home/img_empty_big.svg" alt="" />
+    <div class="top-content">
+      <el-row :gutter="32" class="el-row">
+        <el-col :xs="24" :sm="24" :md="8" :lg="4" :xl="4">
+          <!-- <div class="grid-content bg-purple"> -->
+          <PersonCard />
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="16" :lg="10" :xl="10">
+          <PersonFourItem />
+        </el-col>
+        <el-col :xs="12" :sm="12" :md="12" :lg="5" :xl="5">
+          <!-- <div class="grid-content bg-purple"> -->
+          <div class="shuke-tools">
+            <HeaderTitle name="树课工具" />
+            <div class="big-data">
+              <div class="img">
+                <img src="@/assets/image/home/icon_home_bigdate.svg" alt="" />
+              </div>
+              <div class="name">大数据中心</div>
+              <div class="img1">
+                <!-- <img src="@/assets/image/home/ic_forward_n.svg" alt="" /> -->
+              </div>
             </div>
-            <div class="text">还未创建任何课程</div>
-            <div class="button">
-              <el-button type="primary">前往创建</el-button>
-            </div>
-          </div>
-          <div
-            class="course-item"
-            v-for="(item, index) in 6"
-            :key="index"
-            v-else
-          >
-            <div><img src="@/assets/image/home/course_img1.svg" alt="" /></div>
-            <div class="course-message">
-              <div>大数据科学与技术</div>
-              <div>所在团队：电信教学团队</div>
-              <div class="num">
-                <span>班级个数：1000</span> <span>学生人数：1000</span>
-                <span>题库题目：1000</span> <span>访问次数：1000</span>
+            <div class="shuke-yunpan">
+              <div class="img">
+                <img src="@/assets/image/home/icon_home_networkdisk.svg" alt="" />
+              </div>
+              <div class="name">树课云盘</div>
+              <div class="img1">
+                <!-- <img src="@/assets/image/home/ic_forward_h.svg" alt="" /> -->
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="right-content">
-        <div>
-          <div class="block">
-            <el-carousel trigger="click">
-              <el-carousel-item v-for="item in 4" :key="item">
-                <div class="banner">
-                  <img src="@/assets/image/home/course_img1.svg" alt="" />
-                </div>
-              </el-carousel-item>
-            </el-carousel>
-          </div>
-        </div>
-        <div class="data">
-          <!-- <div class="map"> -->
-          <!-- <div class="title">
-            <div class="name">访问量与平均学习时长</div>
-          </div> -->
-          <HeaderTitle name="访问量与平均学习时长"/>
-          <div class="chart">
-            <!-- <div> -->
-              <ChartLine ref="myChart" />
-            <!-- </div> -->
-
-            <!-- <div id="myChart" style="width: 600px;height: 400px;"></div> -->
+          <!-- </div> -->
+        </el-col>
+        <el-col :xs="12" :sm="12" :md="12" :lg="5" :xl="5">
+          <!-- <div class="grid-content bg-purple-light"> -->
+          <div class="school">
+            <HeaderTitle name="所在学校/机构" />
+            <div v-if="false">
+              <div class="school-name">福州大学阳光学院</div>
+              <div class="button">
+                <a href="/organization">
+                  <el-button type="primary">查看管理</el-button>
+                </a>
+              </div>
+            </div>
+            <div v-else>
+              <div class="school-name">暂无归属学校/机构</div>
+              <div class="button">
+                <a href="/organization">
+                  <el-button type="primary">加入认证</el-button>
+                </a>
+              </div>
+            </div>
           </div>
           <!-- </div> -->
-        </div>
-      </div>
+        </el-col>
+      </el-row>
+
+    </div>
+
+    <div class="bottom-content">
+      <el-row :gutter="32" class="el-row">
+        <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
+          <div class="recent-course">
+            <HeaderTitle name="最近课程" />
+            <div class="course-content">
+              <div class="empty" v-if="false">
+                <div class="img">
+                  <img src="@/assets/image/home/img_empty_big.svg" alt="" />
+                </div>
+                <div class="text">还未创建任何课程</div>
+                <div class="button">
+                  <el-button type="primary">前往创建</el-button>
+                </div>
+              </div>
+              <div class="course-item" v-for="(item, index) in 6" :key="index" v-else>
+                <div><img src="@/assets/image/home/course_img1.svg" alt="" /></div>
+                <div class="course-message">
+                  <div>大数据科学与技术</div>
+                  <div>所在团队：电信教学团队</div>
+                  <div class="num">
+                    <span>班级个数：1000</span> <span>学生人数：1000</span>
+                    <span>题库题目：1000</span> <span>访问次数：1000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
+          <div class="right-content">
+            <div>
+              <div class="block">
+                <el-carousel trigger="click">
+                  <el-carousel-item v-for="item in 4" :key="item">
+                    <div class="banner">
+                      <img src="@/assets/image/home/course_img1.svg" alt="" />
+                    </div>
+                  </el-carousel-item>
+                </el-carousel>
+              </div>
+            </div>
+            <div class="data">
+              <HeaderTitle name="访问量与平均学习时长" />
+              <div class="chart">
+                <ChartLine ref="myChart" />
+              </div>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+
     </div>
   </div>
 </template>
@@ -142,46 +152,43 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-carousel__container {
-    position: relative;
-    height: 200px;
+  position: relative;
+  height: 2rem;
+}
+.el-row .el-col {
+  margin-top: 0.12rem;
 }
 .body {
-  p {
-    font-size: 14px;
-    color: #666666;
-    margin-bottom: 5px;
-  }
+  // width: 16.2rem !important;
   .top-content {
-    margin-top: 12px;
-    display: flex;
-    width: 100%;
-    height: 240px;
+    height: 2.4rem;
     .shuke-tools {
-      width: 288px;
+      // min-width: 2.88rem;
       // width: 100%;
-      height: 240px;
+      height: 2.4rem;
       background: #fff;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-      border-radius: 8px;
-      margin-left: 64px;
+      box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+      border-radius: 0.08rem;
+      overflow: hidden;
+      // margin-left: 0.64rem;
       .title {
-        margin: 20px;
-        font-size: 20px;
+        margin: 0.2rem;
+        font-size: 0.2rem;
         font-weight: bold;
-        line-height: 34px;
+        line-height: 0.34rem;
         color: #666666;
-        border-left: 8px solid #5592fe;
+        border-left: 0.08rem solid #5592fe;
         .name {
-          margin-left: 12px;
+          margin-left: 0.12rem;
         }
       }
       .big-data {
-        height: 72px;
+        
+        height: 0.72rem;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        font-size: 16px;
-        font-weight: 400;
+        font-size: 0.16rem;
         color: #666666;
         cursor: pointer;
         &:hover .img1 {
@@ -195,15 +202,15 @@ export default {
         .img {
           display: flex;
           align-items: center;
-          margin-left: 15px;
+          margin-left: 0.15rem;
           img {
-            width: 40px;
-            height: 40px;
+            width: 0.4rem;
+            height: 0.4rem;
           }
         }
         .img1 {
-          width: 16px;
-          height: 24px;
+          width: 0.16rem;
+          height: 0.24rem;
           display: flex;
           align-items: center;
           background-image: url(../../../assets/image/home/ic_forward_n.svg) !important;
@@ -216,11 +223,11 @@ export default {
         }
       }
       .shuke-yunpan {
-        height: 72px;
+        height: 0.72rem;
         display: flex;
         align-items: center;
         justify-content: space-around;
-        font-size: 16px;
+        font-size: 0.16rem;
         font-weight: 400;
         cursor: pointer;
         color: #666666;
@@ -229,10 +236,10 @@ export default {
         .img {
           display: flex;
           align-items: center;
-          margin-left: 12px;
+          margin-left: 0.12rem;
           img {
-            width: 40px;
-            height: 40px;
+            width: 0.4rem;
+            height: 0.4rem;
           }
         }
         &:hover .img1 {
@@ -242,11 +249,11 @@ export default {
           background-image: url(../../../assets/image/home/ic_forward_p.svg) !important;
         }
         .img1 {
-          width: 16px;
-          height: 24px;
+          width: 0.16rem;
+          height: 0.24rem;
           display: flex;
           align-items: center;
-          background-image: url(../../../assets/image/home/ic_forward_n.svg)  !important ;
+          background-image: url(../../../assets/image/home/ic_forward_n.svg) !important ;
           background-repeat: no-repeat;
           background-size: cover;
         }
@@ -257,37 +264,38 @@ export default {
       }
     }
     .school {
-      width: 300px;
-      height: 240px;
+      // min-width: 3rem;
+        overflow: hidden;
+      height: 2.4rem;
       background: #fff;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-      border-radius: 8px;
-      margin-left: 32px;
+      box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+      border-radius: 0.08rem;
+      // margin-left: 0.32rem;
       .title {
-        margin: 20px;
-        font-size: 20px;
+        margin: 0.2rem;
+        font-size: 0.2rem;
         font-weight: bold;
-        line-height: 34px;
+        line-height: 0.34rem;
         color: #666666;
-        border-left: 8px solid #5592fe;
+        border-left: 0.08rem solid #5592fe;
         .name {
-          margin-left: 12px;
+          margin-left: 0.12rem;
         }
       }
       .school-name {
-        height: 75px;
+        height: 0.75rem;
         text-align: center;
-        line-height: 75px;
-        font-size: 18px;
+        line-height: 0.75rem;
+        font-size: 0.18rem;
         color: #666666;
       }
       .button {
         text-align: center;
         color: #f4f4f4;
-        margin-top: 5px;
+        margin-top: 0.05rem;
         .el-button {
           background: #2a77ff;
-          box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+          box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
           &:hover {
             background: #5592fe;
           }
@@ -299,35 +307,36 @@ export default {
     }
   }
   .bottom-content {
-    display: flex;
+    // display: flex;
     width: 100%;
-    height: 664px;
-    margin-top: 32px;
+    height: 6.64rem;
+    margin-top: 0.28rem;
     .recent-course {
-      width: 920px;
-      height: 664px;
+        overflow: hidden;
+      // width: 9.2rem;
+      height: 6.64rem;
       background: #ffffff;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-      border-radius: 8px;
+      box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+      border-radius: 0.08rem;
       .title {
-        margin: 20px;
-        font-size: 20px;
+        margin: 0.2rem;
+        font-size: 0.2rem;
         font-weight: bold;
-        line-height: 34px;
+        line-height: 0.34rem;
         color: #666666;
-        border-left: 8px solid #5592fe;
+        border-left: 0.08rem solid #5592fe;
         .name {
-          margin-left: 12px;
+          margin-left: 0.12rem;
         }
       }
       .course-content {
         width: 100%;
-        height: 528px;
+        height: 5.28rem;
         overflow-x: hidden;
         background-color: #ffffff;
         .empty {
-          margin-top: 100px;
-          height: 330px;
+          margin-top: 1rem;
+          height: 3.3rem;
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -335,25 +344,25 @@ export default {
           justify-content: space-between;
           // background-color: #2a77ff;
           .img {
-            width: 300px;
-            height: 191px;
+            width: 3rem;
+            height: 1.91rem;
             img {
-              width: 300px;
-              height: 191px;
+              width: 3rem;
+              height: 1.91rem;
             }
           }
           .text {
-            font-size: 20px;
+            font-size: 0.2rem;
             font-weight: bold;
             color: #999999;
           }
           .button {
-            font-size: 14px;
+            font-size: 0.14rem;
             font-weight: bold;
             color: #f4f4f4;
             .el-button {
               background: #2a77ff;
-              box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+              box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
               &:hover {
                 background: #5592fe;
               }
@@ -366,51 +375,50 @@ export default {
         .course-item {
           display: flex;
           align-items: center;
-          width: 932px;
-          height: 176px;
-          &:hover{
+          width: 9.32rem;
+          height: 1.76rem;
+          &:hover {
             background-color: #fafafa;
           }
-          &:active{
+          &:active {
             background-color: #f4f4f4;
           }
           img {
-            margin-left: 40px;
-            width: 240px;
-            height: 136px;
+            margin-left: 0.4rem;
+            width: 2.4rem;
+            height: 1.36rem;
             background: rgba(0, 0, 0, 0);
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-            border-radius: 8px;
+            box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.16);
+            border-radius: 0.08rem;
             object-fit: cover;
           }
           .course-message {
-            margin-left: 25px;
-            height: 136px;
+            margin-left: 0.25rem;
+            height: 1.36rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             > div:nth-of-type(1) {
-              margin-top: 20px;
-              font-size: 20px;
+              margin-top: 0.2rem;
+              font-size: 0.2rem;
               font-weight: bold;
               color: #333333;
             }
             > div:nth-of-type(2) {
-              font-size: 16px;
+              font-size: 0.16rem;
               color: #666666;
             }
-
             .num {
-              font-size: 12px;
+              font-size: 0.12rem;
               color: #999999;
               span:nth-of-type(2) {
-                margin-left: 30px;
+                margin-left: 0.3rem;
               }
               span:nth-of-type(3) {
-                margin-left: 30px;
+                margin-left: 0.3rem;
               }
               span:nth-of-type(4) {
-                margin-left: 30px;
+                margin-left: 0.3rem;
               }
             }
           }
@@ -418,49 +426,47 @@ export default {
       }
     }
     .right-content {
-      margin-left: 32px;
-      width: 620px;
+      // margin-left: 0.32rem;
+      // width: 6.2rem;
       height: 100%;
       // background-color: #fff;
-      border-radius: 8px;
-       .el-carousel {
-        border-radius: 8px;
+      border-radius: 0.08rem;
+      .el-carousel {
+        border-radius: 0.08rem;
       }
       .el-carousel__item h3 {
         color: #475669;
-        font-size: 14px;
+        font-size: 0.14rem;
         opacity: 0.75;
-        line-height: 150px;
+        line-height: 1.5rem;
         margin: 0;
       }
-
       .banner {
-        width: 620px;
-        height: 300px;
+        // width: 6.2rem;
+        height: 3rem;
         background-color: #2a77ff;
         object-fit: cover;
         img {
-          width: 620px;
-        height: 300px;
+          width: 100%;
+          height: 3rem;
           object-fit: cover;
         }
       }
       .el-carousel__item:nth-child(2n) {
         // background-color: #99a9bf;
       }
-
       .el-carousel__item:nth-child(2n + 1) {
         // background-color: #d3dce6;
       }
       ::v-deep .el-carousel__indicators {
         // position: absolute;
-        // left: 950px;
+        // left: 9.5rem;
         width: 100%;
         display: flex;
         justify-content: flex-end;
         list-style: none;
-        // margin: 300px;
-        padding-right: 60px;
+        // margin: 3rem;
+        padding-right: 0.6rem;
         z-index: 2;
       }
       ::v-deep .el-carousel__indicator.is-active button {
@@ -472,8 +478,8 @@ export default {
         justify-content: flex-end;
         // display: block;
         opacity: 0.48;
-        width: 10px;
-        height: 10px;
+        width: 0.1rem;
+        height: 0.1rem;
         background-color: #fff;
         border: none;
         border-radius: 50%;
@@ -485,12 +491,13 @@ export default {
       }
     }
     .data {
-      width: 620px;
-      height: 432px;
+      // width: 6.2rem;
+        overflow: hidden;
+      height: 4.32rem;
       background: #ffffff;
       opacity: 1;
-      margin-top: 32px;
-      border-radius: 8px;
+      margin-top: 0.28rem;
+      border-radius: 0.08rem;
       // display: flex;
       // overflow: auto;
       // .map {
@@ -499,21 +506,21 @@ export default {
       .title {
         // background-color: #2a77ff;
         width: 100%;
-        // height: 200px;
-        margin: 20px;
-        font-size: 20px;
+        // height: 2rem;
+        margin: 0.2rem;
+        font-size: 0.2rem;
         font-weight: bold;
-        line-height: 34px;
+        line-height: 0.34rem;
         color: #666666;
-        border-left: 8px solid #5592fe;
+        border-left: 0.08rem solid #5592fe;
         .name {
-          margin-left: 12px;
+          margin-left: 0.12rem;
         }
       }
       .chart {
         // background-color: #2a77ff;
       }
-      // }
+      //
     }
   }
 }

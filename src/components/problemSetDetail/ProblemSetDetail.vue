@@ -147,96 +147,87 @@ export default {
 </script>
 <style lang='scss' scoped>
 .body {
-  margin-top: 15px;
+     margin-top: 0.15rem;
 }
-.check {
-  text-align: center;
-  // background-color: red;
-  margin-left: 15px !important;
+ .check {
+     text-align: center;
+     // background-color: red;
+     margin-left: 0.15rem !important;
 }
-.specialColor {
-  font-size: 16px;
-  color: #333333;
-  // width: 1000px !important;
+ .specialColor {
+     font-size: 0.16rem;
+     color: #333333;
+     // width: 10rem !important;
 }
-.CreateColor {
-  font-size: 16px;
-  color: #999999;
+ .CreateColor {
+     font-size: 0.16rem;
+     color: #999999;
 }
-.look {
-  font-size: 16px;
-  color: #5592fe;
+ .look {
+     font-size: 0.16rem;
+     color: #5592fe;
 }
-.delete {
-  margin-left: 35px !important;
-  font-size: 16px;
-  color: #999999;
+ .delete {
+     margin-left: 0.35rem !important;
+     font-size: 0.16rem;
+     color: #999999;
 }
-::v-deep .el-table th > .cell {
-  display: inline-block;
-  box-sizing: border-box;
-  position: relative;
-  vertical-align: middle;
-  padding-left: 10px;
-  padding-right: 10px;
-  // width: 100%;
-  //   width: 40px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333333;
+ ::v-deep .el-table th > .cell {
+     display: inline-block;
+     box-sizing: border-box;
+     position: relative;
+     vertical-align: middle;
+     padding-left: 0.1rem;
+     padding-right: 0.1rem;
+     // width: 100%;
+     // width: 0.4rem;
+     font-size: 0.2rem;
+     font-weight: bold;
+     color: #333333;
 }
-::v-deep .el-table thead {
-  width: 1584px;
-  height: 72px;
-  background: #edeff3;
-  border-radius: 8px 8px 0px 0px;
+ ::v-deep .el-table thead {
+     width: 15.84rem;
+     height: 0.72rem;
+     background: #edeff3;
+     border-radius: 0.08rem 0.08rem 0rem 0rem;
 }
-::v-deep .el-table th,
-.el-table tr {
-  background: #edeff3;
+ ::v-deep .el-table th, .el-table tr {
+     background: #edeff3;
 }
-// ::v-deep .el-checkbox__inner {
-//   
-//   width: 20px;
-//   height: 20px;
-//   text-align: center;
-// }
-::v-deep .el-checkbox__inner {
-  margin-left: 20px;
-  display: inline-block;
-  position: relative;
-  border: 2px solid #999999;
-  border-radius: 2px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  z-index: 1;
-  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+ ::v-deep .el-checkbox__inner {
+     margin-left: 0.2rem;
+     display: inline-block;
+     position: relative;
+     border: 0.02rem solid #999999;
+     border-radius: 0.02rem;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+     width: 0.2rem;
+     height: 0.2rem;
+     background-color: #fff;
+     z-index: 1;
+     -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+     transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46), background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 }
-::v-deep .el-checkbox__inner::after {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  content: "";
-  border-left: 0;
-  border-top: 0;
-  height: 7px;
-  left: 6px;
-  position: absolute;
-  top: 3px;
-  -webkit-transform: rotate(45deg) scaleY(0);
-  transform: rotate(45deg) scaleY(0);
-  width: 15px;
-  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s,
-    -webkit-transform 0.15s ease-in 0.05s;
-  -webkit-transform-origin: center;
-  transform-origin: center;
+ ::v-deep .el-checkbox__inner::after {
+     -webkit-box-sizing: content-box;
+     box-sizing: content-box;
+     content: "";
+     border-left: 0;
+     border-top: 0;
+     height: 0.07rem;
+     left: 0.06rem;
+     position: absolute;
+     top: 0.03rem;
+     -webkit-transform: rotate(45deg) scaleY(0);
+     transform: rotate(45deg) scaleY(0);
+     width: 0.15rem;
+     -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
+     transition: -webkit-transform 0.15s ease-in 0.05s;
+     transition: transform 0.15s ease-in 0.05s;
+     transition: transform 0.15s ease-in 0.05s, -webkit-transform 0.15s ease-in 0.05s;
+     -webkit-transform-origin: center;
+     transform-origin: center;
 }
+ 
 </style>

@@ -105,141 +105,141 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
-  // height: 300px;
+     // height: 3rem;
 }
-::v-deep .el-dialog__title {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 40px;
-  color: #2a77ff;
-  margin-left: 43px;
+ ::v-deep .el-dialog__title {
+     font-size: 0.2rem;
+     font-weight: bold;
+     line-height: 0.4rem;
+     color: #2a77ff;
+     margin-left: 0.43rem;
 }
-h2 {
-  position: absolute;
-  top: 25.8px;
-  color: #000000;
-  font-size: 20px;
+ h2 {
+     position: absolute;
+    top: 0.25rem;
+     color: #000000;
+     font-size: 0.2rem;
 }
-.course-input {
-  font-size: 20px;
-  color: #666666;
-  padding: 10px 0px 10px 0px;
-  width: 100%;
-  border-bottom: 1px solid #e0e0e0 !important;
-  border: none;
+ .course-input {
+     font-size: 0.2rem;
+     color: #666666;
+     padding: 0.1rem 0rem 0.1rem 0rem;
+     width: 100%;
+     border-bottom: 0.01rem solid #e0e0e0 !important;
+     border: none;
 }
-.cancel-button {
-  border: none;
-  background: #fff !important;
-  box-shadow: 0 !important;
-  font-size: 14px;
-  font-weight: bold;
-  color: #666666;
-  margin-right: 15px;
+ .cancel-button {
+     border: none;
+     background: #fff !important;
+     box-shadow: 0 !important;
+     font-size: 0.14rem;
+     font-weight: bold;
+     color: #666666;
+     margin-right: 0.15rem;
 }
-.el-button {
-  margin-top: 40px;
-  background: #2a77ff;
-  // box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
-  &:hover {
-    background: #5592fe;
-  }
-  &:active {
-    background: #2065e0;
-  }
-}
-.delete-text {
-  font-size: 14px;
-  line-height: 2px;
-  color: #666666;
-}
-.course-content {
-  margin-top: -15px;
-  // padding-right: 132px;
-  height: 100%;
-  width: 100%;
-  // width: 90%;
-  // min-height: 1800px;
-  overflow: auto;
-  // background-color: red;
-  display: flex;
-  // align-items: center;
-  // justify-content: space-between;
-  flex-wrap: wrap;
-  // padding-right: 32px;
-  .course-item {
-    width: 291px;
-    height: 180px;
-    margin-top: 30px;
-    // margin-left: 3px;
-    margin-right: 28px;
-    background: #ffffff;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-    // margin-left: 32px;
-    border-radius: 8px;
-    .img {
-      width: 291px;
-      height: 168px;
-      img {
-        width: 291px;
-        height: 168px;
-        background: rgba(0, 0, 0, 0);
-
-        border-radius: 8px;
-      }
+ .el-button {
+     margin-top: 0.4rem;
+     background: #2a77ff;
+     // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+     &:hover {
+         background: #5592fe;
     }
-    .checkbox {
-      position: relative;
-      .el-checkbox {
-        position: absolute;
-        right: 20px;
-        top: 5px;
-        font-size: 20px;
-      }
+     &:active {
+         background: #2065e0;
     }
-    .name {
-      width: 100%;
-      border-left: 7px solid #2a77ff;
-      font-size: 20px;
-      font-weight: bold;
-      line-height: 34px;
-      color: #333333;
-      padding-left: 10px;
-      margin: 20px 15px 20px 0px;
-    }
-    .create {
-      font-size: 16px;
-      line-height: 27px;
-      color: #666666;
-      margin: 15px 15px 10px 20px;
-    }
-    .bottom-message {
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 18px;
-      color: #999999;
-      //   display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 5px 15px 15px 20px;
-      .classnum {
-        margin-top: 15px;
-        font-size: 16px;
-        color: #666666;
-        opacity: 0.8;
-      }
-      .dot-bottom {
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .num {
-          font-size: 12px;
-          color: #999999;
-          margin-right: 35px;
+}
+ .delete-text {
+     font-size: 0.14rem;
+     line-height: 0.02rem;
+     color: #666666;
+}
+ .course-content {
+     margin-top: -0.15rem;
+     // padding-right: 1.32rem;
+     height: 100%;
+     width: 100%;
+     // width: 90%;
+     // min-height: 18rem;
+     overflow: auto;
+     // background-color: red;
+     display: flex;
+     // align-items: center;
+     // justify-content: space-between;
+     flex-wrap: wrap;
+     // padding-right: 0.32rem;
+     .course-item {
+         width: 2.91rem;
+         height: 1.8rem;
+         margin-top: 0.3rem;
+         // margin-left: 0.03rem;
+         margin-right: 0.28rem;
+         background: #ffffff;
+         box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+         // margin-left: 0.32rem;
+         border-radius: 0.08rem;
+         .img {
+             width: 2.91rem;
+             height: 1.68rem;
+             img {
+                 width: 2.91rem;
+                 height: 1.68rem;
+                 background: rgba(0, 0, 0, 0);
+                 border-radius: 0.08rem;
+            }
         }
-      }
+         .checkbox {
+             position: relative;
+             .el-checkbox {
+                 position: absolute;
+                 right: 0.2rem;
+                 top: 0.05rem;
+                 font-size: 0.2rem;
+            }
+        }
+         .name {
+             width: 100%;
+             border-left: 0.07rem solid #2a77ff;
+             font-size: 0.2rem;
+             font-weight: bold;
+             line-height: 0.34rem;
+             color: #333333;
+             padding-left: 0.1rem;
+             margin: 0.2rem 0.15rem 0.2rem 0rem;
+        }
+         .create {
+             font-size: 0.16rem;
+             line-height: 0.27rem;
+             color: #666666;
+             margin: 0.15rem 0.15rem 0.1rem 0.2rem;
+        }
+         .bottom-message {
+             font-size: 0.12rem;
+             font-weight: 400;
+             line-height: 0.18rem;
+             color: #999999;
+             // display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin: 0.05rem 0.15rem 0.15rem 0.2rem;
+             .classnum {
+                 margin-top: 0.15rem;
+                 font-size: 0.16rem;
+                 color: #666666;
+                 opacity: 0.8;
+            }
+             .dot-bottom {
+                 margin-top: 0.1rem;
+                 display: flex;
+                 justify-content: space-between;
+                 align-items: center;
+                 .num {
+                     font-size: 0.12rem;
+                     color: #999999;
+                     margin-right: 0.35rem;
+                }
+            }
+        }
     }
-  }
 }
+ 
 </style>

@@ -80,8 +80,8 @@
           </div>
         </div>
       </el-header>
-      <el-container>
-        <el-aside>
+      <el-container >
+        <el-aside class="hidden-xs-only">
           <el-row class="tac">
             <el-col>
               <el-menu router text-color="#666666" :default-active="activePath" class="el-menu-vertical-demo" @select="handleSelect" @open="handleOpen" @close="handleClose">
@@ -126,6 +126,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import 'element-ui/lib/theme-chalk/display.css';
 
 export default {
   name: "Home",
@@ -187,177 +188,173 @@ export default {
 }
 .selectStyle {
   background: linear-gradient(90deg, #2a77ff 0%, #5592fe 100%);
-  box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
+  box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.16);
   opacity: 1;
-  border-radius: 4px;
+  border-radius: 0.04rem;
   color: #fff !important;
 }
 .el-header {
   background-color: #ffffff;
   color: #333;
   text-align: center;
-  // line-height: 60px;
+  // line-height: 0.6rem;
   width: 100%;
-  height: 64px !important;
+  height: 0.64rem !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px;
-  position: fixed;
-  top: 0;
-  z-index: 9;
+  padding: 0rem;
+  // position: fixed;
+  // top: 0;
+  // z-index: 9;
   .shuke-logo {
-    margin-left: 40px;
+    margin-left: 0.4rem;
     img {
-      width: 176px;
-      height: 36px;
+      width: 1.76rem;
+      height: 0.36rem;
     }
   }
   .right-person {
-    width: 316px;
-    height: 64px;
+    width: 3.16rem;
+    height: 0.64rem;
     background-color: #2a77ff;
     display: flex;
     justify-content: center;
     position: relative;
     .trigon {
-      left: -34px;
+      left: -0.34rem;
       position: absolute;
       width: 0;
       height: 0;
       border-color: #2a77ff transparent;
-      border-width: 0 0 64px 34px;
+      border-width: 0 0 0.64rem 0.34rem;
       border-style: solid;
     }
     .right {
-      width: 220px;
-      margin-left: 20px;
+      width: 2.2rem;
+      margin-left: 0.2rem;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
       .header {
         background-color: #fff;
-        width: 36px;
-        height: 36px;
+        width: 0.36rem;
+        height: 0.36rem;
         // background: rgba(0, 0, 0, 0);
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.16);
         border-radius: 50%;
         img {
         }
       }
-
       .message {
         position: relative;
-        width: 60px;
+        width: 0.6rem;
         img {
-          width: 36px;
-          height: 36px;
+          width: 0.36rem;
+          height: 0.36rem;
         }
       }
     }
     .name {
-      font-size: 20px;
+      font-size: 0.2rem;
       font-family: Source Han Sans CN;
       font-weight: bold;
       color: #ffffff;
-      margin-left: 20px;
+      margin-left: 0.2rem;
     }
   }
 }
 .el-aside {
-  position: fixed;
-  top: 64px;
-  z-index: 9;
+  // position: fixed;
+  // top: 0.64rem;
+  // z-index: 9;
+  position: relative;
   background-color: #fff;
   color: #333;
-  width: 256px !important;
-  height: 1080px;
+  width: 2.56rem !important;
+  height: 10.8rem;
   overflow: hidden;
-  margin-right: 256px !important;
+  // margin-right: 2.56rem !important;
   .tac {
-    width: 257px;
-    margin-top: 26px;
+    // width: 2.57rem;
+    margin-top: 0.26rem;
     .el-menu {
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
       .el-menu-item {
         display: flex;
         align-items: center;
-        margin-top: 12px;
-        font-size: 14px;
+        margin-top: 0.12rem;
+        font-size: 0.14rem;
         font-weight: bold;
         color: #ffffff;
-        border-radius: 4px;
+        border-radius: 0.04rem;
         img {
-          width: 24px;
-          height: 24px;
+          width: 0.24rem;
+          height: 0.24rem;
         }
         span {
-          margin-left: 20px;
+          margin-left: 0.2rem;
         }
       }
       .el-menu-item:hover {
-        border-radius: 4px;
+        border-radius: 0.04rem;
         background-color: #f6f6f6;
       }
     }
   }
   .aside-bottom {
     position: absolute;
-    bottom: 200px;
+    bottom: 2rem;
     display: flex;
     width: 100%;
     justify-content: center;
-    font-size: 14px;
+    font-size: 0.14rem;
     color: #666666;
     > div:nth-of-type(1) {
       cursor: pointer;
     }
     > div:nth-of-type(2) {
-      margin-left: 48px;
+      margin-left: 0.48rem;
       cursor: pointer;
     }
   }
 }
-
 .el-main {
-  height: 100%;
+  height: 100vh;
   overflow-y: auto;
-  width: 100%;
-  margin: 66px 0px 0px 270px;
+  overflow-x: auto;
+  width: 100vw;
+  // background-color: rgb(192, 148, 148);
+  // margin: 0.66rem 0rem 0rem 2.7rem;
 }
-
-body > .el-container {
-}
-
 .el-container:nth-child(5) .el-aside,
 .el-container:nth-child(6) .el-aside {
-  line-height: 260px;
+  line-height: 2.6rem;
 }
-
 .el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+  line-height: 3.2rem;
 }
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  min-height: 400px;
+  min-height: 4rem;
 }
 ::v-deep .el-badge__content {
   background-color: #f56c6c;
-  border-radius: 10px;
+  border-radius: 0.1rem;
   color: #fff;
   display: inline-block;
-  font-size: 12px;
-  height: 18px;
-  line-height: 20px;
-  padding: 0 8px;
+  font-size: 0.12rem;
+  height: 0.18rem;
+  line-height: 0.2rem;
+  padding: 0 0.08rem;
   text-align: center;
   white-space: nowrap;
   border: none;
 }
 ::v-deep .el-badge__content.is-fixed {
   position: absolute;
-  top: 5px;
-  right: 13px;
+  top: 0.05rem;
+  right: 0.13rem;
   transform: translateY(-50%) translateX(100%);
 }
 .el-dropdown-link {
@@ -365,28 +362,28 @@ body > .el-container {
   // color: #409eff;
 }
 .el-icon-arrow-down {
-  font-size: 12px;
+  font-size: 0.12rem;
 }
 .demonstration {
   display: block;
   color: #8492a6;
-  font-size: 14px;
-  margin-bottom: 20px;
+  font-size: 0.14rem;
+  margin-bottom: 0.2rem;
 }
 .el-dropdown-menu {
   position: relative;
   top: 0;
   left: 0;
   z-index: 10;
-  padding: 10px 0;
-  margin: 5px 0;
+  padding: 0.1rem 0;
+  margin: 0.05rem 0;
   background-color: #fff;
   border: 1px solid #ebeef5;
-  border-radius: 4px;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.16);
+  border-radius: 0.04rem;
+  box-shadow: 0rem 0.03rem 0.04rem rgba(0, 0, 0, 0.16);
   .notices {
-    width: 460px;
-    height: 536px;
+    width: 4.6rem;
+    height: 5.36rem;
     position: relative;
     .time-img {
       &:hover .img1 {
@@ -398,10 +395,10 @@ body > .el-container {
       .img1 {
         position: absolute;
         z-index: 98;
-        right: 40px;
-        top: 12px;
-        width: 20px;
-        height: 20px;
+        right: 0.4rem;
+        top: 0.12rem;
+        width: 0.2rem;
+        height: 0.2rem;
         display: flex;
         align-items: center;
         background-image: url(../assets/image/home/topbar_notice_history_n.svg) !important ;
@@ -412,9 +409,8 @@ body > .el-container {
     }
   }
 }
-
 .el-tabs {
-  padding-left: 30px;
+  padding-left: 0.3rem;
 }
 ::v-deep .el-tabs__nav-wrap::after {
   content: "";
@@ -422,7 +418,7 @@ body > .el-container {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 0px;
+  height: 0rem;
   background-color: #e4e7ed;
   z-index: 1;
 }
@@ -430,63 +426,61 @@ body > .el-container {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 4px;
+  height: 0.04rem;
   background-color: #5592fe;
   z-index: 1;
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  width: 50px;
+  width: 0.5rem;
   list-style: none;
 }
 ::v-deep .el-tabs__item.is-active {
-  font-size: 16px;
+  font-size: 0.16rem;
   color: #5592fe;
 }
 ::v-deep .el-tabs__item {
-  padding: 0 20px;
-  height: 40px;
+  padding: 0 0.2rem;
+  height: 0.4rem;
   box-sizing: border-box;
-  line-height: 40px;
+  line-height: 0.4rem;
   display: inline-block;
   list-style: none;
-  font-size: 16px;
+  font-size: 0.16rem;
   color: #666666;
   position: relative;
 }
-//消息内容
 .notice-message {
-  height: 495px;
+  height: 4.95rem;
   width: 100%;
   overflow: auto;
-  padding-right: 30px;
+  padding-right: 0.3rem;
   .notice {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px;
+    height: 0.7rem;
     .left-item {
       display: flex;
       align-items: center;
       .img {
-        width: 15px;
-        height: 15px;
+        width: 0.15rem;
+        height: 0.15rem;
         // background-color: #2a77ff;
         img {
-          width: 15px;
-          height: 15px;
+          width: 0.15rem;
+          height: 0.15rem;
         }
       }
       .info {
-        width: 254px;
-        font-size: 14px;
+        width: 2.54rem;
+        font-size: 0.14rem;
         font-weight: 400;
         color: #333334;
-        margin-left: 15px;
+        margin-left: 0.15rem;
       }
     }
-
     .time {
-      width: 60px;
-      font-size: 14px;
+      width: 0.6rem;
+      font-size: 0.14rem;
       color: #c3c3c3;
     }
   }

@@ -24,7 +24,7 @@
 import Dot from "@/components/dot/Dot.vue";
 export default {
   components: {
-      Dot
+    Dot,
   },
   data() {
     return {};
@@ -37,64 +37,89 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-::v-deep .el-icon-arrow-right:before {
-  background-image: url(../../assets/image/course/right.svg);
-  background-repeat: no-repeat;
-  background-size: 28px;
-  position: relative;
-  right: 500px;
-  bottom: 3px;
-  content: "\e6e";
-  border: none;
-}
-::v-deep .el-collapse-item__arrow.is-active {
-  bottom: 3px;
-  -webkit-transform: rotate(0);
-  transform: rotate(0);
-  background-image: url(../../assets/image/course/bottom.svg);
-  background-repeat: no-repeat;
-  background-size: 28px;
-  position: relative;
-  right: 500px;
-  content: "\e6e";
-}
+// ::v-deep .el-icon-arrow-right:before {
+//   background-image: url(../../assets/image/course/right.svg);
+//   background-repeat: no-repeat;
+//   background-size: 0.28rem;
+//   position: relative;
+//   right: 5rem;
+//   bottom: 0.03rem;
+//   content: "\e6e";
+//   border: none;
+// }
+// ::v-deep .el-collapse-item__arrow.is-active {
+//   bottom: 0.03rem;
+//   -webkit-transform: rotate(0);
+//   transform: rotate(0);
+//   background-image: url(../../assets/image/course/bottom.svg);
+//   background-repeat: no-repeat;
+//   background-size: 0.28rem;
+//   position: relative;
+//   right: 5rem;
+//   content: "\e6e";
+// }
+
 .el-collapse-item {
   position: relative;
+  ::v-deep .el-icon-arrow-right:before {
+    background-image: url(../../assets/image/course/right.svg);
+    background-repeat: no-repeat;
+    background-size: 0.28rem;
+    position: absolute;
+    left: 15px;
+    bottom: 24px;
+    content: "\e6e";
+    border: none;
+    transition: all 10s;
+  }
+  ::v-deep .el-collapse-item__arrow.is-active {
+    // bottom: 0.03rem;
+    -webkit-transform: rotate(90);
+    transform: rotate(90);
+    background-image: url(../../assets/image/course/bottom.svg) !important;
+    background-repeat: no-repeat;
+    background-size: 0.28rem;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    content: "\e6e";
+    transition: all 0s;
+  }
   .dot {
     position: absolute;
-    right: 20px;
-    top: 15px;
+    right: 0.2rem;
+    top: 0.15rem;
     // background-color: rgba(151, 3, 250, 1);
   }
 }
 .course-outline {
-  width: 578px;
-  height: 420px;
+  width: 100%;
+  height: 4.2rem;
   overflow-x: hidden;
   margin: 0 auto;
   .outline-item {
-    width: 578px;
+    width: 5.78rem;
     background: #ffffff;
-    padding: 24px 30px 0px 30px;
-    font-size: 16px;
-    line-height: 27px;
+    padding: 0.24rem 0.3rem 0rem 0.3rem;
+    font-size: 0.16rem;
+    line-height: 0.27rem;
     color: #666666;
   }
 }
 ::v-deep .el-collapse-item__header {
   display: flex;
   align-items: center;
-  line-height: 60px;
+  line-height: 0.6rem;
   cursor: pointer;
   transition: border-bottom-color 0.3s;
   outline: 0;
-  width: 578px;
-  height: 60px;
+  width: 100%;
+  height: 0.6rem;
   background: #f6f6f8;
-  font-size: 20px;
+  font-size: 0.2rem;
   color: #333333;
-  padding-left: 65px;
+  padding-left: 0.65rem;
   border: none;
-  padding-right: 30px;
+  padding-right: 0.3rem;
 }
 </style>

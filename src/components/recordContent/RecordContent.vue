@@ -117,126 +117,125 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
-  // height: 300px;
+     // height: 3rem;
 }
-::v-deep .el-dialog__title {
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 40px;
-  color: #2a77ff;
-  margin-left: 43px;
+ ::v-deep .el-dialog__title {
+     font-size: 0.2rem;
+     font-weight: bold;
+     line-height: 0.4rem;
+     color: #2a77ff;
+     margin-left: 0.43rem;
 }
-h2 {
-  position: absolute;
-  top: 25.8px;
-  color: #000000;
-  font-size: 20px;
+ h2 {
+     position: absolute;
+     top: 25.8rem;
+     color: #000000;
+     font-size: 0.2rem;
 }
-.course-input {
-  font-size: 20px;
-  color: #666666;
-  padding: 10px 0px 10px 0px;
-  width: 100%;
-  border-bottom: 1px solid #e0e0e0 !important;
-  border: none;
+ .course-input {
+     font-size: 0.2rem;
+     color: #666666;
+     padding: 0.1rem 0rem 0.1rem 0rem;
+     width: 100%;
+     border-bottom: 0.01rem solid #e0e0e0 !important;
+     border: none;
 }
-.cancel-button {
-  border: none;
-  background: #fff !important;
-  box-shadow: 0 !important;
-  font-size: 14px;
-  font-weight: bold;
-  color: #666666;
-  margin-right: 15px;
+ .cancel-button {
+     border: none;
+     background: #fff !important;
+     box-shadow: 0 !important;
+     font-size: 0.14rem;
+     font-weight: bold;
+     color: #666666;
+     margin-right: 0.15rem;
 }
-.el-button {
-  margin-top: 40px;
-  background: #2a77ff;
-  // box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
-  &:hover {
-    background: #5592fe;
-  }
-  &:active {
-    background: #2065e0;
-  }
-}
-.delete-text {
-  font-size: 14px;
-  line-height: 2px;
-  color: #666666;
-}
-.course-content {
-  margin-top: -15px;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  display: flex;
-  flex-wrap: wrap;
-  .course-item {
-    width: 291px;
-    height: 373px;
-    margin-top: 30px;
-    margin-right: 29px;
-    background: #ffffff;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-    position: relative;
-    .button {
-      position: absolute;
-      bottom: 20px;
-      left: 15px;
+ .el-button {
+     margin-top: 0.4rem;
+     background: #2a77ff;
+     // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+     &:hover {
+         background: #5592fe;
     }
-    .dot3 {
-      position: absolute;
-      right: 12px;
-      bottom: 25px;
+     &:active {
+         background: #2065e0;
     }
-
-    .img {
-      width: 291px;
-      height: 168px;
-      img {
-        width: 291px;
-        height: 168px;
-        background: rgba(0, 0, 0, 0);
-        border-radius: 8px;
-      }
-    }
-    .checkbox {
-      position: relative;
-      .el-checkbox {
-        position: absolute;
-        right: 20px;
-        top: 5px;
-        font-size: 20px;
-      }
-    }
-    .name {
-      font-size: 20px;
-      font-weight: bold;
-      line-height: 34px;
-      color: #333333;
-      margin: 15px 15px 20px 15px;
-    }
-    .create {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 27px;
-      color: #666666;
-      margin: 15px 15px 10px 15px;
-    }
-    .bottom-message {
-      font-size: 12px;
-      line-height: 18px;
-      color: #999999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 5px 15px 15px 15px;
-
-      .num {
-        margin-right: 35px;
-      }
-    }
-  }
 }
+ .delete-text {
+     font-size: 0.14rem;
+     line-height: 0.02rem;
+     color: #666666;
+}
+ .course-content {
+     margin-top: -0.15rem;
+     height: 100%;
+     width: 100%;
+     overflow: auto;
+     display: flex;
+     flex-wrap: wrap;
+     .course-item {
+         width: 2.91rem;
+         height: 3.73rem;
+         margin-top: 0.3rem;
+         margin-right: 0.29rem;
+         background: #ffffff;
+         box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+         position: relative;
+         .button {
+             position: absolute;
+             bottom: 0.2rem;
+             left: 0.15rem;
+        }
+         .dot3 {
+             position: absolute;
+             right: 0.12rem;
+             bottom: 0.25rem;
+        }
+         .img {
+             width: 2.91rem;
+             height: 1.68rem;
+             img {
+                 width: 2.91rem;
+                 height: 1.68rem;
+                 background: rgba(0, 0, 0, 0);
+                 border-radius: 0.08rem;
+            }
+        }
+         .checkbox {
+             position: relative;
+             .el-checkbox {
+                 position: absolute;
+                 right: 0.2rem;
+                 top: 0.05rem;
+                 font-size: 0.2rem;
+            }
+        }
+         .name {
+             font-size: 0.2rem;
+             font-weight: bold;
+             line-height: 0.34rem;
+             color: #333333;
+             margin: 0.15rem 0.15rem 0.2rem 0.15rem;
+        }
+         .create {
+             font-size: 0.16rem;
+             font-weight: 400;
+             line-height: 0.27rem;
+             color: #666666;
+             margin: 0.15rem 0.15rem 0.1rem 0.15rem;
+        }
+         .bottom-message {
+             font-size: 0.12rem;
+             line-height: 0.18rem;
+             color: #999999;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             margin: 0.05rem 0.15rem 0.15rem 0.15rem;
+             .num {
+                 margin-right: 0.35rem;
+            }
+        }
+    }
+}
+ 
 </style>
