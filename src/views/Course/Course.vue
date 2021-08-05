@@ -194,6 +194,7 @@ h2 {
   box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
+  position: relative;
   .title {
     // background-color: #2a77ff;
     width: 100%;

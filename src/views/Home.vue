@@ -28,7 +28,11 @@
               <el-dropdown trigger="click" placement="bottom-end">
                 <span class="el-dropdown-link">
                   <el-badge :value="12" class="item">
-                    <img src="@/assets/image/home/topbar_notice.svg" alt="" @click="isNoticF()" />
+                    <img
+                      src="@/assets/image/home/topbar_notice.svg"
+                      alt=""
+                      @click="isNoticF()"
+                    />
                   </el-badge>
                 </span>
                 <el-dropdown-menu slot="dropdown">
@@ -37,15 +41,25 @@
                       <a href="/allNotice">
                         <div class="img1"></div>
                       </a>
-
                     </div>
-                    <el-tabs value="first" @tab-click="handleClick" v-if="isNotic">
+                    <el-tabs
+                      value="first"
+                      @tab-click="handleClick"
+                      v-if="isNotic"
+                    >
                       <el-tab-pane label="用户管理" name="first">
                         <div class="notice-message">
-                          <div class="notice" v-for="(item, index) in 10" :key="index">
+                          <div
+                            class="notice"
+                            v-for="(item, index) in 10"
+                            :key="index"
+                          >
                             <div class="left-item">
                               <div class="img">
-                                <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
+                                <img
+                                  src="@/assets/image/home/topbar_notice_label.svg"
+                                  alt=""
+                                />
                               </div>
                               <div class="info">
                                 陈小平 提醒您修改 课程:UI设计 标设计
@@ -58,10 +72,17 @@
                       </el-tab-pane>
                       <el-tab-pane label="配置管理" name="second">
                         <div class="notice-message">
-                          <div class="notice" v-for="(item, index) in 0" :key="index">
+                          <div
+                            class="notice"
+                            v-for="(item, index) in 0"
+                            :key="index"
+                          >
                             <div class="left-item">
                               <div class="img">
-                                <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
+                                <img
+                                  src="@/assets/image/home/topbar_notice_label.svg"
+                                  alt=""
+                                />
                               </div>
                               <div class="info">
                                 陈小平 提醒您修改 课程:UI设计 标设计
@@ -80,31 +101,87 @@
           </div>
         </div>
       </el-header>
-      <el-container >
+      <el-container>
         <el-aside class="hidden-xs-only">
           <el-row class="tac">
             <el-col>
-              <el-menu router text-color="#666666" :default-active="activePath" class="el-menu-vertical-demo" @select="handleSelect" @open="handleOpen" @close="handleClose">
-                <el-menu-item @click="saveNavState('/main')" index="/main" :class="selectIndex == '/main' ? 'selectStyle' : ''">
-                  <img v-if="selectIndex == '/main'" src="@/assets/image/leftbar/leftbar_home_s.svg" alt="" />
-                  <img v-else src="@/assets/image/leftbar/leftbar_home_n.svg" alt="" />
+              <el-menu
+                router
+                text-color="#666666"
+                :default-active="activePath"
+                class="el-menu-vertical-demo"
+                @select="handleSelect"
+                @open="handleOpen"
+                @close="handleClose"
+              >
+                <el-menu-item
+                  @click="saveNavState('/main')"
+                  index="/main"
+                  :class="selectIndex == '/main' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/main'"
+                    src="@/assets/image/leftbar/leftbar_home_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_home_n.svg"
+                    alt=""
+                  />
                   <!-- <i class="el-icon-menu"></i> -->
                   <span>首页</span>
                 </el-menu-item>
 
-                <el-menu-item @click="saveNavState('/course')" index="/course" :class="selectIndex == '/course' ? 'selectStyle' : ''">
-                  <img v-if="selectIndex == '/course'" src="@/assets/image/leftbar/leftbar_course_s.svg" alt="" />
-                  <img v-else src="@/assets/image/leftbar/leftbar_course_n.svg" alt="" />
+                <el-menu-item
+                  @click="saveNavState('/course')"
+                  index="/course"
+                  :class="selectIndex == '/course' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/course'"
+                    src="@/assets/image/leftbar/leftbar_course_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_course_n.svg"
+                    alt=""
+                  />
                   <span>课程</span>
                 </el-menu-item>
-                <el-menu-item @click="saveNavState('/recordVideo')" index="/recordVideo" :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''">
-                  <img v-if="selectIndex == '/recordVideo'" src="@/assets/image/leftbar/leftbar_recordvideo_s.svg" alt="" />
-                  <img v-else src="@/assets/image/leftbar/leftbar_recordvideo_n.svg" alt="" />
+                <el-menu-item
+                  @click="saveNavState('/recordVideo')"
+                  index="/recordVideo"
+                  :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/recordVideo'"
+                    src="@/assets/image/leftbar/leftbar_recordvideo_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_recordvideo_n.svg"
+                    alt=""
+                  />
                   <span>录播资源</span>
                 </el-menu-item>
-                <el-menu-item @click="saveNavState('/recovery')" index="/recovery" :class="selectIndex == '/recovery' ? 'selectStyle' : ''">
-                  <img v-if="selectIndex == '/recovery'" src="@/assets/image/leftbar/leftbar_recovery_s.svg" alt="" />
-                  <img v-else src="@/assets/image/leftbar/leftbar_recovery_n.svg" alt="" />
+                <el-menu-item
+                  @click="saveNavState('/recovery')"
+                  index="/recovery"
+                  :class="selectIndex == '/recovery' ? 'selectStyle' : ''"
+                >
+                  <img
+                    v-if="selectIndex == '/recovery'"
+                    src="@/assets/image/leftbar/leftbar_recovery_s.svg"
+                    alt=""
+                  />
+                  <img
+                    v-else
+                    src="@/assets/image/leftbar/leftbar_recovery_n.svg"
+                    alt=""
+                  />
                   <span>课程回收站</span>
                 </el-menu-item>
               </el-menu>
@@ -126,7 +203,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
-import 'element-ui/lib/theme-chalk/display.css';
+import "element-ui/lib/theme-chalk/display.css";
 
 export default {
   name: "Home",
@@ -209,6 +286,9 @@ export default {
   // z-index: 9;
   .shuke-logo {
     margin-left: 0.4rem;
+
+    display: flex;
+    align-items: center;
     img {
       width: 1.76rem;
       height: 0.36rem;
@@ -243,12 +323,16 @@ export default {
         // background: rgba(0, 0, 0, 0);
         box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.16);
         border-radius: 50%;
+        display: flex;
+        align-items: center;
         img {
         }
       }
       .message {
         position: relative;
         width: 0.6rem;
+        display: flex;
+        align-items: center;
         img {
           width: 0.36rem;
           height: 0.36rem;
@@ -411,6 +495,24 @@ export default {
 }
 .el-tabs {
   padding-left: 0.3rem;
+  
+}
+ ::v-deep  .el-tabs__nav {
+    white-space: nowrap;
+    position: relative;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+    float: left;
+    z-index: 2;
+    display: flex;
+}
+ ::v-deep .el-tabs__header {
+    padding: 0;
+    position: relative;
+    margin: 0;
+    
 }
 ::v-deep .el-tabs__nav-wrap::after {
   content: "";
@@ -421,6 +523,7 @@ export default {
   height: 0rem;
   background-color: #e4e7ed;
   z-index: 1;
+  
 }
 ::v-deep .el-tabs__active-bar {
   position: absolute;
@@ -453,6 +556,7 @@ export default {
   width: 100%;
   overflow: auto;
   padding-right: 0.3rem;
+  
   .notice {
     display: flex;
     align-items: center;
@@ -462,6 +566,8 @@ export default {
       display: flex;
       align-items: center;
       .img {
+         display: flex;
+          align-items: center;
         width: 0.15rem;
         height: 0.15rem;
         // background-color: #2a77ff;

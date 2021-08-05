@@ -53,6 +53,24 @@ export default {
      height: 100%;
      position: relative;
      // background-color: rgb(175, 139, 139);
+    
+}
+ ::v-deep  .el-tabs__nav {
+    white-space: nowrap;
+    position: relative;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+    float: left;
+    z-index: 2;
+    display: flex;
+}
+ ::v-deep .el-tabs__header {
+    padding: 0;
+    position: relative;
+    margin: 0;
+    
 }
  ::v-deep .el-tabs__nav-wrap::after {
      content: "";
@@ -63,6 +81,7 @@ export default {
      height: 0rem;
      background-color: #e4e7ed;
      z-index: 1;
+     
 }
  ::v-deep .el-tabs__active-bar {
      position: absolute;
@@ -74,6 +93,7 @@ export default {
      transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
      width: 0.5rem;
      list-style: none;
+     
 }
  ::v-deep .el-tabs__item.is-active {
      font-size: 0.2rem;
@@ -91,6 +111,7 @@ export default {
      font-size: 0.2rem;
      font-weight: bold;
      color: #c3c3c3;
+     
 }
  
 </style>

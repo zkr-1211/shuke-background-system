@@ -1,8 +1,6 @@
 <!--  -->
 <template>
-
   <div class="body">
-
     <div class="breadcrumb">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
@@ -32,7 +30,10 @@
             </div>
             <div class="shuke-yunpan">
               <div class="img">
-                <img src="@/assets/image/home/icon_home_networkdisk.svg" alt="" />
+                <img
+                  src="@/assets/image/home/icon_home_networkdisk.svg"
+                  alt=""
+                />
               </div>
               <div class="name">树课云盘</div>
               <div class="img1">
@@ -66,7 +67,6 @@
           <!-- </div> -->
         </el-col>
       </el-row>
-
     </div>
 
     <div class="bottom-content">
@@ -84,8 +84,15 @@
                   <el-button type="primary">前往创建</el-button>
                 </div>
               </div>
-              <div class="course-item" v-for="(item, index) in 6" :key="index" v-else>
-                <div><img src="@/assets/image/home/course_img1.svg" alt="" /></div>
+              <div
+                class="course-item"
+                v-for="(item, index) in 6"
+                :key="index"
+                v-else
+              >
+                <div>
+                  <img src="@/assets/image/home/course_img1.svg" alt="" />
+                </div>
                 <div class="course-message">
                   <div>大数据科学与技术</div>
                   <div>所在团队：电信教学团队</div>
@@ -120,7 +127,6 @@
           </div>
         </el-col>
       </el-row>
-
     </div>
   </div>
 </template>
@@ -183,7 +189,6 @@ export default {
         }
       }
       .big-data {
-        
         height: 0.72rem;
         display: flex;
         align-items: center;
@@ -265,17 +270,17 @@ export default {
     }
     .school {
       // min-width: 3rem;
-        overflow: hidden;
+      overflow: hidden;
       height: 2.4rem;
       background: #fff;
       box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
       border-radius: 0.08rem;
       // margin-left: 0.32rem;
       .title {
-        margin: 0.2rem;
-        font-size: 0.2rem;
+        // margin: 0.2rem;
+        // font-size: 0.2rem;
         font-weight: bold;
-        line-height: 0.34rem;
+        // line-height: 0.34rem;
         color: #666666;
         border-left: 0.08rem solid #5592fe;
         .name {
@@ -283,16 +288,20 @@ export default {
         }
       }
       .school-name {
-        height: 0.75rem;
+        // height: 0.75rem;
         text-align: center;
-        line-height: 0.75rem;
+        // line-height: 0.75rem;
         font-size: 0.18rem;
         color: #666666;
+        //  margin-top: 0.15rem;
       }
       .button {
         text-align: center;
         color: #f4f4f4;
-        margin-top: 0.05rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 0.8rem;
         .el-button {
           background: #2a77ff;
           box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
@@ -312,7 +321,7 @@ export default {
     height: 6.64rem;
     margin-top: 0.28rem;
     .recent-course {
-        overflow: hidden;
+      overflow: hidden;
       // width: 9.2rem;
       height: 6.64rem;
       background: #ffffff;
@@ -384,6 +393,8 @@ export default {
             background-color: #f4f4f4;
           }
           img {
+             display: flex;
+          align-items: center;
             margin-left: 0.4rem;
             width: 2.4rem;
             height: 1.36rem;
@@ -492,7 +503,7 @@ export default {
     }
     .data {
       // width: 6.2rem;
-        overflow: hidden;
+      overflow: hidden;
       height: 4.32rem;
       background: #ffffff;
       opacity: 1;

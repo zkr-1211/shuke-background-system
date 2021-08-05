@@ -128,6 +128,8 @@ export default {
       .img {
         width: 0.6rem;
         height: 0.6rem;
+        display: flex;
+        align-items: center;
         // background: #5592fe;
         border-radius: 50%;
         img {
