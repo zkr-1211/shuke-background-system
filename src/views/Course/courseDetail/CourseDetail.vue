@@ -440,6 +440,8 @@ export default {
              // width: 2.14rem;
              position: relative;
              height: 100%;
+             display: flex;
+            //  align-items: center;
              img {
                  border-radius: 0.08rem;
                  // width: 2.14rem;

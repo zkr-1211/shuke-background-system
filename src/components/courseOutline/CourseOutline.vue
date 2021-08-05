@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class='body'>
+  <div class="body">
     <div class="course-outline">
       <el-collapse v-model="activeName" accordion @change="changeCollapse">
         <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
@@ -11,7 +11,11 @@
             </div>
           </template>
 
-          <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
+          <div
+            class="outline-item"
+            v-for="(item1, index1) in item"
+            :key="index1"
+          >
             第一节：什么是web程序应用
           </div>
         </el-collapse-item>
@@ -58,33 +62,18 @@ export default {
 //   right: 5rem;
 //   content: "\e6e";
 // }
-
+::v-deep .el-collapse-item__wrap {
+  will-change: height;
+  background-color: #fff;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: none;
+}
 .el-collapse-item {
-  position: relative;
-  ::v-deep .el-icon-arrow-right:before {
-    background-image: url(../../assets/image/course/right.svg);
-    background-repeat: no-repeat;
-    background-size: 0.28rem;
-    position: absolute;
-    left: 15px;
-    bottom: 24px;
-    content: "\e6e";
-    border: none;
-    transition: all 10s;
-  }
-  ::v-deep .el-collapse-item__arrow.is-active {
-    // bottom: 0.03rem;
-    -webkit-transform: rotate(90);
-    transform: rotate(90);
-    background-image: url(../../assets/image/course/bottom.svg) !important;
-    background-repeat: no-repeat;
-    background-size: 0.28rem;
-    position: absolute;
-    left: 0px;
-    top: 0;
-    content: "\e6e";
-    transition: all 0s;
-  }
+  overflow: hidden;
+  transition: all 0s;
+
   .dot {
     position: absolute;
     right: 0.2rem;
@@ -97,6 +86,7 @@ export default {
   height: 4.2rem;
   overflow-x: hidden;
   margin: 0 auto;
+
   .outline-item {
     width: 5.78rem;
     background: #ffffff;
@@ -121,5 +111,30 @@ export default {
   padding-left: 0.65rem;
   border: none;
   padding-right: 0.3rem;
+  position: relative;
+}
+::v-deep .el-icon-arrow-right:before {
+  background-image: url(../../assets/image/course/right.svg);
+  background-repeat: no-repeat;
+  background-size: 0.28rem;
+  position: absolute;
+  left: 15px;
+  bottom: 24px;
+  content: "\e6e";
+  border: none;
+}
+::v-deep .el-collapse-item__arrow.is-active {
+  // bottom: 0.03rem;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  -webkit-transform: none;
+  transform: none;
+  background-repeat: no-repeat;
+  background-size: 0.28rem;
+  content: "\e6e";
+}
+::v-deep .el-collapse-item__arrow.is-active:before {
+  background-image: url(../../assets/image/course/bottom.svg) !important;
 }
 </style>

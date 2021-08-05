@@ -393,8 +393,8 @@ export default {
             background-color: #f4f4f4;
           }
           img {
-             display: flex;
-          align-items: center;
+            display: flex;
+            align-items: center;
             margin-left: 0.4rem;
             width: 2.4rem;
             height: 1.36rem;

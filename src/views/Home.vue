@@ -286,7 +286,6 @@ export default {
   // z-index: 9;
   .shuke-logo {
     margin-left: 0.4rem;
-
     display: flex;
     align-items: center;
     img {
@@ -331,6 +330,7 @@ export default {
       .message {
         position: relative;
         width: 0.6rem;
+        height: 0.64rem;
         display: flex;
         align-items: center;
         img {
@@ -495,24 +495,22 @@ export default {
 }
 .el-tabs {
   padding-left: 0.3rem;
-  
 }
- ::v-deep  .el-tabs__nav {
-    white-space: nowrap;
-    position: relative;
-    -webkit-transition: -webkit-transform .3s;
-    transition: -webkit-transform .3s;
-    transition: transform .3s;
-    transition: transform .3s,-webkit-transform .3s;
-    float: left;
-    z-index: 2;
-    display: flex;
+::v-deep .el-tabs__nav {
+  white-space: nowrap;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  float: left;
+  z-index: 2;
+  display: flex;
 }
- ::v-deep .el-tabs__header {
-    padding: 0;
-    position: relative;
-    margin: 0;
-    
+::v-deep .el-tabs__header {
+  padding: 0;
+  position: relative;
+  margin: 0;
 }
 ::v-deep .el-tabs__nav-wrap::after {
   content: "";
@@ -523,7 +521,6 @@ export default {
   height: 0rem;
   background-color: #e4e7ed;
   z-index: 1;
-  
 }
 ::v-deep .el-tabs__active-bar {
   position: absolute;
@@ -556,7 +553,7 @@ export default {
   width: 100%;
   overflow: auto;
   padding-right: 0.3rem;
-  
+
   .notice {
     display: flex;
     align-items: center;
@@ -566,8 +563,8 @@ export default {
       display: flex;
       align-items: center;
       .img {
-         display: flex;
-          align-items: center;
+        display: flex;
+        align-items: center;
         width: 0.15rem;
         height: 0.15rem;
         // background-color: #2a77ff;
