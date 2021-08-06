@@ -1,51 +1,29 @@
 <!--  -->
 <template>
   <div class="body">
-    <p>课程</p>
-    <div class="top-bar">
-      <div class="title">
-        <div class="name">回收站</div>
-      </div>
-      <div class="button" @click="dialogVisible2 = true">
-        <Button name="清空全部" />
-        <Button name="恢复选中" class="Button" />
-      </div>
-    </div>
-    <div class="navigation">
-      <div>
-        <Tabs :tabList="tabList" @tabsIndex="tabsIndex" />
-        <div class="empty" v-if="false">
-          <div class="img">
-            <img src="@/assets/image/home/img_empty_big.svg" alt="" />
-          </div>
-          <div class="text">还未创建任何课程</div>
-          <div class="button">
-            <el-button type="primary">前往创建</el-button>
-          </div>
-        </div>
-        <ProblemSetDetail v-if="tabIndex == 0" />
-        <ProblemSet v-if="tabIndex == 1" :isCheckBox="true"/>
-        <CourseContent v-if="tabIndex == 2" :isCheckBox="true" />
-      </div>
-      <div class="right-search">
-        <div></div>
-        <el-dropdown trigger="click" placement="bottom-end">
-          <span class="el-dropdown-link">
-            <div></div>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>A</el-dropdown-item>
-            <el-dropdown-item>Z</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-        <div>
-          <input type="text" placeholder="搜索你想要的班级" />
-          <i class="el-icon-search"></i>
-        </div>
-      </div>
+    <div class="breadcrumb">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/main' }">课程</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
 
+    <el-row :gutter="32" class="el-row">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <div class="top-bar">
+          <HeaderTitle name="回收站" />
+          <div class="button" @click="dialogVisible2 = true">
+            <Button name="清空全部" />
+            <Button name="恢复选中" class="Button" />
+          </div>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" />
+      </el-col>
+    </el-row>
+    <ProblemSetDetail v-if="tabIndex == 0" />
+    <ProblemSet v-if="tabIndex == 1" :isCheckBox="true" />
+    <CourseContent v-if="tabIndex == 2" :isCheckBox="true" />
     <!-- 创建课程 -->
     <el-dialog
       title=""
@@ -69,8 +47,9 @@
 </template>
 
 <script>
-import Tabs from "@/components/tabs/Tabs.vue";
+import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 import Button from "@/components/button/Button.vue";
+import Navigation from "@/components/navigation/Navigation.vue";
 import RecordContent from "@/components/recordContent/RecordContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
 import WorkContent from "@/components/workContent/WorkContent.vue";
@@ -78,8 +57,9 @@ import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
 export default {
   components: {
-    Tabs,
+    HeaderTitle,
     Button,
+    Navigation,
     RecordContent,
     ProblemSet,
     WorkContent,
@@ -117,80 +97,44 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-::v-deep .el-checkbox__inner {
-  display: inline-block;
-  position: relative;
-  border: 2px solid #999999;
-  border-radius: 2px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  z-index: 1;
-  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-}
-::v-deep .el-checkbox__inner::after {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  content: "";
-  border-left: 0;
-  border-top: 0;
-  height: 7px;
-  left: 6px;
-  position: absolute;
-  top: 2px;
-  -webkit-transform: rotate(45deg) scaleY(0);
-  transform: rotate(45deg) scaleY(0);
-  width: 0.015625rem;
-  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s,
-    -webkit-transform 0.15s ease-in 0.05s;
-  -webkit-transform-origin: center;
-  transform-origin: center;
-}
 ::v-deep .el-dialog {
-  // height: 300px;
+  // height: 3rem;
+  line-height: 0rem;
 }
 ::v-deep .el-dialog__title {
-  font-size: 20px;
+  font-size: 0.2rem;
   font-weight: bold;
-  line-height: 40px;
+  line-height: 0.4rem;
   color: #2a77ff;
-  margin-left: 43px;
+  margin-left: 0.43rem;
 }
 h2 {
   position: absolute;
-  top: 25.8px;
+  top: 0.48rem;
   color: #000000;
-  font-size: 20px;
+  font-size: 0.2rem;
 }
 .course-input {
-  font-size: 20px;
+  font-size: 0.2rem;
   color: #666666;
-  padding: 10px 0px 10px 0px;
+  padding: 0.1rem 0rem 0.1rem 0rem;
   width: 100%;
-  border-bottom: 1px solid #e0e0e0 !important;
+  border-bottom: 0.01rem solid #e0e0e0 !important;
   border: none;
 }
 .cancel-button {
   border: none;
   background: #fff !important;
   box-shadow: 0 !important;
-  font-size: 14px;
+  font-size: 0.14rem;
   font-weight: bold;
   color: #666666;
-  margin-right: 15px;
+  margin-right: 0.15rem;
 }
 .el-button {
-  margin-top: 40px;
+  margin-top: 0.4rem;
   background: #2a77ff;
-  // box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+  // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
   &:hover {
     background: #5592fe;
   }
@@ -199,26 +143,21 @@ h2 {
   }
 }
 .delete-text {
-  font-size: 14px;
-  line-height: 2px;
+  font-size: 0.14rem;
+  line-height: 0.02rem;
   color: #666666;
 }
 .body {
   // height: 90vh;
   // overflow: hidden;
 }
-p {
-  font-size: 14px;
-  color: #666666;
-  margin-bottom: 5px;
-}
 .top-bar {
   margin-top: 12px;
-  width: 1584px;
+  // width: 1584px;
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-
+  // position: relative;
   display: flex;
   align-items: center;
   .title {
@@ -237,10 +176,12 @@ p {
   }
   .button {
     display: flex;
-    margin-right: 30px;
+    margin-right: .3rem;
     font-size: 14px;
     font-weight: bold;
     color: #f4f4f4;
+    position: absolute;
+    right: .3rem;
     .Button {
       margin-left: 20px;
     }

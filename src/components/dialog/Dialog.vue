@@ -1,22 +1,40 @@
 <!--  -->
 <template>
   <div class="body">
+    <!-- 删除课程 -->
     <el-dialog
-      title=""
-      :visible.sync="dialogVisible1"
+      title="UI设计教程"
+      :visible.sync="deleteDV"
       width="30%"
       :show-close="false"
       top="40vh"
+      :before-close="deleteHandleClose"
     >
-      <h2>修改团队名称</h2>
-      <input class="course-input" type="text" />
+      <h2>删除</h2>
+      <span class="delete-text"
+        >您确认删除课程么？该课程将移入回收站，30天内可前往恢复或清理。</span
+      >
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible1 = false"
+        <el-button class="cancel-button" @click="deleteDVCancle"
           >取 消</el-button
         >
-        <el-button type="primary" @click="isCreate()"
-          >创 建</el-button
-        >
+        <el-button type="primary" @click="deleteDVconfirm">确认删除</el-button>
+      </span>
+    </el-dialog>
+    <!-- 重命名课程 -->
+    <el-dialog
+      title=""
+      :visible.sync="editDV"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+       :before-close="editHandleClose"
+    >
+      <h2>修改课程名称</h2>
+      <input class="course-input" type="text" />
+      <span slot="footer" class="dialog-footer">
+        <el-button class="cancel-button" @click="editDVCancle">取 消</el-button>
+        <el-button type="primary" @click="editDVconfirm">确 认</el-button>
       </span>
     </el-dialog>
   </div>
@@ -25,70 +43,106 @@
 <script>
 export default {
   components: {},
+  props: {
+    editDV: {
+      type: Boolean,
+      default: false,
+    },
+    deleteDV: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
-      dialogVisible1: false,
+
     };
   },
   computed: {},
 
-  mounted() {},
+  created() {
 
+  },
+  watch: { 
+
+  },
   methods: {
-      isCreate(){
-          console.log("111")
-          this.$emit('create')
-          this.dialogVisible1 = false
-      }
+    isCreate() {
+      console.log("111");
+      this.$emit("create");
+      // this.editDV = false;
+    },
+    //点击遮罩
+    editHandleClose() {
+      this.$emit("editHandleClose");
+    },
+    //点击遮罩
+    deleteHandleClose() {
+      this.$emit("deleteHandleClose");
+    },
+    //删除框取消
+    deleteDVCancle() {
+      this.$emit("Cancle");
+    },
+    //编辑框取消
+    editDVCancle() {
+      this.$emit("Cancle");
+    },
+    //删除框确认
+    deleteDVconfirm() {},
+    //编辑框确认
+    editDVconfirm() {},
   },
 };
 </script>
 <style lang='scss' scoped>
+::v-deep .el-dialog {
+  // height: 3rem;
+}
 ::v-deep .el-dialog__title {
-     font-size: 0.2rem;
-     font-weight: bold;
-     line-height: 0.4rem;
-     color: #2a77ff;
-     margin-left: 0.43rem;
+  font-size: 0.2rem;
+  font-weight: bold;
+  line-height: 0.4rem;
+  color: #2a77ff;
+  margin-left: 0.43rem;
 }
- h2 {
-     position: absolute;
-    top: 0.25rem;
-     color: #000000;
-     font-size: 0.2rem;
+h2 {
+  position: absolute;
+  top: 0.48rem;
+  color: #000000;
+  font-size: 0.2rem;
 }
- .course-input {
-     font-size: 0.2rem;
-     color: #666666;
-     padding: 0.1rem 0rem 0.1rem 0rem;
-     width: 100%;
-     border-bottom: 0.01rem solid #e0e0e0 !important;
-     border: none;
+.course-input {
+  font-size: 0.2rem;
+  color: #666666;
+  padding: 0.1rem 0rem 0.1rem 0rem;
+  width: 100%;
+  border-bottom: 0.01rem solid #e0e0e0 !important;
+  border: none;
 }
- .cancel-button {
-     border: none;
-     background: #fff !important;
-     box-shadow: 0 !important;
-     font-size: 0.14rem;
-     font-weight: bold;
-     color: #666666;
-     margin-right: 0.15rem;
+.cancel-button {
+  border: none;
+  background: #fff !important;
+  box-shadow: 0 !important;
+  font-size: 0.14rem;
+  font-weight: bold;
+  color: #666666;
+  margin-right: 0.15rem;
 }
- .el-button {
-     margin-top: 0.4rem;
-     background: #2a77ff;
-     &:hover {
-         background: #5592fe;
-    }
-     &:active {
-         background: #2065e0;
-    }
+.el-button {
+  margin-top: 0.4rem;
+  background: #2a77ff;
+  // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+  &:hover {
+    background: #5592fe;
+  }
+  &:active {
+    background: #2065e0;
+  }
 }
- // 删除样式 // .delete-text {
-     // font-size: 0.14rem;
-     // line-height: 0.02rem;
-     // color: #666666;
-     // 
-
- 
+.delete-text {
+  font-size: 0.14rem;
+  line-height: 0.02rem;
+  color: #666666;
+}
 </style>

@@ -5,7 +5,8 @@
       <div class="course-content">
         <div class="course-item" v-for="(item, index) in 25" :key="index">
           <div class="checkbox">
-            <div class="name">UI设计1班:第一次作业</div>
+            <a href="/course/workDetail"> <div class="name">UI设计1班:第一次作业</div></a>
+           
             <div v-if="isCheckBox">
               <el-checkbox v-model="checked"></el-checkbox>
             </div>
@@ -21,10 +22,10 @@
                   <Dot />
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <div @click="dialogVisible1 = true">
+                  <div @click="editDV = true">
                     <el-dropdown-item>重命名</el-dropdown-item>
                   </div>
-                  <div @click="dialogVisible = true">
+                  <div @click="deleteDV = true">
                     <el-dropdown-item>删除</el-dropdown-item>
                   </div>
                 </el-dropdown-menu>
@@ -34,32 +35,23 @@
         </div>
       </div>
     </div>
-    <!-- 删除课程 -->
-    <el-dialog title="UI设计教程" :visible.sync="dialogVisible" width="30%" :show-close="false" top="40vh">
-      <h2>删除</h2>
-      <span class="delete-text">您确认删除本作业么？该作业将移入回收站，30天内可前往恢复或清理。</span>
-      <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确认删除</el-button>
-      </span>
-    </el-dialog>
-    <!-- 重命名课程 -->
-    <el-dialog title="" :visible.sync="dialogVisible1" width="30%" :show-close="false" top="40vh">
-      <h2>修改作业</h2>
-      <input class="course-input" type="text" />
-      <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible1 = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible1 = false">确 认</el-button>
-      </span>
-    </el-dialog>
+    <Dialog
+      :editDV="editDV"
+      :deleteDV="deleteDV"
+      @Cancle="(editDV = false), (deleteDV = false)"
+      @editHandleClose="editDV = false"
+      @deleteHandleClose="deleteDV = false"
+    />
   </div>
 </template>
 
 <script>
 import Dot from "@/components/dot/Dot";
+import Dialog from "@/components/dialog/Dialog.vue";
 export default {
   components: {
     Dot,
+    Dialog,
   },
   props: {
     isCheckBox: {
@@ -69,8 +61,8 @@ export default {
   },
   data() {
     return {
-      dialogVisible: false,
-      dialogVisible1: false,
+      editDV: false,
+      deleteDV: false,
       checked: false,
     };
   },

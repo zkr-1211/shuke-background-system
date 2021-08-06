@@ -147,7 +147,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .body {
-     margin-top: 0.15rem;
+     margin-top: 0.25rem;
 }
  .check {
      text-align: center;

@@ -8,162 +8,242 @@
         <el-breadcrumb-item>班级</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="top-bar">
-      <div class="title">
-        <div class="name">作业/任务情况</div>
-      </div>
-    </div>
-
+    <el-row :gutter="32" class="el-row">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <div class="top-bar">
+          <HeaderTitle name="作业/任务情况" />
+        </div>
+      </el-col>
+    </el-row>
     <div class="bottom">
-      <div class="left">
-        <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
-          <el-tab-pane label="天梯赛任务"></el-tab-pane>
-          <el-tab-pane label="作业"></el-tab-pane>
-          <el-tab-pane label="随堂练习"></el-tab-pane>
-        </el-tabs>
-        <div v-if="tabIndex == 0">士大夫</div>
-        <div v-if="tabIndex == 1">
-          <div class="course-outline">
-            <el-collapse accordion>
-              <el-collapse-item :name="index" v-for="(item, index) in 15" :key="index">
-                <template slot="title">
-                  <div class="title">第一章：Python</div>
-                  <div class="dot">共100份</div>
-                </template>
+      <el-row :gutter="32" class="el-row">
+        <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+          <div class="left">
+            <el-tabs
+              v-model="activeName"
+              type="border-card"
+              @tab-click="handleClick"
+            >
+              <el-tab-pane label="天梯赛任务"></el-tab-pane>
+              <el-tab-pane label="作业"></el-tab-pane>
+              <el-tab-pane label="随堂练习"></el-tab-pane>
+            </el-tabs>
+            <div v-if="tabIndex == 0">士大夫</div>
+            <div v-if="tabIndex == 1">
+              <div class="course-outline">
+                <el-collapse accordion>
+                  <el-collapse-item
+                    :name="index"
+                    v-for="(item, index) in 15"
+                    :key="index"
+                  >
+                    <template slot="title">
+                      <div class="title">第一章：Python</div>
+                      <div class="dot">共100份</div>
+                    </template>
 
-                <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
-                  <div class="tip" :class="[
-                      index1 == 0 ? 'tip1' : '',
-                      index1 == 1 ? 'tip2' : '',
-                    ]"></div>
-                  主任务01：完成各类型图标设计<span>(18)</span>
-                  <Dot class="Dot" />
-                </div>
-              </el-collapse-item>
-            </el-collapse>
-          </div>
-        </div>
-        <div v-if="tabIndex == 2">士大夫</div>
-        <div class="bottom-tip">
-          <div class="red">
-            <div></div>
-            <span>还有未批改</span>
-          </div>
-          <div class="lv">
-            <div></div>
-            <span>全部批改完成</span>
-          </div>
-          <div class="yellow">
-            <div></div>
-            <span>逾期补交</span>
-          </div>
-        </div>
-      </div>
-      <div class="right">
-        <div class="right-top-text">
-          <span>当前作业：</span>
-          <span>子任务01:完成10个线性图标的设计</span>
-        </div>
-        <div class="right-bottom-content">
-          <div class="right-left">
-            <div class="score">
-              <div class="score-left">
-                <span>得分</span>
-                <div class="score-tie" :class="[memberId == 0?'score-tie1':'',memberId == 1?'score-tie2':'',memberId == 2?'score-tie3':'']"></div>
-                <span>此作业为补交作业</span>
-                <span>逾期：12天3小时64分</span>
-              </div>
-
-              <div class="score-right">
-                <span>89.65</span>
-                <span>分</span>
+                    <div
+                      class="outline-item"
+                      v-for="(item1, index1) in item"
+                      :key="index1"
+                    >
+                      <div
+                        class="tip"
+                        :class="[
+                          index1 == 0 ? 'tip1' : '',
+                          index1 == 1 ? 'tip2' : '',
+                        ]"
+                      ></div>
+                      主任务01：完成各类型图标设计<span>(18)</span>
+                      <Dot class="Dot" />
+                    </div>
+                  </el-collapse-item>
+                </el-collapse>
               </div>
             </div>
-            <div id="work-content" :class="isFullScren ?'work-content':'icon-content'">
-              <div class="icon-top">
+            <div v-if="tabIndex == 2">士大夫</div>
+            <div class="bottom-tip">
+              <div class="red">
+                <div></div>
+                <span>还有未批改</span>
+              </div>
+              <div class="lv">
+                <div></div>
+                <span>全部批改完成</span>
+              </div>
+              <div class="yellow">
+                <div></div>
+                <span>逾期补交</span>
+              </div>
+            </div>
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
+          <div class="right">
+            <div class="right-top-text">
+              <span>当前作业：</span>
+              <span>子任务01:完成10个线性图标的设计</span>
+            </div>
+            <div class="right-bottom-content">
+              <el-row :gutter="32" class="el-row">
+                <el-col :xs="24" :sm="24" :md="16" :lg="18" :xl="18">
+                  <div class="right-left">
+                    <div class="score">
+                      <div class="score-left">
+                        <span>得分</span>
+                        <div
+                          class="score-tie"
+                          :class="[
+                            memberId == 0 ? 'score-tie1' : '',
+                            memberId == 1 ? 'score-tie2' : '',
+                            memberId == 2 ? 'score-tie3' : '',
+                          ]"
+                        ></div>
+                        <span>此作业为补交作业</span>
+                        <span>逾期：12天3小时64分</span>
+                      </div>
 
-                <div class="empty" v-if="true">
-                  <div class="img">
-                    <img src="@/assets/image/home/img_empty_big.svg" alt="" />
+                      <div class="score-right">
+                        <span>89.65</span>
+                        <span>分</span>
+                      </div>
+                    </div>
+                    <div
+                      id="work-content"
+                      :class="isFullScren ? 'work-content' : 'icon-content'"
+                    >
+                      <div class="icon-top">
+                        <div class="empty" v-if="true">
+                          <div class="img">
+                            <img
+                              src="@/assets/image/home/img_empty_big.svg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="text">还未创建任何课程</div>
+                        </div>
+
+                        <img
+                          v-else
+                          class="look-image"
+                          src="@/assets/image/home/img_empty_big.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="icon-bottom">
+                        <div class="icon-bottom-left">
+                          <img src="@/assets/image/course/ic_txt.svg" alt="" />
+                          <span>图标设计技巧</span>
+                          <span>共10个文件</span>
+                        </div>
+                        <div class="icon-bottom-right">
+                          <img
+                            src="@/assets/image/course/icon_delect_b.svg"
+                            alt=""
+                          />
+                          <img
+                            @click="fullScreenEvent"
+                            src="@/assets/image/course/icon_fullscreen_b.svg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="comment">
+                      <div class="nav">
+                        <span>作业评价</span>
+                        <a href="">添加图片</a>
+                      </div>
+                      <div class="content">
+                        <!-- <input  v-model="commentDes"   type="text" name="" id=""> -->
+                        <textarea v-model="commentDes"></textarea>
+                      </div>
+                      <div class="add-img">
+                        <div
+                          class="img-item"
+                          v-for="(item, index) in 15"
+                          :key="index"
+                        >
+                          <img
+                            src="@/assets/image/course/icon_fullscreen_b.svg"
+                            alt=""
+                          />
+                          <div class="delete">删除</div>
+                        </div>
+                      </div>
+                      <div class="button">
+                        <Button class="Button" name="添加到评价板" />
+                        <Button name="确认评价" />
+                      </div>
+                    </div>
                   </div>
-                  <div class="text">还未创建任何课程</div>
-                </div>
-
-                <img v-else class="look-image" src="@/assets/image/home/img_empty_big.svg" alt="">
-              </div>
-              <div class="icon-bottom">
-                <div class="icon-bottom-left">
-                  <img src="@/assets/image/course/ic_txt.svg" alt="">
-                  <span>图标设计技巧</span>
-                  <span>共10个文件</span>
-                </div>
-                <div class="icon-bottom-right">
-                  <img src="@/assets/image/course/icon_delect_b.svg" alt="">
-                  <img @click="fullScreenEvent" src="@/assets/image/course/icon_fullscreen_b.svg" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="comment">
-              <div class="nav">
-                <span>作业评价</span>
-                <a href="">添加图片</a>
-              </div>
-              <div class="content">
-                <!-- <input  v-model="commentDes"   type="text" name="" id=""> -->
-                <textarea v-model="commentDes"></textarea>
-              </div>
-              <div class="add-img">
-                <div class="img-item" v-for="(item,index) in 15" :key="index">
-                  <img src="@/assets/image/course/icon_fullscreen_b.svg" alt="">
-                  <div class="delete">删除</div>
-                </div>
-              </div>
-              <div class="button">
-                <Button class="Button" name="添加到评价板" />
-                <Button name="确认评价" />
-              </div>
-            </div>
-          </div>
-          <div class="right-right">
-            <div class="select-class">
-              <el-select v-model="value" placeholder="请选择">
-                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-                </el-option>
-              </el-select>
-            </div>
-            <div class="member">
-              <div class="nav">
-                <span class="">成员</span>
-                <span class="">100/001</span>
-              </div>
-              <div class="content">
-                <div class="item" :class="index==memberId ? 'is-active':''" v-for="(item,index) in 15" :key="index" @click="selectMember(index)">
-                  <div :class="index==memberId ? 'item-active':''"></div>
-                  <img class="header" src="@/assets/image/course/icon_complete.svg" alt="">
-                  <div class="person">
-                    <div class="name">张克人</div>
-                    <div class="num">得分:60</div>
+                </el-col>
+                <el-col :xs="24" :sm="24" :md="8" :lg="6" :xl="6">
+                  <div class="right-right">
+                    <div class="select-class">
+                      <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
+                        >
+                        </el-option>
+                      </el-select>
+                    </div>
+                    <div class="member">
+                      <div class="nav">
+                        <span class="">成员</span>
+                        <span class="">100/001</span>
+                      </div>
+                      <div class="content">
+                        <div
+                          class="item"
+                          :class="index == memberId ? 'is-active' : ''"
+                          v-for="(item, index) in 15"
+                          :key="index"
+                          @click="selectMember(index)"
+                        >
+                          <div
+                            :class="index == memberId ? 'item-active' : ''"
+                          ></div>
+                          <img
+                            class="header"
+                            src="@/assets/image/course/icon_complete.svg"
+                            alt=""
+                          />
+                          <div class="person">
+                            <div class="name">张克人</div>
+                            <div class="num">得分:60</div>
+                          </div>
+                          <img
+                            class="finish"
+                            src="@/assets/image/course/icon_complete.svg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <img class="finish" src="@/assets/image/course/icon_complete.svg" alt="">
-                </div>
-              </div>
+                </el-col>
+              </el-row>
             </div>
           </div>
-        </div>
-      </div>
-
+        </el-col>
+      </el-row>
     </div>
   </div>
-
 </template>
 
 <script>
 import Dot from "@/components/dot/Dot.vue";
 import Button from "@/components/button/Button.vue";
+import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 export default {
   components: {
     Dot,
     Button,
+    HeaderTitle,
   },
   data() {
     return {
@@ -268,51 +348,51 @@ export default {
   border: none;
 }
 ::v-deep .el-tabs--border-card > .el-tabs__content {
-  padding: 10px;
+  padding: 0.1rem;
 }
 ::v-deep .el-icon-arrow-right:before {
   background-image: url(../../../assets/image/course/right.svg);
   background-repeat: no-repeat;
-  background-size: 28px;
+  background-size: 0.28rem;
   position: relative;
-  right: 500px;
-  bottom: 3px;
+  right: 5rem;
+  bottom: 0.03rem;
   content: "\e6e";
   border: none;
 }
 ::v-deep .el-collapse-item__arrow.is-active {
-  bottom: 3px;
+  bottom: 0.03rem;
   -webkit-transform: rotate(0);
   transform: rotate(0);
   background-image: url(../../../assets/image/course/bottom.svg);
   background-repeat: no-repeat;
-  background-size: 28px;
+  background-size: 0.28rem;
   position: relative;
-  right: 500px;
+  right: 5rem;
   content: "\e6e";
 }
 .el-collapse-item {
   position: relative;
   .dot {
     position: absolute;
-    right: 20px;
-    top: 1px;
-    font-size: 14px;
+    right: 0.2rem;
+    top: 0.01rem;
+    font-size: 0.14rem;
     color: #c3c3c3;
   }
 }
 .course-outline {
-  width: 500px;
-  height: 680px;
+  // width: 5rem;
+  height: 6.8rem;
   overflow-x: hidden;
   margin: 0 auto;
   // background-color: red;
   .outline-item {
-    width: 578px;
+    // width: 5.78rem;
     background: #ffffff;
-    padding: 24px 30px 24px 50px;
-    font-size: 16px;
-    line-height: 27px;
+    padding: 0.24rem 0.3rem 0.24rem 0.5rem;
+    font-size: 0.16rem;
+    line-height: 0.27rem;
     color: #666666;
     // position: relative;
     display: flex;
@@ -326,17 +406,17 @@ export default {
       display: block;
     }
     span {
-      font-size: 16px;
+      font-size: 0.16rem;
       font-weight: bold;
       color: #666666;
     }
     .tip {
-      width: 12px;
-      height: 12px;
+      width: 0.12rem;
+      height: 0.12rem;
       background: #f96164;
       border-radius: 50%;
       opacity: 1;
-      margin-right: 21px;
+      margin-right: 0.21rem;
     }
     .tip1 {
       background: #33d182;
@@ -345,7 +425,7 @@ export default {
       background: #ffbc13;
     }
     .Dot {
-      right: 15px;
+      right: 0.15rem;
       position: absolute;
       display: none;
     }
@@ -357,44 +437,44 @@ export default {
 ::v-deep .el-collapse-item__header {
   display: flex;
   align-items: center;
-  line-height: 60px;
+  line-height: 0.6rem;
   cursor: pointer;
   // transition: border-bottom-color 0.3s;
   outline: 0;
-  width: 578px;
-  height: 60px;
+  width: 5.78rem;
+  height: 0.6rem;
   background: #ffffff;
-  font-size: 20px;
+  font-size: 0.2rem;
   color: #333333;
-  padding-left: 65px;
+  padding-left: 0.65rem;
   border: none;
-  padding-right: 30px;
+  padding-right: 0.3rem;
 }
 ::v-deep .el-tabs__nav-scroll {
   overflow: hidden;
   background-color: #f6f6f8;
 }
 .el-tabs {
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0);
+  box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0);
   border: none;
 }
 ::v-deep .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
-  font-size: 16px;
+  font-size: 0.16rem;
   font-weight: bold;
   color: #666666;
-  //   width: 120px;
+  // width: 1.2rem;
   text-align: center;
   background-color: #fff;
   border-right-color: #dcdfe6;
   border-left-color: #dcdfe6;
 }
 ::v-deep .el-tabs--border-card > .el-tabs__header .el-tabs__item {
-  font-size: 16px;
+  font-size: 0.16rem;
   font-weight: bold;
   color: #999999;
-  width: 120px;
-  height: 48px;
-  line-height: 48px;
+  width: 1.2rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
   text-align: center;
   background-color: #edeff3;
   &:hover {
@@ -402,136 +482,137 @@ export default {
   }
 }
 .top-bar {
-  margin-top: 20px;
-  width: 1584px;
-  height: 80px;
+  margin-top: 0.2rem;
+  // width: 15.84rem;
+  height: 0.8rem;
   background: #ffffff;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+  box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
   display: flex;
   align-items: center;
   .title {
     // background-color: #2a77ff;
     width: 100%;
-    // height: 200px;
-    margin: 20px;
-    font-size: 20px;
+    // height: 2rem;
+    margin: 0.2rem;
+    font-size: 0.2rem;
     font-weight: bold;
-    line-height: 34px;
+    line-height: 0.34rem;
     color: #666666;
-    border-left: 8px solid #5592fe;
+    border-left: 0.08rem solid #5592fe;
     .name {
-      margin-left: 12px;
+      margin-left: 0.12rem;
     }
   }
 }
 .bottom {
-  margin-top: 32px;
+  margin-top: 0.32rem;
   display: flex;
   .left {
-    width: 500px;
-    height: 816px;
+    // width: 5rem;
+    height: 8.16rem;
     background: #ffffff;
-    // box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+    // box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     position: relative;
     opacity: 1;
     .bottom-tip {
-      font-size: 14px;
+      font-size: 0.14rem;
       color: #c3c3c3;
       display: flex;
       justify-content: space-evenly;
       position: absolute;
-      bottom: 30px;
+      bottom: 0.3rem;
       width: 100%;
       .red {
         display: flex;
         align-items: center;
         > div {
-          width: 12px;
-          height: 12px;
+          width: 0.12rem;
+          height: 0.12rem;
           background: #f96164;
           border-radius: 50%;
-          margin-right: 17px;
+          margin-right: 0.17rem;
         }
       }
       .lv {
         display: flex;
         align-items: center;
         > div {
-          width: 12px;
-          height: 12px;
+          width: 0.12rem;
+          height: 0.12rem;
           background: #33d182;
           border-radius: 50%;
-          margin-right: 17px;
+          margin-right: 0.17rem;
         }
       }
       .yellow {
         display: flex;
         align-items: center;
         > div {
-          width: 12px;
-          height: 12px;
+          width: 0.12rem;
+          height: 0.12rem;
           background: #ffbc13;
           border-radius: 50%;
-          margin-right: 17px;
+          margin-right: 0.17rem;
         }
       }
     }
   }
   .right {
-    margin-left: 32px;
-    width: 1052px;
+    // margin-left: 0.32rem;
+    // width: 10.52rem;
     height: 100%;
     background: #fbfafc;
-    padding: 31px 40px 31px 40px;
-
+    padding: 0.31rem 0.4rem 0.31rem 0.4rem;
+    overflow: auto;
     .right-top-text {
+      display: flex;
+      // background-color: red;
       span:nth-of-type(1) {
-        font-size: 18px;
+        font-size: 0.18rem;
         font-weight: bold;
         color: #666666;
       }
       span:nth-of-type(2) {
-        font-size: 18px;
+        font-size: 0.18rem;
         color: #999999;
       }
     }
     .right-bottom-content {
       display: flex;
-      margin-top: 32px;
+      margin-top: 0.32rem;
       .right-left {
         .score {
-          width: 752px;
-          height: 80px;
+          // width: 7.52rem;
+          height: 0.8rem;
           background: #ffffff;
           opacity: 1;
           display: flex;
           align-items: center;
-          padding: 20px;
-
+          padding: 0.2rem;
           justify-content: space-between;
           .score-left {
             display: flex;
             align-items: center;
             span:nth-of-type(1) {
-              font-size: 20px;
+              font-size: 0.2rem;
               font-weight: bold;
               color: #666666;
-              line-height: 20px;
+              line-height: 0.2rem;
             }
             span:nth-of-type(2) {
-              font-size: 14px;
+              font-size: 0.14rem;
               color: #999999;
-              margin-left: 15px;
+              margin-left: 0.15rem;
             }
             span:nth-of-type(3) {
-              font-size: 14px;
+              font-size: 0.14rem;
               color: #999999;
-              margin-left: 21px;
+              margin-left: 0.21rem;
             }
             .score-tie {
-              margin-left: 21px;
-              width: 12px;
-              height: 12px;
+              margin-left: 0.21rem;
+              width: 0.12rem;
+              height: 0.12rem;
               // background: #ffbc13;
               border-radius: 50%;
               opacity: 1;
@@ -547,25 +628,25 @@ export default {
             }
           }
           .score-right {
-            width: 120px;
-            height: 50px;
+            width: 1.2rem;
+            height: 0.5rem;
             background: #f6f6f8;
             opacity: 1;
-            border-radius: 6px;
+            border-radius: 0.06rem;
             display: flex;
             align-items: center;
             justify-content: center;
             span:nth-of-type(1) {
-              font-size: 18px;
+              font-size: 0.18rem;
               font-weight: bold;
               color: #2a77ff;
-              letter-spacing: 1px;
+              letter-spacing: 0.01rem;
             }
             span:nth-of-type(2) {
-              font-size: 18px;
+              font-size: 0.18rem;
               color: #666666;
-              line-height: 18px;
-              margin-left: 5px;
+              line-height: 0.18rem;
+              margin-left: 0.05rem;
             }
           }
         }
@@ -582,8 +663,8 @@ export default {
             overflow: auto;
             position: relative;
             .look-image {
-              width: 752px;
-              // height: 423px;
+              width: 7.52rem;
+              // height: 4.23rem;
               opacity: 1;
             }
             .empty {
@@ -591,22 +672,23 @@ export default {
               left: 50%;
               position: absolute;
               transform: translate(-50%, -50%);
-              // height: 330px;
+              // height: 3.3rem;
               // width: 100%;
               display: flex;
               flex-direction: column;
               align-items: center;
               .img {
-                width: 173px;
-                height: 111px;
+                width: 1.73rem;
+                height: 1.11rem;
+
                 img {
-                  width: 173px;
-                  height: 111px;
+                  width: 1.73rem;
+                  height: 1.11rem;
                 }
               }
               .text {
-                margin-top: 17px;
-                font-size: 11px;
+                margin-top: 0.17rem;
+                font-size: 0.11rem;
                 font-weight: bold;
                 color: #999999;
               }
@@ -616,22 +698,23 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px;
+            padding: 0.2rem;
             width: 100%;
-            height: 40px;
+            height: 0.4rem;
             background: #ffffff;
             .icon-bottom-left {
               display: flex;
               align-items: center;
               span:nth-of-type(1) {
+                // font-size: .15rem !important;
               }
               span:nth-of-type(2) {
-                font-size: 12px;
+                font-size: 0.12rem;
                 color: #979797;
-                margin-left: 15px;
+                margin-left: 0.15rem;
               }
               img {
-                margin-right: 12px;
+                margin-right: 0.12rem;
                 cursor: pointer;
               }
             }
@@ -639,36 +722,37 @@ export default {
               display: flex;
               align-items: center;
               img:nth-of-type(1) {
-                margin-right: 6px;
+                margin-right: 0.06rem;
                 cursor: pointer;
-                width: 34px;
-                height: 34px;
+                width: 0.34rem;
+                height: 0.34rem;
               }
               img:nth-of-type(2) {
-                // margin-right: 6px;
+                // margin-right: 0.06rem;
                 cursor: pointer;
-                width: 34px;
-                height: 34px;
+                width: 0.34rem;
+                height: 0.34rem;
               }
             }
           }
         }
         .icon-content {
-          margin-top: 20px;
-          width: 752px;
-          height: 463px;
+          margin-top: 0.2rem;
+          // width: 7.52rem;
+          height: 4.63rem;
           background: #fff;
           opacity: 1;
+          position: relative;
           .icon-top {
-            width: 752px;
-            height: 423px;
+            width: 7.52rem;
+            height: 4.23rem;
             // background: rgb(110, 152, 167);
             opacity: 1;
             overflow: auto;
-            position: relative;
+
             .look-image {
-              width: 752px;
-              // height: 423px;
+              width: 7.52rem;
+              // height: 4.23rem;
               opacity: 1;
             }
             .empty {
@@ -676,22 +760,22 @@ export default {
               left: 50%;
               position: absolute;
               transform: translate(-50%, -50%);
-              // height: 330px;
+              // height: 3.3rem;
               // width: 100%;
               display: flex;
               flex-direction: column;
               align-items: center;
               .img {
-                width: 173px;
-                height: 111px;
+                width: 1.73rem;
+                height: 1.11rem;
                 img {
-                  width: 173px;
-                  height: 111px;
+                  width: 1.73rem;
+                  height: 1.11rem;
                 }
               }
               .text {
-                margin-top: 17px;
-                font-size: 11px;
+                margin-top: 0.17rem;
+                font-size: 0.11rem;
                 font-weight: bold;
                 color: #999999;
               }
@@ -701,22 +785,23 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px;
-            width: 752px;
-            height: 40px;
+            padding: 0.2rem;
+            // width: 7.52rem;
+            height: 0.4rem;
             background: #ffffff;
             .icon-bottom-left {
               display: flex;
               align-items: center;
               span:nth-of-type(1) {
+                font-size: 0.15rem !important;
               }
               span:nth-of-type(2) {
-                font-size: 12px;
+                font-size: 0.12rem;
                 color: #979797;
-                margin-left: 15px;
+                margin-left: 0.15rem;
               }
               img {
-                margin-right: 12px;
+                margin-right: 0.12rem;
                 cursor: pointer;
               }
             }
@@ -724,61 +809,61 @@ export default {
               display: flex;
               align-items: center;
               img:nth-of-type(1) {
-                margin-right: 6px;
+                margin-right: 0.06rem;
                 cursor: pointer;
-                width: 34px;
-                height: 34px;
+                width: 0.34rem;
+                height: 0.34rem;
               }
               img:nth-of-type(2) {
-                // margin-right: 6px;
+                // margin-right: 0.06rem;
                 cursor: pointer;
-                width: 34px;
-                height: 34px;
+                width: 0.34rem;
+                height: 0.34rem;
               }
             }
           }
         }
         .comment {
-          margin-top: 20px;
-          width: 752px;
+          margin-top: 0.2rem;
+          // width: 7.52rem;
           // height: 100%;
           // background: #ffffff;
           opacity: 1;
           .nav {
-            width: 752px;
-            height: 60px;
+            // width: 7.52rem;
+            height: 0.6rem;
             background: #f6f6f8;
             opacity: 1;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px;
+            padding: 0.2rem;
             span {
-              font-size: 16px;
+              font-size: 0.16rem;
               font-weight: bold;
               color: #666666;
               opacity: 1;
             }
             a {
-              font-size: 16px;
+              font-size: 0.16rem;
               color: #999999;
               text-decoration: underline;
               opacity: 1;
             }
           }
           .content {
-            width: 752px;
-            height: 184px;
+            // width: 7.52rem;
+            height: 1.84rem;
             background: #ffffff;
             opacity: 1;
-            padding: 30px 40px 30px 40px;
+            padding: 0.3rem 0.4rem 0.3rem 0.4rem;
             overflow-y: hidden;
-            overflow-x: hidden;
+            overflow-x: auto;
             textarea {
-              width: 672px !important;
+              width: 6.5rem !important;
               height: 100% !important;
-              font-size: 14px;
-              line-height: 24px;
+              font-size: 0.14rem;
+              line-height: 0.24rem;
               color: #666666;
               border: none;
               resize: none;
@@ -786,39 +871,39 @@ export default {
             }
           }
           .add-img {
-            margin-top: 12px;
-            width: 752px;
-            height: 195px;
+            margin-top: 0.12rem;
+            // width: 7.52rem;
+            height: 1.95rem;
             display: flex;
-            // margin-left: 12px;
+            // margin-left: 0.12rem;
             flex-wrap: wrap;
             // transition: all 1s;
             overflow: auto;
             .img-item {
               position: relative;
               overflow: hidden;
-
+              display: flex;
               &:hover .delete {
                 transform: translateY(0vh);
               }
               img {
-                margin-right: 12px;
-                margin-top: 12px;
-                width: 80px;
-                height: 80px;
+                margin-right: 0.12rem;
+                margin-top: 0.12rem;
+                width: 0.8rem;
+                height: 0.8rem;
                 background: rgb(205, 221, 245);
                 opacity: 1;
               }
               .delete {
                 cursor: pointer;
-                width: 80px;
-                height: 24px;
+                width: 0.8rem;
+                height: 0.24rem;
                 background: #2a77ff;
                 opacity: 1;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 12px;
+                font-size: 0.12rem;
                 color: #ffffff;
                 position: absolute;
                 bottom: 0;
@@ -828,49 +913,50 @@ export default {
             }
           }
           .button {
-            margin-top: 20px;
+            margin-top: 0.2rem;
             display: flex;
             justify-content: flex-end;
             .Button {
-              margin-right: 12px;
+              margin-right: 0.12rem;
             }
           }
         }
       }
       .right-right {
-        margin-left: 20px;
+        // margin-left: 0.2rem;
+        min-width: 2rem;
         .select-class {
-          width: 200px;
-          height: 80px;
+          // width: 2rem;
+          height: 0.8rem;
           background: #ffffff;
           opacity: 1;
           display: flex;
           align-items: center;
           justify-content: center;
           .el-select {
-            width: 168px;
-            height: 40px;
+            width: 1.68rem;
+            height: 0.4rem;
             background: #ffffff;
-            border: 1px solid #e0e0e0;
+            border: 0.01rem solid #e0e0e0;
             opacity: 1;
-            border-radius: 4px;
+            border-radius: 0.04rem;
           }
         }
         .member {
-          margin-top: 20px;
-          height: 640px;
-          width: 200px;
+          margin-top: 0.2rem;
+          height: 6.4rem;
+          // width: 2rem;
           background-color: #fff;
           .nav {
-            width: 200px;
-            height: 40px;
+            width: 2rem;
+            height: 0.4rem;
             opacity: 1;
             display: flex;
             align-items: center;
-            font-size: 14px;
+            font-size: 0.14rem;
             font-weight: bold;
             justify-content: space-between;
-            padding: 13px 24px 13px 24px;
+            padding: 0.13rem 0.24rem 0.13rem 0.24rem;
             span:nth-of-type(1) {
               color: #666666;
             }
@@ -879,7 +965,7 @@ export default {
             }
           }
           .content {
-            height: 595px;
+            height: 5.95rem;
             // background-color: red;
             overflow-y: auto;
             overflow-x: hidden;
@@ -888,47 +974,47 @@ export default {
             }
             .item {
               cursor: pointer;
-              width: 200px;
-              height: 60px;
+              width: 2rem;
+              height: 0.6rem;
               // background: #ffffff;
               display: flex;
               align-items: center;
               position: relative;
-              border-bottom: 1px solid #edeff3;
+              border-bottom: 0.01rem solid #edeff3;
               &:hover {
                 background-color: #f6f7f9;
-                // border-left: 10px solid #5592fe;
+                // border-left: 0.1rem solid #5592fe;
               }
               .item-active {
                 position: absolute;
                 left: 0;
-                width: 10px;
-                height: 60px;
+                width: 0.1rem;
+                height: 0.6rem;
                 background: #5592fe;
               }
               .header {
-                width: 32px;
-                height: 32px;
-                margin-left: 24px;
+                width: 0.32rem;
+                height: 0.32rem;
+                margin-left: 0.24rem;
               }
               .finish {
-                width: 18px;
-                height: 18px;
+                width: 0.18rem;
+                height: 0.18rem;
                 background: #33d182;
                 border-radius: 50%;
                 opacity: 1;
                 position: absolute;
-                right: 20px;
-                bottom: 13px;
+                right: 0.2rem;
+                bottom: 0.13rem;
               }
               .person {
-                margin-left: 12px;
+                margin-left: 0.12rem;
                 .name {
-                  font-size: 14px;
+                  font-size: 0.14rem;
                   color: #666666;
                 }
                 .num {
-                  font-size: 14px;
+                  font-size: 0.14rem;
                   color: #999999;
                 }
               }

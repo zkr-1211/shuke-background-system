@@ -63,7 +63,6 @@
           </div>
         </el-col>
       </el-row>
-
     </div>
 
     <div class="bottom">
@@ -87,11 +86,14 @@
                     <div class="content">
                       <div class="item" v-for="(item, index) in 5" :key="index">
                         <div class="left">
-                          <div class="num" :class="[
-                      index == 0 ? 'num-color1' : '',
-                      index == 1 ? 'num-color2' : '',
-                      index == 2 ? 'num-color3' : '',
-                    ]">
+                          <div
+                            class="num"
+                            :class="[
+                              index == 0 ? 'num-color1' : '',
+                              index == 1 ? 'num-color2' : '',
+                              index == 2 ? 'num-color3' : '',
+                            ]"
+                          >
                             {{ index + 1 }}
                           </div>
                           <div class="header"><img src="" alt="" /></div>
@@ -115,7 +117,6 @@
                   </div>
                 </el-col>
               </el-row>
-
             </div>
           </div>
         </el-col>
@@ -133,7 +134,12 @@
               <div class="process">当前进度</div>
             </div>
             <div class="content">
-              <div class="item" v-for="(item, index) in 30" :key="index" :class="index % 2 == 1 ? 'item-background' : ''">
+              <div
+                class="item"
+                v-for="(item, index) in 30"
+                :key="index"
+                :class="index % 2 == 1 ? 'item-background' : ''"
+              >
                 <div class="left-message">
                   <div class="header"></div>
                   <div class="name">张克榕</div>
@@ -148,10 +154,15 @@
           </div>
         </el-col>
       </el-row>
-
     </div>
     <!-- 添加成员 -->
-    <el-dialog title="" :visible.sync="addDV" width="30%" :show-close="false" top="20vh">
+    <el-dialog
+      title=""
+      :visible.sync="addDV"
+      width="30%"
+      :show-close="false"
+      top="20vh"
+    >
       <h2>添加成员</h2>
       <Tabs class="tabs" :tabList="tabList" @tabsIndex="tabsIndex" />
       <div class="contentDv">
@@ -161,14 +172,20 @@
               <el-form ref="form" :model="form">
                 <el-form-item label="学院名称">
                   <el-select v-model="form.region" placeholder="请选择学院">
-                    <el-option label="人工智能学院" value="shanghai"></el-option>
+                    <el-option
+                      label="人工智能学院"
+                      value="shanghai"
+                    ></el-option>
                     <el-option label="商学院" value="beijing"></el-option>
                   </el-select>
                 </el-form-item>
                 <el-form-item label="专业">
                   <el-select v-model="form.region" placeholder="请选择专业">
                     <el-option label="网络工程" value="shanghai"></el-option>
-                    <el-option label="计算机科学与技术" value="beijing"></el-option>
+                    <el-option
+                      label="计算机科学与技术"
+                      value="beijing"
+                    ></el-option>
                   </el-select>
                 </el-form-item>
                 <el-form-item label="入学年份">
@@ -193,7 +210,9 @@
             </div>
           </div>
           <div class="dialog-footer">
-            <el-button class="cancel-button" @click="addDV = false">取 消</el-button>
+            <el-button class="cancel-button" @click="addDV = false"
+              >取 消</el-button
+            >
             <el-button type="primary" @click="isCreate()">添 加</el-button>
           </div>
         </div>
@@ -202,22 +221,45 @@
             <div class="xiazai">
               <div class="text">下载花名册表格模板</div>
               <div class="biaoge-content">
-                <div class="icon"><img src="@/assets/image/course/ic_class_invitation.svg" alt=""></div>
+                <div class="icon">
+                  <img
+                    src="@/assets/image/course/ic_class_invitation.svg"
+                    alt=""
+                  />
+                </div>
                 <div class="text-title">空白花名册模板.execl</div>
-                <div class="img"><img src="@/assets/image/course/ic_class_invitation.svg" alt=""></div>
+                <div class="img">
+                  <img
+                    src="@/assets/image/course/ic_class_invitation.svg"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
             <div class="xiazai">
               <div class="text">上传花名册表格模板</div>
               <div class="biaoge-content">
-                <div class="icon"><img src="@/assets/image/course/ic_class_invitation.svg" alt=""></div>
+                <div class="icon">
+                  <img
+                    src="@/assets/image/course/ic_class_invitation.svg"
+                    alt=""
+                  />
+                </div>
                 <div class="text-title">空白花名册模板.execl</div>
-                <div class="img"><span>重新上传</span> <img src="@/assets/image/course/ic_class_invitation.svg" alt=""></div>
+                <div class="img">
+                  <img
+                    src="@/assets/image/course/ic_class_invitation.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="span">重新上传</div>
               </div>
             </div>
           </div>
           <div class="dialog-footer">
-            <el-button class="cancel-button" @click="addDV = false">取 消</el-button>
+            <el-button class="cancel-button" @click="addDV = false"
+              >取 消</el-button
+            >
             <el-button type="primary" @click="isCreate()">导 入</el-button>
           </div>
         </div>
@@ -226,7 +268,9 @@
             <div class="num">202075025452125</div>
           </div>
           <div class="dialog-footer">
-            <el-button class="cancel-button" @click="addDV = false">取 消</el-button>
+            <el-button class="cancel-button" @click="addDV = false"
+              >取 消</el-button
+            >
             <el-button type="primary" @click="isCreate()">复 制</el-button>
           </div>
         </div>
@@ -294,20 +338,24 @@ export default {
 </script>
 <style lang='scss' scoped>
 .tabs {
-  margin-left: 0.3rem;
-  margin-bottom: 0.3rem;
+  margin: 0.4rem 0.3rem 0.2rem 0.3rem;
 }
 .contentDv {
-  margin-left: 0.3rem;
+  // margin-left: 0.3rem;
+  width: 90%;
+  margin: 0px auto;
+  // background-color: red;
+  height: 3.85rem;
   .dialog-footer {
     text-align: right;
   }
   .jiaowu {
-    height: 3.05rem;
+    height: 3.1rem;
+    overflow: auto;
   }
 }
 .yaoqingma {
-  height: 3.05rem;
+  height: 3.1rem;
   // background-color: red;
   width: 100%;
   display: flex;
@@ -325,18 +373,19 @@ export default {
   }
 }
 .biaoge {
-  height: 3.05rem;
-  // background-color: red;
+  height: 3.1rem;
   width: 100%;
+  overflow: auto;
+  overflow-y: hidden;
   .xiazai {
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
     .text {
       font-size: 0.16rem;
       color: #333333;
     }
     .biaoge-content {
       margin-top: 0.16rem;
-      width: 4.86rem;
+      // width: 4.86rem;
       height: 0.8rem;
       background: #f6f7f9;
       opacity: 1;
@@ -344,11 +393,13 @@ export default {
       align-items: center;
       padding-left: 0.3rem;
       position: relative;
+
       .icon {
         width: 0.3rem;
         height: 0.3rem;
         // background-color: rosybrown;
         cursor: pointer;
+
         img {
           width: 0.3rem;
           height: 0.3rem;
@@ -361,35 +412,34 @@ export default {
         color: #333333;
         font-weight: bold;
       }
-      .img {
+      .span {
         position: absolute;
-        right: 0.3rem;
+        right: 0.7rem;
+      }
+      .img {
         width: 0.3rem;
         height: 0.3rem;
-        // background-color: rosybrown span {
+        // background-color: rosybrown span
         position: absolute;
         right: 0.3rem;
         line-height: 0.33rem;
-        width: 0.7rem;
         font-size: 0.14rem;
         color: #666666;
         cursor: pointer;
         // background-color: rosybrown;
-      }
-      img {
-        width: 0.3rem;
-        height: 0.3rem;
-        // background-color: rosybrown;
-        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 0.3rem;
+          height: 0.3rem;
+          // background-color: rosybrown;
+          cursor: pointer;
+        }
       }
     }
   }
 }
-.shangchuan {
-}
-.biaoge {
-}
-
 ::v-deep .el-form-item__label {
   text-align: right;
   vertical-align: middle;
@@ -430,10 +480,12 @@ export default {
   line-height: 0.4rem;
   color: #2a77ff;
   margin-left: 0.43rem;
+  display: flex;
+  // align-items: center;
 }
 h2 {
   position: absolute;
-  top: 25.08rem;
+  top: 0.3rem;
   color: #000000;
   font-size: 0.25rem;
 }
@@ -537,6 +589,8 @@ h2 {
           height: 0.5rem;
           // background-color: firebrick;
           margin-bottom: 0.12rem;
+          display: flex;
+          align-items: center;
           img {
             width: 0.5rem;
             height: 0.5rem;
@@ -557,6 +611,7 @@ h2 {
       box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
       border-radius: 0.08rem;
       overflow: hidden;
+
       img {
         // border-radius: 0.08rem;
         height: 1.8rem;
@@ -588,6 +643,8 @@ h2 {
         .img {
           width: 0.5rem;
           height: 0.5rem;
+          display: flex;
+          align-items: center;
           // background-color: firebrick;
           margin-bottom: 0.12rem;
           img {
@@ -693,7 +750,7 @@ h2 {
     }
     .right-content {
       // margin-left: 0.32rem;
-      // width: 5rem;
+      min-width: 4.7rem;
       height: 7.24rem;
       background: #fff;
       position: relative;
@@ -708,6 +765,8 @@ h2 {
         position: absolute;
         right: 0.3rem;
         top: 0.25rem;
+        display: flex;
+        align-items: center;
         img {
           width: 0.4rem;
           height: 0.4rem;

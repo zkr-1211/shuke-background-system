@@ -254,11 +254,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
-  height: 100%;
+  // height: 100vh;
   width: 100%;
   // background-color: royalblue;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 .el-menu {
   border: none;
@@ -349,14 +349,11 @@ export default {
   }
 }
 .el-aside {
-  // position: fixed;
-  // top: 0.64rem;
-  // z-index: 9;
   position: relative;
   background-color: #fff;
   color: #333;
   width: 2.56rem !important;
-  height: 10.8rem;
+  height: 9.8rem;
   overflow: hidden;
   // margin-right: 2.56rem !important;
   .tac {
@@ -405,10 +402,10 @@ export default {
   }
 }
 .el-main {
-  height: 100vh;
+  // height: 92vh;
   overflow-y: auto;
   overflow-x: auto;
-  width: 100vw;
+  // width: 50vw;
   // background-color: rgb(192, 148, 148);
   // margin: 0.66rem 0rem 0rem 2.7rem;
 }

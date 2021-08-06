@@ -7,54 +7,24 @@
         <el-breadcrumb-item>我的班级</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="top-bar">
-      <div class="title">
-        <div class="name">班级</div>
-      </div>
-      <div class="button" @click="dialogVisible2 = true">
-        <el-button class="create-button" type="primary"
-          ><i class="el-icon-plus"></i>创建</el-button
-        >
-      </div>
-    </div>
-    <div class="navigation">
-      <div>
-        <Tabs :tabList="tabList" @tabsIndex="tabsIndex"> </Tabs>
-        <div class="empty" v-if="false">
-          <div class="img">
-            <img src="@/assets/image/home/img_empty_big.svg" alt="" />
-          </div>
-          <div class="text">还未创建任何班级</div>
-          <div class="button">
-            <el-button type="primary">前往创建</el-button>
+    <el-row :gutter="32" class="el-row">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <div class="top-bar">
+          <HeaderTitle name="班级" />
+          <div class="button" @click="dialogVisible2 = true">
+            <el-button class="create-button" type="primary"
+              ><i class="el-icon-plus"></i>创建</el-button
+            >
           </div>
         </div>
-        <div v-else>
-          <ClassContent v-if="tabIndex == 0" />
-          <ClassContent v-if="tabIndex == 1" />
-          <ClassContent v-if="tabIndex == 2" />
-          <ClassContent v-if="tabIndex == 3" />
-        </div>
-      </div>
-      <div class="right-search">
-        <div>共10个</div>
-        <el-dropdown trigger="click" placement="bottom-end">
-          <span class="el-dropdown-link">
-            <div>按名称A-Z <i class="el-icon-caret-bottom"></i></div>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>A</el-dropdown-item>
-            <el-dropdown-item>Z</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-        <div>
-          <input type="text" placeholder="搜索你想要的班级" />
-          <i class="el-icon-search"></i>
-        </div>
-      </div>
-    </div>
-
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" filtrate="true" />
+      </el-col>
+    </el-row>
+    <ClassContent v-if="tabIndex == 0" />
+    <WorkContent v-if="tabIndex == 1" />
+    <ProblemSetDetail v-if="tabIndex == 2" />
     <!-- 创建班级 -->
     <el-dialog
       title=""
@@ -79,6 +49,8 @@
 
 <script>
 import Tabs from "@/components/tabs/Tabs.vue";
+import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
+import Navigation from "@/components/navigation/Navigation.vue";
 import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
 import WorkContent from "@/components/workContent/WorkContent.vue";
@@ -87,6 +59,8 @@ import ClassContent from "@/components/classContent/ClassContent.vue";
 export default {
   components: {
     Tabs,
+    HeaderTitle,
+    Navigation,
     CourseContent,
     ProblemSet,
     WorkContent,
@@ -128,42 +102,43 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
-  // height: 300px;
+  // height: 3rem;
+  line-height: 0rem;
 }
 ::v-deep .el-dialog__title {
-  font-size: 20px;
+  font-size: 0.2rem;
   font-weight: bold;
-  line-height: 40px;
+  line-height: 0.4rem;
   color: #2a77ff;
-  margin-left: 43px;
+  margin-left: 0.43rem;
 }
 h2 {
   position: absolute;
-  top: 25.8px;
+  top: 0.48rem;
   color: #000000;
-  font-size: 20px;
+  font-size: 0.2rem;
 }
 .course-input {
-  font-size: 20px;
+  font-size: 0.2rem;
   color: #666666;
-  padding: 10px 0px 10px 0px;
+  padding: 0.1rem 0rem 0.1rem 0rem;
   width: 100%;
-  border-bottom: 1px solid #e0e0e0 !important;
+  border-bottom: 0.01rem solid #e0e0e0 !important;
   border: none;
 }
 .cancel-button {
   border: none;
   background: #fff !important;
   box-shadow: 0 !important;
-  font-size: 14px;
+  font-size: 0.14rem;
   font-weight: bold;
   color: #666666;
-  margin-right: 15px;
+  margin-right: 0.15rem;
 }
 .el-button {
-  margin-top: 40px;
+  margin-top: 0.4rem;
   background: #2a77ff;
-  // box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
+  // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
   &:hover {
     background: #5592fe;
   }
@@ -172,22 +147,13 @@ h2 {
   }
 }
 .delete-text {
-  font-size: 14px;
-  line-height: 2px;
+  font-size: 0.14rem;
+  line-height: 0.02rem;
   color: #666666;
-}
-.body {
-  // height: 90vh;
-  // overflow: hidden;
-}
-p {
-  font-size: 14px;
-  color: #666666;
-  margin-bottom: 5px;
 }
 .top-bar {
   margin-top: 20px;
-  width: 1584px;
+  // width: 1584px;
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -214,6 +180,8 @@ p {
     font-weight: bold;
     color: #f4f4f4;
     width: 120px;
+    position: absolute;
+    right: 0.3rem;
     .el-icon-plus {
       margin-right: 7px;
       font-size: 14px;
