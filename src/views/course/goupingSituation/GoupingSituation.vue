@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class='body'>
+  <div class="body">
     <div class="breadcrumb">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/main' }">课程</el-breadcrumb-item>
@@ -8,25 +8,32 @@
         <el-breadcrumb-item>班级</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="top-bar">
-      <div class="title">
-        <div class="name">分组情况</div>
-      </div>
-    </div>
+    <el-row :gutter="32" class="el-row">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+        <div class="top-bar">
+          <HeaderTitle name="作业/任务情况" />
+        </div>
+      </el-col>
+    </el-row>
     <div class="bottom">
-      <div class="content-item">
-
-        <HeaderTitle name="班级成员" />
+      <div class="content-item" v-for="(item, index) in 8" :key="index">
+        <HeaderTitle :name="'第' + (index + 1) + '组'" />
         <div class="total">共100人</div>
         <div class="nav-title">
           <div class="people">成员</div>
           <div class="num-text">学号</div>
-
         </div>
         <div class="content">
-          <div class="item" v-for="(item, index) in 30" :key="index" :class="index % 2 == 1 ? 'item-background' : ''">
+          <div
+            class="item"
+            v-for="(item, index) in 30"
+            :key="index"
+            :class="index % 2 == 1 ? 'item-background' : ''"
+          >
             <div class="left-message">
-              <div class="header"></div>
+              <div class="header">
+                <img src="@/assets/image/home/img_empty_big.svg" alt="" />
+              </div>
               <div class="name">张克榕</div>
             </div>
             <div class="num">182718144</div>
@@ -45,8 +52,8 @@ import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 import Dot from "@/components/dot/Dot.vue";
 export default {
   components: {
-      HeaderTitle,
-      Dot
+    HeaderTitle,
+    Dot,
   },
   data() {
     return {};
@@ -61,7 +68,7 @@ export default {
 <style lang='scss' scoped>
 .top-bar {
   margin-top: 12px;
-  width: 1584px;
+  // width: 1584px;
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
@@ -84,9 +91,14 @@ export default {
 }
 .bottom {
   margin-top: 40px;
+  display: flex;
+  // justify-content: space-between;
+  flex-wrap: wrap;
   .content-item {
     width: 372px;
     height: 728px;
+    margin-right: 29px;
+    margin-bottom: 29px;
     background-color: #fff;
     position: relative;
     .total {
@@ -138,8 +150,12 @@ export default {
           .header {
             width: 32px;
             height: 32px;
-            background-color: forestgreen;
+            // background-color: forestgreen;
             border-radius: 50%;
+            img {
+              width: 32px;
+              height: 32px;
+            }
           }
           .name {
             margin-left: 12px;

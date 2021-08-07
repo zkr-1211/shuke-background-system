@@ -344,6 +344,14 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+::v-deep .el-collapse-item__wrap {
+  will-change: height;
+  background-color: #fff;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: none;
+}
 .el-collapse {
   border: none;
 }
@@ -860,7 +868,7 @@ export default {
             overflow-y: hidden;
             overflow-x: auto;
             textarea {
-              width: 6.5rem !important;
+              width: 100% !important;
               height: 100% !important;
               font-size: 0.14rem;
               line-height: 0.24rem;
@@ -873,7 +881,7 @@ export default {
           .add-img {
             margin-top: 0.12rem;
             // width: 7.52rem;
-            height: 1.95rem;
+            height: 100%;
             display: flex;
             // margin-left: 0.12rem;
             flex-wrap: wrap;
@@ -883,11 +891,12 @@ export default {
               position: relative;
               overflow: hidden;
               display: flex;
+             justify-content: space-between;
               &:hover .delete {
                 transform: translateY(0vh);
               }
               img {
-                margin-right: 0.12rem;
+                margin-right: 0.126rem;
                 margin-top: 0.12rem;
                 width: 0.8rem;
                 height: 0.8rem;
@@ -934,7 +943,6 @@ export default {
           align-items: center;
           justify-content: center;
           .el-select {
-            width: 1.68rem;
             height: 0.4rem;
             background: #ffffff;
             border: 0.01rem solid #e0e0e0;
@@ -945,7 +953,6 @@ export default {
         .member {
           margin-top: 0.2rem;
           height: 6.4rem;
-          // width: 2rem;
           background-color: #fff;
           .nav {
             width: 2rem;

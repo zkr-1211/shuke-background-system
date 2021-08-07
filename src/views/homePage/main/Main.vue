@@ -9,14 +9,16 @@
     <div class="top-content">
       <el-row :gutter="32" class="el-row">
         <el-col :xs="24" :sm="24" :md="8" :lg="4" :xl="4">
-          <!-- <div class="grid-content bg-purple"> -->
-          <PersonCard />
+          <div class="PC">
+            <PersonCard />
+          </div>
         </el-col>
         <el-col :xs="24" :sm="24" :md="16" :lg="10" :xl="10">
-          <PersonFourItem />
+          <div class="PM">
+            <PersonFourItem />
+          </div>
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="5" :xl="5">
-          <!-- <div class="grid-content bg-purple"> -->
           <div class="shuke-tools">
             <HeaderTitle name="树课工具" />
             <div class="big-data">
@@ -41,10 +43,8 @@
               </div>
             </div>
           </div>
-          <!-- </div> -->
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="5" :xl="5">
-          <!-- <div class="grid-content bg-purple-light"> -->
           <div class="school">
             <HeaderTitle name="所在学校/机构" />
             <div v-if="false">
@@ -64,7 +64,6 @@
               </div>
             </div>
           </div>
-          <!-- </div> -->
         </el-col>
       </el-row>
     </div>
@@ -167,7 +166,7 @@ export default {
 .body {
   // width: 16.2rem !important;
   .top-content {
-    height: 2.4rem;
+    // height: 2.4rem;
     .shuke-tools {
       // min-width: 2.88rem;
       // width: 100%;

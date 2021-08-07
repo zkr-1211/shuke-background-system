@@ -298,7 +298,7 @@ export default {
       .content {
         height: 5.8rem;
         // background-color: red !important;
-min-width: 3.7rem;
+        min-width: 3.7rem;
         .item {
           display: flex;
           align-items: center;
@@ -339,12 +339,13 @@ min-width: 3.7rem;
     .right-top {
       padding-left: 0.3rem;
       // width: 11.24rem;
-      // width: 100%;
+      width: 100%;
       height: 1.2rem;
       background: #ffffff;
       display: flex;
       // line-height: 1.2rem;
       align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
       overflow: auto;
       .right-top-left {
@@ -466,7 +467,7 @@ min-width: 3.7rem;
             font-size: 0.15rem;
           }
           textarea {
-            // width: 7.63rem;
+            width: 82%;
             height: 0.82rem;
             background: #ffffff;
             border: 0.01rem solid #e0e0e0;
