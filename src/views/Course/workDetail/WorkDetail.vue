@@ -25,7 +25,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <div class="bottom">
           <el-row :gutter="32" class="el-row">
-            <el-col :xs="24" :sm="24" :md="24" :lg="9" :xl="6">
+            <el-col :xs="24" :sm="24" :md="24" :lg="7" :xl="6">
               <div class="left-content">
                 <HeaderTitle name="提交情况" />
                 <div class="total">共100人</div>
@@ -59,7 +59,7 @@
                 </div>
               </div>
             </el-col>
-            <el-col :xs="24" :sm="24" :md="24" :lg="15" :xl="18">
+            <el-col :xs="24" :sm="24" :md="24" :lg="17" :xl="18">
               <div class="right-content">
                 <el-row :gutter="32" class="el-row">
                   <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
@@ -240,7 +240,8 @@ export default {
   // display: flex;
   .left-content {
     // margin-left: 0.32rem;
-    // min-width: 3.68rem;
+    // max-width: 3.68rem;
+    margin-bottom: 0.32rem;
     height: 7.24rem;
     background: #fff;
     position: relative;
@@ -268,11 +269,11 @@ export default {
     .member-content {
       // background-color: red;
 
-      overflow: auto;
       .nav-title {
-        min-width: 3.7rem;
+        // width: 85%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         font-size: 0.14rem;
         font-weight: bold;
         color: #666666;
@@ -287,21 +288,25 @@ export default {
           // background-color: red;
         }
         .num-text {
-          margin-left: 1.15rem;
+          margin-left: 0.6rem;
           // width: 1.3rem;
           // background-color: coral;
         }
         .process {
-          margin-left: 0.7rem;
+         margin-right: 0.7rem;
         }
       }
       .content {
         height: 5.8rem;
         // background-color: red !important;
-        min-width: 3.7rem;
+        // min-width: 3.7rem;
+
+        overflow: auto;
         .item {
+          // width: 86%;
           display: flex;
           align-items: center;
+          justify-content: space-between;
           padding-left: 0.4rem;
           position: relative;
           height: 0.6rem;
@@ -321,10 +326,14 @@ export default {
             }
           }
           .num {
-            margin-left: 0.55rem;
+            // margin-right: 0.7rem;
+           
+            margin-left: -0.1rem;
           }
           .process-num {
-            margin-left: 0.87rem;
+             margin-right: 0.6rem;
+            // margin-right: 0.7rem;
+            // margin-left: 0.1rem;
           }
         }
         .item-background {
@@ -335,11 +344,11 @@ export default {
   }
   .right-content {
     // margin-left: 0.32rem;
-    // min-width: 11.24rem;
+    // width: 100%;
     .right-top {
       padding-left: 0.3rem;
       // width: 11.24rem;
-      width: 100%;
+      //  min-width: 5rem;
       height: 1.2rem;
       background: #ffffff;
       display: flex;

@@ -750,10 +750,11 @@ h2 {
     }
     .right-content {
       // margin-left: 0.32rem;
-      min-width: 4.7rem;
+      min-width: 3.8rem;
       height: 7.24rem;
       background: #fff;
       position: relative;
+
       .total {
         font-size: 0.16rem;
         color: #999999;
@@ -776,6 +777,7 @@ h2 {
       .nav-title {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         font-size: 0.14rem;
         font-weight: bold;
         color: #666666;
@@ -790,11 +792,13 @@ h2 {
           // background-color: red;
         }
         .num-text {
-          margin-left: 1.1rem;
+          // margin-left: 1.1rem;
+          // margin-right: 0.6rem;
           // background-color: coral;
         }
         .process {
-          margin-left: 1.2rem;
+           margin-right: 1.2rem;
+          // margin-left: 1.2rem;
         }
       }
       .content {
@@ -807,6 +811,7 @@ h2 {
           // width: 100%;
           display: flex;
           align-items: center;
+          justify-content: space-between;
           padding-left: 0.4rem;
           position: relative;
           height: 0.6rem;
@@ -826,10 +831,10 @@ h2 {
             }
           }
           .num {
-            margin-left: 0.55rem;
+            margin-left: -0.12rem;
           }
           .process-num {
-            margin-left: 0.72rem;
+            margin-right: 0.9rem;
           }
           .dot3 {
             position: absolute;
