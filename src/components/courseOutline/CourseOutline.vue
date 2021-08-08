@@ -31,13 +31,19 @@ export default {
     Dot,
   },
   data() {
-    return {};
+    return {
+        activeName: 0,
+    };
   },
   computed: {},
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    changeCollapse(e) {
+      console.log("e", e);
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>

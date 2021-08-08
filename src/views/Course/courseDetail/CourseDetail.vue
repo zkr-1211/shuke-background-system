@@ -27,8 +27,8 @@
               <div class="detail">
                 课程简介：本专业旨在培养社会急需的具备大数据处理及分析能力的高级复合型人才。具体包括：掌握计算机科学、大数据科学与信息技术的基本理论、方法和技能，受到系统的科学研究训练，具备一定的大数据科学研究
               </div>
-              <div class="button">
-                <Button name="设置"/>
+              <div class="button" @click="toSetting()">
+                <Button name="设置" />
               </div>
             </div>
           </div>
@@ -187,7 +187,6 @@ export default {
   },
   data() {
     return {
-      activeName: 0,
       name: "张雪",
       xData: ["2020-02", "2020-03", "2020-04", "2020-05"],
       yData: [30, 132, 80, 134],
@@ -200,9 +199,11 @@ export default {
   },
 
   methods: {
-    changeCollapse(e) {
-      console.log("e", e);
-    },
+ 
+    toSetting() {
+      console.log("111")
+      this.$router.push("/course/Setting")
+    }
   },
 };
 </script>

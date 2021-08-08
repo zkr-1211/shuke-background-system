@@ -17,6 +17,7 @@ import Work from '../views/course/work/Work.vue'
 import WorkDetail from '../views/course/workDetail/WorkDetail.vue'
 import TaskSituation from '../views/course/taskSituation/TaskSituation.vue'
 import GoupingSituation from '../views/course/goupingSituation/GoupingSituation.vue'
+import Setting from '../views/course/setting/Setting.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,6 +40,7 @@ const routes = [
       { path: '/course/workDetail', component:  WorkDetail },
       { path: '/course/taskSituation', component:  TaskSituation },
       { path: '/course/goupingSituation', component:  GoupingSituation },
+      { path: '/course/Setting', component:  Setting },
     ]
   },
   {

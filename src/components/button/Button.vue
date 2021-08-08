@@ -32,21 +32,23 @@ export default {
 </script>
 <style lang='scss' scoped>
 .button {
-     font-size: 0.14rem;
-     font-weight: bold;
-     color: #f4f4f4;
-     .el-button {
-         min-width: 0.8rem;
-         height: 0.4rem;
-         background: #2a77ff;
-         box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
-         &:hover {
-             background: #5592fe;
-        }
-         &:active {
-             background: #2065e0;
-        }
+  font-size: 0.14rem;
+  font-weight: bold;
+  color: #f4f4f4;
+  .el-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0.8rem;
+    height: 0.4rem;
+    background: #2a77ff;
+    box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+    &:hover {
+      background: #5592fe;
     }
+    &:active {
+      background: #2065e0;
+    }
+  }
 }
- 
 </style>

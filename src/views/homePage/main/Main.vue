@@ -383,7 +383,7 @@ export default {
         .course-item {
           display: flex;
           align-items: center;
-          width: 9.32rem;
+          // width: 9.32rem;
           height: 1.76rem;
           &:hover {
             background-color: #fafafa;
