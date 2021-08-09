@@ -14,12 +14,12 @@
             <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
               <div class="left-top">
                 <el-row :gutter="32" class="el-row">
-                  <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="6">
+                  <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
                     <div class="PC">
                       <PersonCard />
                     </div>
                   </el-col>
-                  <el-col :xs="24" :sm="24" :md="24" :lg="16" :xl="18">
+                  <el-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
                     <div class="PM">
                       <PersonFourItem />
                     </div>

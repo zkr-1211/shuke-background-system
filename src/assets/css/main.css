@@ -152,19 +152,19 @@ textarea {
 
 @media only screen and (min-width: 320px) {
     html {
-        font-size: 450% !important;
+        font-size: 500% !important;
     }
 }
 
 @media only screen and (min-width: 480px) {
     html {
-        font-size: 485% !important;
+        font-size: 525% !important;
     }
 }
 
 @media only screen and (min-width: 640px) {
     html {
-        font-size: 525% !important;
+        font-size: 555% !important;
     }
 }
 
@@ -176,7 +176,7 @@ textarea {
 
 @media only screen and (min-width: 1000px) {
     html {
-        font-size: 555% !important;
+        font-size: 595% !important;
     }
 }
 

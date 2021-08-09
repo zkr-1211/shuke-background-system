@@ -33,13 +33,8 @@
         </div>
       </div>
     </div>
-    <Dialog
-      :editDV="editDV"
-      :deleteDV="deleteDV"
-      @Cancle="(editDV = false), (deleteDV = false)"
-      @editHandleClose="editDV = false"
-      @deleteHandleClose="deleteDV = false"
-    />
+    <!-- <div class="" style="height:120px"></div> -->
+    <Dialog :editDV="editDV" :deleteDV="deleteDV" @Cancle="(editDV = false), (deleteDV = false)" @editHandleClose="editDV = false" @deleteHandleClose="deleteDV = false" />
   </div>
 </template>
 

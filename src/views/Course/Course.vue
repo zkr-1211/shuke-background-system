@@ -16,13 +16,16 @@
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" filtrate="true"/>
+        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" filtrate="true" />
       </el-col>
     </el-row>
-    <CourseContent v-if="tabIndex == 0" />
-    <WorkContent v-if="tabIndex == 1" />
-    <ProblemSetDetail v-if="tabIndex == 2" />
-    <ProblemSet v-if="tabIndex == 3" />
+    <!-- <div class="bottom-content"> -->
+      <CourseContent v-if="tabIndex == 0" />
+      <WorkContent v-if="tabIndex == 1" />
+      <ProblemSetDetail v-if="tabIndex == 2" />
+      <ProblemSet v-if="tabIndex == 3" />
+    <!-- </div> -->
+
     <!-- 创建课程 -->
     <el-dialog title="" :visible.sync="dialogVisible2" width="30%" :show-close="false" top="40vh">
       <h2>输入课程名称</h2>
@@ -52,7 +55,6 @@ export default {
     ProblemSet,
     WorkContent,
     ProblemSetDetail,
-    
   },
 
   data() {
@@ -95,54 +97,54 @@ export default {
 
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
-     // height: 3rem;
-     line-height: 0rem;
+  // height: 3rem;
+  line-height: 0rem;
 }
- ::v-deep .el-dialog__title {
-     font-size: 0.2rem;
-     font-weight: bold;
-     line-height: 0.4rem;
-     color: #2a77ff;
-     margin-left: 0.43rem;
+::v-deep .el-dialog__title {
+  font-size: 0.2rem;
+  font-weight: bold;
+  line-height: 0.4rem;
+  color: #2a77ff;
+  margin-left: 0.43rem;
 }
- h2 {
-     position: absolute;
-     top: 0.48rem;
-     color: #000000;
-     font-size: 0.2rem;
+h2 {
+  position: absolute;
+  top: 0.48rem;
+  color: #000000;
+  font-size: 0.2rem;
 }
- .course-input {
-     font-size: 0.2rem;
-     color: #666666;
-     padding: 0.1rem 0rem 0.1rem 0rem;
-     width: 100%;
-     border-bottom: 0.01rem solid #e0e0e0 !important;
-     border: none;
+.course-input {
+  font-size: 0.2rem;
+  color: #666666;
+  padding: 0.1rem 0rem 0.1rem 0rem;
+  width: 100%;
+  border-bottom: 0.01rem solid #e0e0e0 !important;
+  border: none;
 }
- .cancel-button {
-     border: none;
-     background: #fff !important;
-     box-shadow: 0 !important;
-     font-size: 0.14rem;
-     font-weight: bold;
-     color: #666666;
-     margin-right: 0.15rem;
+.cancel-button {
+  border: none;
+  background: #fff !important;
+  box-shadow: 0 !important;
+  font-size: 0.14rem;
+  font-weight: bold;
+  color: #666666;
+  margin-right: 0.15rem;
 }
- .el-button {
-     margin-top: 0.4rem;
-     background: #2a77ff;
-     // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
-     &:hover {
-         background: #5592fe;
-    }
-     &:active {
-         background: #2065e0;
-    }
+.el-button {
+  margin-top: 0.4rem;
+  background: #2a77ff;
+  // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+  &:hover {
+    background: #5592fe;
+  }
+  &:active {
+    background: #2065e0;
+  }
 }
- .delete-text {
-     font-size: 0.14rem;
-     line-height: 0.02rem;
-     color: #666666;
+.delete-text {
+  font-size: 0.14rem;
+  line-height: 0.02rem;
+  color: #666666;
 }
 .top-bar {
   margin-top: 0.12rem;

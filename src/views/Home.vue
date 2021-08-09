@@ -102,7 +102,7 @@
         </div>
       </el-header>
       <el-container>
-        <el-aside class="hidden-xs-only">
+        <el-aside class="hidden-md-and-down">
           <el-row class="tac">
             <el-col>
               <el-menu
@@ -254,11 +254,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
-  // height: 100vh;
+  height: 100vh;
   width: 100%;
   // background-color: royalblue;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 .el-menu {
   border: none;
@@ -402,7 +402,7 @@ export default {
   }
 }
 .el-main {
-  // height: 92vh;
+  height: 92vh;
   overflow-y: auto;
   overflow-x: auto;
   // width: 50vw;
