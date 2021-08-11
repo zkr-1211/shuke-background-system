@@ -19,6 +19,7 @@ import TaskSituation from '../views/course/taskSituation/TaskSituation.vue'
 import GoupingSituation from '../views/course/goupingSituation/GoupingSituation.vue'
 import Setting from '../views/course/setting/Setting.vue'
 import AllEvaluation from '../views/course/allEvaluation/AllEvaluation.vue'
+import Ladders from '../views/course/ladders/Ladders.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -43,6 +44,7 @@ const routes = [
       { path: '/course/goupingSituation', component:  GoupingSituation },
       { path: '/course/Setting', component:  Setting },
       { path: '/course/all_evaluation', component:  AllEvaluation },
+      { path: '/course/ladders', component:  Ladders },
     ]
   },
   {

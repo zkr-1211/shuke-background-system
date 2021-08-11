@@ -27,7 +27,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <div class="bottom">
           <div class="main-content">
-            <div class="content" v-for="(item,index) in 25" :key="index">
+            <div class="content" v-for="(item,index) in 9" :key="index">
               <div class="des">
                 理论、方法和技能，受到系统的科学研究训练，具备一定的大数据科学研究能，受到系统的科学研究能，受到系统
               </div>
@@ -77,6 +77,10 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+::v-deep .el-dialog {
+  // height: 3rem;
+  line-height: 0rem;
+}
 .top-bar {
   margin-top: 0.12rem;
   // width: 15.84rem;
@@ -138,7 +142,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    height: 6rem;
+    // height: 6rem;
     .content {
       padding: 40px;
       width: 440px;

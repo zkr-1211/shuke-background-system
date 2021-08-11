@@ -3,7 +3,7 @@
   <div class="body">
     <div class="navigation">
       <el-row :gutter="32" class="el-row">
-        <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+        <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
           <div>
             <Tabs :tabList="tabList" @tabsIndex="tabsIndex" />
             <div class="empty" v-if="false">
@@ -17,7 +17,7 @@
             </div>
           </div>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
+        <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
           <div class="right-search">
             <div class="search">
               <template v-if="filtrate">

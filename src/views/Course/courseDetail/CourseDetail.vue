@@ -84,7 +84,7 @@
           </a>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="">
+          <a href="/course/ladders">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_match.svg" alt="" />
               <span>天梯赛</span>

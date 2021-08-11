@@ -8,7 +8,9 @@
 
           <div class="checkbox">
             <a href="/course/workDetail">
-              <div class="name">UI设计1班:第一次作业</div>
+              <div class="name" :class="[index == 1 ? 'is-start':'',
+              index == 2 ? 'is-no-start':'',
+              index == 3 ? 'is-pause':'']">UI设计1班:第一次作业</div>
             </a>
 
             <div v-if="isCheckBox">
@@ -142,7 +144,7 @@ h2 {
     height: 1.8rem;
     margin-top: 0.3rem;
     // margin-left: 0.03rem;
-    margin-right: 0.29rem;
+    margin-right: 0.26rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     // margin-left: 0.32rem;
@@ -175,6 +177,15 @@ h2 {
       color: #333333;
       padding-left: 0.1rem;
       margin: 0.2rem 0.15rem 0.2rem 0rem;
+    }
+    .is-start {
+      border-left: 0.07rem solid #33d182;
+    }
+    .is-no-start {
+      border-left: 0.07rem solid #ffbc13;
+    }
+    .is-pause {
+      border-left: 0.07rem solid #f96164;
     }
     .create {
       font-size: 0.16rem;
