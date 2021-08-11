@@ -36,7 +36,7 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <div class="top-right">
             <HeaderTitle name="学员评价" />
-            <a href="">共有100条评价>></a>
+            <a href="/course/all_evaluation">共有100条评价>></a>
             <div class="center-content">
               <el-carousel :interval="10000" arrow="always" indicator-position="none">
                 <el-carousel-item v-for="item in 100" :key="item">
