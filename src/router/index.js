@@ -20,6 +20,7 @@ import GoupingSituation from '../views/course/goupingSituation/GoupingSituation.
 import Setting from '../views/course/setting/Setting.vue'
 import AllEvaluation from '../views/course/allEvaluation/AllEvaluation.vue'
 import Ladders from '../views/course/ladders/Ladders.vue'
+import AddTeam from '../views/homePage/addTeam/AddTeam.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,7 +28,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/taskSituation',
+    redirect: '/main',
     children: [
       { path: '/main', component: Main },
       { path: '/course', component: Course },
@@ -72,6 +73,12 @@ const routes = [
     path: '/accountInfomation',
     name: 'AccountInfomation',
     component: AccountInfomation,
+  },
+  {
+    // path: '/accountInfomation',
+    path: '/addTeam',
+    name: 'addTeam',
+    component: AddTeam,
   }
 ]
 const router = new VueRouter({
