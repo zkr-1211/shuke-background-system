@@ -52,7 +52,7 @@
           </div>
         </div>
 
-        <!-- <Navigation :tabList="tabList" @tabsIndex="tabsIndex" filtrate="true" /> -->
+        <!-- <Navigation :tabList="tabList" @tabsIndex="tabsIndex" :filtrate="true" /> -->
       </el-col>
     </el-row>
   </div>

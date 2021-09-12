@@ -22,7 +22,7 @@
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" filtrate="true" />
+        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" :filtrate="true" />
       </el-col>
     </el-row>
     <WorkContent v-if="tabIndex == 0" />

@@ -11,4 +11,18 @@ module.exports = {
       .set("@/router", resolve("src/router"))
       .set("@/store", resolve("src/store"));
   },
+  // 代理
+  // devServer:{
+  //   proxy:{
+  //     '/api':{
+  //        target:'http://127.0.0.1:8000',
+  //        ws:true,
+  //        changOrigin:true,
+  //        pathRewrite:{
+  //           '^/api': '',
+  //        }
+         
+  //      }
+  //   }
+  // }
 }

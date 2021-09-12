@@ -15,33 +15,33 @@ async function errorHandler(res) {
     }
     switch (res.status) {
         case 401: {
-            if (res.data.errcode === 'AUTH_REQUIRE_REALNAME_VERIFY') {
-                throw new UserException(
-                    '您还未完成身份认证，请现在小程序中完成认证后再次尝试',
-                    res.data.errcode
-                );
-            }
+            // if (res.data.errcode === 'AUTH_REQUIRE_REALNAME_VERIFY') {
+            //     throw new UserException(
+            //         '您还未完成身份认证，请现在小程序中完成认证后再次尝试',
+            //         res.data.errcode
+            //     );
+            // }
             if (!store.getters.getToken) {
                 throw new AuthException('登录过期，请重新登录', res);
             }
             store.commit('clearToken');
             // 当前路由不在主页时, 弹出过期提示框
-            if (
-                router.currentRoute &&
-                router.currentRoute.name &&
-                router.currentRoute.name != 'home'
-            ) {
-                await MessageBox.alert('登录已过期，请重新登录', '提示', {
-                    type: 'error',
-                    confirmButtonText: '重新登录',
-                    showClose: false
-                });
-                router
-                    .replace({
-                        name: 'home'
-                    })
-                    .catch((e) => e);
-            }
+            // if (
+            //     router.currentRoute &&
+            //     router.currentRoute.name &&
+            //     router.currentRoute.name != 'home'
+            // ) {
+            //     await MessageBox.alert('登录已过期，请重新登录', '提示', {
+            //         type: 'error',
+            //         confirmButtonText: '重新登录',
+            //         showClose: false
+            //     });
+            //     router
+            //         .replace({
+            //             name: 'home'
+            //         })
+            //         .catch((e) => e);
+            // }
             throw new AuthException('登录过期，请重新登录', res);
         }
         case 400: {
@@ -78,6 +78,7 @@ async function errorHandler(res) {
 export default (axios) => {
     axios.interceptors.response.use(
         async (res) => {
+            console.log("res", res)
             if (res.status >= 200 && res.status < 300) {
                 return res.data.data || {};
             } else {
@@ -85,6 +86,7 @@ export default (axios) => {
             }
         },
         async (error) => {
+            // console.log("error", error)
             if (!error.response) {
                 throw new Error('网络连接失败，请稍后再试');
             }

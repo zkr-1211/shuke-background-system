@@ -11,28 +11,40 @@
         <div class="top-bar">
           <HeaderTitle name="最近课程" />
           <div class="button" @click="dialogVisible2 = true">
-            <el-button class="create-button" type="primary"><i class="el-icon-plus"></i>创建</el-button>
+            <el-button class="create-button" type="primary"
+              ><i class="el-icon-plus"></i>创建</el-button
+            >
           </div>
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" filtrate="true" />
+        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" :filtrate="true" />
       </el-col>
     </el-row>
     <!-- <div class="bottom-content"> -->
-      <CourseContent v-if="tabIndex == 0" />
-      <WorkContent v-if="tabIndex == 1" />
-      <ProblemSetDetail v-if="tabIndex == 2" />
-      <ProblemSet v-if="tabIndex == 3" />
+    <CourseContent v-if="tabIndex == 0" />
+    <WorkContent v-if="tabIndex == 1" />
+    <ProblemSetDetail v-if="tabIndex == 2" />
+    <ProblemSet v-if="tabIndex == 3" />
     <!-- </div> -->
 
     <!-- 创建课程 -->
-    <el-dialog title="" :visible.sync="dialogVisible2" width="30%" :show-close="false" top="40vh">
+    <el-dialog
+      title=""
+      :visible.sync="dialogVisible2"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
       <h2>输入课程名称</h2>
       <input class="course-input" type="text" />
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="dialogVisible2 = false">取 消</el-button>
-        <el-button type="primary" @click="dialogVisible2 = false">创 建</el-button>
+        <el-button class="cancel-button" @click="dialogVisible2 = false"
+          >取 消</el-button
+        >
+        <el-button type="primary" @click="dialogVisible2 = false"
+          >创 建</el-button
+        >
       </span>
     </el-dialog>
   </div>
@@ -46,6 +58,10 @@ import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
 import WorkContent from "@/components/workContent/WorkContent.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
+import {
+  getColumnList
+}
+from '@/api/home/home';
 export default {
   components: {
     Tabs,
@@ -85,9 +101,15 @@ export default {
   },
   computed: {},
 
-  mounted() {},
+  mounted() {
+    this.getColumnList();
+  },
 
   methods: {
+    async getColumnList() {
+      const res = await getColumnList();
+      console.log("res=========", res);
+    },
     tabsIndex(index) {
       this.tabIndex = index;
     },
@@ -194,5 +216,4 @@ h2 {
     }
   }
 }
-
 </style>
