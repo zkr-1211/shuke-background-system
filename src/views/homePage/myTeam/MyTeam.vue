@@ -404,7 +404,7 @@ export default {
   }
 }
 .quan-xian {
-  width: 5.3rem;
+  // width: 5.3rem;
   height: 4.9rem;
   overflow-y: auto;
   position: relative;

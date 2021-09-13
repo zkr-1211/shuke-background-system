@@ -1,23 +1,46 @@
 <!--  -->
 <template>
   <div class="body">
-    <div class="course-outline" :class="!ChapterIssue? 'course-outline-h':''">
-      <el-collapse v-model="activeName" accordion @change="changeCollapse">
-        <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
+    <div
+      class="course-outline"
+      :class="!ChapterIssue ? 'course-outline-h' : ''"
+    >
+      <el-collapse v-model="activeName" @change="changeCollapse">
+        <el-collapse-item
+          :name="index"
+          v-for="(item, index) in content"
+          :key="index"
+        >
           <template slot="title">
-            <div class="icon"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
+            <div class="icon">
+              <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+            </div>
             <div class="title">图标设计技巧.mp4</div>
             <div class="size">650.25M</div>
             <div class="dot">
-              <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox>
+              <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
+              <el-checkbox-group
+                v-model="item.isCheck"
+                @change="handleCheckAllChange"
+              >
+               <el-checkbox></el-checkbox>
+              </el-checkbox-group>
             </div>
             <template>
-              <div class="lock1"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
-              <div class="look1"><img src="@/assets/image/course/ic_visual_on.svg" alt=""></div>
+              <div class="lock1" @click="lockClick(index)">
+                <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+              </div>
+              <div class="look1">
+                <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+              </div>
             </template>
           </template>
 
-          <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
+          <div
+            class="outline-item"
+            v-for="(item1, index1) in item"
+            :key="index1"
+          >
             <div v-if="ChapterIssue" class="dot">
               <!-- <Dot /> -->
             </div>
@@ -25,13 +48,21 @@
             <span class="content">函数相关题目题集</span>
             <span class="num">题目数:1000</span>
             <template v-if="!isEdit">
-              <div class="lock" v-if="true"><img src="@/assets/image/course/ic_locking_on.svg" alt=""></div>
-              <div class="look" v-if="true"><img src="@/assets/image/course/iv_visual_off.svg" alt=""></div>
+              <div class="lock" v-if="true">
+                <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
+              </div>
+              <div class="look" v-if="true">
+                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
+              </div>
             </template>
             <!-- 编辑状态 -->
             <template v-else>
-              <div class="lock"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
-              <div class="look"><img src="@/assets/image/course/ic_visual_on.svg" alt=""></div>
+              <div class="lock">
+                <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+              </div>
+              <div class="look">
+                <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+              </div>
             </template>
           </div>
         </el-collapse-item>
@@ -51,20 +82,65 @@ export default {
       type: Boolean,
       default: false,
     },
+    checkAll: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       activeName: 0,
       isEdit: false,
+      oneCheck: false,
+      content: [
+        {
+          city:'福州',
+          isCheck: false,
+        },
+        {
+          city:'福州222',
+          isCheck: false,
+        },
+      ],
     };
   },
   computed: {},
 
   mounted() {},
+  watch: {
+    checkAll(newVal, oldVal) {
+      // console.log("newVal", newVal);
+      if (newVal) {
+        this.oneCheck = false;
+        this.content.forEach((item) => {
+          item.isCheck = true;
+        });
+      } else {
+        this.content.forEach((item) => {
+          if (!this.oneCheck) item.isCheck = false;
+        });
+      }
+    },
+  },
 
   methods: {
     changeCollapse(e) {
-      console.log("e", e);
+      // console.log("e", e);
+    },
+    handleCheckAllChange(e) {
+      // console.log("e", e);
+      // this.checkAll = checkedCount === this.content.length;
+      this.content.forEach((item) => {
+        if (item.isCheck === false) {
+          this.oneCheck = true;
+          this.$emit("isCheck");
+          // console.log("object", item.isCheck);
+        }
+      });
+    },
+    lockClick(index) {
+      // console.log("index", index);
+      this.$emit("lockClick", index);
     },
   },
 };
@@ -100,23 +176,27 @@ export default {
   border-bottom: none;
 }
 .el-collapse-item {
-  overflow: hidden;
+  // overflow: hidden;
   transition: all 0s;
 
   .dot {
     position: absolute;
     left: 0.3rem;
+    z-index: 999;
     // top: 0.15rem;
+    // background-color: #333333;
     // background-color: rgba(151, 3, 250, 1);
   }
 }
+
 .course-outline-h {
   height: 4.2rem;
 }
 .course-outline {
+     overflow: auto;
   width: 100%;
   // height: 4.2rem;
-  overflow-x: hidden;
+  overflow-y: hidden;
   margin: 0 auto;
   position: relative;
   .icon {
@@ -127,8 +207,13 @@ export default {
       height: 0.3rem;
     }
   }
+  .title{
+  // min-width: 1.5rem;
+  white-space: nowrap;
+}
   .size {
     margin-left: 2rem;
+     white-space: nowrap;
   }
   .lock1 {
     // position: absolute;
@@ -210,7 +295,7 @@ export default {
   font-size: 0.2rem;
   color: #333333;
   padding-left: 0.65rem;
-//   border: none;
+  //   border: none;
   padding-right: 0.3rem;
   position: relative;
   font-size: 0.16rem;
