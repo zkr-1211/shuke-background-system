@@ -445,6 +445,8 @@ export default {
   display: flex;
   align-items: center;
   // background-color: red;
+  flex-wrap: wrap;
+  overflow: auto;
   ::v-deep .el-select .el-input__inner {
     cursor: pointer;
     width: 140px;
@@ -458,7 +460,7 @@ export default {
     font-size: 0.16rem;
   }
   .link {
-    width: 288px;
+    width: 258px;
     height: 40px;
     background: #f9f9fa;
     // border: 1px solid #eef0f1;
@@ -472,7 +474,7 @@ export default {
         border: 0;
         line-height: 40px;
         padding-left: 15px;
-        width: 280px;
+        width: 250px;
         height: 40px;
         // background-color: red;
         background-color: #f9f9fa;
@@ -492,6 +494,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    // min-width: 80px;
     width: 104px;
     height: 40px;
     background: #2a77ff;

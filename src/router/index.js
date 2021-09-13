@@ -21,6 +21,8 @@ import Setting from '../views/course/setting/Setting.vue'
 import AllEvaluation from '../views/course/allEvaluation/AllEvaluation.vue'
 import Ladders from '../views/course/ladders/Ladders.vue'
 import AddTeam from '../views/homePage/addTeam/AddTeam.vue'
+import ChapterIssue from '../views/course/chapterIssue/ChapterIssue.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,7 +30,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/main',
+    redirect: '/course/chapterIssue',
     children: [
       { path: '/main', component: Main },
       { path: '/course', component: Course },
@@ -46,6 +48,7 @@ const routes = [
       { path: '/course/Setting', component:  Setting },
       { path: '/course/all_evaluation', component:  AllEvaluation },
       { path: '/course/ladders', component:  Ladders },
+      { path: '/course/chapterIssue', component:  ChapterIssue },
     ]
   },
   {

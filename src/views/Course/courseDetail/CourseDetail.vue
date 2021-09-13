@@ -68,7 +68,7 @@
     <div class="center">
       <el-row :gutter="60" class="el-row">
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="">
+          <a href="/course/taskSituation">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_correction.svg" alt="" />
               <span>作业/任务批改</span>

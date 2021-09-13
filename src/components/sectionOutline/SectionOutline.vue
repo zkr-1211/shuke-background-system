@@ -5,18 +5,25 @@
       <el-collapse v-model="activeName" accordion @change="changeCollapse">
         <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
           <template slot="title">
-            <div class="title">第一章：Python</div>
+            <div class="icon"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
+            <div class="title">图标设计技巧.mp4</div>
+            <div class="size">650.25M</div>
             <div class="dot">
-              <Dot />
+              <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox>
             </div>
+            <template>
+              <div class="lock1"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
+              <div class="look1"><img src="@/assets/image/course/ic_visual_on.svg" alt=""></div>
+            </template>
           </template>
 
           <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
             <div v-if="ChapterIssue" class="dot">
-              <Dot />
+              <!-- <Dot /> -->
             </div>
-            <span class="index">0{{index1+1}}:</span>
-            <span class="content">第一节：什么是web程序应用</span>
+            <!-- <span class="index">0{{index1+1}}:</span> -->
+            <span class="content">函数相关题目题集</span>
+            <span class="num">题目数:1000</span>
             <template v-if="!isEdit">
               <div class="lock" v-if="true"><img src="@/assets/image/course/ic_locking_on.svg" alt=""></div>
               <div class="look" v-if="true"><img src="@/assets/image/course/iv_visual_off.svg" alt=""></div>
@@ -98,12 +105,12 @@ export default {
 
   .dot {
     position: absolute;
-    right: 0.2rem;
-    top: 0.15rem;
+    left: 0.3rem;
+    // top: 0.15rem;
     // background-color: rgba(151, 3, 250, 1);
   }
 }
-.course-outline-h{
+.course-outline-h {
   height: 4.2rem;
 }
 .course-outline {
@@ -111,11 +118,43 @@ export default {
   // height: 4.2rem;
   overflow-x: hidden;
   margin: 0 auto;
-
+  position: relative;
+  .icon {
+    margin-left: 0.15rem;
+    display: flex;
+    img {
+      width: 0.3rem;
+      height: 0.3rem;
+    }
+  }
+  .size {
+    margin-left: 2rem;
+  }
+  .lock1 {
+    // position: absolute;
+    display: flex;
+    margin-left: 1.6rem;
+    // right: 0.8rem;
+    // top: 0.1rem;
+    img {
+      width: 0.34rem;
+      height: 0.34rem;
+      // background: #ffffff;
+    }
+  }
+  .look1 {
+    margin-left: 0.2rem;
+    display: flex;
+    img {
+      width: 0.34rem;
+      height: 0.34rem;
+      // background: #ffffff;
+    }
+  }
   .outline-item {
     // width: 5.78rem;
-    background: #ffffff;
-    padding: 0.3rem 0.3rem 0rem 0.3rem;
+    background: #f8f8f8;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
     font-size: 0.16rem;
     // line-height: 0.27rem;
     color: #666666;
@@ -129,23 +168,21 @@ export default {
       // background-color: rgba(151, 3, 250, 1);
     }
     .lock {
-      position: absolute;
-      right: 0.5rem;
-      top: 0.27rem;
+      margin-left: 1.38rem;
+      display: flex;
       img {
         width: 0.34rem;
         height: 0.34rem;
-        background: #ffffff;
+        // background: #ffffff;
       }
     }
     .look {
-      position: absolute;
-      right: 1rem;
-      top: 0.27rem;
+      margin-left: 0.2rem;
+      display: flex;
       img {
         width: 0.34rem;
         height: 0.34rem;
-        background: #ffffff;
+        // background: #ffffff;
       }
     }
     .index {
@@ -153,7 +190,10 @@ export default {
       color: #2065e0;
     }
     .content {
-      margin-left: 0.05rem;
+      margin-left: 1.05rem;
+    }
+    .num {
+      margin-left: 1.75rem;
     }
   }
 }
@@ -166,20 +206,21 @@ export default {
   outline: 0;
   width: 100%;
   height: 0.6rem;
-  background: #f6f6f8;
+  background: #ffffff;
   font-size: 0.2rem;
   color: #333333;
   padding-left: 0.65rem;
-  border: none;
+//   border: none;
   padding-right: 0.3rem;
   position: relative;
+  font-size: 0.16rem;
 }
 ::v-deep .el-icon-arrow-right:before {
   background-image: url(../../assets/image/course/right.svg);
   background-repeat: no-repeat;
-  background-size: 0.28rem;
+  background-size: 0.18rem;
   position: absolute;
-  left: 15px;
+  right: 15px;
   bottom: 24px;
   content: "\e6e";
   border: none;
@@ -187,7 +228,7 @@ export default {
 ::v-deep .el-collapse-item__arrow.is-active {
   // bottom: 0.03rem;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 60px;
   -webkit-transform: none;
   transform: none;

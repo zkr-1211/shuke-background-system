@@ -19,11 +19,7 @@
       <el-row :gutter="32" class="el-row">
         <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <div class="left">
-            <el-tabs
-              v-model="activeName"
-              type="border-card"
-              @tab-click="handleClick"
-            >
+            <el-tabs v-model="activeName" type="border-card" @tab-click="handleClick">
               <el-tab-pane label="天梯赛任务"></el-tab-pane>
               <el-tab-pane label="作业"></el-tab-pane>
               <el-tab-pane label="随堂练习"></el-tab-pane>
@@ -31,39 +27,24 @@
             <div v-if="tabIndex == 0">
               <div class="course-outline">
                 <el-collapse accordion>
-                  <el-collapse-item
-                    :name="index"
-                    v-for="(item, index) in 3"
-                    :key="index"
-                  >
+                  <el-collapse-item :name="index" v-for="(item, index) in 3" :key="index">
                     <template slot="title">
                       <div class="title">第一章：Python</div>
                       <div class="dot">共100份</div>
                     </template>
                     <div class="second-course-outline">
                       <el-collapse accordion>
-                        <el-collapse-item
-                          :name="index"
-                          v-for="(item, index) in 1"
-                          :key="index"
-                        >
+                        <el-collapse-item :name="index" v-for="(item, index) in 1" :key="index">
                           <template slot="title">
                             <div class="second-title">第一章：Python</div>
                             <!-- <div class="dot">共100份</div> -->
                           </template>
 
-                          <div
-                            class="outline-item"
-                            v-for="(item1, index1) in item"
-                            :key="index1"
-                          >
-                            <div
-                              class="tip"
-                              :class="[
+                          <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
+                            <div class="tip" :class="[
                                 index1 == 0 ? 'tip1' : '',
                                 index1 == 1 ? 'tip2' : '',
-                              ]"
-                            ></div>
+                              ]"></div>
                             主任务01：完成各类型图标设计<span>(18)</span>
                             <!-- <Dot class="Dot" /> -->
                           </div>
@@ -77,28 +58,17 @@
             <div v-if="tabIndex == 1">
               <div class="course-outline">
                 <el-collapse accordion>
-                  <el-collapse-item
-                    :name="index"
-                    v-for="(item, index) in 15"
-                    :key="index"
-                  >
+                  <el-collapse-item :name="index" v-for="(item, index) in 15" :key="index">
                     <template slot="title">
                       <div class="title">第一章：Python</div>
                       <div class="dot">共100份</div>
                     </template>
 
-                    <div
-                      class="outline-item"
-                      v-for="(item1, index1) in item"
-                      :key="index1"
-                    >
-                      <div
-                        class="tip"
-                        :class="[
+                    <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
+                      <div class="tip" :class="[
                           index1 == 0 ? 'tip1' : '',
                           index1 == 1 ? 'tip2' : '',
-                        ]"
-                      ></div>
+                        ]"></div>
                       主任务01：完成各类型图标设计<span>(18)</span>
                       <Dot class="Dot" />
                     </div>
@@ -136,14 +106,11 @@
                     <div class="score">
                       <div class="score-left">
                         <span>得分</span>
-                        <div
-                          class="score-tie"
-                          :class="[
+                        <div class="score-tie" :class="[
                             memberId == 0 ? 'score-tie1' : '',
                             memberId == 1 ? 'score-tie2' : '',
                             memberId == 2 ? 'score-tie3' : '',
-                          ]"
-                        ></div>
+                          ]"></div>
                         <span>此作业为补交作业</span>
                         <span>逾期：12天3小时64分</span>
                       </div>
@@ -153,27 +120,16 @@
                         <span>分</span>
                       </div>
                     </div>
-                    <div
-                      id="work-content"
-                      :class="isFullScren ? 'work-content' : 'icon-content'"
-                    >
+                    <div id="work-content" :class="isFullScren ? 'work-content' : 'icon-content'">
                       <div class="icon-top">
                         <div class="empty" v-if="true">
                           <div class="img">
-                            <img
-                              src="@/assets/image/home/img_empty_big.svg"
-                              alt=""
-                            />
+                            <img src="@/assets/image/home/img_empty_big.svg" alt="" />
                           </div>
                           <div class="text">还未创建任何课程</div>
                         </div>
 
-                        <img
-                          v-else
-                          class="look-image"
-                          src="@/assets/image/home/img_empty_big.svg"
-                          alt=""
-                        />
+                        <img v-else class="look-image" src="@/assets/image/home/img_empty_big.svg" alt="" />
                       </div>
                       <div class="icon-bottom">
                         <div class="icon-bottom-left">
@@ -182,29 +138,15 @@
                           <span>共10个文件</span>
                         </div>
                         <div class="icon-bottom-right">
-                          <img
-                            src="@/assets/image/course/icon_delect_b.svg"
-                            alt=""
-                          />
-                          <img
-                            @click="fullScreenEvent"
-                            src="@/assets/image/course/icon_fullscreen_b.svg"
-                            alt=""
-                          />
+                          <img src="@/assets/image/course/icon_delect_b.svg" alt="" />
+                          <img @click="fullScreenEvent" src="@/assets/image/course/icon_fullscreen_b.svg" alt="" />
                         </div>
                       </div>
                     </div>
                     <div class="comment">
                       <div class="nav">
                         <span>作业评价</span>
-                        <el-upload
-                          class="upload-demo"
-                          action="https://jsonplaceholder.typicode.com/posts/"
-                          :on-preview="handlePreview"
-                          :on-remove="handleRemove"
-                          :file-list="commitImgList"
-                          list-type="picture"
-                        >
+                        <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="commitImgList" list-type="picture">
                           <a href="javascript:void(0);">添加图片</a>
                         </el-upload>
                       </div>
@@ -213,15 +155,8 @@
                         <textarea v-model="commentDes"></textarea>
                       </div>
                       <div class="add-img">
-                        <div
-                          class="img-item"
-                          v-for="(item, index) in 15"
-                          :key="index"
-                        >
-                          <img
-                            src="@/assets/image/course/icon_fullscreen_b.svg"
-                            alt=""
-                          />
+                        <div class="img-item" v-for="(item, index) in 15" :key="index">
+                          <img src="@/assets/image/course/icon_fullscreen_b.svg" alt="" />
                           <div class="delete">删除</div>
                         </div>
                       </div>
@@ -236,12 +171,7 @@
                   <div class="right-right">
                     <div class="select-class">
                       <el-select v-model="value" placeholder="请选择">
-                        <el-option
-                          v-for="item in options"
-                          :key="item.value"
-                          :label="item.label"
-                          :value="item.value"
-                        >
+                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                         </el-option>
                       </el-select>
                     </div>
@@ -251,30 +181,14 @@
                         <span class="">100/001</span>
                       </div>
                       <div class="content">
-                        <div
-                          class="item"
-                          :class="index == memberId ? 'is-active' : ''"
-                          v-for="(item, index) in 15"
-                          :key="index"
-                          @click="selectMember(index)"
-                        >
-                          <div
-                            :class="index == memberId ? 'item-active' : ''"
-                          ></div>
-                          <img
-                            class="header"
-                            src="@/assets/image/course/icon_complete.svg"
-                            alt=""
-                          />
+                        <div class="item" :class="index == memberId ? 'is-active' : ''" v-for="(item, index) in 15" :key="index" @click="selectMember(index)">
+                          <div :class="index == memberId ? 'item-active' : ''"></div>
+                          <img class="header" src="@/assets/image/course/icon_complete.svg" alt="" />
                           <div class="person">
                             <div class="name">张克人</div>
                             <div class="num">得分:60</div>
                           </div>
-                          <img
-                            class="finish"
-                            src="@/assets/image/course/icon_complete.svg"
-                            alt=""
-                          />
+                          <img class="finish" src="@/assets/image/course/icon_complete.svg" alt="" />
                         </div>
                       </div>
                     </div>
