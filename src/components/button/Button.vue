@@ -2,7 +2,13 @@
 <template>
   <div class="body">
     <div class="button">
-      <el-button type="primary" @click="clickButton()">{{ name }}</el-button>
+      <el-button type="primary" @click="clickButton()" :style="styleVar">
+        <div class="content">
+          <slot></slot>
+          {{ name }}
+        </div>
+
+      </el-button>
     </div>
   </div>
 </template>
@@ -15,14 +21,25 @@ export default {
       type: String,
       default: "默认按钮",
     },
+    background: {
+      type: String,
+      default: "#2a77ff",
+    },
   },
   data() {
     return {};
   },
   computed: {},
 
-  mounted() {},
-
+  mounted() {
+  },
+  computed: {
+    styleVar() {
+      return {
+        "--background": this.background,
+      };
+    },
+  },
   methods: {
     clickButton() {
       this.$emit("ClickButton");
@@ -41,7 +58,8 @@ export default {
     justify-content: center;
     min-width: 0.8rem;
     height: 0.4rem;
-    background: #2a77ff;
+    background: var(--background);
+    border: none;
     box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
     &:hover {
       background: #5592fe;
@@ -49,6 +67,10 @@ export default {
     &:active {
       background: #2065e0;
     }
+  }
+  .content {
+    display: flex;
+    align-items: center;
   }
 }
 </style>

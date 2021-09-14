@@ -30,10 +30,7 @@
                 <HeaderTitle name="提交情况" />
                 <div class="total">共100人</div>
                 <div class="add" @click="addDV = true">
-                  <img
-                    src="@/assets/image/course/ic_class_invitation.svg"
-                    alt=""
-                  />
+                  <img src="@/assets/image/course/ic_class_invitation.svg" alt="" />
                 </div>
                 <div class="member-content">
                   <div class="nav-title">
@@ -42,12 +39,7 @@
                     <div class="process">得分</div>
                   </div>
                   <div class="content">
-                    <div
-                      class="item"
-                      v-for="(item, index) in 30"
-                      :key="index"
-                      :class="index % 2 == 1 ? 'item-background' : ''"
-                    >
+                    <div class="item" v-for="(item, index) in 30" :key="index" :class="index % 2 == 1 ? 'item-background' : ''">
                       <div class="left-message">
                         <div class="header"></div>
                         <div class="name">张克榕</div>
@@ -69,22 +61,14 @@
                       <div class="right-top-left">
                         <div class="time-start">
                           <span>发布时间:</span>
-                          <el-date-picker
-                            v-model="startTime"
-                            type="date"
-                            placeholder="选择日期"
-                          >
+                          <el-date-picker v-model="startTime" type="date" placeholder="选择日期">
                           </el-date-picker>
                         </div>
                         <!-- </el-col> -->
                         <!-- <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="8"> -->
                         <div class="time-end">
                           <span>截止时间:</span>
-                          <el-date-picker
-                            v-model="endTime"
-                            type="date"
-                            placeholder="选择日期"
-                          >
+                          <el-date-picker v-model="endTime" type="date" placeholder="选择日期">
                           </el-date-picker>
                         </div>
                       </div>
@@ -111,10 +95,7 @@
                     <div class="right-bottom">
                       <div class="nav">
                         <div class="img">
-                          <img
-                            src="@/assets/image/course/ic_class_invitation.svg"
-                            alt=""
-                          />
+                          <img src="@/assets/image/course/ic_class_invitation.svg" alt="" />
                         </div>
                         <div class="text">作业名称</div>
                         <div class="title">
@@ -125,25 +106,14 @@
                         <div class="type">
                           <span>作业类型:</span>
                           <el-select v-model="value" placeholder="请选择">
-                            <el-option
-                              v-for="item in options"
-                              :key="item.value"
-                              :label="item.label"
-                              :value="item.value"
-                            >
+                            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
                             </el-option>
                           </el-select>
                         </div>
                         <div class="des">
                           <div class="span">作业描述:</div>
                           <div>
-                            <textarea
-                              v-model="desc"
-                              name=""
-                              id=""
-                              cols="50"
-                              rows="3"
-                            ></textarea>
+                            <textarea v-model="desc" name="" id="" cols="50" rows="3"></textarea>
                           </div>
                         </div>
 
@@ -151,10 +121,7 @@
                           <span>试卷选择:</span>
                           <div class="item">
                             <div class="img">
-                              <img
-                                src="@/assets/image/course/ic_class_invitation.svg"
-                                alt=""
-                              />
+                              <img src="@/assets/image/course/ic_class_invitation.svg" alt="" />
                             </div>
                             <div class="text">图标设计技巧</div>
                           </div>
@@ -293,7 +260,7 @@ export default {
           // background-color: coral;
         }
         .process {
-         margin-right: 0.7rem;
+          margin-right: 0.7rem;
         }
       }
       .content {
@@ -327,11 +294,11 @@ export default {
           }
           .num {
             // margin-right: 0.7rem;
-           
+
             margin-left: -0.1rem;
           }
           .process-num {
-             margin-right: 0.6rem;
+            margin-right: 0.6rem;
             // margin-right: 0.7rem;
             // margin-left: 0.1rem;
           }

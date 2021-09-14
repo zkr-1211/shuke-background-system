@@ -27,7 +27,7 @@
               </el-checkbox-group>
             </div>
             <template>
-              <div class="lock1" @click="lockClick(index)">
+              <div class="lock1" @click.stop="lockClick(index)">
                 <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
               </div>
               <div class="look1">

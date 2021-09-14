@@ -47,6 +47,8 @@ const Setting = () => import(/* webpackChunkName: 'Course' */ '../views/course/s
 const AllEvaluation = () => import(/* webpackChunkName: 'Course' */ '../views/course/allEvaluation/AllEvaluation.vue')
 const Ladders = () => import(/* webpackChunkName: 'Course' */ '../views/course/ladders/Ladders.vue')
 const ChapterIssue = () => import(/* webpackChunkName: 'Course' */ '../views/course/chapterIssue/ChapterIssue.vue')
+const LaddersTemplateDesign = () => import(/* webpackChunkName: 'Course' */ '../views/course/laddersTemplateDesign/LaddersTemplateDesign.vue')
+const LaddersTaskDesign = () => import(/* webpackChunkName: 'Course' */ '../views/course/laddersTaskDesign/LaddersTaskDesign.vue')
 
 Vue.use(VueRouter)
 
@@ -55,7 +57,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/chapterIssue',
+    redirect: '/course/laddersTaskDesign',
     children: [
       {
         path: '/main',
@@ -127,6 +129,15 @@ const routes = [
         path: '/course/chapterIssue',
         component: ChapterIssue
       },
+      {
+        path: '/course/laddersTemplateDesign',
+        component: LaddersTemplateDesign
+      },
+      {
+        path: '/course/laddersTaskDesign',
+        component: LaddersTaskDesign
+      }
+      
     ]
   },
   {
