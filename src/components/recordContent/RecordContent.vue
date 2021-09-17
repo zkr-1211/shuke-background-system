@@ -30,7 +30,7 @@
         <div class="checkbox">
           <div class="name">2020.0101.11:11-229</div>
           <div v-if="isCheckBox">
-            <el-checkbox v-model="checked"></el-checkbox>
+            <CheckBox/>
           </div>
         </div>
         <div class="create">录课班级：电信教学团队</div>
@@ -54,11 +54,13 @@
 import Dot from "@/components/dot/Dot.vue";
 import Button from "@/components/button/Button.vue";
 import Dialog from "@/components/dialog/Dialog.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     Button,
     Dot,
     Dialog,
+    CheckBox
   },
   props: {
     isCheckBox: {

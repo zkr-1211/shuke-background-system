@@ -4,10 +4,9 @@
     <div class="button">
       <el-button type="primary" @click="clickButton()" :style="styleVar">
         <div class="content">
-          <slot></slot>
-          {{ name }}
+          <div class="left"><slot></slot></div>
+          <span>{{ name }}</span>
         </div>
-
       </el-button>
     </div>
   </div>
@@ -31,8 +30,7 @@ export default {
   },
   computed: {},
 
-  mounted() {
-  },
+  mounted() {},
   computed: {
     styleVar() {
       return {
@@ -52,6 +50,10 @@ export default {
   font-size: 0.14rem;
   font-weight: bold;
   color: #f4f4f4;
+  .left {
+    margin-right: 8px;
+    display: flex;
+  }
   .el-button {
     display: flex;
     align-items: center;

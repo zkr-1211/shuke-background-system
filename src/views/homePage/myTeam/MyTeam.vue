@@ -73,7 +73,7 @@
         <div class="content">
           <div class="item" v-for="(item, index) in 10" :key="index">
             <div class="check">
-              <el-checkbox v-model="checked"></el-checkbox>
+              <CheckBox/>
             </div>
             <div class="person">
               <div class="header">
@@ -192,7 +192,7 @@
       <div class="quan-xian">
         <div class="quanxian-item" v-for="(item, index) in 10" :key="index">
           <div class="chick">
-            <el-checkbox v-model="checked"></el-checkbox>
+            <CheckBox/>
           </div>
           <div class="title">录播权限</div>
         </div>
@@ -209,10 +209,12 @@
 <script>
 import HeaderTitle from "@/components/headerTitle/HeaderTitle";
 import Dot from "@/components/dot/Dot";
+import CheckBox from "@/components/checkBox/CheckBox";
 export default {
   components: {
     HeaderTitle,
     Dot,
+    CheckBox
   },
   data() {
     return {
@@ -420,7 +422,7 @@ export default {
   color: #2a77ff;
   position: absolute;
   right: 0.3rem;
-  top: 0.3rem;
+  top: 0.5rem;
 }
 .top-set {
   // display: flex;
@@ -568,48 +570,14 @@ export default {
   line-height: 0.2rem;
 }
 .delete-man {
+  position: absolute;
+  left: 0.35rem;
+  bottom: 0.45rem;
   font-size: 0.14rem;
   font-weight: bold;
   color: #f96164;
-  margin-right: 2.8rem;
+  // margin-right: 3.8rem;
   cursor: pointer;
-}
-::v-deep .el-checkbox__inner {
-  display: inline-block;
-  position: relative;
-  border: 0.02rem solid #999999;
-  border-radius: 0.02rem;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 0.2rem;
-  height: 0.2rem;
-  background-color: #fff;
-  z-index: 1;
-  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-}
-::v-deep .el-checkbox__inner::after {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  content: "";
-  border-left: 0;
-  border-top: 0;
-  height: 0.07rem;
-  left: 0.06rem;
-  position: absolute;
-  top: 0.02rem;
-  -webkit-transform: rotate(45deg) scaleY(0);
-  transform: rotate(45deg) scaleY(0);
-  width: 0.015625rem;
-  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s,
-    -webkit-transform 0.15s ease-in 0.05s;
-  -webkit-transform-origin: center;
-  transform-origin: center;
 }
 ::v-deep .el-dialog {
   line-height: 0rem;
@@ -666,90 +634,8 @@ h2 {
   .main {
     width: 70%;
     margin: 0.12rem auto 0;
-    // display: flex;
-    // width: 100%;
-    // background-color: red;
-    .left {
-      // width: 4.2rem;
-      height: 9.36rem;
-      background: #ffffff;
-      box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
-      overflow: hidden;
-      position: relative;
-      .content {
-        height: 7.5rem;
-        overflow-y: auto;
-        .item {
-          position: relative;
-          padding: 0rem 0.1rem 0rem 0.3rem;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin: 0 auto;
-          display: flex;
-          // width: 3.8rem;
-          height: 0.6rem;
-          background: #ffffff;
-          opacity: 1;
-          &:hover {
-            background-color: #f6f7f9;
-          }
-          &:hover .dot {
-            display: block;
-          }
-          &:active {
-            background-color: #edeff3;
-          }
-          .team-name {
-            font-size: 0.16rem;
-            color: #666666;
-          }
-          .num {
-            margin-left: 1.4rem;
-            font-size: 0.16rem;
-            color: #999999;
-            position: absolute;
-            right: 0.55rem;
-          }
-          .dot {
-            cursor: pointer;
-            margin-top: 0.05rem;
-            display: none;
-          }
-        }
-      }
-      .add {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        // left: 1.55rem;
-        transform: translate(-50%, -50%);
-        bottom: 3%;
-        cursor: pointer;
-        left: 50%;
-        .img {
-          display: flex;
-          align-items: center;
-          img {
-            width: 0.24rem;
-            height: 0.24rem;
-            cursor: pointer;
-          }
-        }
-        .text {
-          font-size: 0.16rem;
-          color: #666666;
-          margin-left: 0.16rem;
-        }
-      }
-    }
     .right {
-      // min-width: 8.2rem;
       height: 9.36rem;
-
-      opacity: 1;
-      // margin-left: 0.4rem;
       position: relative;
       .add-img {
         position: absolute;
@@ -835,11 +721,7 @@ h2 {
       }
       .nav-title {
         background: #ffffff;
-        // margin: 0 auto;
-        // width: 10.84rem;
         height: 0.8rem;
-
-        // background: #df6a6a;
         font-size: 0.2rem;
         font-weight: bold;
         color: #666666;
@@ -870,10 +752,7 @@ h2 {
         }
       }
       .content {
-        // margin: 0 auto;
-        // width: 10.84rem;
         height: 6rem;
-        // padding: 0rem 0.2rem 0rem 0.2rem;
         overflow-y: auto;
         overflow-x: hidden;
         .item {
@@ -881,7 +760,6 @@ h2 {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          // width: 10.84rem;
           height: 0.64rem;
           background: #ffffff;
           font-size: 0.16rem;
@@ -900,16 +778,9 @@ h2 {
             background-color: #edeff3;
           }
           .check {
-            // width: 0.2rem;
-            // height: 0.2rem;
-            // background: #ffffff;
-            // border: 0.02rem solid #999999;
-            // border-radius: 0.02rem;
-            // margin-left: 0.24rem;
             display: none;
             position: absolute;
-            left: 0.3rem;
-            // cursor: pointer;
+            left: 0.1rem;
           }
           .person {
             display: flex;

@@ -26,7 +26,7 @@
                   </a>
 
                   <div v-if="isCheckBox">
-                    <el-checkbox v-model="checked"></el-checkbox>
+                    <CheckBox/>
                   </div>
                 </div>
                 <div class="create">创建者：张老师</div>
@@ -94,6 +94,7 @@ import Dot from "@/components/dot/Dot";
 import SmallHeaderTitle from "@/components/smallHeaderTitle/SmallHeaderTitle.vue";
 import Navigation from "@/components/navigation/Navigation.vue";
 import LaddersWork from "@/components/laddersWork/LaddersWork.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     HeaderTitle,
@@ -102,6 +103,7 @@ export default {
     Dot,
     LaddersWork,
     Navigation,
+    CheckBox
   },
   data() {
     return {

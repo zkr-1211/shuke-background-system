@@ -101,9 +101,11 @@
 
 <script>
 import Button from "@/components/button/Button";
+import Dot from "@/components/dot/Dot";
 export default {
   components: {
-      Button
+      Button,
+      Dot
   },
   data() {
     return {

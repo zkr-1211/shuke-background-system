@@ -19,19 +19,27 @@
             <div class="size">650.25M</div>
             <div class="dot">
               <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-              <el-checkbox-group
-                v-model="item.isCheck"
-                @change="handleCheckAllChange"
-              >
-               <el-checkbox></el-checkbox>
-              </el-checkbox-group>
+             <CheckBox/>
             </div>
-            <template>
+            <template v-if="!isUploadResource">
               <div class="lock1" @click.stop="lockClick(index)">
                 <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
               </div>
               <div class="look1">
                 <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+              </div>
+            </template>
+
+            <!-- 上传资源 -->
+            <template v-if="isUploadResource">
+              <div class="lock1">
+                <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
+              </div>
+              <div class="look1">
+                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
+              </div>
+              <div class="look1">
+                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
               </div>
             </template>
           </template>
@@ -73,12 +81,18 @@
 
 <script>
 import Dot from "@/components/dot/Dot.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     Dot,
+    CheckBox
   },
   props: {
     ChapterIssue: {
+      type: Boolean,
+      default: false,
+    },
+    isUploadResource: {
       type: Boolean,
       default: false,
     },
@@ -94,11 +108,11 @@ export default {
       oneCheck: false,
       content: [
         {
-          city:'福州',
+          city: "福州",
           isCheck: false,
         },
         {
-          city:'福州222',
+          city: "福州222",
           isCheck: false,
         },
       ],
@@ -193,7 +207,7 @@ export default {
   height: 4.2rem;
 }
 .course-outline {
-     overflow: auto;
+  overflow: auto;
   width: 100%;
   // height: 4.2rem;
   overflow-y: hidden;
@@ -207,18 +221,23 @@ export default {
       height: 0.3rem;
     }
   }
-  .title{
-  // min-width: 1.5rem;
-  white-space: nowrap;
-}
+  .title {
+    // min-width: 1.5rem;
+    width: 315px;
+    white-space: nowrap;
+  }
   .size {
-    margin-left: 2rem;
-     white-space: nowrap;
+    // margin-left: 2rem;
+    width: 230px;
+    // background-color: red;
+    height: 50px;
+    white-space: nowrap;
   }
   .lock1 {
     // position: absolute;
     display: flex;
-    margin-left: 1.6rem;
+    // width: 100px;
+    // margin-left: 1.6rem;
     // right: 0.8rem;
     // top: 0.1rem;
     img {
@@ -271,14 +290,20 @@ export default {
       }
     }
     .index {
+      white-space: nowrap;
       font-size: 0.16rem;
       color: #2065e0;
     }
     .content {
-      margin-left: 1.05rem;
+      white-space: nowrap;
+      // margin-left: 1.05rem;
+      width: 400px;
+      // background-color: red;
+      text-align: center;
     }
     .num {
-      margin-left: 1.75rem;
+      white-space: nowrap;
+      // margin-left: 1.75rem;
     }
   }
 }
@@ -294,7 +319,7 @@ export default {
   background: #ffffff;
   font-size: 0.2rem;
   color: #333333;
-  padding-left: 0.65rem;
+  padding-left: 0.75rem;
   //   border: none;
   padding-right: 0.3rem;
   position: relative;

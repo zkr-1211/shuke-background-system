@@ -14,7 +14,7 @@
             </a>
 
             <div v-if="isCheckBox">
-              <el-checkbox v-model="checked"></el-checkbox>
+              <CheckBox/>
             </div>
           </div>
           <div class="create">创建者：张老师</div>
@@ -49,10 +49,12 @@
 <script>
 import Dot from "@/components/dot/Dot";
 import Dialog from "@/components/dialog/Dialog.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     Dot,
     Dialog,
+    CheckBox
   },
   props: {
     isCheckBox: {

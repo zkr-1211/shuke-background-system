@@ -1,7 +1,10 @@
 <!--  -->
 <template>
   <div class="body">
-    <div class="course-outline" :class="!ChapterIssue? 'course-outline-h':''">
+    <div
+      class="course-outline"
+      :class="ChapterIssue || isUploadResource ? '' : 'course-outline-h'"
+    >
       <el-collapse v-model="activeName" accordion @change="changeCollapse">
         <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
           <template slot="title">
@@ -11,21 +14,39 @@
             </div>
           </template>
 
-          <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
-            <div v-if="ChapterIssue" class="dot">
+          <div
+            class="outline-item"
+            v-for="(item1, index1) in item"
+            :key="index1"
+          >
+            <div v-if="ChapterIssue || isUploadResource" class="dot">
               <Dot />
             </div>
-            <span class="index">0{{index1+1}}:</span>
+            <span class="index">0{{ index1 + 1 }}:</span>
             <span class="content">第一节：什么是web程序应用</span>
-            <template v-if="!isEdit">
-              <div class="lock" v-if="true"><img src="@/assets/image/course/ic_locking_on.svg" alt=""></div>
-              <div class="look" v-if="true"><img src="@/assets/image/course/iv_visual_off.svg" alt=""></div>
+            <template v-if="!isEdit && ChapterIssue">
+              <div class="lock" v-if="true">
+                <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
+              </div>
+              <div class="look" v-if="true">
+                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
+              </div>
             </template>
             <!-- 编辑状态 -->
-            <template v-else>
-              <div class="lock"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
-              <div class="look"><img src="@/assets/image/course/ic_visual_on.svg" alt=""></div>
+            <template v-if="isEdit && ChapterIssue">
+              <div class="lock">
+                <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+              </div>
+              <div class="look">
+                <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+              </div>
             </template>
+          </div>
+          <div class="add" v-if="isUploadResource">
+            <div class="img">
+              <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+            </div>
+            <div class="add-item">添加小节</div>
           </div>
         </el-collapse-item>
       </el-collapse>
@@ -40,7 +61,13 @@ export default {
     Dot,
   },
   props: {
+    //是否是章节发布管理
     ChapterIssue: {
+      type: Boolean,
+      default: false,
+    },
+    //是否是上传资源大纲
+    isUploadResource: {
       type: Boolean,
       default: false,
     },
@@ -103,7 +130,7 @@ export default {
     // background-color: rgba(151, 3, 250, 1);
   }
 }
-.course-outline-h{
+.course-outline-h {
   height: 4.2rem;
 }
 .course-outline {
@@ -154,6 +181,25 @@ export default {
     }
     .content {
       margin-left: 0.05rem;
+    }
+  }
+  .add {
+    cursor: pointer;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .img {
+      display: flex;
+      width: 30px;
+      height: 30px;
+    }
+    .add-item {
+      margin-left: 8px;
+      font-size: 20px;
+      line-height: 34px;
+      color: #666666;
+      opacity: 1;
     }
   }
 }

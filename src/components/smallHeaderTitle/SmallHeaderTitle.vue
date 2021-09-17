@@ -3,6 +3,7 @@
   <div class="body">
     <div class="nav">
       <div class="title">{{ name }}：</div>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -30,10 +31,7 @@ export default {
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-//   height: 0.8rem;
   background: #ffffff;
-//   padding: 0.2rem;
   .title {
     font-size: 0.18rem;
     color: #333333;

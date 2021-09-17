@@ -8,8 +8,8 @@
         </div>
         <div class="checkbox">
           <div class="name">UI设计教育课程</div>
-          <div v-if="isCheckBox">
-            <el-checkbox v-model="checked"></el-checkbox>
+          <div v-if="isCheckBox" class="el-checkbox">
+            <CheckBox/>
           </div>
         </div>
         <div class="create">创建者：电信教学团队</div>
@@ -41,10 +41,12 @@
 <script>
 import Dot from "@/components/dot/Dot.vue";
 import Dialog from "@/components/dialog/Dialog.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     Dot,
     Dialog,
+    CheckBox
   },
   props: {
     isCheckBox: {
@@ -109,7 +111,7 @@ export default {
       .el-checkbox {
         position: absolute;
         right: 0.2rem;
-        top: 0.05rem;
+        top: 0.06rem;
         font-size: 0.2rem;
       }
     }

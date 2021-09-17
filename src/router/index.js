@@ -1,26 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home.vue'
-// import Main from '../views/homePage/main/Main.vue'
-// import Course from '../views/course/Course.vue'
-// import RecordVideo from '../views/recordVideo/RecordVideo.vue'
-// import Recovery from '../views/recovery/Recovery.vue'
-// import AllNotice from '../views/homePage/allNotice/AllNotice.vue'
-// import Organization from '../views/homePage/organization/Organization.vue'
-// import AccountInfomation from '../views/homePage/accountInfomation/AccountInfomation.vue'
-// import CourseDetail from '../views/course/courseDetail/CourseDetail.vue'
-// import MyTeam from '../views/homePage/myTeam/MyTeam.vue'
-// import MyClass from '../views/homePage/myClass/MyClass.vue'
-// import StudentInfo from '../views/homePage/studentInfo/StudentInfo.vue'
-// import AddTeam from '../views/homePage/addTeam/AddTeam.vue'
-// import ClassDetail from '../views/course/classDetail/ClassDetail.vue'
-// import Work from '../views/course/work/Work.vue'
-// import WorkDetail from '../views/course/workDetail/WorkDetail.vue'
-// import TaskSituation from '../views/course/taskSituation/TaskSituation.vue'
-// import GoupingSituation from '../views/course/goupingSituation/GoupingSituation.vue'
-// import Setting from '../views/course/setting/Setting.vue'
-// import AllEvaluation from '../views/course/allEvaluation/AllEvaluation.vue'
-// import Ladders from '../views/course/ladders/Ladders.vue'
 // 首页
 const Home = () => import(/* webpackChunkName: 'Home' */ '../views/Home.vue')
 const AllNotice = () => import(/* webpackChunkName: 'Home' */ '../views/homePage/allNotice/AllNotice.vue')
@@ -49,7 +28,11 @@ const Ladders = () => import(/* webpackChunkName: 'Course' */ '../views/course/l
 const ChapterIssue = () => import(/* webpackChunkName: 'Course' */ '../views/course/chapterIssue/ChapterIssue.vue')
 const LaddersTemplateDesign = () => import(/* webpackChunkName: 'Course' */ '../views/course/laddersTemplateDesign/LaddersTemplateDesign.vue')
 const LaddersTaskDesign = () => import(/* webpackChunkName: 'Course' */ '../views/course/laddersTaskDesign/LaddersTaskDesign.vue')
-
+const WorkDesign = () => import(/* webpackChunkName: 'Course' */ '../views/course/workDesign/WorkDesign.vue')
+const EditProblem = () => import(/* webpackChunkName: 'Course' */ '../views/course/editProblem/EditProblem.vue')
+const ProblemDetail = () => import(/* webpackChunkName: 'Course' */ '../views/course/problemDetail/ProblemDetail.vue')
+const UploadResource = () => import(/* webpackChunkName: 'Course' */ '../views/course/uploadResource/UploadResource.vue')
+const UploadResourceOther = () => import(/* webpackChunkName: 'Course' */ '../views/course/uploadResourceOther/UploadResourceOther.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -57,7 +40,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/laddersTaskDesign',
+    redirect: '/course/uploadResourceOther',
     children: [
       {
         path: '/main',
@@ -136,8 +119,28 @@ const routes = [
       {
         path: '/course/laddersTaskDesign',
         component: LaddersTaskDesign
+      },
+      {
+        path: '/course/workDesign',
+        component: WorkDesign
+      },
+      {
+        path: '/course/editProblem',
+        component: EditProblem
+      },
+      {
+        path: '/course/problemDetail',
+        component: ProblemDetail
+      },
+      {
+        path: '/course/uploadResource',
+        component: UploadResource
+      },
+      {
+        path: '/course/uploadResourceOther',
+        component: UploadResourceOther
       }
-      
+
     ]
   },
   {
@@ -184,10 +187,10 @@ router.beforeEach((to, from, next) => {
   // console.log("totototototo", to.path,to.fullPath)
   const token = localStorage.getItem('token')
   //如果是登录页面路径，就直接next()
-  if (token) { 
+  if (token) {
     next();
   } else {
-    if (to.path == '/main') { 
+    if (to.path == '/main') {
       next();
     } else { //不然就跳转到登录；
       next({

@@ -6,8 +6,8 @@
         <div class="course-item" v-for="(item, index) in 25" :key="index">
           <div class="checkbox">
             <div class="name">函数相关题目</div>
-            <div v-if="isCheckBox">
-              <el-checkbox v-model="checked"></el-checkbox>
+            <div v-if="isCheckBox" class="el-checkbox">
+              <CheckBox />
             </div>
           </div>
           <div class="create">创建者：张老师</div>
@@ -47,10 +47,12 @@
 <script>
 import Dot from "@/components/dot/Dot.vue";
 import Dialog from "@/components/dialog/Dialog.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     Dot,
     Dialog,
+    CheckBox
   },
   props: {
     isCheckBox: {
@@ -161,7 +163,7 @@ h2 {
       .el-checkbox {
         position: absolute;
         right: 0.2rem;
-        top: 0.05rem;
+        top: 0.08rem;
         font-size: 0.2rem;
       }
     }

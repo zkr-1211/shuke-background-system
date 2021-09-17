@@ -67,11 +67,7 @@
             <div class="contentNav">
               <div class="select-all">
                 <!-- <el-checkbox :isIndeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-                <el-checkbox
-                  :Indeterminate="isIndeterminate"
-                  v-model="checkAll"
-                  @change="handleCheckAllChange"
-                ></el-checkbox>
+                <CheckBox/>
               </div>
               <div class="file-name">文件名</div>
               <div class="file-size">大小</div>
@@ -141,12 +137,14 @@
 import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 import CourseOutline from "@/components/courseOutline/CourseOutline.vue";
 import SectionOutline from "@/components/sectionOutline/SectionOutline.vue";
+import CheckBox from "@/components/checkBox/CheckBox.vue";
 const cityOptions = ["上海"];
 export default {
   components: {
     HeaderTitle,
     CourseOutline,
     SectionOutline,
+    CheckBox
   },
 
   data() {
