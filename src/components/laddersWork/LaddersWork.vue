@@ -3,23 +3,35 @@
   <div class="body">
     <div>
       <div class="course-content">
-
         <div class="course-item" v-for="(item, index) in 25" :key="index">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="UI设计1班:第一次作业第一次作业"
+            placement="top"
+          >
+            <div class="checkbox">
+              <a href="/course/LaddersTaskDesign">
+                <div
+                  class="name"
+                  :class="[
+                    index == 1 ? 'is-start' : '',
+                    index == 2 ? 'is-no-start' : '',
+                    index == 3 ? 'is-pause' : '',
+                  ]"
+                >
+                  UI设计赛程
+                </div>
+              </a>
 
-          <div class="checkbox">
-            <a href="/course/workDetail">
-              <div class="name" :class="[index == 1 ? 'is-start':'',
-              index == 2 ? 'is-no-start':'',
-              index == 3 ? 'is-pause':'']">UI设计1班:第一次作业</div>
-            </a>
-
-            <div v-if="isCheckBox">
-              <CheckBox/>
+              <div v-if="isCheckBox">
+                <CheckBox />
+              </div>
             </div>
-          </div>
+          </el-tooltip>
           <div class="create">创建者：张老师</div>
           <div class="bottom-message">
-            <div class="classnum">任务类型：完成试卷</div>
+            <div class="classnum">任务数：100</div>
             <div class="dot-bottom">
               <div class="num">起止时间：2021/10/15-2021/10/16</div>
               <div class="dot" v-if="isCheckBox"></div>
@@ -38,11 +50,16 @@
               </el-dropdown>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-    <Dialog :editDV="editDV" :deleteDV="deleteDV" @Cancle="(editDV = false), (deleteDV = false)" @editHandleClose="editDV = false" @deleteHandleClose="deleteDV = false" />
+    <Dialog
+      :editDV="editDV"
+      :deleteDV="deleteDV"
+      @Cancle="(editDV = false), (deleteDV = false)"
+      @editHandleClose="editDV = false"
+      @deleteHandleClose="deleteDV = false"
+    />
   </div>
 </template>
 
@@ -54,7 +71,7 @@ export default {
   components: {
     Dot,
     Dialog,
-    CheckBox
+    CheckBox,
   },
   props: {
     isCheckBox: {
@@ -179,6 +196,9 @@ h2 {
       color: #333333;
       padding-left: 0.1rem;
       margin: 0.2rem 0.15rem 0.2rem 0rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .is-start {
       border-left: 0.07rem solid #33d182;

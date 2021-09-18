@@ -40,7 +40,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/uploadResourceOther',
+    redirect: '/course/ChapterIssue',
     children: [
       {
         path: '/main',

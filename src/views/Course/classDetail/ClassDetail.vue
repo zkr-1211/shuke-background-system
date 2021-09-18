@@ -27,12 +27,17 @@
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="3" :xl="3">
           <div class="item-2">
-            <div class="content">
-              <div class="img">
-                <img src="@/assets/image/course/icon_studyreport.svg" alt="" />
-              </div>
-              <div class="text">章节发放管理</div>
-            </div>
+            <router-link to="/course/chapterIssue">
+              <div class="content">
+                <div class="img">
+                  <img
+                    src="@/assets/image/course/icon_studyreport.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="text">章节发放管理</div>
+              </div></router-link
+            >
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="5" :xl="5">
@@ -797,7 +802,7 @@ h2 {
           // background-color: coral;
         }
         .process {
-           margin-right: 1.2rem;
+          margin-right: 1.2rem;
           // margin-left: 1.2rem;
         }
       }

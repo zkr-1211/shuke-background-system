@@ -51,15 +51,16 @@ export default {
   font-weight: bold;
   color: #f4f4f4;
   .left {
-    margin-right: 8px;
+    margin-right: 0.06rem;
     display: flex;
   }
   .el-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 0.8rem;
+    min-width: 1.14rem;
     height: 0.4rem;
+    line-height: 0.4rem;
     background: var(--background);
     border: none;
     box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);

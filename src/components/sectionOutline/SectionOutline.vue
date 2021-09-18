@@ -160,27 +160,6 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-// ::v-deep .el-icon-arrow-right:before {
-//   background-image: url(../../assets/image/course/right.svg);
-//   background-repeat: no-repeat;
-//   background-size: 0.28rem;
-//   position: relative;
-//   right: 5rem;
-//   bottom: 0.03rem;
-//   content: "\e6e";
-//   border: none;
-// }
-// ::v-deep .el-collapse-item__arrow.is-active {
-//   bottom: 0.03rem;
-//   -webkit-transform: rotate(0);
-//   transform: rotate(0);
-//   background-image: url(../../assets/image/course/bottom.svg);
-//   background-repeat: no-repeat;
-//   background-size: 0.28rem;
-//   position: relative;
-//   right: 5rem;
-//   content: "\e6e";
-// }
 ::v-deep .el-collapse-item__wrap {
   will-change: height;
   background-color: #fff;
@@ -190,16 +169,12 @@ export default {
   border-bottom: none;
 }
 .el-collapse-item {
-  // overflow: hidden;
   transition: all 0s;
 
   .dot {
     position: absolute;
-    left: 0.3rem;
+    left: 0.28rem;
     z-index: 999;
-    // top: 0.15rem;
-    // background-color: #333333;
-    // background-color: rgba(151, 3, 250, 1);
   }
 }
 
@@ -214,7 +189,7 @@ export default {
   margin: 0 auto;
   position: relative;
   .icon {
-    margin-left: 0.15rem;
+    margin-left: 0.35rem;
     display: flex;
     img {
       width: 0.3rem;
@@ -223,7 +198,7 @@ export default {
   }
   .title {
     // min-width: 1.5rem;
-    width: 315px;
+    width: 320px;
     white-space: nowrap;
   }
   .size {
@@ -325,28 +300,28 @@ export default {
   position: relative;
   font-size: 0.16rem;
 }
-::v-deep .el-icon-arrow-right:before {
-  background-image: url(../../assets/image/course/right.svg);
-  background-repeat: no-repeat;
-  background-size: 0.18rem;
-  position: absolute;
-  right: 15px;
-  bottom: 24px;
-  content: "\e6e";
-  border: none;
-}
-::v-deep .el-collapse-item__arrow.is-active {
-  // bottom: 0.03rem;
-  position: absolute;
-  right: 0;
-  top: 60px;
-  -webkit-transform: none;
-  transform: none;
-  background-repeat: no-repeat;
-  background-size: 0.28rem;
-  content: "\e6e";
-}
-::v-deep .el-collapse-item__arrow.is-active:before {
-  background-image: url(../../assets/image/course/bottom.svg) !important;
-}
+// ::v-deep .el-icon-arrow-right:before {
+//   background-image: url(../../assets/image/course/right.svg);
+//   background-repeat: no-repeat;
+//   background-size: 0.18rem;
+//   position: absolute;
+//   right: 15px;
+//   bottom: 24px;
+//   content: "\e6e";
+//   border: none;
+// }
+// ::v-deep .el-collapse-item__arrow.is-active {
+//   // bottom: 0.03rem;
+//   position: absolute;
+//   right: 0;
+//   top: 60px;
+//   -webkit-transform: none;
+//   transform: none;
+//   background-repeat: no-repeat;
+//   background-size: 0.28rem;
+//   content: "\e6e";
+// }
+// ::v-deep .el-collapse-item__arrow.is-active:before {
+//   background-image: url(../../assets/image/course/bottom.svg) !important;
+// }
 </style>

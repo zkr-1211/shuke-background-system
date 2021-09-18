@@ -11,7 +11,6 @@
     <el-row :gutter="32" class="el-row">
       <el-col :xs="24" :sm="24" :md="5" :lg="5" :xl="5">
         <div class="left">
-
           <div class="left-top">
             <HeaderTitle name="天梯赛模板" />
           </div>
@@ -19,19 +18,18 @@
             <!-- <HeaderTitle name="赛程" /> -->
             <div class="course-content">
               <div class="course-item" v-for="(item, index) in 25" :key="index">
-
                 <div class="checkbox">
                   <a href="/course/workDetail">
-                    <div class="name">UI设计1班:第一次作业</div>
+                    <div class="name">UI设计赛程</div>
                   </a>
 
                   <div v-if="isCheckBox">
-                    <CheckBox/>
+                    <CheckBox />
                   </div>
                 </div>
                 <div class="create">创建者：张老师</div>
                 <div class="bottom-message">
-                  <div class="classnum">任务类型：完成试卷</div>
+                  <div class="classnum">任务数：20</div>
                   <div class="dot-bottom">
                     <div class="num">起止时间：2021/10/15-2021/10/16</div>
                     <div class="dot" v-if="isCheckBox"></div>
@@ -50,30 +48,28 @@
                     </el-dropdown>
                   </div>
                 </div>
-
               </div>
             </div>
+            <router-link to="/course/laddersTemplateDesign">
+              <div class="createTemplete">
+                <Button name="设计模板" @click.native="">
+                  <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                </Button>
+              </div>
+            </router-link>
           </div>
-          <!-- <div
-            class="tab"
-            :class="tabIndex === index ? 'is-active' : ''"
-            v-for="(item, index) in tabsTitle"
-            :key="index"
-            @click="selectActive(index)"
-          >
-            {{ item }}
-          </div> -->
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="19" :lg="19" :xl="19">
-
         <div class="right">
           <div class="right-top">
             <div class="top-bar">
               <HeaderTitle name="赛程" />
               <div class="buttons">
                 <Button name="任务提交情况" />
-                <Button name="创建" class="Button" />
+                <Button name="创建" class="Button">
+                  <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                </Button>
               </div>
             </div>
           </div>
@@ -103,7 +99,7 @@ export default {
     Dot,
     LaddersWork,
     Navigation,
-    CheckBox
+    CheckBox,
   },
   data() {
     return {
@@ -299,6 +295,12 @@ export default {
           }
         }
       }
+    }
+    .createTemplete {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.3rem;
     }
   }
 }
@@ -625,43 +627,5 @@ export default {
 // 选中后的字体颜色
 ::v-deep .el-radio__input.is-checked + .el-radio__label {
   color: #333333;
-}
-::v-deep .el-checkbox__inner {
-  margin-left: 0.2rem;
-  display: inline-block;
-  position: relative;
-  border: 0.02rem solid #999999;
-  border-radius: 0.02rem;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 0.2rem;
-  height: 0.2rem;
-  background-color: #fff;
-  z-index: 1;
-  -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-  transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
-    background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
-}
-::v-deep .el-checkbox__inner::after {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  content: "";
-  border-left: 0;
-  border-top: 0;
-  height: 0.07rem;
-  left: 0.06rem;
-  position: absolute;
-  top: 0.03rem;
-  -webkit-transform: rotate(45deg) scaleY(0);
-  transform: rotate(45deg) scaleY(0);
-  width: 0.03rem;
-  -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: -webkit-transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s;
-  transition: transform 0.15s ease-in 0.05s,
-    -webkit-transform 0.15s ease-in 0.05s;
-  -webkit-transform-origin: center;
-  transform-origin: center;
 }
 </style>

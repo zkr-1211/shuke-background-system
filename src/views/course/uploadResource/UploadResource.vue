@@ -768,13 +768,13 @@ export default {
       align-items: center;
 
       .select-all {
-        margin-left: 0.3rem;
-        width: 70px;
+        margin-left: 0.28rem;
+        width: 90px;
         margin-top: 0.02rem;
       }
       .file-name {
         white-space: nowrap;
-        width: 335px;
+        width: 340px;
       }
       .file-size {
         white-space: nowrap;
@@ -954,14 +954,14 @@ export default {
             }
           }
           .title {
-            width: 320px;
+            width: 315px;
             font-size: 16px;
             color: #333333;
             opacity: 1;
             white-space: nowrap;
           }
           .size {
-            width: 80px;
+            width:70px;
             //   display: none;
             font-size: 16px;
             .el-progress {

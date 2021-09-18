@@ -449,7 +449,7 @@ export default {
       align-items: center;
 
       .select-all {
-        margin-left: 0.3rem;
+        margin-left: 0.28rem;
         margin-top: 0.02rem;
       }
       .file-name {
