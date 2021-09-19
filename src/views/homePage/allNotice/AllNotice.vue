@@ -29,7 +29,10 @@
             <div class="img">
               <img src="@/assets/image/home/topbar_notice_label.svg" alt="" />
             </div>
-            <div class="info">陈小平 提醒您修改 课程:UI设计 标设计</div>
+            <div class="info">
+              陈小平 提醒您修改 课程:UI设计 标设计陈小平 提醒您修改 课程:UI设计
+              标设计陈小平 提醒您修改 课程:UI设计 标设计
+            </div>
           </div>
           <div class="time">01月21日</div>
         </div>
@@ -99,6 +102,7 @@ export default {
     display: flex;
     align-items: center;
     .logo {
+      display: flex;
       margin: 0 auto;
       width: 1000px;
       img {
@@ -117,6 +121,7 @@ export default {
         display: flex;
         align-items: center;
         .img {
+          display: flex;
           width: 32px;
           height: 32px;
           background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
@@ -167,17 +172,27 @@ export default {
       overflow: hidden;
       //   background-color: red;
       padding-right: 30px;
+
       .notice {
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid #e0e0e0;
-        padding: 0px 20px 0px 20px;
+        padding: 20px 20px 20px 20px;
         height: 56px;
+        // line-height: 56px;
+        cursor: pointer;
+        &:hover {
+          background-color: #e8e8e8;
+        }
+        &:active {
+          background-color: #c2c2c2;
+        }
         .left-item {
           display: flex;
           align-items: center;
           .img {
+            display: flex;
             width: 15px;
             height: 15px;
             // background-color: #2a77ff;
@@ -187,16 +202,21 @@ export default {
             }
           }
           .info {
-            width: 254px;
+            width: 100%;
             font-size: 14px;
             font-weight: 400;
             color: #333334;
             margin-left: 15px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
           }
         }
 
         .time {
-          width: 60px;
+          min-width: 10%;
+          text-align: right;
           font-size: 14px;
           color: #c3c3c3;
         }

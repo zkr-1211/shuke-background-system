@@ -1,34 +1,34 @@
 <!--  -->
 <template>
-    <div class="body">
-      <TopBar :name="name" />
-      <div class="right-top-content">
-        <div class="time-start">
-          <div class="text">开始时间:</div>
-          <!-- <div class="block"> -->
-          <el-date-picker v-model="value1" type="date" placeholder="选择日期">
-          </el-date-picker>
-          <!-- </div> -->
-        </div>
-        <div class="time-end">
-          <div class="text">结束时间:</div>
-          <!-- <div class="block"> -->
-          <el-date-picker v-model="value1" type="date" placeholder="选择日期">
-          </el-date-picker>
-          <!-- </div> -->
-        </div>
-        <div class="Button" v-if="true">
-          <Button name="暂停进程" background="#FFC62A"
-            ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
-          /></Button>
-        </div>
-        <div class="Button" v-else>
-          <Button name="发布开始"
-            ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
-          /></Button>
-        </div>
+  <div class="body">
+    <TopBar :name="name" />
+    <div class="right-top-content">
+      <div class="time-start">
+        <div class="text">开始时间:</div>
+        <!-- <div class="block"> -->
+        <el-date-picker v-model="startTime" type="date" placeholder="选择日期">
+        </el-date-picker>
+        <!-- </div> -->
+      </div>
+      <div class="time-end">
+        <div class="text">结束时间:</div>
+        <!-- <div class="block"> -->
+        <el-date-picker v-model="endTime" type="date" placeholder="选择日期">
+        </el-date-picker>
+        <!-- </div> -->
+      </div>
+      <div class="Button" v-if="false">
+        <Button name="暂停进程" background="#FFC62A"
+          ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
+        /></Button>
+      </div>
+      <div class="Button" v-else>
+        <Button name="发布开始"
+          ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
+        /></Button>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -36,9 +36,17 @@ import Button from "@/components/button/Button";
 import TopBar from "@/components/topBar/TopBar";
 export default {
   components: { Button, TopBar },
-
+  props: {
+    name: {
+      type: String,
+      default: null,
+    },
+  },
   data() {
-    return {};
+    return {
+      startTime: null,
+      endTime: null,
+    };
   },
   computed: {},
 

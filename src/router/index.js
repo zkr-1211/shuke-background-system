@@ -40,7 +40,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/ChapterIssue',
+    redirect: '/course/WorkDesign',
     children: [
       {
         path: '/main',
@@ -182,10 +182,14 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+import { setCookie, getCookie } from '@/utils/cookieUtil'
 // 路由守卫
 router.beforeEach((to, from, next) => {
+  // console.log("Vue", Vue)
+  setCookie('token', 123)
+  let token = getCookie('token')
   // console.log("totototototo", to.path,to.fullPath)
-  const token = localStorage.getItem('token')
+  // const token = localStorage.getItem('token')
   //如果是登录页面路径，就直接next()
   if (token) {
     next();

@@ -8,9 +8,11 @@
     <div class="center">
       <div class="content-title">
         <div class="left-item">
-          <div class="img">
-            <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
-          </div>
+         <a href="/main">
+            <div class="img">
+              <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
+            </div>
+          </a>
           <span>返回首页</span>
         </div>
         <div class="title">账号信息</div>
@@ -109,6 +111,7 @@ export default {
     display: flex;
     align-items: center;
     .logo {
+      display: flex;
       margin: 0 auto;
       width: 1000px;
       img {

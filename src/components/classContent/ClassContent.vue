@@ -4,12 +4,21 @@
     <div>
       <div class="course-content">
         <div class="course-item" v-for="(item, index) in 25" :key="index">
-          <div class="checkbox">
-            <a href="/course/classDetail"><div class="name">UI设计1班</div></a>
-            <div v-if="isCheckBox">
-              <CheckBox/>
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="UI设计1班:第一次作业第一次作业"
+            placement="top"
+          >
+            <div class="checkbox">
+              <a href="/course/classDetail"
+                ><div class="name">UI设计1班UI设计1班UI设计1班UI设计1班</div></a
+              >
+              <div v-if="isCheckBox">
+                <CheckBox />
+              </div>
             </div>
-          </div>
+          </el-tooltip>
           <div class="create">创建者：张老师</div>
           <div class="bottom-message">
             <div class="classnum">班级：1000</div>
@@ -52,7 +61,7 @@ export default {
   components: {
     Dot,
     Dialog,
-    CheckBox
+    CheckBox,
   },
   props: {
     isCheckBox: {
@@ -168,7 +177,7 @@ h2 {
       }
     }
     .name {
-      width: 100%;
+      width: 92%;
       border-left: 0.07rem solid #2a77ff;
       font-size: 0.2rem;
       font-weight: bold;
@@ -176,6 +185,9 @@ h2 {
       color: #333333;
       padding-left: 0.1rem;
       margin: 0.2rem 0.15rem 0.2rem 0rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .create {
       font-size: 0.16rem;

@@ -6,12 +6,25 @@
         <div class="img" @click="toDetail()">
           <img src="@/assets/image/home/course_img1.svg" alt="" />
         </div>
+
         <div class="checkbox">
-          <div class="name">UI设计教育课程</div>
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="UI设计1班:第一次作业第一次作业"
+            placement="top"
+          >
+            <a href="/course/classDetail"
+              ><div class="name">
+                UI设计教育课程UI设计教育课程UI设计教育课程
+              </div></a
+            >
+          </el-tooltip>
           <div v-if="isCheckBox" class="el-checkbox">
-            <CheckBox/>
+            <CheckBox />
           </div>
         </div>
+
         <div class="create">创建者：电信教学团队</div>
         <div class="bottom-message">
           <div class="classnum">班级：1000</div>
@@ -34,7 +47,13 @@
       </div>
     </div>
     <!-- <div class="" style="height:120px"></div> -->
-    <Dialog :editDV="editDV" :deleteDV="deleteDV" @Cancle="(editDV = false), (deleteDV = false)" @editHandleClose="editDV = false" @deleteHandleClose="deleteDV = false" />
+    <Dialog
+      :editDV="editDV"
+      :deleteDV="deleteDV"
+      @Cancle="(editDV = false), (deleteDV = false)"
+      @editHandleClose="editDV = false"
+      @deleteHandleClose="deleteDV = false"
+    />
   </div>
 </template>
 
@@ -46,7 +65,7 @@ export default {
   components: {
     Dot,
     Dialog,
-    CheckBox
+    CheckBox,
   },
   props: {
     isCheckBox: {
@@ -121,6 +140,10 @@ export default {
       line-height: 0.34rem;
       color: #333333;
       margin: 0.15rem 0.15rem 0.2rem 0.15rem;
+      width: 80%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
     .create {
       font-size: 0.16rem;

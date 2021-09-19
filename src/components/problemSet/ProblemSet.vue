@@ -4,12 +4,23 @@
     <div>
       <div class="course-content">
         <div class="course-item" v-for="(item, index) in 25" :key="index">
-          <div class="checkbox">
-            <div class="name">函数相关题目</div>
-            <div v-if="isCheckBox" class="el-checkbox">
-              <CheckBox />
-            </div>
+           <div class="checkbox">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="UI设计1班:第一次作业第一次作业"
+            placement="top"
+          >
+            <a href="/course/classDetail"
+              ><div class="name">
+               函数相关题目 函数相关题目 函数相关题目
+              </div></a
+            >
+          </el-tooltip>
+          <div v-if="isCheckBox" class="el-checkbox">
+            <CheckBox />
           </div>
+        </div>
           <div class="create">创建者：张老师</div>
           <div class="bottom-message">
             <div class="classnum">班级：1000</div>
@@ -168,7 +179,7 @@ h2 {
       }
     }
     .name {
-      width: 100%;
+      width: 90%;
       border-left: 0.07rem solid #2a77ff;
       font-size: 0.2rem;
       font-weight: bold;
@@ -176,6 +187,9 @@ h2 {
       color: #333333;
       padding-left: 0.1rem;
       margin: 0.2rem 0.15rem 0.2rem 0rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .create {
       font-size: 0.16rem;

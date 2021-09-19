@@ -19,24 +19,24 @@
             </div>
             <div class="text">作业名称：</div>
             <div class="title">UI设计入门任务——扁平化图标设计与制作</div>
-              <el-dropdown trigger="click" placement="bottom-end" class="dot">
-                <span class="el-dropdown-link">
-                  <Dot />
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <div>
-                    <el-dropdown-item>编辑</el-dropdown-item>
-                  </div>
-                  <div>
-                    <el-dropdown-item>删除</el-dropdown-item>
-                  </div>
-                </el-dropdown-menu>
-              </el-dropdown>
+            <el-dropdown trigger="click" placement="bottom-end" class="dot">
+              <span class="el-dropdown-link">
+                <Dot />
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <div>
+                  <el-dropdown-item>编辑</el-dropdown-item>
+                </div>
+                <div>
+                  <el-dropdown-item>删除</el-dropdown-item>
+                </div>
+              </el-dropdown-menu>
+            </el-dropdown>
           </div>
           <div class="content">
             <div class="type">
               <span>作业类型:</span>
-              <el-select v-model="value" placeholder="请选择">
+              <el-select v-model="workType" placeholder="请选择">
                 <el-option
                   v-for="item in options"
                   :key="item.value"
@@ -49,7 +49,11 @@
             <div class="des">
               <div class="span">作业描述:</div>
               <div>
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  v-model="workDes"
+                  placeholder="请填写作业描述"
+                />
               </div>
             </div>
 
@@ -65,7 +69,7 @@
                 <div class="text">添加内容</div>
               </div>
             </div>
-            <div class="button">
+            <div class="button" @click="a()">
               <Button name="保存" />
             </div>
           </div>
@@ -88,13 +92,46 @@ import Dot from "@/components/dot/Dot";
 export default {
   components: { TopBar, DataTimeStartEnd, UseClass, Button, Dot },
   data() {
-    return {};
+    return {
+      workType: "",
+      workDes: "",
+      options: [
+        {
+          value: "完成试卷",
+        },
+      ],
+    };
   },
   computed: {},
 
-  mounted() {},
+  mounted() {
+    const data = JSON.parse(localStorage.getItem("workDesign"));
+    if (data) {
+      this.workDes = data.workDes;
+      this.workType = data.workType;
+    }
+  },
 
-  methods: {},
+  methods: {
+    a() {
+      let data = {
+        workDes: this.workDes,
+        workType: this.workType,
+      };
+      if (this.workDes || this.workType) {
+        localStorage.setItem("workDesign", JSON.stringify(data));
+        this.$message({
+          message: "保存成功",
+          type: "success",
+        });
+      } else {
+         this.$message({
+          message: '保存失败，请输入内容...',
+          type: 'warning'
+        });
+      }
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>

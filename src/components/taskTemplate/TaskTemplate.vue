@@ -1,13 +1,18 @@
 <!--  -->
 <template>
-  <div class='body'>
+  <div class="body">
     <div class="content">
-      <div class="item" v-for="(item,index) in contentList" :key="index">
+      <div class="item" v-for="(item, index) in contentList" :key="index">
         <div class="top">
-          <div class="index">0{{index+1}}</div>
+          <div class="index">0{{ index + 1 }}</div>
           <div class="text">主任务01:</div>
           <div class="span">UI设计入门任务——扁平化图标设计与制作</div>
-          <el-dropdown trigger="click" placement="bottom-end" v-if="true" class="dot">
+          <el-dropdown
+            trigger="click"
+            placement="bottom-end"
+            v-if="true"
+            class="dot"
+          >
             <span class="el-dropdown-link">
               <Dot />
             </span>
@@ -22,27 +27,39 @@
           </el-dropdown>
         </div>
         <el-collapse v-model="activeName1" @change="changeCollapse">
-          <el-collapse-item v-for="(item1, index1) in item.content1" :key="index1">
+          <el-collapse-item
+            v-for="(item1, index1) in item.content1"
+            :key="index1"
+          >
             <template slot="title">
               <div class="task-desc">
                 <div class="title">任务描述:</div>
                 <div class="size">本任务在于考察学生的学科掌握情况</div>
               </div>
               <div class="add-task">
-                <div class="add-img"><img src="@/assets/image/course/ic_locking_off.svg" alt=""></div>
+                <div class="add-img">
+                  <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+                </div>
                 <div class="text">添加子任务</div>
               </div>
             </template>
             <div class="two-el-collapse-item">
               <el-collapse v-model="activeName2" @change="changeCollapse">
-                <el-collapse-item v-for="(item2, index2) in item1.content2" :key="index2">
+                <el-collapse-item
+                  v-for="(item2, index2) in item1.content2"
+                  :key="index2"
+                >
                   <template slot="title">
                     <div class="top1">
-                      <div class="index">0{{index2+1}}</div>
-                      <div class="text">子任务0{{index2+1}}:</div>
+                      <div class="index">0{{ index2 + 1 }}</div>
+                      <div class="text">子任务0{{ index2 + 1 }}:</div>
                       <div class="span">绘制单色图标</div>
                       <div class="dot" @click.stop>
-                        <el-dropdown trigger="click" placement="bottom-end" v-if="true">
+                        <el-dropdown
+                          trigger="click"
+                          placement="bottom-end"
+                          v-if="true"
+                        >
                           <span class="el-dropdown-link">
                             <Dot />
                           </span>
@@ -60,38 +77,44 @@
                     <div class="type">
                       <span>任务类型:</span>
                       <el-select v-model="value" placeholder="请选择">
-                        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"
+                        >
                         </el-option>
                       </el-select>
                     </div>
                     <div class="des">
                       <div class="span">任务描述:</div>
                       <div>
-                        <input type="text">
+                        <input type="text" />
                       </div>
                     </div>
                     <div class="goal">
                       <div class="span">任务得分:</div>
                       <div>
-                        <input type="text">
+                        <input type="text" />
                       </div>
                     </div>
                     <div class="select">
                       <span>试卷选择:</span>
                       <div class="item">
                         <div class="img">
-                          <img src="@/assets/image/course/ic_class_invitation.svg" alt="" />
+                          <img
+                            src="@/assets/image/course/ic_class_invitation.svg"
+                            alt=""
+                          />
                         </div>
                         <div class="text">添加内容</div>
                       </div>
                     </div>
-                    <Button name='保存' class="button" />
+                    <Button name="保存" class="button" />
                   </div>
-
                 </el-collapse-item>
               </el-collapse>
             </div>
-
           </el-collapse-item>
         </el-collapse>
       </div>
@@ -104,8 +127,8 @@ import Button from "@/components/button/Button";
 import Dot from "@/components/dot/Dot";
 export default {
   components: {
-      Button,
-      Dot
+    Button,
+    Dot,
   },
   data() {
     return {
@@ -314,17 +337,11 @@ export default {
         .des {
           margin-top: 0.3rem;
           width: 8.86rem;
-          //   height: 1.02rem;
-          // background: #5f3c3c;
-          // border: 0.01rem solid #e0e0e0;
           border-radius: 0.04rem;
           display: flex;
           .span {
-            // background-color: red;
             margin-right: 0.3rem;
-            // min-width: 100%;
             white-space: nowrap;
-            // font-size: 0.15rem !important;
             font-size: 0.15rem;
           }
           input {
@@ -342,16 +359,10 @@ export default {
         .goal {
           margin-top: 0.3rem;
           width: 8.86rem;
-          //   height: 1.02rem;
-          // background: #5f3c3c;
-          // border: 0.01rem solid #e0e0e0;
           border-radius: 0.04rem;
           display: flex;
           .span {
-            // background-color: red;
             margin-right: 0.3rem;
-            // width: 10rem;
-            // font-size: 0.15rem !important;
             font-size: 0.15rem;
           }
           input {
@@ -367,7 +378,6 @@ export default {
           }
         }
         .select {
-          //   margin-top: 0.35rem;
           display: flex;
           align-items: center;
           span {
@@ -380,7 +390,6 @@ export default {
             height: 44px;
             border: 1px solid #e0e0e0;
             opacity: 1;
-            // background: #f6f6f8;
             opacity: 1;
             display: flex;
             align-items: center;
@@ -391,7 +400,6 @@ export default {
               img {
                 width: 0.2rem;
                 height: 0.2rem;
-                // background-color: seagreen;
               }
             }
             .text {
@@ -418,34 +426,28 @@ export default {
       transition: border-bottom-color 0.3s;
       outline: 0;
       position: relative;
-    }
-    ::v-deep .el-icon-arrow-right:before {
       background-image: url(../../assets/image/course/right.svg);
       background-repeat: no-repeat;
+      background-position: 0.1rem;
       background-size: 0.5rem;
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      left: 10px;
-      bottom: 20px;
-      content: "\e6e";
+    }
+    ::v-deep .el-collapse-item__header.is-active {
+      border-bottom-color: transparent;
+      background-image: url(../../assets/image/course/bottom.svg);
+    }
+    ::v-deep .el-icon-arrow-right:before {
+      content: none;
       border: none;
     }
     ::v-deep .el-collapse-item__arrow.is-active {
-      // bottom: 0.03rem;
-      position: absolute;
-      left: 0px;
-      top: 40px;
-      -webkit-transform: none;
-      //   transform: none;
-      background-repeat: no-repeat;
-      width: 50px;
-      height: 50px;
-      background-size: 0.5rem;
-      content: "\e6e";
+      content: none;
     }
-    ::v-deep .el-collapse-item__arrow.is-active:before {
-      background-image: url(../../assets/image/course/bottom.svg) !important;
+    ::v-deep .el-icon-arrow-right:before {
+      content: none;
+      border: none;
+    }
+    ::v-deep .el-collapse-item__arrow.is-active {
+      content: none;
     }
   }
 }

@@ -35,7 +35,7 @@
         </div>
         <div class="create">录课班级：电信教学团队</div>
         <div class="bottom-message">
-          <div class="classnum">录制时间：2019、10、15 19：45</div>
+          <div class="classnum">录制时间：2019/10/15 19:45</div>
           <!-- <div class="num">学生数：1000</div> -->
         </div>
       </div>

@@ -62,7 +62,9 @@
                                 />
                               </div>
                               <div class="info">
-                                陈小平 提醒您修改 课程:UI设计 标设计
+                                陈小平 提醒您修改 课程:UI设计 标设计陈小平
+                                陈小平 提醒您修改 课程:UI设计 标设计陈小平
+                                陈小平 提醒您修改 课程:UI设计 标设计陈小平
                               </div>
                             </div>
 
@@ -85,7 +87,8 @@
                                 />
                               </div>
                               <div class="info">
-                                陈小平 提醒您修改 课程:UI设计 标设计
+                                陈小平 提醒您修改 课程:UI设计 标设计 111
+                                提醒您修改 课程:UI设计 标设计
                               </div>
                             </div>
 
@@ -549,16 +552,28 @@ export default {
   height: 4.95rem;
   width: 100%;
   overflow: auto;
-  padding-right: 0.3rem;
-
+  padding-right: 30px;
+  // padding-left: 30px;
+  // padding-right: 0.3rem;
   .notice {
+    
+      cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 0.7rem;
+    padding: 10px 0px 10px 0px;
+    &:hover {
+      background-color: #e8e8e8;
+    }
+    &:active {
+      background-color: #c2c2c2;
+    }
     .left-item {
       display: flex;
       align-items: center;
+
+
       .img {
         display: flex;
         align-items: center;
@@ -571,17 +586,22 @@ export default {
         }
       }
       .info {
-        width: 2.54rem;
+        width: 100%;
         font-size: 0.14rem;
-        font-weight: 400;
         color: #333334;
-        margin-left: 0.15rem;
+        padding-left: 0.15rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
       }
     }
     .time {
-      width: 0.6rem;
+      min-width: 22%;
+      // padding-right: 0.3rem;
       font-size: 0.14rem;
       color: #c3c3c3;
+      text-align: right;
     }
   }
 }

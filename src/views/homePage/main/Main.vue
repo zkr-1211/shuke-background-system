@@ -83,24 +83,27 @@
                   <el-button type="primary">前往创建</el-button>
                 </div>
               </div>
-              <div
-                class="course-item"
-                v-for="(item, index) in 6"
-                :key="index"
-                v-else
-              >
-                <div>
-                  <img src="@/assets/image/home/course_img1.svg" alt="" />
-                </div>
-                <div class="course-message">
-                  <div>大数据科学与技术</div>
-                  <div>所在团队：电信教学团队</div>
-                  <div class="num">
-                    <span>班级个数：1000</span> <span>学生人数：1000</span>
-                    <span>题库题目：1000</span> <span>访问次数：1000</span>
+              <template v-else>
+                <router-link to="/course/courseDetail">
+                  <div
+                    class="course-item"
+                    v-for="(item, index) in 6"
+                    :key="index"
+                  >
+                    <div>
+                      <img src="@/assets/image/home/course_img1.svg" alt="" />
+                    </div>
+                    <div class="course-message">
+                      <div>大数据科学与技术</div>
+                      <div>所在团队：电信教学团队</div>
+                      <div class="num">
+                        <span>班级个数：1000</span> <span>学生人数：1000</span>
+                        <span>题库题目：1000</span> <span>访问次数：1000</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                </router-link>
+              </template>
             </div>
           </div>
         </el-col>
@@ -383,6 +386,7 @@ export default {
         .course-item {
           display: flex;
           align-items: center;
+          cursor: pointer;
           // width: 9.32rem;
           height: 1.76rem;
           &:hover {

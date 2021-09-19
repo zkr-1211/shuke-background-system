@@ -168,7 +168,29 @@ Vue.prototype.$notify = Notification;
 Vue.prototype.$message = Message;
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
-
+// // 设置cookie
+// Vue.prototype.setCookie = function (cName, value, expiredays) {
+//   var exdate = new Date();
+//   exdate.setDate(exdate.getDate() + expiredays);
+//   document.cookie =
+//     cName +
+//     "=" +
+//     escape(value) +
+//     (expiredays == null ? "" : ";expires=" + exdate.toGMTString());
+// };
+// // 获取cookie
+// Vue.prototype.getCookie = function (cName) {
+//   if (document.cookie.length > 0) {
+//     var cStart = document.cookie.indexOf(cName + "=");
+//     if (cStart !== -1) {
+//       cStart = cStart + cName.length + 1;
+//       var cEnd = document.cookie.indexOf(";", cStart);
+//       if (cEnd === -1) cEnd = document.cookie.length;
+//       return unescape(document.cookie.substring(cStart, cEnd));
+//     }
+//   }
+//   return "";
+// };
 new Vue({
   router,
   store,

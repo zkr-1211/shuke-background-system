@@ -18,7 +18,11 @@
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <Navigation :tabList="tabList" @tabsIndex="tabsIndex" :filtrate="true" />
+        <Navigation
+          :tabList="tabList"
+          @tabsIndex="tabsIndex"
+          :filtrate="true"
+        />
       </el-col>
     </el-row>
     <!-- <div class="bottom-content"> -->
@@ -58,10 +62,7 @@ import CourseContent from "@/components/courseContent/CourseContent.vue";
 import ProblemSet from "@/components/problemSet/ProblemSet.vue";
 import WorkContent from "@/components/workContent/WorkContent.vue";
 import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
-import {
-  getColumnList
-}
-from '@/api/home/home';
+import { getColumnList } from "@/api/home/home";
 export default {
   components: {
     Tabs,

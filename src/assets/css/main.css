@@ -26,7 +26,10 @@ body {
     -webkit-box-sizing: border-box !important;
     background-color: #F6F6F8;
 }
-
+/* 图标大小要小一点 */
+i{
+    font-size: 20% !important;
+}
 html {
     font-size: 625% !important;
 }

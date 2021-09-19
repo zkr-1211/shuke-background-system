@@ -17,7 +17,7 @@
             </div>
             <div class="title">图标设计技巧.mp4</div>
             <div class="size">650.25M</div>
-            <div class="dot">
+            <div class="dot" @click.stop>
               <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
              <CheckBox/>
             </div>
@@ -300,28 +300,4 @@ export default {
   position: relative;
   font-size: 0.16rem;
 }
-// ::v-deep .el-icon-arrow-right:before {
-//   background-image: url(../../assets/image/course/right.svg);
-//   background-repeat: no-repeat;
-//   background-size: 0.18rem;
-//   position: absolute;
-//   right: 15px;
-//   bottom: 24px;
-//   content: "\e6e";
-//   border: none;
-// }
-// ::v-deep .el-collapse-item__arrow.is-active {
-//   // bottom: 0.03rem;
-//   position: absolute;
-//   right: 0;
-//   top: 60px;
-//   -webkit-transform: none;
-//   transform: none;
-//   background-repeat: no-repeat;
-//   background-size: 0.28rem;
-//   content: "\e6e";
-// }
-// ::v-deep .el-collapse-item__arrow.is-active:before {
-//   background-image: url(../../assets/image/course/bottom.svg) !important;
-// }
 </style>
