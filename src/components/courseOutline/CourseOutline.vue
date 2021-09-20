@@ -9,9 +9,19 @@
         <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
           <template slot="title">
             <div class="title">第一章：Python</div>
-            <div class="dot">
-              <Dot />
-            </div>
+           <el-dropdown trigger="click" placement="bottom-end" class="dot" >
+                <span class="el-dropdown-link" @click.stop>
+                  <Dot/>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <div @click="editDV = true">
+                    <el-dropdown-item>重命名</el-dropdown-item>
+                  </div>
+                  <div @click="deleteDV = true">
+                    <el-dropdown-item>删除</el-dropdown-item>
+                  </div>
+                </el-dropdown-menu>
+              </el-dropdown>
           </template>
 
           <div

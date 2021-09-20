@@ -4,7 +4,8 @@
     <el-checkbox-group v-model="checkedCities">
       <el-checkbox
         :Indeterminate="isIndeterminate"
-        v-model="checkAll"
+        v-model="isCheck"
+        :checked ="isCheck"
         @change="handleCheckAllChange"
       ></el-checkbox>
     </el-checkbox-group>
@@ -14,19 +15,32 @@
 <script>
 export default {
   components: {},
+  props: {
+    isCheck: {
+      type: Boolean,
+      default: null,
+    },
+  },
+  model: {
+    prop: "isCheck",
+    event: "IsCheck",
+  },
   data() {
     return {
       isIndeterminate: false,
-      checkAll: "",
       checkedCities: ["上海", "北京"],
     };
   },
   computed: {},
 
-  mounted() {},
+  mounted() {
+    // console.log("object", this.isCheck)
+  },
 
   methods: {
-    handleCheckAllChange() {},
+    handleCheckAllChange(e) {
+      this.$emit("IsCheck", e);
+    },
   },
 };
 </script>
@@ -44,7 +58,6 @@ export default {
   height: 0.2rem;
   background-color: #fff;
   z-index: 1;
-
   -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
     background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
   transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),

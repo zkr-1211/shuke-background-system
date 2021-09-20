@@ -19,7 +19,7 @@
             <div class="size">650.25M</div>
             <div class="dot" @click.stop>
               <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-             <CheckBox/>
+              <CheckBox />
             </div>
             <template v-if="!isUploadResource">
               <div class="lock1" @click.stop="lockClick(index)">
@@ -85,7 +85,7 @@ import CheckBox from "@/components/checkBox/CheckBox.vue";
 export default {
   components: {
     Dot,
-    CheckBox
+    CheckBox,
   },
   props: {
     ChapterIssue: {
@@ -170,9 +170,9 @@ export default {
 }
 .el-collapse-item {
   transition: all 0s;
-
   .dot {
     position: absolute;
+    top: 0rem;
     left: 0.28rem;
     z-index: 999;
   }
@@ -197,37 +197,29 @@ export default {
     }
   }
   .title {
-    // min-width: 1.5rem;
     width: 320px;
     white-space: nowrap;
   }
   .size {
-    // margin-left: 2rem;
     width: 230px;
-    // background-color: red;
     height: 50px;
     white-space: nowrap;
   }
   .lock1 {
-    // position: absolute;
     display: flex;
-    // width: 100px;
-    // margin-left: 1.6rem;
-    // right: 0.8rem;
-    // top: 0.1rem;
+    cursor: pointer;
     img {
       width: 0.34rem;
       height: 0.34rem;
-      // background: #ffffff;
     }
   }
   .look1 {
     margin-left: 0.2rem;
     display: flex;
+    cursor: pointer;
     img {
       width: 0.34rem;
       height: 0.34rem;
-      // background: #ffffff;
     }
   }
   .outline-item {
@@ -249,6 +241,7 @@ export default {
     .lock {
       margin-left: 1.38rem;
       display: flex;
+      cursor: pointer;
       img {
         width: 0.34rem;
         height: 0.34rem;
@@ -257,6 +250,7 @@ export default {
     }
     .look {
       margin-left: 0.2rem;
+      cursor: pointer;
       display: flex;
       img {
         width: 0.34rem;
@@ -271,14 +265,13 @@ export default {
     }
     .content {
       white-space: nowrap;
-      // margin-left: 1.05rem;
       width: 400px;
-      // background-color: red;
       text-align: center;
+      cursor: pointer;
     }
     .num {
       white-space: nowrap;
-      // margin-left: 1.75rem;
+      cursor: pointer;
     }
   }
 }

@@ -15,7 +15,7 @@
         </el-col>
         <el-col :xs="24" :sm="24" :md="16" :lg="10" :xl="10">
           <div class="PM">
-            <PersonFourItem />
+            <PersonFourItem :personal="personal" />
           </div>
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="5" :xl="5">
@@ -146,7 +146,18 @@ export default {
     PersonFourItem,
   },
   data() {
-    return {};
+    return {
+      personal: {
+        name1: "我的课程",
+        num1: 12,
+        name2: "我的班级",
+        num2: 13,
+        name3: "我的团队",
+        num3: 50,
+        name4: "作业待改",
+        num4: 10,
+      },
+    };
   },
   computed: {},
 

@@ -67,7 +67,7 @@
             <div class="contentNav">
               <div class="select-all">
                 <!-- <el-checkbox :isIndeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-                <CheckBox/>
+                <CheckBox />
               </div>
               <div class="file-name">文件名</div>
               <div class="file-size">大小</div>
@@ -99,7 +99,7 @@
           <h2>锁定关联资源</h2>
         </div>
         <div class="lock-what">
-           <img src="@/assets/image/course/icon_complete.svg" alt="" />
+          <img src="@/assets/image/course/icon_complete.svg" alt="" />
         </div>
       </div>
 
@@ -144,7 +144,7 @@ export default {
     HeaderTitle,
     CourseOutline,
     SectionOutline,
-    CheckBox
+    CheckBox,
   },
 
   data() {
@@ -451,19 +451,20 @@ export default {
       .select-all {
         margin-left: 0.28rem;
         margin-top: 0.02rem;
+        width: 1rem;
       }
       .file-name {
         white-space: nowrap;
-        margin-left: 0.5rem;
+        width: 2.6rem;
       }
       .file-size {
-        white-space: nowrap;
-        margin-left: 3rem;
+        width: 1.7rem;
+        text-align: center;
       }
 
       .operate {
-        white-space: nowrap;
-        margin-left: 2rem;
+        text-align: center;
+        width: 3rem;
       }
     }
   }

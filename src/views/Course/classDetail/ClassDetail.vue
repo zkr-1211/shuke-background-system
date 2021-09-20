@@ -151,9 +151,19 @@
                 </div>
                 <div class="num">182718144</div>
                 <div class="process-num">1845545655</div>
-                <div class="dot3">
-                  <Dot />
-                </div>
+                 <el-dropdown trigger="click" placement="bottom-end" class="dot3" >
+                <span class="el-dropdown-link" @click.stop>
+                  <Dot/>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <div @click="editDV = true">
+                    <el-dropdown-item>重命名</el-dropdown-item>
+                  </div>
+                  <div @click="deleteDV = true">
+                    <el-dropdown-item>删除</el-dropdown-item>
+                  </div>
+                </el-dropdown-menu>
+              </el-dropdown>
               </div>
             </div>
           </div>
@@ -592,7 +602,6 @@ h2 {
         .img {
           width: 0.5rem;
           height: 0.5rem;
-          // background-color: firebrick;
           margin-bottom: 0.12rem;
           display: flex;
           align-items: center;
@@ -609,16 +618,12 @@ h2 {
       }
     }
     .item-3 {
-      // margin-left: 0.32rem;
-      // width: 2.9rem;
       height: 1.8rem;
-      // background: rgb(81, 161, 214) !important;
       box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
       border-radius: 0.08rem;
       overflow: hidden;
-
+      cursor: pointer;
       img {
-        // border-radius: 0.08rem;
         height: 1.8rem;
         width: 100%;
         object-fit: cover;
@@ -626,8 +631,6 @@ h2 {
     }
     .item-4 {
       border-radius: 0.08rem;
-      // margin-left: 0.32rem;
-      // width: 5rem;
       height: 1.8rem;
       background: #ffffff;
       box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
@@ -645,6 +648,7 @@ h2 {
         justify-content: center;
         flex-direction: column;
         padding-top: 0.05rem;
+        cursor: pointer;
         .img {
           width: 0.5rem;
           height: 0.5rem;
@@ -692,6 +696,7 @@ h2 {
             overflow-y: auto;
             // background-color: firebrick;
             .item {
+              cursor: pointer;
               height: 0.6rem;
               display: flex;
               align-items: center;
@@ -814,6 +819,7 @@ h2 {
         .item {
           // background-color: chartreuse;
           // width: 100%;
+          cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: space-between;

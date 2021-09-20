@@ -38,7 +38,11 @@
             </div>
           </el-dropdown-menu>
         </el-dropdown>
-        <img src="@/assets/image/home/ic_team_invitation.svg" alt="" @click="addDv = true,isCopy = false" />
+        <img
+          src="@/assets/image/home/ic_team_invitation.svg"
+          alt=""
+          @click="(addDv = true), (isCopy = false)"
+        />
         <!-- <el-button class="create-button" type="primary"><i class="el-icon-plus"></i>创建</el-button> -->
       </div>
     </div>
@@ -55,7 +59,11 @@
         </div>
         <div class="team-search">
           <div class="team-name">
-            UI设计教育团队<img @click="createDV = true" src="@/assets/image/home/ic_edit.svg" alt="" />
+            UI设计教育团队<img
+              @click="createDV = true"
+              src="@/assets/image/home/ic_edit.svg"
+              alt=""
+            />
           </div>
           <div class="search">
             <input type="text" placeholder="搜索你想要的班级" />
@@ -73,7 +81,7 @@
         <div class="content">
           <div class="item" v-for="(item, index) in 10" :key="index">
             <div class="check">
-              <CheckBox/>
+              <CheckBox />
             </div>
             <div class="person">
               <div class="header">
@@ -87,14 +95,14 @@
               <div class="me" v-if="index == 0">我</div>
             </div>
             <div class="num">154455211</div>
-            <div class="guanliyuan" @click="quanXianDV = true">
-              超级管理员
-            </div>
-            <div class="function" @click="quanXianDV = true">
-              所有功能
-            </div>
+            <div class="guanliyuan" @click="quanXianDV = true">超级管理员</div>
+            <div class="function" @click="quanXianDV = true">所有功能</div>
             <div class="set">
-              <img @click="noQuanXianDV = true" src="@/assets/image/home/ic_help.svg" alt="" />
+              <img
+                @click="noQuanXianDV = true"
+                src="@/assets/image/home/ic_help.svg"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -103,23 +111,38 @@
       </el-row> -->
     </div>
     <!-- 添加成员 -->
-    <el-dialog title="" :visible.sync="addDv" width="30%" :show-close="false" top="40vh">
+    <el-dialog
+      title=""
+      :visible.sync="addDv"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
       <h2>链接邀请</h2>
       <div class="add">
         <div class="link">
           <div class="copy-text">
             <input v-model="shareUrl" id="copyObj" />
           </div>
-
         </div>
         <div class="select">
           <el-select v-model="value" placeholder="请选择">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
             </el-option>
           </el-select>
         </div>
         <!-- <div class="copy"> -->
-        <div class="copy" @click="copyUrl()" :class="isCopy?'copyFinish':''"><span v-if="!isCopy">复制链接</span>
+        <div
+          class="copy"
+          @click="copyUrl()"
+          :class="isCopy ? 'copyFinish' : ''"
+        >
+          <span v-if="!isCopy">复制链接</span>
           <span v-else>已复制</span>
         </div>
         <!-- </div> -->
@@ -129,51 +152,98 @@
       <span slot="footer" class="dialog-footer"> </span>
     </el-dialog>
     <!-- 移交团队 -->
-    <el-dialog title="物理教研团队" :visible.sync="turnOverDv" width="30%" :show-close="false" top="40vh">
+    <el-dialog
+      title="物理教研团队"
+      :visible.sync="turnOverDv"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
       <h2>移交</h2>
-      <span class="delete-text">每个团队只有1位超级管理员，移交后你将变为管理员哦</span>
+      <span class="delete-text"
+        >每个团队只有1位超级管理员，移交后你将变为管理员哦</span
+      >
       <div class="people-team">
-        <div class="item" @click="selectPeople(item.id)" v-for="(item,index) in teamList" :key="index">
+        <div
+          class="item"
+          @click="selectPeople(item.id)"
+          v-for="(item, index) in teamList"
+          :key="index"
+        >
           <div class="info">
             <div class="header">
-              <img :src="item.avatar" alt="" v-if="!item.select">
-              <img v-else src="@/assets/image/home/ic_help.svg" alt="">
+              <img :src="item.avatar" alt="" v-if="!item.select" />
+              <img v-else src="@/assets/image/home/ic_help.svg" alt="" />
             </div>
-            <div class="name">{{item.name}}</div>
+            <div class="name">{{ item.name }}</div>
           </div>
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="turnOverDv = false">取 消</el-button>
-        <el-button type="primary" @click="turnOverDv = false">确认移交</el-button>
+        <el-button class="cancel-button" @click="turnOverDv = false"
+          >取 消</el-button
+        >
+        <el-button type="primary" @click="turnOverDv = false"
+          >确认移交</el-button
+        >
       </span>
     </el-dialog>
     <!-- 创建课程 -->
-    <el-dialog title="" :visible.sync="createDV" width="30%" :show-close="false" top="40vh">
+    <el-dialog
+      title=""
+      :visible.sync="createDV"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
       <h2>修改团队名称</h2>
       <input class="course-input" type="text" />
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="createDV = false">取 消</el-button>
+        <el-button class="cancel-button" @click="createDV = false"
+          >取 消</el-button
+        >
         <el-button type="primary" @click="createDV = false">修 改</el-button>
       </span>
     </el-dialog>
     <!-- 删除课程 -->
-    <el-dialog title="UI设计教程" :visible.sync="deleteDV" width="30%" :show-close="false" top="40vh">
+    <el-dialog
+      title="UI设计教程"
+      :visible.sync="deleteDV"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
       <h2>解散</h2>
       <span class="delete-text">解散团队将无法找回，您确认要解散么？</span>
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="deleteDV = false">取 消</el-button>
+        <el-button class="cancel-button" @click="deleteDV = false"
+          >取 消</el-button
+        >
         <el-button type="primary" @click="deleteDV = false">确认解散</el-button>
       </span>
     </el-dialog>
     <!-- 没有权限 -->
-    <el-dialog title="" :visible.sync="noQuanXianDV" width="30%" :show-close="false" top="40vh">
+    <el-dialog
+      title=""
+      :visible.sync="noQuanXianDV"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
       <h2>很抱歉，没有权限呢</h2>
-      <span class="delete-text">您当前权限无法使用该功能呢，可联系超级管理员修改权限哦</span>
+      <span class="delete-text"
+        >您当前权限无法使用该功能呢，可联系超级管理员修改权限哦</span
+      >
       <span slot="footer" class="dialog-footer"> </span>
     </el-dialog>
     <!--权限设置  -->
-    <el-dialog title="" :visible.sync="quanXianDV" width="30%" :show-close="false" top="10vh">
+    <el-dialog
+      title=""
+      :visible.sync="quanXianDV"
+      width="30%"
+      :show-close="false"
+      top="10vh"
+    >
       <h2>权限设置</h2>
       <span class="select-num">已选中10人</span>
       <div class="top-set">
@@ -181,7 +251,12 @@
           <span>设置身份</span>
           <div class="select">
             <el-select v-model="value" placeholder="请选择">
-              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              >
               </el-option>
             </el-select>
           </div>
@@ -190,17 +265,23 @@
       </div>
 
       <div class="quan-xian">
-        <div class="quanxian-item" v-for="(item, index) in 10" :key="index">
+        <div
+          class="quanxian-item"
+          v-for="(item, index) in teamList"
+          :key="index"
+        >
           <div class="chick">
-            <CheckBox/>
+            <CheckBox v-model="item.select" @IsCheck="IsCheck" />
           </div>
-          <div class="title">录播权限</div>
+          <div class="title">{{ item.name }}</div>
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
-        <span class="delete-man">删除成员</span>
-        <el-button class="cancel-button" @click="quanXianDV = false">取 消</el-button>
-        <el-button type="primary" @click="quanXianDV = false">确 认</el-button>
+        <span class="delete-man" @click="deletePeople">删除成员</span>
+        <el-button class="cancel-button" @click="quanXianDV = false"
+          >取 消</el-button
+        >
+        <el-button type="primary" @click="confirm">确 认</el-button>
       </span>
     </el-dialog>
   </div>
@@ -214,7 +295,7 @@ export default {
   components: {
     HeaderTitle,
     Dot,
-    CheckBox
+    CheckBox,
   },
   data() {
     return {
@@ -299,6 +380,7 @@ export default {
           select: false,
         },
       ],
+      selectIdList:[],
       isCopy: false,
     };
   },
@@ -322,8 +404,24 @@ export default {
       let url = document.querySelector("#copyObj");
       url.select(); // 选择对象
       document.execCommand("Copy");
-      // this.addDv = false;
       this.isCopy = true;
+    },
+    IsCheck() {
+      // console.log("this.teamListthis.teamListthis.teamList", this.teamList)
+    },
+    deletePeople() {
+      this.teamList.forEach((item) => {
+        if (item.select === true) {
+          this.selectIdList.push(item.id);
+        }
+      });
+    },
+    confirm() {
+      this.teamList.forEach((item) => {
+        if (item.select === true) {
+          this.selectIdList.push(item.id);
+        }
+      });
     },
   },
 };
@@ -447,11 +545,12 @@ export default {
   display: flex;
   align-items: center;
   // background-color: red;
+  // justify-content: space-between;
   flex-wrap: wrap;
   overflow: auto;
   ::v-deep .el-select .el-input__inner {
     cursor: pointer;
-    width: 140px;
+    width: 1.4rem;
     text-align: right;
     height: 0.4rem;
     background: #f9f9fa;
@@ -462,8 +561,9 @@ export default {
     font-size: 0.16rem;
   }
   .link {
-    width: 258px;
-    height: 40px;
+    // min-width:2rem;
+    width: 2.58rem;
+    height: 0.4rem;
     background: #f9f9fa;
     // border: 1px solid #eef0f1;
     opacity: 1;
@@ -476,7 +576,7 @@ export default {
         border: 0;
         line-height: 40px;
         padding-left: 15px;
-        width: 250px;
+        width: 2.5rem;
         height: 40px;
         // background-color: red;
         background-color: #f9f9fa;
@@ -497,7 +597,7 @@ export default {
     align-items: center;
     justify-content: center;
     // min-width: 80px;
-    width: 104px;
+    min-width: 1rem;
     height: 40px;
     background: #2a77ff;
     box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
@@ -506,7 +606,7 @@ export default {
     font-weight: bold;
     color: #f4f4f4;
     opacity: 1;
-    margin-left: 12px;
+    margin-left: 0.12rem;
     border-radius: 6px;
     &:hover {
       opacity: 0.8;

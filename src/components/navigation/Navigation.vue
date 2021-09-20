@@ -83,6 +83,9 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+i{
+  font-size: 0.18rem !important;
+}
 .navigation {
   margin-top: 0.3rem;
   // display: flex;

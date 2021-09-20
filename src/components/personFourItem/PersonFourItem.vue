@@ -10,33 +10,33 @@
               <div class="img">
                 <img src="@/assets/image/home/icon_home_mycourse.svg" alt="" />
               </div>
-              <div class="name">我的课程</div>
-              <div class="number">10</div>
+              <div class="name">{{personal.name1}}</div>
+              <div class="number">{{personal.num1}}</div>
             </div>
           </el-col>
           <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-            <a href="/homePage/myClass">
+            <router-link to="/homePage/myClass">
               <div class="item">
                 <div class="tiaozi"></div>
                 <div class="img">
                   <img src="@/assets/image/home/icon_home_myclass.svg" alt="" />
                 </div>
-                <div class="name">我的班级</div>
-                <div class="number">10</div>
+                <div class="name">{{personal.name2}}</div>
+                <div class="number">{{personal.num2}}</div>
               </div>
-            </a>
+            </router-link>
           </el-col>
           <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-            <a href="/homePage/myTeam">
+            <router-link to="/homePage/myTeam">
               <div class="item">
                 <div class="tiaozi"></div>
                 <div class="img">
                   <img src="@/assets/image/home/icon_home_myteam.svg" alt="" />
                 </div>
-                <div class="name">我的团队</div>
-                <div class="number">10</div>
+                <div class="name">{{personal.name3}}</div>
+                <div class="number">{{personal.num3}}</div>
               </div>
-            </a>
+            </router-link>
           </el-col>
           <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
             <div class="item">
@@ -44,8 +44,8 @@
               <div class="img">
                 <img src="@/assets/image/home/icon_home_mytask.svg" alt="" />
               </div>
-              <div class="name">作业待改</div>
-              <div class="number">10</div>
+              <div class="name">{{personal.name4}}</div>
+              <div class="number">{{personal.num4}}</div>
             </div>
           </el-col>
         </el-row>
@@ -60,6 +60,12 @@
 <script>
 export default {
   components: {},
+  props:{
+    personal:{
+      type:Object,
+      default:{}
+    }
+  },
   data() {
     return {};
   },
