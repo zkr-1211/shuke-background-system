@@ -2,7 +2,7 @@
 <template>
   <div class="body">
     <div class="course-content">
-      <div class="course-item" v-for="(item, index) in 25" :key="index">
+      <div class="course-item" v-for="(item, index) in courseContentList" :key="index">
         <div class="img" @click="toDetail()">
           <img src="@/assets/image/home/course_img1.svg" alt="" />
         </div>
@@ -16,19 +16,19 @@
           >
             <a href="/course/classDetail"
               ><div class="name">
-                UI设计教育课程UI设计教育课程UI设计教育课程
+                {{item.courseName}}
               </div></a
             >
           </el-tooltip>
           <div v-if="isCheckBox" class="el-checkbox">
-            <CheckBox />
+            <CheckBox v-model="item.select" @IsCheck="IsCheck"/>
           </div>
         </div>
 
-        <div class="create">创建者：电信教学团队</div>
+        <div class="create">创建者：{{item.createName}}</div>
         <div class="bottom-message">
-          <div class="classnum">班级：1000</div>
-          <div class="num">学生数：1000</div>
+          <div class="classnum">班级：{{item.classNum}}</div>
+          <div class="num">学生数：{{item.studentNum}}</div>
           <div class="dot" v-if="isCheckBox"></div>
           <el-dropdown trigger="click" placement="bottom-end" v-else>
             <span class="el-dropdown-link">
@@ -68,6 +68,38 @@ export default {
     CheckBox,
   },
   props: {
+    courseContentList: {
+      type: Array,
+      default:[
+        {
+          id: 0,
+          courseName: "UI设计课程",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 1,
+          courseName: "Python程序设计",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 2,
+          courseName: "Java面向对象",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+      ],
+    },
     isCheckBox: {
       type: Boolean,
       default: false,
@@ -87,6 +119,15 @@ export default {
   methods: {
     toDetail() {
       this.$router.push("course/courseDetail");
+    },
+    IsCheck() {
+      let selectIdList = [];
+      this.courseContentList.forEach((item) => {
+        if (item.select === true) {
+          selectIdList.push(item.id);
+        }
+      });
+      this.$emit("courseContentEven", selectIdList);
     },
   },
 };
@@ -111,7 +152,7 @@ export default {
     height: 3.1rem;
     margin-top: 0.3rem;
     // margin-left: 0.03rem;
-    margin-right: 0.29rem;
+    margin-right: 0.26rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     // margin-left: 0.32rem;

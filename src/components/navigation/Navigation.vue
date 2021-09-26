@@ -21,10 +21,12 @@
           <div class="right-search">
             <div class="search">
               <template v-if="filtrate">
-                <div>共10个</div>
+                <div class="search-text">共10个</div>
                 <el-dropdown trigger="click" placement="bottom-end">
                   <span class="el-dropdown-link">
-                    <div>按名称A-Z <i class="el-icon-caret-bottom"></i></div>
+                    <div class="search-text">
+                      按名称A-Z <i class="el-icon-caret-bottom"></i>
+                    </div>
                   </span>
                   <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>A</el-dropdown-item>
@@ -83,7 +85,7 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-i{
+i {
   font-size: 0.18rem !important;
 }
 .navigation {
@@ -103,6 +105,9 @@ i{
       top: 0;
       display: flex;
       align-items: center;
+      .search-text {
+        min-width: 01rem;
+      }
       > div {
         font-size: 0.16rem;
         font-weight: bold;

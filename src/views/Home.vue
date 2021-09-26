@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" id="full-Screen">
     <el-container>
       <el-header>
         <div class="shuke-logo">
@@ -22,7 +22,6 @@
                 <el-dropdown-item>退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-
             <div class="name">张克榕</div>
             <div class="message">
               <el-dropdown trigger="click" placement="bottom-end">
@@ -100,6 +99,15 @@
                   </div>
                 </el-dropdown-menu>
               </el-dropdown>
+            </div>
+            <div class="full-screen" @click="fullScreenEvent">
+              <div class="image">
+                <img src="@/assets/image/home/icon_fullscreen_b.svg" alt="" />
+              </div>
+              <div class="text">
+                <span v-if="!isFullScren">全屏模式</span>
+                <span v-else>退出全屏</span>
+              </div>
             </div>
           </div>
         </div>
@@ -219,6 +227,7 @@ export default {
       activePath: "",
       activeName: "first",
       isNotic: false,
+      isFullScren:false,
     };
   },
   created() {
@@ -228,7 +237,58 @@ export default {
       console.log("resize");
     });
   },
+  mounted() {
+    let isFullscreen =
+      document.fullscreenElement ||
+      document.mozFullScreenElement ||
+      document.webkitFullscreenElement ||
+      document.fullScreen ||
+      document.mozFullScreen ||
+      document.webkitIsFullScreen;
+    isFullscreen = !!isFullscreen;
+    let that = this;
+    document.addEventListener("fullscreenchange", () => {
+      that.isFullScren = !that.isFullScren;
+    });
+    document.addEventListener("mozfullscreenchange", () => {
+      that.isFullScren = !that.isFullScren;
+    });
+    document.addEventListener("webkitfullscreenchange", () => {
+      that.isFullScren = !that.isFullScren;
+    });
+    document.addEventListener("msfullscreenchange", () => {
+      that.isFullScren = !that.isFullScren;
+    });
+  },
   methods: {
+    // 全屏事件
+    fullScreenEvent() {
+      //全屏
+      // let el = document.documentElement;
+      //局部全屏
+      let el = document.getElementById("full-Screen");
+      if (this.isFullScren) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      } else {
+        if (el.requestFullscreen) {
+          el.requestFullscreen();
+        } else if (el.mozRequestFullScreen) {
+          el.mozRequestFullScreen();
+        } else if (el.webkitRequestFullScreen) {
+          el.webkitRequestFullScreen();
+        } else if (el.msRequestFullscreen) {
+          el.msRequestFullscreen();
+        }
+      }
+    },
     saveNavState(activePath) {
       window.sessionStorage.setItem("activePath", activePath);
       this.activePath = activePath;
@@ -259,7 +319,7 @@ export default {
 .home {
   height: 100vh;
   width: 100%;
-  // background-color: royalblue;
+  background-color: #F7F6FA;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -297,7 +357,7 @@ export default {
     }
   }
   .right-person {
-    width: 3.16rem;
+    width: 3.8rem;
     height: 0.64rem;
     background-color: #2a77ff;
     display: flex;
@@ -313,8 +373,8 @@ export default {
       border-style: solid;
     }
     .right {
-      width: 2.2rem;
-      margin-left: 0.2rem;
+      width: 3.6rem;
+      // margin-left: 0.2rem;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -339,6 +399,22 @@ export default {
         img {
           width: 0.36rem;
           height: 0.36rem;
+        }
+      }
+      .full-screen {
+        cursor: pointer;
+        margin-left: 0.1rem;
+        display: flex;
+        align-items: center;
+        .image {
+          display: flex;
+          width: 0.34rem;
+          height: 0.34rem;
+        }
+        .text {
+          font-size: 0.16rem;
+          color: #ffffff;
+          margin-left: 0.12rem;
         }
       }
     }
@@ -405,12 +481,10 @@ export default {
   }
 }
 .el-main {
-  height: 92vh;
+  height: 95vh;
+  margin-left: 0.2rem;
   overflow-y: auto;
-  overflow-x: auto;
-  // width: 50vw;
-  // background-color: rgb(192, 148, 148);
-  // margin: 0.66rem 0rem 0rem 2.7rem;
+  overflow-x: hidden;
 }
 .el-container:nth-child(5) .el-aside,
 .el-container:nth-child(6) .el-aside {
@@ -556,8 +630,7 @@ export default {
   // padding-left: 30px;
   // padding-right: 0.3rem;
   .notice {
-    
-      cursor: pointer;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -572,7 +645,6 @@ export default {
     .left-item {
       display: flex;
       align-items: center;
-
 
       .img {
         display: flex;

@@ -394,45 +394,6 @@ export default {
 ::v-deep .el-collapse-item__arrow.is-active {
   content: none;
 }
-
-
-
-
-
-
-
-
-// ::v-deep .el-icon-arrow-right:before {
-//   background-image: url(../../../assets/image/course/right.svg);
-//   background-repeat: no-repeat;
-//   background-size: 0.28rem;
-//   position: relative;
-//   right: 5rem;
-//   bottom: 0.03rem;
-//   content: "\e6e";
-//   border: none;
-// }
-// ::v-deep .el-collapse-item__arrow.is-active {
-//   bottom: 0.03rem;
-//   -webkit-transform: rotate(0);
-//   transform: rotate(0);
-//   background-image: url(../../../assets/image/course/bottom.svg);
-//   background-repeat: no-repeat;
-//   background-size: 0.28rem;
-//   position: relative;
-//   right: 5rem;
-//   content: "\e6e";
-// }
-// .el-collapse-item {
-//   position: relative;
-//   .dot {
-//     position: absolute;
-//     right: 0.2rem;
-//     top: 0.01rem;
-//     font-size: 0.14rem;
-//     color: #c3c3c3;
-//   }
-// }
 .course-outline {
   // width: 5rem;
   height: 6.8rem;
@@ -444,24 +405,19 @@ export default {
   }
   .second- {
     color: #666666;
-    // font-weight: bold;
   }
   .second-course-outline {
     margin-left: 0.2rem;
   }
-  // background-color: red;
   .outline-item {
-    // width: 5.78rem;
     background: #ffffff;
     padding: 0.24rem 0.3rem 0.24rem 0.5rem;
     font-size: 0.16rem;
     line-height: 0.27rem;
     color: #666666;
-    // position: relative;
     display: flex;
     align-items: center;
     cursor: pointer;
-    // justify-content: space-between;
 
     &:hover {
       background-color: #f6f7f9;
@@ -498,22 +454,6 @@ export default {
 ::v-deep .el-collapse-item__content {
   padding-bottom: 0;
 }
-// ::v-deep .el-collapse-item__header {
-//   display: flex;
-//   align-items: center;
-//   line-height: 0.6rem;
-//   cursor: pointer;
-//   // transition: border-bottom-color 0.3s;
-//   outline: 0;
-//   width: 5.78rem;
-//   height: 0.6rem;
-//   background: #ffffff;
-//   font-size: 0.2rem;
-//   color: #333333;
-//   padding-left: 0.65rem;
-//   border: none;
-//   padding-right: 0.3rem;
-// }
 ::v-deep .el-tabs__nav-scroll {
   overflow: hidden;
   background-color: #f6f6f8;

@@ -19,7 +19,7 @@
             /></Button>
           </div>
         </TopBar>
-        <TaskTemplate />
+        <TaskTemplate :contentList='contentList'/>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="6" :xl="6">
         <DataTimeStartEnd name="起止时间设置" />
@@ -44,7 +44,39 @@ export default {
     UseClass,
   },
   data() {
-    return {};
+    return {
+      contentList:[
+        {
+          id: 0,
+          content: [
+            {
+              pid: 0,
+              content: [
+                {
+                  a: "",
+                },
+                {
+                  b: "",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 1,
+          content: [
+            {
+              pid: 1,
+              content: [
+                {
+                  a: "",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    };
   },
   computed: {},
 

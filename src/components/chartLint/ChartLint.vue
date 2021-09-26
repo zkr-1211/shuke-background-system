@@ -7,6 +7,21 @@
 <script>
 export default {
   name: "ChartLine",
+  props:{
+    date:{
+      type:Array,
+      default:["1月", "2月", "3月", "4月"]
+    },
+    grade:{
+      type:Array,
+      default:[23.0, 42.9, 72.0, 77.2, 75.6]
+    }
+  },
+  data() {
+    return {
+      // date: ["1月", "2月", "3月", "4月"],
+    };
+  },
   methods: {
     drawLine() {
       // 基于准备好的dom，初始化echarts实例
@@ -61,7 +76,7 @@ export default {
         xAxis: [
           {
             type: "category",
-            data: ["1月", "2月", "3月", "4月"],
+            data: this.date,
             axisPointer: {
               type: "shadow",
             },
@@ -81,7 +96,7 @@ export default {
             min: 0,
             max: 100,
             interval: 20,
-            offset: 15,
+            offset: 0,
             axisLabel: {
               formatter: "{value}",
             },
@@ -96,11 +111,10 @@ export default {
           },
           {
             type: "value",
-
             min: 0,
             max: 100,
             interval: 20,
-            offset: 5,
+            offset: 0,
             axisLabel: {
               formatter: "{value} min",
             },
@@ -119,7 +133,7 @@ export default {
             name: "访问量",
             type: "bar",
             barWidth: 20,
-            data: [23.0, 42.9, 72.0, 77.2, 75.6],
+            data: this.grade,
             barGap: "0",
             itemStyle: {
               normal: {
@@ -163,6 +177,6 @@ export default {
 #myChart {
   width: 100%;
   // width: 100%;
-  height: 350px;
+  height: 3.2rem;
 }
 </style>

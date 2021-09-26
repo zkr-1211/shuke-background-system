@@ -135,24 +135,17 @@ h2 {
 }
 .course-content {
   margin-top: -0.15rem;
-  // padding-right: 1.32rem;
   height: 100%;
   width: 100%;
-  // width: 90%;
-  // min-height: 18rem;
   overflow: auto;
-  // background-color: red;
   display: flex;
-  // align-items: center;
-  // justify-content: space-between;
   flex-wrap: wrap;
-  // padding-right: 0.32rem;
   .course-item {
     width: 2.91rem;
     height: 1.8rem;
     margin-top: 0.3rem;
     // margin-left: 0.03rem;
-    margin-right: 0.29rem;
+    margin-right: 0.26rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     // margin-left: 0.32rem;

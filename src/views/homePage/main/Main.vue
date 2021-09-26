@@ -73,16 +73,10 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
           <div class="recent-course">
             <HeaderTitle name="最近课程" />
-            <div class="course-content">
-              <div class="empty" v-if="false">
-                <div class="img">
-                  <img src="@/assets/image/home/img_empty_big.svg" alt="" />
-                </div>
-                <div class="text">还未创建任何课程</div>
-                <div class="button">
-                  <el-button type="primary">前往创建</el-button>
-                </div>
-              </div>
+            <div class="course-content" v-loading="loading">
+              <template v-if="true">
+                <Empty />
+              </template>
               <template v-else>
                 <router-link to="/course/courseDetail">
                   <div
@@ -122,7 +116,7 @@
             </div>
             <div class="data">
               <HeaderTitle name="访问量与平均学习时长" />
-              <div class="chart">
+              <div class="chart" v-loading="loading">
                 <ChartLine ref="myChart" />
               </div>
             </div>
@@ -138,15 +132,19 @@ import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
 import ChartLine from "@/components/chartLint/ChartLint.vue";
 import PersonCard from "@/components/personCard/PersonCard.vue";
 import PersonFourItem from "@/components/personFourItem/PersonFourItem.vue";
+import Empty from "@/components/empty/Empty.vue";
 export default {
   components: {
     HeaderTitle,
     ChartLine,
     PersonCard,
     PersonFourItem,
+    Empty,
   },
   data() {
     return {
+      loading: true,
+      value2:null,
       personal: {
         name1: "我的课程",
         num1: 12,
@@ -162,11 +160,59 @@ export default {
   computed: {},
 
   mounted() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
+
     // const { name, xData, yData } = this;
     this.$refs.myChart.drawLine();
+    var arr1 = [2, 9, 7, 9];
+    var arr2 = [9, 7, 8, 1];
+    // target = 9;
+    console.log("this.getIndex(arr,target)", this.getIndex1(arr1, arr2));
   },
 
-  methods: {},
+  methods: {
+    getIndex(arr, tagert) {
+      if (arr instanceof Array == false) {
+        alert("第一个参数要数组");
+      } else {
+        var arra = [];
+        var len = arr.length;
+        for (var i = 0; i < len; i++) {
+          for (var j = i + 1; j < len; j++) {
+            if (arr[i] + arr[j] == tagert) {
+              arra[0] = i;
+              arra[1] = j;
+            }
+          }
+        }
+        return arra;
+      }
+    },
+    getIndex1(arr1, arr2) {
+      if (arr1 && arr2 instanceof Array == false) {
+        alert("参数要数组");
+      } else {
+        var arra = [];
+        var len = arr1.length;
+        for (var i = 0; i < len; i++) {
+          arra.push(arr1[i] + arr2[i]);
+          arra[i] = arra[i] % 10;
+          if (arr1[i] + arr2[i] >= 10) {
+            if (i > 0) {
+              arra[i - 1] = arra[i - 1] + 1;
+              if (arra[i - 1] >= 10) {
+                arra[i - 1] = arra[i - 1] % 10;
+                arra[i - 2] = arra[i - 2] + 1;
+              }
+            }
+          }
+        }
+        return arra;
+      }
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>
@@ -356,44 +402,6 @@ export default {
         height: 5.28rem;
         overflow-x: hidden;
         background-color: #ffffff;
-        .empty {
-          margin-top: 1rem;
-          height: 3.3rem;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-          // background-color: #2a77ff;
-          .img {
-            width: 3rem;
-            height: 1.91rem;
-            img {
-              width: 3rem;
-              height: 1.91rem;
-            }
-          }
-          .text {
-            font-size: 0.2rem;
-            font-weight: bold;
-            color: #999999;
-          }
-          .button {
-            font-size: 0.14rem;
-            font-weight: bold;
-            color: #f4f4f4;
-            .el-button {
-              background: #2a77ff;
-              box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
-              &:hover {
-                background: #5592fe;
-              }
-              &:active {
-                background: #2065e0;
-              }
-            }
-          }
-        }
         .course-item {
           display: flex;
           align-items: center;

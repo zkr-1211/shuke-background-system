@@ -68,42 +68,42 @@ export default {
     return {
       tableData: [
         {
-          date: "000001",
+          date: "1",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          date: "000001",
+          date: "2",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1517 弄",
         },
         {
-          date: "000001",
+          date: "3",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1519 弄",
         },
         {
-          date: "000001",
+          date: "4",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄",
         },
         {
-          date: "000001",
+          date: "5",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1518 弄",
         },
         {
-          date: "000001",
+          date: "6",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1517 弄",
         },
         {
-          date: "000001",
+          date: "7",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1519 弄",
         },
         {
-          date: "000001",
+          date: "8",
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄",
         },
@@ -117,6 +117,11 @@ export default {
 
   methods: {
     handleSelectionChange(val) {
+      let idList = []
+      val.forEach(item=>{
+        idList.push(item.date)
+      })
+      console.log("idList", idList)
       this.multipleSelection = val;
     },
   },

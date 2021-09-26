@@ -26,7 +26,10 @@
       </el-col>
     </el-row>
     <!-- <div class="bottom-content"> -->
-    <CourseContent v-if="tabIndex == 0" />
+    <CourseContent
+      :courseContentList="courseContentList"
+      v-if="tabIndex == 0"
+    />
     <WorkContent v-if="tabIndex == 1" />
     <ProblemSetDetail v-if="tabIndex == 2" />
     <ProblemSet v-if="tabIndex == 3" />
@@ -77,6 +80,35 @@ export default {
   data() {
     return {
       tabIndex: 0,
+      courseContentList:[
+        {
+          id: 0,
+          courseName: "UI设计课程",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 1,
+          courseName: "Python程序设计",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 2,
+          courseName: "Java面向对象",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+      ],
       tabList: [
         {
           title: "全部",

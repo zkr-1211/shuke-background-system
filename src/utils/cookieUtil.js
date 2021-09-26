@@ -21,6 +21,10 @@ export function getCookie(param) {
         return c_param;
     }
 };
-function padLeftZero(str) {
-    return ('00' + str).substr(str.length);
-};
+// function padLeftZero(str) {
+//     return ('00' + str).substr(str.length);
+// };
+//删除cookie
+export function removeCookie(cookieName) {
+    document.cookie = encodeURIComponent(cookieName) + "=; expires=" + new Date();
+}

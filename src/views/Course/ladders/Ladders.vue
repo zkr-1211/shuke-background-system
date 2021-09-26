@@ -15,40 +15,56 @@
             <HeaderTitle name="天梯赛模板" />
           </div>
           <div class="left-bottom">
-            <!-- <HeaderTitle name="赛程" /> -->
             <div class="course-content">
-              <div class="course-item" v-for="(item, index) in 25" :key="index">
-                <div class="checkbox">
-                  <a href="/course/workDetail">
-                    <div class="name">UI设计赛程</div>
-                  </a>
+              <template v-if="true">
+                <Empty
+                  class="Empty"
+                  :buttonisShow="false"
+                  title="还没有模板，现在设计一个呗！"
+                />
+              </template>
+              <template v-else>
+                <div
+                  class="course-item"
+                  v-for="(item, index) in 2"
+                  :key="index"
+                >
+                  <div class="checkbox">
+                    <a href="/course/workDetail">
+                      <div class="name">UI设计赛程</div>
+                    </a>
 
-                  <div v-if="isCheckBox">
-                    <CheckBox />
+                    <div v-if="isCheckBox">
+                      <CheckBox />
+                    </div>
+                  </div>
+                  <div class="create">创建者：张老师</div>
+                  <div class="bottom-message">
+                    <div class="classnum">任务数：20</div>
+                    <div class="dot-bottom">
+                      <div class="num">起止时间：2021/10/15-2021/10/16</div>
+                      <div class="dot" v-if="isCheckBox"></div>
+                      <el-dropdown
+                        trigger="click"
+                        placement="bottom-end"
+                        v-else
+                      >
+                        <span class="el-dropdown-link">
+                          <Dot />
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                          <div @click="editDV = true">
+                            <el-dropdown-item>重命名</el-dropdown-item>
+                          </div>
+                          <div @click="deleteDV = true">
+                            <el-dropdown-item>删除</el-dropdown-item>
+                          </div>
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </div>
                   </div>
                 </div>
-                <div class="create">创建者：张老师</div>
-                <div class="bottom-message">
-                  <div class="classnum">任务数：20</div>
-                  <div class="dot-bottom">
-                    <div class="num">起止时间：2021/10/15-2021/10/16</div>
-                    <div class="dot" v-if="isCheckBox"></div>
-                    <el-dropdown trigger="click" placement="bottom-end" v-else>
-                      <span class="el-dropdown-link">
-                        <Dot />
-                      </span>
-                      <el-dropdown-menu slot="dropdown">
-                        <div @click="editDV = true">
-                          <el-dropdown-item>重命名</el-dropdown-item>
-                        </div>
-                        <div @click="deleteDV = true">
-                          <el-dropdown-item>删除</el-dropdown-item>
-                        </div>
-                      </el-dropdown-menu>
-                    </el-dropdown>
-                  </div>
-                </div>
-              </div>
+              </template>
             </div>
             <router-link to="/course/laddersTemplateDesign">
               <div class="createTemplete">
@@ -67,7 +83,11 @@
               <HeaderTitle name="赛程" />
               <div class="buttons">
                 <Button name="任务提交情况" />
-                <Button name="创建" class="Button">
+                <Button
+                  name="创建"
+                  class="Button"
+                  @click.native="templateDV = true"
+                >
                   <img src="@/assets/image/course/ic_button_see.svg" alt="" />
                 </Button>
               </div>
@@ -75,11 +95,50 @@
           </div>
           <div class="right-bottom1">
             <Navigation :tabList="tabList" @tabsIndex="tabsIndex" />
-            <LaddersWork />
+            <template v-if="false">
+              <Empty
+                style="margintop: 2rem"
+                class="Empty"
+                :buttonisShow="false"
+                title="还未创建任何题集"
+              />
+            </template>
+            <template v-else>
+              <LaddersWork />
+            </template>
           </div>
         </div>
       </el-col>
     </el-row>
+    <!-- 创建赛程 -->
+    <el-dialog
+      title=""
+      :visible.sync="templateDV"
+      width="30%"
+      :show-close="false"
+      top="40vh"
+    >
+      <h2>从模板中创建赛程</h2>
+      <div class="section">
+        <span class="course-span">选择模板：</span>
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+      </div>
+
+      <span slot="footer" class="dialog-footer">
+        <el-button class="cancel-button" @click="templateDV = false"
+          >取 消</el-button
+        >
+        <el-button type="primary" @click="templateDV = false">创 建</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -91,6 +150,7 @@ import SmallHeaderTitle from "@/components/smallHeaderTitle/SmallHeaderTitle.vue
 import Navigation from "@/components/navigation/Navigation.vue";
 import LaddersWork from "@/components/laddersWork/LaddersWork.vue";
 import CheckBox from "@/components/checkBox/CheckBox.vue";
+import Empty from "@/components/empty/Empty.vue";
 export default {
   components: {
     HeaderTitle,
@@ -100,9 +160,11 @@ export default {
     LaddersWork,
     Navigation,
     CheckBox,
+    Empty,
   },
   data() {
     return {
+      templateDV: false,
       tabIndex: 0,
       tabsTitle: ["课程信息", "付费设置", "详情页设置", "课程学习码"],
       radio: "开启",
@@ -159,23 +221,66 @@ export default {
     selectActive(index) {
       this.tabIndex = index;
     },
+    tabsIndex() {},
     isPay(e) {
       // console.log("e", e,this.radio)
+    },
+    template() {
+      console.log("object");
     },
   },
 };
 </script>
 <style lang='scss' scoped>
+::v-deep .el-dialog {
+  line-height: 0rem;
+
+  .section {
+    margin-top: 0.3rem;
+    .course-span {
+      font-size: 16px;
+      color: #666666;
+    }
+  }
+}
+::v-deep .el-dialog__header {
+  padding-top: 10px;
+}
+.cancel-button {
+  border: none;
+  background: #fff !important;
+  box-shadow: 0 !important;
+  font-size: 0.14rem;
+  font-weight: bold;
+  color: #666666;
+  margin-right: 0.15rem;
+}
+.el-button {
+  margin-top: 0.4rem;
+  background: #2a77ff;
+  // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+  &:hover {
+    background: #5592fe;
+  }
+  &:active {
+    background: #2065e0;
+  }
+}
+::v-deep .el-select .el-input__inner {
+  width: 21vw;
+  margin-left: 15px;
+  cursor: pointer;
+  padding-right: 35px;
+  border: none;
+  border-bottom: 0.01rem solid #e0e0e0 !important;
+}
 .breadcrumb {
   margin-bottom: 12px;
 }
 .left {
-  // width: 214px;
   height: 936px;
-  //   background: #ffffff;
   opacity: 1;
   border-radius: 4px;
-  //   padding-top: 70px;
   margin-bottom: 12px;
   .left-top {
   }
@@ -185,30 +290,35 @@ export default {
     background-color: #fff;
     .course-content {
       margin-top: -0.15rem;
-      // padding-right: 1.32rem;
       height: 7.2rem;
-      overflow: auto;
       width: 100%;
-      // width: 90%;
-      // min-height: 18rem;
-      overflow: auto;
-      // background-color: red;
+      overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
-      // align-items: center;
-      // justify-content: space-between;
-      flex-wrap: wrap;
-      // padding-right: 0.32rem;
+      flex-direction: column;
+      .Empty {
+        ::v-deep .empty {
+          margin-top: 2rem;
+          height: 0rem;
+          text-align: center;
+          .img {
+            img {
+              width: 1.5rem;
+              height: 1.5rem;
+            }
+          }
+        }
+        ::v-deep .text {
+          margin-top: -0.15rem;
+          font-size: 0.12rem;
+        }
+      }
       .course-item {
         width: 100%;
         height: 1.8rem;
-        // margin-top: 0.3rem;
-        // margin-left: 0.03rem;
-        // margin-right: 0.29rem;
         background: #ffffff;
         box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
-        // margin-left: 0.32rem;
-        // border-radius: 0.08rem;
-        padding-bottom: 30px;
+        padding-bottom: 0.3rem;
         border-bottom: 1px solid #e0e0e0;
         .img {
           width: 2.91rem;

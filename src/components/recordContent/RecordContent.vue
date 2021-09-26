@@ -147,7 +147,7 @@ h2 {
     width: 2.91rem;
     height: 3.73rem;
     margin-top: 0.3rem;
-    margin-right: 0.29rem;
+    margin-right: 0.26rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     position: relative;

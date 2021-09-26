@@ -97,7 +97,7 @@ export default {
             min: 0,
             max: 100,
             interval: 20,
-            offset: 15,
+            offset: 0,
             axisLabel: {
               formatter: "{value}%",
             },
@@ -116,7 +116,7 @@ export default {
             min: 0,
             max: 100,
             interval: 20,
-            offset: 15,
+            offset: 0,
             axisLabel: {
               formatter: "{value} min",
             },

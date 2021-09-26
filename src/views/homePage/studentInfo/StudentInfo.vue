@@ -90,7 +90,7 @@
           <div class="student-time">
             <HeaderTitle name="访问量与学习时长" />
             <ChartLine ref="myChart1" />
-            <ChartLine ref="myChart1" />
+            <!-- <ChartLine ref="myChart1" /> -->
           </div>
           <div class="student-time-avg">
             <HeaderTitle name="访问量与平均学习时长" />

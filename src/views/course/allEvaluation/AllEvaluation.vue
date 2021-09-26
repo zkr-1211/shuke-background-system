@@ -142,10 +142,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
-    // height: 6rem;
+    height: 6rem;
     .content {
       padding: 40px;
-      width: 440px;
+      width: 430px;
       height: 180px;
       background: #f6f6f8;
       opacity: 1;

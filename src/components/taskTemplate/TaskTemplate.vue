@@ -2,7 +2,7 @@
 <template>
   <div class="body">
     <div class="content">
-      <div class="item" v-for="(item, index) in contentList" :key="index">
+      <div class="item" v-for="(item, index) in contentList" :key="item.id">
         <div class="top">
           <div class="index">0{{ index + 1 }}</div>
           <div class="text">主任务01:</div>
@@ -28,7 +28,7 @@
         </div>
         <el-collapse v-model="activeName1" @change="changeCollapse">
           <el-collapse-item
-            v-for="(item1, index1) in item.content1"
+            v-for="(item1, index1) in item.content"
             :key="index1"
           >
             <template slot="title">
@@ -40,13 +40,13 @@
                 <div class="add-img">
                   <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
                 </div>
-                <div class="text">添加子任务</div>
+                <div class="text" @click.stop="addTaskChild(item.id,item1.pid)">添加子任务</div>
               </div>
             </template>
             <div class="two-el-collapse-item">
               <el-collapse v-model="activeName2" @change="changeCollapse">
                 <el-collapse-item
-                  v-for="(item2, index2) in item1.content2"
+                  v-for="(item2, index2) in item1.content"
                   :key="index2"
                 >
                   <template slot="title">
@@ -130,16 +130,16 @@ export default {
     Button,
     Dot,
   },
-  data() {
-    return {
-      activeName: 0,
-      activeName1: 0,
-      activeName2: 0,
-      contentList: [
+  props: {
+    contentList: {
+      type: Array,
+      default:[
         {
-          content1: [
+          id: 0,
+          content: [
             {
-              content2: [
+              pid: 0,
+              content: [
                 {
                   a: "",
                 },
@@ -151,9 +151,11 @@ export default {
           ],
         },
         {
-          content1: [
+          id: 1,
+          content: [
             {
-              content2: [
+              pid: 1,
+              content: [
                 {
                   a: "",
                 },
@@ -161,17 +163,30 @@ export default {
             },
           ],
         },
-        {
-          a: "",
-        },
       ],
+    },
+  },
+  data() {
+    return {
+      activeName: 0,
+      activeName1: 0,
+      activeName2: 0,
+      value: "",
+      options:[],
     };
   },
   computed: {},
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    changeCollapse(e) {
+      console.log("e", e);
+    },
+    addTaskChild(id,pid) {
+      this.$emit('addTaskChild',id,pid)
+    }
+  },
 };
 </script>
 <style lang='scss' scoped>
@@ -345,7 +360,7 @@ export default {
             font-size: 0.15rem;
           }
           input {
-            width: 763px;
+            width: 25vw;
             height: 0.01rem;
             background: #ffffff;
             border: 0.01rem solid #e0e0e0;

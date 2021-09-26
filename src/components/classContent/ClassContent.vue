@@ -152,7 +152,7 @@ h2 {
     height: 1.8rem;
     margin-top: 0.3rem;
     // margin-left: 0.03rem;
-    margin-right: 0.28rem;
+    margin-right: 0.26rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     // margin-left: 0.32rem;

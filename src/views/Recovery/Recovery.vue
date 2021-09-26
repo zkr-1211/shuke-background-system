@@ -22,8 +22,18 @@
       </el-col>
     </el-row>
     <ProblemSetDetail v-if="tabIndex == 0" />
-    <ProblemSet v-if="tabIndex == 1" :isCheckBox="true" />
-    <CourseContent v-if="tabIndex == 2" :isCheckBox="true" />
+    <ProblemSet
+      :problemSetList="problemSetList"
+      @problemSet="problemSet"
+      v-if="tabIndex == 1"
+      :isCheckBox="true"
+    />
+    <CourseContent
+      :courseContentList="courseContentList"
+      v-if="tabIndex == 2"
+      :isCheckBox="true"
+      @courseContentEven="courseContentEven"
+    />
     <!-- 创建课程 -->
     <el-dialog
       title=""
@@ -80,7 +90,69 @@ export default {
           title: "课程",
         },
       ],
-
+      problemSetList: [
+        {
+          id: 0,
+          name: "函数相关题目",
+          teacher: "张老师",
+          classNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 1,
+          name: "函数相关题目",
+          teacher: "张老师",
+          classNum: 100,
+          time: "2021/09/21 19:45",
+          select: true,
+        },
+        {
+          id: 2,
+          name: "函数相关题目",
+          teacher: "张老师",
+          classNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 3,
+          name: "函数相关题目",
+          teacher: "张老师",
+          classNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+      ],
+      courseContentList: [
+        {
+          id: 0,
+          courseName: "UI设计课程",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 1,
+          courseName: "Python程序设计",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+        {
+          id: 2,
+          courseName: "Java面向对象",
+          createName: "张老师",
+          classNum: 100,
+          studentNum: 100,
+          time: "2021/09/21 19:45",
+          select: false,
+        },
+      ],
       dialogVisible2: false,
     };
   },
@@ -92,6 +164,15 @@ export default {
     tabsIndex(index) {
       this.tabIndex = index;
       //   console.log("index", index);
+    },
+    //监听回调
+    problemSet(id) {
+      //已选择的选项的id
+      // console.log("id", id);
+    },
+    courseContentEven(id) {
+      //已选择的选项的id
+      console.log("id", id);
     },
   },
 };
@@ -176,12 +257,12 @@ h2 {
   }
   .button {
     display: flex;
-    margin-right: .3rem;
+    margin-right: 0.3rem;
     font-size: 14px;
     font-weight: bold;
     color: #f4f4f4;
     position: absolute;
-    right: .3rem;
+    right: 0.3rem;
     .Button {
       margin-left: 20px;
     }

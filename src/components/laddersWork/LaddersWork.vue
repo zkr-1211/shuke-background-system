@@ -3,7 +3,7 @@
   <div class="body">
     <div>
       <div class="course-content">
-        <div class="course-item" v-for="(item, index) in 25" :key="index">
+        <div class="course-item" v-for="(item, index) in List" :key="index">
           <el-tooltip
             class="item"
             effect="dark"
@@ -15,9 +15,9 @@
                 <div
                   class="name"
                   :class="[
-                    index == 1 ? 'is-start' : '',
-                    index == 2 ? 'is-no-start' : '',
-                    index == 3 ? 'is-pause' : '',
+                    item.state == 0 ? 'is-start' : '',
+                    item.state == 1 ? 'is-no-start' : '',
+                    item.state == 2 ? 'is-pause' : '',
                   ]"
                 >
                   UI设计赛程
@@ -40,10 +40,29 @@
                   <Dot />
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <div @click="editDV = true">
+                  <div @click="editDV = true" v-if="item.state === 0">
+                    <el-dropdown-item>暂停任务</el-dropdown-item>
+                  </div>
+                  <div @click="editDV = true" v-if="item.state === 1 || item.state === 2">
+                    <el-dropdown-item>开始任务</el-dropdown-item>
+                  </div>
+                  <div @click="editDV = true" >
+                    <el-dropdown-item>复制任务</el-dropdown-item>
+                  </div>
+                  <div @click="editDV = true" v-if="item.state === 3">
+                    <el-dropdown-item>生成班级报告</el-dropdown-item>
+                  </div>
+                  <div @click="editDV = true" v-if="item.state === 3">
+                    <el-dropdown-item>生成个人报告</el-dropdown-item>
+                  </div>
+                  <div @click="editDV = true" v-if="item.state !== 3">
                     <el-dropdown-item>重命名</el-dropdown-item>
                   </div>
-                  <div @click="deleteDV = true">
+                  
+                  <div @click="editDV = true" v-if="item.state === 1 || item.state === 0">
+                    <el-dropdown-item>终止赛程</el-dropdown-item>
+                  </div>
+                  <div @click="deleteDV = true" v-if="item.state === 3 || item.state === 2">
                     <el-dropdown-item>删除</el-dropdown-item>
                   </div>
                 </el-dropdown-menu>
@@ -84,6 +103,36 @@ export default {
       editDV: false,
       deleteDV: false,
       checked: false,
+      List: [
+        {
+          courseName: "ui设计赛程",
+          create: "张老师",
+          taskNum: 10,
+          time: "2019/10/15-2019/10/15",
+          state: 0,
+        },
+        {
+          courseName: "ui设计赛程",
+          create: "张老师",
+          taskNum: 10,
+          time: "2019/10/15-2019/10/15",
+          state: 1,
+        },
+        {
+          courseName: "ui设计赛程",
+          create: "张老师",
+          taskNum: 10,
+          time: "2019/10/15-2019/10/15",
+          state: 2,
+        },
+        {
+          courseName: "ui设计赛程",
+          create: "张老师",
+          taskNum: 10,
+          time: "2019/10/15-2019/10/15",
+          state: 3,
+        },
+      ],
     };
   },
   computed: {},
@@ -163,7 +212,7 @@ h2 {
     height: 1.8rem;
     margin-top: 0.3rem;
     // margin-left: 0.03rem;
-    margin-right: 0.26rem;
+    margin-right: 0.2rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     // margin-left: 0.32rem;

@@ -3,7 +3,7 @@
   <div class="body">
     <div>
       <div class="course-content">
-        <div class="course-item" v-for="(item, index) in 25" :key="index">
+        <div class="course-item" v-for="(item, index) in problemSetList" :key="index">
            <div class="checkbox">
           <el-tooltip
             class="item"
@@ -13,19 +13,19 @@
           >
             <a href="/course/classDetail"
               ><div class="name">
-               函数相关题目 函数相关题目 函数相关题目
+              {{item.name}}
               </div></a
             >
           </el-tooltip>
           <div v-if="isCheckBox" class="el-checkbox">
-            <CheckBox />
+            <CheckBox v-model="item.select" @IsCheck="IsCheck"/>
           </div>
         </div>
-          <div class="create">创建者：张老师</div>
+          <div class="create">创建者：{{item.teacher}}</div>
           <div class="bottom-message">
-            <div class="classnum">班级：1000</div>
+            <div class="classnum">班级:{{item.classNum}}</div>
             <div class="dot-bottom">
-              <div class="num">最后编辑时间：2019/10/15 19:45</div>
+              <div class="num">最后编辑时间：{{item.time}}</div>
               <div class="dot" v-if="isCheckBox"></div>
               <el-dropdown trigger="click" placement="bottom-end" v-else>
                 <span class="el-dropdown-link">
@@ -66,6 +66,10 @@ export default {
     CheckBox
   },
   props: {
+    problemSetList: {
+      type: Array,
+      default: [],
+    },
     isCheckBox: {
       type: Boolean,
       default: false,
@@ -82,7 +86,17 @@ export default {
 
   mounted() {},
 
-  methods: {},
+  methods: {
+    IsCheck() {
+      let selectIdList = []
+      this.problemSetList.forEach(item=>{
+        if(item.select === true) {
+          selectIdList.push(item.id)
+        }
+      })
+      this.$emit('problemSet',selectIdList)
+    }
+  },
 };
 </script>
 <style lang='scss' scoped>
@@ -154,7 +168,7 @@ h2 {
     height: 1.8rem;
     margin-top: 0.3rem;
     // margin-left: 0.03rem;
-    margin-right: 0.29rem;
+    margin-right: 0.26rem;
     background: #ffffff;
     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     // margin-left: 0.32rem;
