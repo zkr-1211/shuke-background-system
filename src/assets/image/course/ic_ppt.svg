@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fc764b;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <g id="ic_ppt" transform="translate(-56 -756)">
+    <path id="交叉_2" data-name="交叉 2" class="cls-1" d="M1.5,17.727a1.5,1.5,0,0,1-1.5-1.5V1.5A1.5,1.5,0,0,1,1.5,0H16.227a1.5,1.5,0,0,1,1.5,1.5V16.227a1.5,1.5,0,0,1-1.5,1.5Zm2.819-4.318H6.136V9.8h7.273V4.318H4.318Zm2-5.5V6.186h5.084V7.907Z" transform="translate(56.909 756.909)"/>
+    <rect id="矩形_1114" data-name="矩形 1114" class="cls-2" width="20" height="20" transform="translate(56 756)"/>
+  </g>
+</svg>

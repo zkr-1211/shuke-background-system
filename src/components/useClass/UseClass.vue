@@ -24,7 +24,7 @@
     </div>
     <div class="add">
       <div class="icon">
-        <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+        <img src="@/assets/image/course/icon_add_n.svg" alt="" />
       </div>
       <div class="text">添加班级</div>
     </div>

@@ -238,14 +238,14 @@
               <div class="biaoge-content">
                 <div class="icon">
                   <img
-                    src="@/assets/image/course/ic_class_invitation.svg"
+                    src="@/assets/image/course/ic_folder.svg"
                     alt=""
                   />
                 </div>
                 <div class="text-title">空白花名册模板.execl</div>
                 <div class="img">
                   <img
-                    src="@/assets/image/course/ic_class_invitation.svg"
+                    src="@/assets/image/course/ic_popup_download.svg"
                     alt=""
                   />
                 </div>
@@ -256,14 +256,14 @@
               <div class="biaoge-content">
                 <div class="icon">
                   <img
-                    src="@/assets/image/course/ic_class_invitation.svg"
+                    src="@/assets/image/course/ic_folder.svg"
                     alt=""
                   />
                 </div>
                 <div class="text-title">空白花名册模板.execl</div>
                 <div class="img">
                   <img
-                    src="@/assets/image/course/ic_class_invitation.svg"
+                    src="@/assets/image/course/ic_popup_upload.svg"
                     alt=""
                   />
                 </div>

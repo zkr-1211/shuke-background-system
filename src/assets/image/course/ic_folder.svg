@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #ffd030;
+      }
+
+      .cls-3 {
+        fill: #efbc00;
+      }
+    </style>
+  </defs>
+  <g id="ic_folder" transform="translate(-50 -313)">
+    <rect id="矩形_1106" data-name="矩形 1106" class="cls-1" width="20" height="20" transform="translate(50 313)"/>
+    <g id="组_2646" data-name="组 2646" transform="translate(50.455 314.818)">
+      <path id="矩形_1102" data-name="矩形 1102" class="cls-2" d="M0,0H17.091a2,2,0,0,1,2,2V12.091a2,2,0,0,1-2,2H2a2,2,0,0,1-2-2V0A0,0,0,0,1,0,0Z" transform="translate(0 2.273)"/>
+      <path id="矩形_1103" data-name="矩形 1103" class="cls-3" d="M.2,0H7.273A2.273,2.273,0,0,1,9.545,2.273v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V.2A.2.2,0,0,1,.2,0Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

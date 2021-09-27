@@ -17,7 +17,7 @@
             <TopBar name="课程大纲">
               <template slot="A">
                 <Button name="添加章节">
-                  <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                  <img src="@/assets/image/course/ic_button_add.svg" alt="" />
                 </Button>
               </template>
             </TopBar>
@@ -34,19 +34,13 @@
               <el-dropdown trigger="click" placement="bottom-end" slot="B">
                 <span class="el-dropdown-link">
                   <Button name="添加资源">
-                    <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                    <img src="@/assets/image/course/ic_button_add.svg" alt="" />
                   </Button>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item @click.native="diskDv = true"
-                    >从网盘中</el-dropdown-item
-                  >
-                  <el-dropdown-item @click.native="localDv = true"
-                    >从本地中</el-dropdown-item
-                  >
-                  <el-dropdown-item @click.native="problemSetDv = true"
-                    >从题集中</el-dropdown-item
-                  >
+                  <el-dropdown-item @click.native="diskDv = true">从网盘中</el-dropdown-item>
+                  <el-dropdown-item @click.native="localDv = true">从本地中</el-dropdown-item>
+                  <el-dropdown-item @click.native="problemSetDv = true">从题集中</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </TopBar>
@@ -56,18 +50,10 @@
           <div class="right-content">
             <div class="course-title"><span>01：</span> 什么是web程序应用</div>
             <div class="topNav">
-              <div
-                class="title"
-                @click="isUpload = false"
-                :style="{ backgroundColor: isUpload ? '#EDEFF3' : '' }"
-              >
+              <div class="title" @click="isUpload = false" :style="{ backgroundColor: isUpload ? '#EDEFF3' : '' }">
                 全部
               </div>
-              <div
-                class="title"
-                @click="isUpload = true"
-                :style="{ backgroundColor: isUpload ? '' : '#EDEFF3' }"
-              >
+              <div class="title" @click="isUpload = true" :style="{ backgroundColor: isUpload ? '' : '#EDEFF3' }">
                 正在上传
               </div>
               <div class="totalFile">共0个文件</div>
@@ -75,11 +61,7 @@
             <div class="contentNav">
               <div class="select-all">
                 <!-- <el-checkbox :isIndeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-                <el-checkbox
-                  :Indeterminate="isIndeterminate"
-                  v-model="checkAll"
-                  @change="handleCheckAllChange"
-                ></el-checkbox>
+                <CheckBox v-model="isCheckedAll" @IsCheck='IsCheckAll' />
               </div>
               <div class="file-name">文件名</div>
               <div class="file-size" v-if="!isUpload">大小</div>
@@ -88,69 +70,45 @@
             </div>
             <div class="tableContent">
               <div v-if="!isUpload">
-                <SectionOutline
-                  :isUploadResource="true"
-                  :checkAll="checkAll"
-                  @isCheck="checkAll = false"
-                  @lockClick="lockClick"
-                />
+                <SectionOutline :isUploadResource="true" @isCheck="isCheckedAllTf" @lockClick="lockClick" :sectionOutlineList='sectionOutlineList'/>
               </div>
 
               <!-- isUpload -->
               <div v-else class="upload-content">
-                <div class="item" v-for="(item, index) in 10" :key="index">
+                <div class="item" v-for="(item, index) in options" :key="index">
                   <div class="el-checkbox">
-                    <CheckBox />
+                    <CheckBox v-model="item.isCheck" @IsCheck='IsCheck' />
                   </div>
 
                   <div class="icon">
-                    <img
-                      src="@/assets/image/course/ic_locking_off.svg"
-                      alt=""
-                    />
+                    <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
                   </div>
                   <div class="title">图标设计技巧.mp4</div>
                   <div class="size">
-                    <el-progress
-                      class="el-progress"
-                      :show-text="false"
-                      :stroke-width="12"
-                      :percentage="70"
-                    ></el-progress>
+                    <el-progress class="el-progress" :show-text="false" :stroke-width="12" :percentage="70"></el-progress>
                     <div style="text-align: left">100/200</div>
                   </div>
                   <div class="lock1" @click.stop="lockClick(index)">
-                    <img
-                      src="@/assets/image/course/ic_locking_off.svg"
-                      alt=""
-                    />
+                    <img src="@/assets/image/course/ic_chapter_dowload.svg" alt="" />
                   </div>
                   <div class="look2">
-                    <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+                    <img src="@/assets/image/course/ic_chapter_delete.svg" alt="" />
                   </div>
                 </div>
               </div>
               <div class="upload-dialgo" v-if="!Open">
                 <div class="upload-num">正在上传（10/12）</div>
                 <div class="img">
-                  <img
-                    @click="Open = true"
-                    src="@/assets/image/course/ic_button_see.svg"
-                    alt=""
-                  />
-                  <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                  <img @click="Open = true" src="@/assets/image/course/icon_radio_n.svg" alt="" />
+                  <img src="@/assets/image/course/ic_delete.svg" alt="" />
                 </div>
               </div>
               <div class="upload-dialgo-open" v-else>
                 <div class="top">
                   <div class="upload-num">正在上传</div>
                   <div class="img">
-                    <img
-                      @click="Open = false"
-                      src="@/assets/image/course/ic_button_see.svg"
-                      alt=""
-                    />
-                    <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                    <img @click="Open = false" src="@/assets/image/course/ic_shrink.svg" alt="" />
+                    <img src="@/assets/image/course/ic_delete.svg" alt="" />
                   </div>
                 </div>
                 <div class="notic">
@@ -158,34 +116,21 @@
                     违反利用树课网盘上传，传播暴力恐怖，色情违法和侵犯他人合法权益的违法信息，一经发现将严格按照相关法律法规处理的规定。
                   </div>
                   <div>
-                    <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                    <img src="@/assets/image/course/ic_delete.svg" alt="" />
                   </div>
                 </div>
                 <div class="content">
-                  <div
-                    class="item"
-                    v-for="(item, index) in options"
-                    :key="index"
-                  >
+                  <div class="item" v-for="(item, index) in options" :key="index">
                     <div class="file-icon">
-                      <img
-                        src="@/assets/image/course/ic_button_see.svg"
-                        alt=""
-                      />
+                      <img src="@/assets/image/course/ic_wold.svg" alt="" />
                     </div>
                     <div class="file-name">{{ item.fileName }}</div>
                     <div class="file-size">1000Mb</div>
                     <div class="class-name">大数据技术与科学…</div>
                     <div class="dagit-rate">30.83%（100KB/s）</div>
                     <div class="image">
-                      <img
-                        src="@/assets/image/course/ic_button_see.svg"
-                        alt=""
-                      />
-                      <img
-                        src="@/assets/image/course/ic_button_see.svg"
-                        alt=""
-                      />
+                      <img src="@/assets/image/course/ic_pause.svg" alt="" />
+                      <img src="@/assets/image/course/ic_delete.svg" alt="" />
                     </div>
                   </div>
                 </div>
@@ -196,13 +141,7 @@
       </el-col>
     </el-row>
     <!--从题集中选择上传  -->
-    <el-dialog
-      title=""
-      :visible.sync="problemSetDv"
-      width="30%"
-      :show-close="false"
-      top="10vh"
-    >
+    <el-dialog title="" :visible.sync="problemSetDv" width="30%" :show-close="false" top="10vh">
       <!-- <div class="what"><img src="@/assets/image/course/ic_button_unsee.svg" alt=""></div> -->
       <div class="d">
         <div>
@@ -227,20 +166,12 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <!-- <span class="delete-man">删除成员</span> -->
-        <el-button class="cancel-button" @click="problemSetDv = false"
-          >取 消</el-button
-        >
+        <el-button class="cancel-button" @click="problemSetDv = false">取 消</el-button>
         <el-button type="primary" @click="problemSetDv = false">添加</el-button>
       </span>
     </el-dialog>
     <!--从网盘中选择添加 -->
-    <el-dialog
-      title=""
-      :visible.sync="diskDv"
-      width="30%"
-      :show-close="false"
-      top="10vh"
-    >
+    <el-dialog title="" :visible.sync="diskDv" width="30%" :show-close="false" top="10vh">
       <!-- <div class="what"><img src="@/assets/image/course/ic_button_unsee.svg" alt=""></div> -->
       <div class="d">
         <div>
@@ -253,48 +184,15 @@
       <div class="quan-xian">
         <h2>全部</h2>
 
-        <el-tree
-          :data="data"
-          show-checkbox
-          node-key="id"
-          :default-expanded-keys="[2, 3]"
-          :default-checked-keys="[5]"
-          :props="defaultProps"
-          :highlight-current="true"
-          ref="trees"
-        >
-          <span class="custom-tree-node" slot-scope="{ node, data }">
+        <el-tree :data="data" show-checkbox node-key="id" :default-expanded-keys="[2, 3]" :default-checked-keys="[5]" :props="defaultProps" :highlight-current="true" ref="trees">
+          <span class="custom-tree-node" slot-scope="{ data }">
             <div class="icon">
-              <img
-                v-if="data.icon === 'wps'"
-                src="@/assets/image/course/ic_class_invitation.svg"
-                alt=""
-              />
-              <img
-                v-else-if="data.icon === 'pdf'"
-                src="@/assets/image/home/icon_shuke.svg"
-                alt=""
-              />
-              <img
-                v-else-if="data.icon === 'mp4'"
-                src="@/assets/image/course/ic_class_invitation.svg"
-                alt=""
-              />
-              <img
-                v-else-if="data.icon === 'png'"
-                src="@/assets/image/home/icon_shuke.svg"
-                alt=""
-              />
-              <img
-                v-else-if="data.icon === 'jpg'"
-                src="@/assets/image/course/ic_class_invitation.svg"
-                alt=""
-              />
-              <img
-                v-else="data.icon === ''"
-                src="@/assets/image/home/icon_shuke.svg"
-                alt=""
-              />
+              <img v-if="data.icon === 'wps'" src="@/assets/image/course/ic_wold.svg" alt="" />
+              <img v-else-if="data.icon === 'pdf'" src="@/assets/image/course/ic_ppt.svg" alt="" />
+              <img v-else-if="data.icon === 'mp4'" src="@/assets/image/course/ic_class_invitation.svg" alt="" />
+              <img v-else-if="data.icon === 'png'" src="@/assets/image/home/icon_shuke.svg" alt="" />
+              <img v-else-if="data.icon === 'jpg'" src="@/assets/image/course/ic_class_invitation.svg" alt="" />
+              <img v-else src="@/assets/image/course/ic_folder.svg" alt="" />
               <span>{{ data.label }}</span>
             </div>
           </span>
@@ -303,9 +201,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <!-- <span class="delete-man">删除成员</span> -->
-        <el-button class="cancel-button" @click="diskDv = false"
-          >取 消</el-button
-        >
+        <el-button class="cancel-button" @click="diskDv = false">取 消</el-button>
         <el-button type="primary" @click="add()">添加</el-button>
       </span>
     </el-dialog>
@@ -337,6 +233,7 @@ export default {
       diskDv: false,
       diskDv: false,
       checkAll: false,
+      isCheckedAll: false,
       checkedCities: ["上海", "北京"],
       cities: cityOptions,
       isIndeterminate: false,
@@ -345,44 +242,21 @@ export default {
           value: "选项1",
           label: "黄金糕",
           fileName: "高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
+          isCheck: false,
         },
         {
           value: "选项2",
           label: "双皮奶",
           fileName:
             "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
+          isCheck: false,
         },
         {
           value: "选项3",
           label: "蚵仔煎",
           fileName:
             "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
-        },
-        {
-          value: "选项4",
-          label: "龙须面",
-          fileName:
-            "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭",
-          fileName: "高等数学复习资料2",
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭",
-          fileName: "高等数学复习资料2",
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭",
-          fileName: "高等数学复习资料2",
-        },
-        {
-          value: "选项5",
-          label: "北京烤鸭",
-          fileName: "高等数学复习资料2",
+          isCheck: false,
         },
       ],
       value: "",
@@ -390,7 +264,7 @@ export default {
         {
           id: 1,
           label: "设计课程文件",
-          icon: "pdf",
+          icon: "",
           children: [
             {
               id: 4,
@@ -400,7 +274,7 @@ export default {
                 {
                   id: 9,
                   label: "设计课程文件 1-1-1",
-                  icon: "wps",
+                  icon: "pdf",
                 },
                 {
                   id: 10,
@@ -414,12 +288,12 @@ export default {
         {
           id: 2,
           label: "设计课程文件 2",
-          icon: "wps",
+          icon: "",
           children: [
             {
               id: 5,
               label: "设计课程文件 2-1",
-              icon: "wps",
+              icon: "pdf",
             },
             {
               id: 6,
@@ -431,7 +305,7 @@ export default {
         {
           id: 3,
           label: "设计课程文件 3",
-          icon: "wps",
+          icon: "",
           children: [
             {
               id: 7,
@@ -444,6 +318,16 @@ export default {
               icon: "wps",
             },
           ],
+        },
+      ],
+       sectionOutlineList: [
+        {
+          city: "福州",
+          isCheck: false,
+        },
+        {
+          city: "福州2",
+          isCheck: false,
         },
       ],
       defaultProps: {
@@ -466,11 +350,47 @@ export default {
       this.problemSetDv = true;
       console.log("e", e);
     },
-
+    IsCheckAll() {
+      let flag = this.isCheckedAll;
+      this.options.forEach((item) => {
+        item.isCheck = flag;
+      });
+      this.sectionOutlineList.forEach((item) => {
+        item.isCheck = flag;
+      });
+    },
+    IsCheck() {
+      let state = this.options.every((item) => {
+        return item.isCheck;
+      });
+      if (state) {
+        this.isCheckedAll = true;
+      } else {
+        this.isCheckedAll = false;
+      }
+    },
+    change() {
+      // let flag = !this.isCheckedAll;
+      // this.options.forEach((item) => {
+      //   item.isCheck = flag;
+      // });
+    },
+    isCheckedAllTf(e) {
+      if (e) {
+        this.isCheckedAll = true;
+      } else {
+        this.isCheckedAll = false;
+      }
+    },
     add() {
-        this.diskDv = false;
-        // 返回一个数组里边包含着子节点和父节点
-        console.log("object",  this.$refs.trees.getCheckedKeys().concat(this.$refs.trees.getHalfCheckedKeys()))
+      this.diskDv = false;
+      // 返回一个数组里边包含着子节点和父节点
+      console.log(
+        "object",
+        this.$refs.trees
+          .getCheckedKeys()
+          .concat(this.$refs.trees.getHalfCheckedKeys())
+      );
     },
   },
 };
@@ -811,7 +731,7 @@ export default {
         .img {
           display: flex;
           align-items: center;
-          background-color: #2a77ff;
+          // background-color: #2a77ff;
           img {
             cursor: pointer;
             margin-right: 14px;
@@ -847,7 +767,7 @@ export default {
             justify-content: space-around;
             height: 50px;
             .file-icon {
-              background-color: #2a77ff;
+              // background-color: #2a77ff;
               img {
                 display: flex;
               }
@@ -893,7 +813,7 @@ export default {
               opacity: 1;
             }
             .image {
-              background-color: #2a77ff;
+              // background-color: #2a77ff;
               display: flex;
               img {
                 display: flex;
@@ -927,7 +847,7 @@ export default {
         .img {
           display: flex;
           align-items: center;
-          background-color: #2a77ff;
+          // background-color: #2a77ff;
           img {
             cursor: pointer;
             margin-right: 14px;
@@ -961,7 +881,7 @@ export default {
             white-space: nowrap;
           }
           .size {
-            width:70px;
+            width: 70px;
             //   display: none;
             font-size: 16px;
             .el-progress {

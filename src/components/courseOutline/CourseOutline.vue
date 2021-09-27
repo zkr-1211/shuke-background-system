@@ -54,7 +54,7 @@
           </div>
           <div class="add" v-if="isUploadResource">
             <div class="img">
-              <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+              <img src="@/assets/image/course/icon_add_n.svg" alt="" />
             </div>
             <div class="add-item">添加小节</div>
           </div>

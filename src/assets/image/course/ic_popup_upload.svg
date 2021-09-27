@@ -1,0 +1,39 @@
+<svg id="ic_popup_upload" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2a77ff;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: #fff;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+
+      .cls-4 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_28564" data-name="路径 28564" class="cls-1" d="M15,30A15,15,0,1,0,0,15,15,15,0,0,0,15,30Z"/>
+  <g id="组_3312" data-name="组 3312" transform="translate(8 4)">
+    <g id="矩形_1261" data-name="矩形 1261" class="cls-2" transform="translate(6 18) rotate(-90)">
+      <rect class="cls-3" width="12" height="2"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="11" height="1"/>
+    </g>
+    <g id="组_3319" data-name="组 3319" transform="translate(2.757 3.757)">
+      <g id="矩形_1269" data-name="矩形 1269" class="cls-2" transform="translate(9.192 7.779) rotate(-135)">
+        <rect class="cls-3" width="9" height="2"/>
+        <rect class="cls-4" x="0.5" y="0.5" width="8" height="1"/>
+      </g>
+      <g id="矩形_1270" data-name="矩形 1270" class="cls-2" transform="translate(-2.121 6.364) rotate(-45)">
+        <rect class="cls-3" width="9" height="2"/>
+        <rect class="cls-4" x="0.5" y="0.5" width="8" height="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

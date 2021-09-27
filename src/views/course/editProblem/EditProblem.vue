@@ -16,22 +16,12 @@
       <div class="top">编辑主观题题目</div>
       <div class="center">
         <SmallHeaderTitle name="输入题干"></SmallHeaderTitle>
-        <quill-editor
-          ref="text"
-          v-model="content"
-          class="myQuillEditor"
-          :options="editorOption"
-        />
+        <quill-editor ref="text" v-model="editorContent" class="myQuillEditor" :options="editorOption" />
         <!-- <el-button type="primary" @click="submit">提交</el-button> -->
         <SmallHeaderTitle name="选项类型" class="SmallHeaderTitle">
           <div class="select-class">
             <el-select v-model="value" placeholder="请选择">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
               </el-option>
             </el-select>
           </div>
@@ -48,30 +38,17 @@
           <div class="contents">
             <draggable v-model="optionsDetailList">
               <transition-group>
-                <div
-                  class="item"
-                  v-for="(item, index) in optionsDetailList"
-                  :key="item.id"
-                >
+                <div class="item" v-for="(item, index) in optionsDetailList" :key="item.id">
                   <div class="index">{{ index + 1 }}</div>
                   <div class="input-text">
                     <input type="text" v-model="item.text" />
-                    <img
-                      @click="addOptionsDetail()"
-                      v-if="optionsDetailList.length - 1 == index"
-                      src="@/assets/image/course/ic_class_invitation.svg"
-                      alt=""
-                    />
+                    <img @click="addOptionsDetail()" v-if="optionsDetailList.length - 1 == index" src="@/assets/image/course/ic_class_invitation.svg" alt="" />
                   </div>
                   <div class="upload-icon">{{ item.uploadImg }}</div>
                   <div class="check">
                     <CheckBox />
                   </div>
-                  <div
-                    class="delete"
-                    v-if="optionsDetailList.length > 1"
-                    @click="deleteItem(item.id)"
-                  >
+                  <div class="delete" v-if="optionsDetailList.length > 1" @click="deleteItem(item.id)">
                     {{ item.delete }}
                   </div>
                 </div>
@@ -82,12 +59,7 @@
         <SmallHeaderTitle name="选项设置" class="SmallHeaderTitle">
           <div class="select-class">
             <el-select v-model="value" placeholder="请选择">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              >
+              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
               </el-option>
             </el-select>
           </div>
@@ -95,24 +67,10 @@
         <SmallHeaderTitle name="设置得分" class="SmallHeaderTitle">
           <div class="score"><input type="text" />分</div>
         </SmallHeaderTitle>
-        <SmallHeaderTitle
-          name="输入答案解析"
-          class="SmallHeaderTitle"
-        ></SmallHeaderTitle>
-        <quill-editor
-          ref="text"
-          v-model="content"
-          class="myQuillEditor"
-          :options="editorOption"
-        />
+        <SmallHeaderTitle name="输入答案解析" class="SmallHeaderTitle"></SmallHeaderTitle>
+        <quill-editor ref="text" v-model="editorContent1" class="myQuillEditor" :options="editorOption" />
         <div class="upload-file">上传附件：</div>
-        <el-upload
-          class="el-upload"
-          action="https://jsonplaceholder.typicode.com/posts/"
-          list-type="picture-card"
-          :on-preview="handlePictureCardPreview"
-          :on-remove="handleRemove"
-        >
+        <el-upload class="el-upload" action="https://jsonplaceholder.typicode.com/posts/" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
           <i class="el-icon-plus"></i>
         </el-upload>
         <!-- <el-button type="primary" @click="submit">提交</el-button> -->
@@ -136,10 +94,18 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 export default {
-  components: { draggable, TopBar, Button, SmallHeaderTitle, quillEditor,CheckBox },
+  components: {
+    draggable,
+    TopBar,
+    Button,
+    SmallHeaderTitle,
+    quillEditor,
+    CheckBox,
+  },
   data() {
     return {
-      content: "",
+      editorContent: "",
+      editorContent1: "",
       editorOption: {},
       value: "",
       options: "",
@@ -207,13 +173,10 @@ export default {
 </script>
 <style lang='scss' scoped>
 .content {
-  //   width: 1584px;
-  //   height: 1500px;
   background: #ffffff;
   opacity: 1;
   margin-top: 20px;
   .top {
-    // width: 100%;
     padding-left: 30px;
     height: 60px;
     background: #ffffff;
@@ -227,7 +190,10 @@ export default {
   }
   .quill-editor {
     margin-top: 20px;
-    height: 120px;
+    min-height: 120px;
+    ::v-deep.ql-editor {
+      min-height: 100px;
+    }
     ::v-deep.ql-toolbar.ql-snow {
       border: 1px solid #ccc;
       box-sizing: border-box;

@@ -30,7 +30,8 @@
                 <HeaderTitle name="提交情况" />
                 <div class="total">共100人</div>
                 <div class="add" @click="addDV = true">
-                  <img src="@/assets/image/course/ic_class_invitation.svg" alt="" />
+                  <img v-if="true" src="@/assets/image/course/ic_sort_1.svg" alt="" />
+                  <img v-else src="@/assets/image/course/ic_sort_2.svg" alt="" />
                 </div>
                 <div class="member-content">
                   <div class="nav-title">
@@ -228,8 +229,8 @@ export default {
       display: flex;
       align-items: center;
       img {
-        width: 0.4rem;
-        height: 0.4rem;
+        width: 0.3rem;
+        height: 0.3rem;
         cursor: pointer;
       }
     }

@@ -33,10 +33,7 @@
                 <el-button type="primary">
                   <div class="icon-button">
                     <div>
-                      <img
-                        src="@/assets/image/course/ic_button_unsee.svg"
-                        alt=""
-                      />
+                      <img src="@/assets/image/course/ic_button_unsee.svg" alt="" />
                     </div>
                     <div>隐藏选中</div>
                   </div>
@@ -46,10 +43,7 @@
                 <el-button type="primary">
                   <div class="icon-button">
                     <div>
-                      <img
-                        src="@/assets/image/course/ic_button_see.svg"
-                        alt=""
-                      />
+                      <img src="@/assets/image/course/ic_button_see.svg" alt="" />
                     </div>
                     <div>可见选中</div>
                   </div>
@@ -67,32 +61,21 @@
             <div class="contentNav">
               <div class="select-all">
                 <!-- <el-checkbox :isIndeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-                <CheckBox />
+                <CheckBox v-model="isCheckedAll" @IsCheck='IsCheck'/>
               </div>
               <div class="file-name">文件名</div>
               <div class="file-size">大小</div>
               <div class="operate">操作</div>
             </div>
             <div class="tableContent">
-              <SectionOutline
-                :ChapterIssue="true"
-                :checkAll="checkAll"
-                @isCheck="checkAll = false"
-                @lockClick="lockClick"
-              />
+              <SectionOutline :ChapterIssue="true" :checkAll="checkAll" @isCheck="isCheckedAllTf" @lockClick="lockClick" :sectionOutlineList="sectionOutlineList" />
             </div>
           </div>
         </div>
       </el-col>
     </el-row>
     <!--权限设置  -->
-    <el-dialog
-      title=""
-      :visible.sync="lockDV"
-      width="30%"
-      :show-close="false"
-      top="10vh"
-    >
+    <el-dialog title="" :visible.sync="lockDV" width="30%" :show-close="false" top="10vh">
       <!-- <div class="what"><img src="@/assets/image/course/ic_button_unsee.svg" alt=""></div> -->
       <div class="d">
         <div>
@@ -124,9 +107,7 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <!-- <span class="delete-man">删除成员</span> -->
-        <el-button class="cancel-button" @click="lockDV = false"
-          >取 消</el-button
-        >
+        <el-button class="cancel-button" @click="lockDV = false">取 消</el-button>
         <el-button type="primary" @click="lockDV = false">确 认</el-button>
       </span>
     </el-dialog>
@@ -151,6 +132,7 @@ export default {
     return {
       lockDV: false,
       checkAll: false,
+      isCheckedAll: false,
       checkedCities: ["上海", "北京"],
       cities: cityOptions,
       isIndeterminate: false,
@@ -177,21 +159,44 @@ export default {
         },
       ],
       value: "",
+      sectionOutlineList: [
+        {
+          city: "福州",
+          isCheck: false,
+        },
+        {
+          city: "福州2",
+          isCheck: false,
+        },
+      ],
     };
   },
-  computed: {},
-
+  computed: {
+    // isCheckedAll() {
+    //   return this.sectionOutlineList.every(item => item.isCheck)
+    // }
+  },
   mounted() {},
 
   methods: {
     handleCheckAllChange(val) {
-      // this.checkAll = !this.checkAll;
-      // this.checkedCities = val ? cityOptions : [];
       this.isIndeterminate = false;
     },
     lockClick(e) {
       this.lockDV = true;
-      console.log("e", e);
+    },
+    IsCheck() {
+      let flag = this.isCheckedAll
+      this.sectionOutlineList.forEach((item) => {
+        item.isCheck = flag;
+      });
+    },
+    isCheckedAllTf(e) {
+      if(e){
+        this.isCheckedAll = true
+      }else{
+        this.isCheckedAll = false
+      }
     },
   },
 };

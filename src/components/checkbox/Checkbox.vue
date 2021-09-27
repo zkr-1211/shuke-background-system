@@ -1,45 +1,42 @@
 <!--  -->
 <template>
   <div class="body">
-    <el-checkbox-group v-model="checkedCities">
-      <el-checkbox
-        :Indeterminate="isIndeterminate"
-        v-model="isCheck"
-        :checked ="isCheck"
-        @change="handleCheckAllChange"
-      ></el-checkbox>
-    </el-checkbox-group>
+    <el-checkbox v-model="isCheck1" :checked="isCheck" @change="handleCheckAllChange"></el-checkbox>
   </div>
 </template>
 
 <script>
 export default {
   components: {},
+   model: {
+    prop: "isCheck",
+    event: "IsCheck",
+  },
   props: {
     isCheck: {
       type: Boolean,
       default: null,
     },
   },
-  model: {
-    prop: "isCheck",
-    event: "IsCheck",
-  },
+ 
   data() {
     return {
-      isIndeterminate: false,
-      checkedCities: ["上海", "北京"],
+      isCheck1:false,
     };
   },
   computed: {},
+  watch: {
+    isCheck(newVal, oldVal) {
+      this.isCheck1 = newVal;
+    },
+  },
 
   mounted() {
-    // console.log("object", this.isCheck)
   },
 
   methods: {
     handleCheckAllChange(e) {
-      this.$emit("IsCheck", e);
+      this.$emit("IsCheck",e);
     },
   },
 };

@@ -15,7 +15,7 @@
           <div class="save" slot="A">保存</div>
           <div slot="B">
             <Button name="添加主任务"
-              ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
+              ><img src="@/assets/image/course/ic_button_add.svg" alt=""
             /></Button>
           </div>
         </TopBar>

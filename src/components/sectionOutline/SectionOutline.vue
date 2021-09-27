@@ -1,16 +1,9 @@
 <!--  -->
 <template>
   <div class="body">
-    <div
-      class="course-outline"
-      :class="!ChapterIssue ? 'course-outline-h' : ''"
-    >
+    <div class="course-outline" :class="!ChapterIssue ? 'course-outline-h' : ''">
       <el-collapse v-model="activeName" @change="changeCollapse">
-        <el-collapse-item
-          :name="index"
-          v-for="(item, index) in content"
-          :key="index"
-        >
+        <el-collapse-item :name="index" v-for="(item, index) in sectionOutlineList1" :key="index">
           <template slot="title">
             <div class="icon">
               <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
@@ -18,8 +11,8 @@
             <div class="title">图标设计技巧.mp4</div>
             <div class="size">650.25M</div>
             <div class="dot" @click.stop>
-              <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-              <CheckBox />
+
+              <CheckBox v-model="item.isCheck" @IsCheck='IsCheck' />
             </div>
             <template v-if="!isUploadResource">
               <div class="lock1" @click.stop="lockClick(index)">
@@ -33,22 +26,18 @@
             <!-- 上传资源 -->
             <template v-if="isUploadResource">
               <div class="lock1">
-                <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_dowload.svg" alt="" />
               </div>
               <div class="look1">
-                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_delete.svg" alt="" />
               </div>
               <div class="look1">
-                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_add.svg" alt="" />
               </div>
             </template>
           </template>
 
-          <div
-            class="outline-item"
-            v-for="(item1, index1) in item"
-            :key="index1"
-          >
+          <div class="outline-item" v-for="(item1, index1) in item" :key="index1">
             <div v-if="ChapterIssue" class="dot">
               <!-- <Dot /> -->
             </div>
@@ -57,19 +46,19 @@
             <span class="num">题目数:1000</span>
             <template v-if="!isEdit">
               <div class="lock" v-if="true">
-                <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_preview.svg" alt="" />
               </div>
               <div class="look" v-if="true">
-                <img src="@/assets/image/course/iv_visual_off.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_eliminate.svg" alt="" />
               </div>
             </template>
             <!-- 编辑状态 -->
             <template v-else>
               <div class="lock">
-                <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_preview.svg" alt="" />
               </div>
               <div class="look">
-                <img src="@/assets/image/course/ic_visual_on.svg" alt="" />
+                <img src="@/assets/image/course/ic_chapter_eliminate.svg" alt="" />
               </div>
             </template>
           </div>
@@ -100,30 +89,33 @@ export default {
       type: Boolean,
       default: false,
     },
+    sectionOutlineList: {
+      type: Array,
+      default: [],
+    },
   },
   data() {
     return {
       activeName: 0,
       isEdit: false,
       oneCheck: false,
-      content: [
-        {
-          city: "福州",
-          isCheck: false,
-        },
-        {
-          city: "福州222",
-          isCheck: false,
-        },
-      ],
+      sectionOutlineList1: [],
     };
   },
   computed: {},
 
   mounted() {},
   watch: {
+    sectionOutlineList: {
+      handler(newVal, oldVal) {
+        this.sectionOutlineList1 = newVal;
+        // console.log("object", newVal);
+      },
+      deep: true,
+      immediate: true,
+    },
+
     checkAll(newVal, oldVal) {
-      // console.log("newVal", newVal);
       if (newVal) {
         this.oneCheck = false;
         this.content.forEach((item) => {
@@ -141,19 +133,15 @@ export default {
     changeCollapse(e) {
       // console.log("e", e);
     },
-    handleCheckAllChange(e) {
-      // console.log("e", e);
-      // this.checkAll = checkedCount === this.content.length;
-      this.content.forEach((item) => {
-        if (item.isCheck === false) {
-          this.oneCheck = true;
-          this.$emit("isCheck");
-          // console.log("object", item.isCheck);
-        }
+    // 如果为真就全选、不为真就不选
+    IsCheck(e) {
+      let checkall = this.sectionOutlineList1.every((item) => {
+        return item.isCheck;
       });
+      this.$emit("isCheck", checkall);
     },
+
     lockClick(index) {
-      // console.log("index", index);
       this.$emit("lockClick", index);
     },
   },

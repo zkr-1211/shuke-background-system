@@ -19,12 +19,12 @@
       </div>
       <div class="Button" v-if="false">
         <Button name="暂停进程" background="#FFC62A"
-          ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
+          ><img src="@/assets/image/course/ic_pause.svg" alt=""
         /></Button>
       </div>
       <div class="Button" v-else>
         <Button name="发布开始"
-          ><img src="@/assets/image/course/ic_locking_off.svg" alt=""
+          ><img src="@/assets/image/course/ic_release.svg" alt=""
         /></Button>
       </div>
     </div>

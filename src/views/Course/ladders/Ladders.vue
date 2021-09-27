@@ -24,7 +24,8 @@
                 />
               </template>
               <template v-else>
-                <div
+                <router-link to="/course/laddersTemplateDesign">
+                  <div
                   class="course-item"
                   v-for="(item, index) in 2"
                   :key="index"
@@ -64,12 +65,14 @@
                     </div>
                   </div>
                 </div>
+                </router-link>
+                
               </template>
             </div>
-            <router-link to="/course/laddersTemplateDesign">
+            <router-link to="">
               <div class="createTemplete">
-                <Button name="设计模板" @click.native="">
-                  <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                <Button name="设计模板">
+                  <img src="@/assets/image/course/ic_button_add.svg" alt="" />
                 </Button>
               </div>
             </router-link>
@@ -88,7 +91,7 @@
                   class="Button"
                   @click.native="templateDV = true"
                 >
-                  <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                  <img src="@/assets/image/course/ic_button_add.svg" alt="" />
                 </Button>
               </div>
             </div>
