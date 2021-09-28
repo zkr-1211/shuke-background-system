@@ -2,6 +2,9 @@
   <div class="home" id="full-Screen">
     <el-container>
       <el-header>
+        <div class="nav_drawer drawer-show" @click="drawer = true">
+          <img src="@/assets/image/home/ic_nav_drawer.svg" alt="" />
+        </div>
         <div class="shuke-logo">
           <img src="@/assets/image/home/icon_shuke.svg" alt="" />
         </div>
@@ -198,6 +201,13 @@
               </el-menu>
             </el-col>
           </el-row>
+          <div class="aside-progress">
+            <div><el-progress :percentage="50" :show-text='false'></el-progress></div>
+            <div class="text">
+              <div class="capacity">已用2.6GB/20GB</div>
+              <div class="add-capacity">扩容</div>
+            </div>
+          </div>
           <div class="aside-bottom">
             <div>树课社区</div>
             <div>客服帮助</div>
@@ -208,6 +218,102 @@
         </el-main>
       </el-container>
     </el-container>
+    <el-drawer
+      :modal="true"
+      :show-close="false"
+      size="28%"
+      title=""
+      :visible.sync="drawer"
+      :direction="direction"
+    >
+      <el-menu
+        router
+        text-color="#666666"
+        :default-active="activePath"
+        class="el-menu-vertical-demo"
+        @select="handleSelect"
+        @open="handleOpen"
+        @close="handleClose"
+      >
+        <el-menu-item
+          @click="saveNavState('/main')"
+          index="/main"
+          :class="selectIndex == '/main' ? 'selectStyle' : ''"
+        >
+          <img
+            v-if="selectIndex == '/main'"
+            src="@/assets/image/leftbar/leftbar_home_s.svg"
+            alt=""
+          />
+          <img v-else src="@/assets/image/leftbar/leftbar_home_n.svg" alt="" />
+          <!-- <i class="el-icon-menu"></i> -->
+          <span style="marginLeft: 0.2rem">首页</span>
+        </el-menu-item>
+
+        <el-menu-item
+          @click="saveNavState('/course')"
+          index="/course"
+          :class="selectIndex == '/course' ? 'selectStyle' : ''"
+        >
+          <img
+            v-if="selectIndex == '/course'"
+            src="@/assets/image/leftbar/leftbar_course_s.svg"
+            alt=""
+          />
+          <img
+            v-else
+            src="@/assets/image/leftbar/leftbar_course_n.svg"
+            alt=""
+          />
+          <span style="marginLeft: 0.2rem">课程</span>
+        </el-menu-item>
+        <el-menu-item
+          @click="saveNavState('/recordVideo')"
+          index="/recordVideo"
+          :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''"
+        >
+          <img
+            v-if="selectIndex == '/recordVideo'"
+            src="@/assets/image/leftbar/leftbar_recordvideo_s.svg"
+            alt=""
+          />
+          <img
+            v-else
+            src="@/assets/image/leftbar/leftbar_recordvideo_n.svg"
+            alt=""
+          />
+          <span style="marginLeft: 0.2rem">录播资源</span>
+        </el-menu-item>
+        <el-menu-item
+          @click="saveNavState('/recovery')"
+          index="/recovery"
+          :class="selectIndex == '/recovery' ? 'selectStyle' : ''"
+        >
+          <img
+            v-if="selectIndex == '/recovery'"
+            src="@/assets/image/leftbar/leftbar_recovery_s.svg"
+            alt=""
+          />
+          <img
+            v-else
+            src="@/assets/image/leftbar/leftbar_recovery_n.svg"
+            alt=""
+          />
+          <span style="marginLeft: 0.2rem">课程回收站</span>
+        </el-menu-item>
+      </el-menu>
+       <div class="aside-progress">
+            <div><el-progress :percentage="50" :show-text='false'></el-progress></div>
+            <div class="text">
+              <div class="capacity">已用2.6GB/20GB</div>
+              <div class="add-capacity">扩容</div>
+            </div>
+          </div>
+          <div class="aside-bottom">
+            <div>树课社区</div>
+            <div>客服帮助</div>
+          </div>
+    </el-drawer>
   </div>
 </template>
 
@@ -223,19 +329,21 @@ export default {
   },
   data() {
     return {
+      drawer: false,
+      direction: "ltr",
       selectIndex: 1,
       activePath: "",
       activeName: "first",
       isNotic: false,
-      isFullScren:false,
+      isFullScren: false,
     };
   },
   created() {
     this.activePath = window.sessionStorage.getItem("activePath");
     this.selectIndex = this.activePath || "/main";
-    window.addEventListener("resize", () => {
-      console.log("resize");
-    });
+    // window.addEventListener("resize", () => {
+    //   // console.log("resize");
+    // });
   },
   mounted() {
     let isFullscreen =
@@ -316,10 +424,44 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+//抽屉需要样式抽出来
+  .aside-progress {
+    position: absolute;
+    left: .38rem;
+    text-align: center;
+    bottom: 2rem;
+    width: 70%;
+    font-size: 0.14rem;
+    color: #666666;
+    .text{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: .1rem;
+    }
+  }
+//抽屉需要样式抽出来
+  .aside-bottom {
+    position: absolute;
+    bottom: 1.5rem;
+    left: .38rem;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    font-size: 0.14rem;
+    color: #666666;
+    > div:nth-of-type(1) {
+      cursor: pointer;
+    }
+    > div:nth-of-type(2) {
+      margin-left: 0.48rem;
+      cursor: pointer;
+    }
+  }
 .home {
   height: 100vh;
   width: 100%;
-  background-color: #F7F6FA;
+  background-color: #f7f6fa;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -344,9 +486,35 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0rem;
-  // position: fixed;
-  // top: 0;
-  // z-index: 9;
+  position: relative;
+  .nav_drawer {
+    position: absolute;
+    left: 0.2rem;
+    bottom: -12px;
+    margin-left: 0.15rem;
+    display: none;
+    cursor: pointer;
+  }
+  // .drawer-show{
+  //   display: block;
+  // }
+
+  @media only screen and (max-width: 1200px) {
+    .drawer-show {
+      display: block;
+    }
+    .shuke-logo {
+      margin-left: 0.9rem !important;
+     
+    }
+  }
+  @media only screen and (max-width: 550px) {
+    .shuke-logo {
+      font-size: 0.12rem !important;
+      padding-right: .5rem;
+    }
+  }
+
   .shuke-logo {
     margin-left: 0.4rem;
     display: flex;
@@ -463,23 +631,8 @@ export default {
       }
     }
   }
-  .aside-bottom {
-    position: absolute;
-    bottom: 2rem;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    font-size: 0.14rem;
-    color: #666666;
-    > div:nth-of-type(1) {
-      cursor: pointer;
-    }
-    > div:nth-of-type(2) {
-      margin-left: 0.48rem;
-      cursor: pointer;
-    }
-  }
 }
+
 .el-main {
   height: 95vh;
   margin-left: 0.2rem;

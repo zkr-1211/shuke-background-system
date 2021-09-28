@@ -80,9 +80,10 @@ import {
   Loading,
   MessageBox,
   Message,
-  Notification
+  Notification,
+  Drawer
 } from 'element-ui';
-
+Vue.use(Drawer);
 Vue.use(Pagination);
 Vue.use(Dialog);
 Vue.use(Autocomplete);

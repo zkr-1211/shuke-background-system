@@ -24,7 +24,7 @@
         </el-dropdown>
         <el-dropdown trigger="click" placement="bottom-end" v-else>
           <span class="el-dropdown-link">
-            <img src="@/assets/image/home/ic_team_invitation.svg" alt="" />
+            <img src="@/assets/image/home/ic_team_setting.svg" alt="" />
           </span>
           <el-dropdown-menu slot="dropdown">
             <div @click="editDV = true">
@@ -39,7 +39,7 @@
           </el-dropdown-menu>
         </el-dropdown>
         <img
-          src="@/assets/image/home/ic_team_invitation.svg"
+          src="@/assets/image/home/ic_team_addman.svg"
           alt=""
           @click="(addDv = true), (isCopy = false)"
         />
@@ -71,6 +71,9 @@
           </div>
         </div>
         <div class="nav-title">
+          <div class="check1">
+            <CheckBox v-model="isCheckedAll" @IsCheck="IsCheckAll" />
+          </div>
           <div class="people">所有成员</div>
           <div class="number">工号</div>
           <div class="id">身份</div>
@@ -79,9 +82,9 @@
           </div>
         </div>
         <div class="content">
-          <div class="item" v-for="(item, index) in 10" :key="index">
-            <div class="check">
-              <CheckBox />
+          <div class="item" v-for="(item, index) in teamList" :key="index">
+            <div class="check" :class="isChecked ? 'isChecked' : ''">
+              <CheckBox v-model="item.select" @IsCheck="IsCheck" />
             </div>
             <div class="person">
               <div class="header">
@@ -97,10 +100,10 @@
             <div class="num">154455211</div>
             <div class="guanliyuan" @click="quanXianDV = true">超级管理员</div>
             <div class="function" @click="quanXianDV = true">所有功能</div>
-            <div class="set">
+            <div class="set" :class="isChecked ? 'isChecked' : ''">
               <img
                 @click="noQuanXianDV = true"
-                src="@/assets/image/home/ic_help.svg"
+                src="@/assets/image/home/ic_setup_n.svg"
                 alt=""
               />
             </div>
@@ -305,6 +308,9 @@ export default {
       turnOverDv: false,
       noQuanXianDV: false,
       quanXianDV: false,
+      //判断显示item
+      isChecked: false,
+      isCheckedAll: false,
       checked: false,
       options: [
         {
@@ -380,7 +386,7 @@ export default {
           select: false,
         },
       ],
-      selectIdList:[],
+      selectIdList: [],
       isCopy: false,
     };
   },
@@ -406,8 +412,39 @@ export default {
       document.execCommand("Copy");
       this.isCopy = true;
     },
+    //点击全选
+    IsCheckAll() {
+      let flag = this.isCheckedAll;
+      if (flag) {
+        this.isChecked = true;
+      } else {
+        this.isChecked = false;
+      }
+      this.teamList.forEach((item) => {
+        item.select = flag;
+      });
+      
+    },
+    //点击下方item check
     IsCheck() {
-      // console.log("this.teamListthis.teamListthis.teamList", this.teamList)
+      //全部选中就显示全选按钮
+      let state = this.teamList.every((item) => {
+        return item.select;
+      });
+      //有一个被选中就显示item
+      let state1 = this.teamList.some((item) => {
+        return item.select;
+      });
+      if (state) {
+        this.isCheckedAll = true;
+      } else {
+        this.isCheckedAll = false;
+      }
+      if (state1) {
+        this.isChecked = true;
+      } else {
+        this.isChecked = false;
+      }
     },
     deletePeople() {
       this.teamList.forEach((item) => {
@@ -830,6 +867,10 @@ h2 {
         align-items: center;
         padding: 0rem 0.2rem 0rem 0.2rem;
         justify-content: space-between;
+        .check1 {
+          position: absolute;
+          left: 0.1rem;
+        }
         .people {
           margin-left: 0.6rem;
         }
@@ -840,7 +881,7 @@ h2 {
           //  margin-left: 0.1rem;
         }
         .quanxian {
-          margin-right: 2rem;
+          margin-right: 1.9rem;
           display: flex;
           align-items: center;
           img {
@@ -881,6 +922,9 @@ h2 {
             display: none;
             position: absolute;
             left: 0.1rem;
+          }
+          .isChecked {
+            display: block !important;
           }
           .person {
             display: flex;
@@ -929,7 +973,6 @@ h2 {
             margin-right: 2.1rem;
           }
           .set {
-            // margin-left: 0.57rem;
             position: absolute;
             right: 0.3rem;
             display: none;
