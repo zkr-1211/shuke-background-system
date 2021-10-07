@@ -11,7 +11,7 @@
             content="UI设计1班:第一次作业第一次作业"
             placement="top"
           >
-            <a href="/course/classDetail"
+            <a href="/course/classdetail"
               ><div class="name">
               {{item.name}}
               </div></a

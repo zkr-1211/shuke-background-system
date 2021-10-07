@@ -61,11 +61,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 #WorkDataChart {
-  min-width: 220px;
+  min-width: 2.2rem;
   width: 100%;
-  //   max-width: 500px;
-  // width: 500px;
-  height: 220px;
-  // background: rgb(209, 42, 42);
+  height: 2.2rem;
 }
 </style>

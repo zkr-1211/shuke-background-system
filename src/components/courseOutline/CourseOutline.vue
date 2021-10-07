@@ -101,120 +101,119 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-collapse-item__wrap {
-  will-change: height;
-  background-color: #fff;
-  overflow: hidden;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-bottom: none;
+     will-change: height;
+     background-color: #fff;
+     overflow: hidden;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+     border-bottom: none;
 }
-.el-collapse-item {
-  overflow: hidden;
-  transition: all 0s;
-
-  .dot {
-    position: absolute;
-    right: 0.2rem;
-    top: 0.15rem;
-  }
-}
-.course-outline-h {
-  height: 4.2rem;
-}
-.course-outline {
-  width: 100%;
-  overflow-x: hidden;
-  margin: 0 auto;
-
-  .outline-item {
-    background: #ffffff;
-    padding: 0.3rem 0.3rem 0rem 0.3rem;
-    font-size: 0.16rem;
-    color: #666666;
-    display: flex;
-    position: relative;
-    .dot {
-      position: absolute;
-      right: 0.2rem;
-      top: 0.32rem;
+ .el-collapse-item {
+     overflow: hidden;
+     transition: all 0s;
+     .dot {
+         position: absolute;
+         right: 0.2rem;
+         top: 0.15rem;
     }
-    .lock {
-      position: absolute;
-      right: 0.5rem;
-      top: 0.27rem;
-      img {
-        width: 0.34rem;
-        height: 0.34rem;
-        background: #ffffff;
-      }
-    }
-    .look {
-      position: absolute;
-      right: 1rem;
-      top: 0.27rem;
-      img {
-        width: 0.34rem;
-        height: 0.34rem;
-        background: #ffffff;
-      }
-    }
-    .index {
-      font-size: 0.16rem;
-      color: #2065e0;
-    }
-    .content {
-      margin-left: 0.05rem;
-    }
-  }
-  .add {
-    cursor: pointer;
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .img {
-      display: flex;
-      width: 30px;
-      height: 30px;
-    }
-    .add-item {
-      margin-left: 8px;
-      font-size: 20px;
-      line-height: 34px;
-      color: #666666;
-      opacity: 1;
-    }
-  }
 }
-::v-deep .el-collapse-item__header {
-  display: flex;
-  align-items: center;
-  line-height: 0.6rem;
-  cursor: pointer;
-  transition: border-bottom-color 0.3s;
-  outline: 0;
-  width: 100%;
-  height: 0.6rem;
-  background: #f6f6f8;
-  font-size: 0.2rem;
-  color: #333333;
-  padding-left: 0.65rem;
-  border: none;
-  padding-right: 0.3rem;
-  position: relative;
-  background-image: url(../../assets/image/course/right.svg);
-  background-repeat: no-repeat;
-  background-position: 0.1rem;
+ .course-outline-h {
+     height: 4.2rem;
 }
-::v-deep .el-collapse-item__header.is-active {
-  border-bottom-color: transparent;
-  background-image: url(../../assets/image/course/bottom.svg);
+ .course-outline {
+     width: 100%;
+     overflow-x: hidden;
+     margin: 0 auto;
+     .outline-item {
+         background: #ffffff;
+         padding: 0.3rem 0.3rem 0rem 0.3rem;
+         font-size: 0.16rem;
+         color: #666666;
+         display: flex;
+         position: relative;
+         .dot {
+             position: absolute;
+             right: 0.2rem;
+             top: 0.32rem;
+        }
+         .lock {
+             position: absolute;
+             right: 0.5rem;
+             top: 0.27rem;
+             img {
+                 width: 0.34rem;
+                 height: 0.34rem;
+                 background: #ffffff;
+            }
+        }
+         .look {
+             position: absolute;
+             right: 1rem;
+             top: 0.27rem;
+             img {
+                 width: 0.34rem;
+                 height: 0.34rem;
+                 background: #ffffff;
+            }
+        }
+         .index {
+             font-size: 0.16rem;
+             color: #2065e0;
+        }
+         .content {
+             margin-left: 0.05rem;
+        }
+    }
+     .add {
+         cursor: pointer;
+         margin-top: 0.3rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         .img {
+             display: flex;
+             width: 0.3rem;
+             height: 0.3rem;
+        }
+         .add-item {
+             margin-left: 0.08rem;
+             font-size: 0.2rem;
+             line-height: 0.34rem;
+             color: #666666;
+             opacity: 1;
+        }
+    }
 }
-::v-deep .el-icon-arrow-right:before {
-  content: none;
-  border: none;
+ ::v-deep .el-collapse-item__header {
+     display: flex;
+     align-items: center;
+     line-height: 0.6rem;
+     cursor: pointer;
+     transition: border-bottom-color 0.3s;
+     outline: 0;
+     width: 100%;
+     height: 0.6rem;
+     background: #f6f6f8;
+     font-size: 0.2rem;
+     color: #333333;
+     padding-left: 0.65rem;
+     border: none;
+     padding-right: 0.3rem;
+     position: relative;
+     background-image: url(../../assets/image/course/right.svg);
+     background-repeat: no-repeat;
+     background-position: 0.1rem;
 }
-::v-deep .el-collapse-item__arrow.is-active {
-  content: none;
+ ::v-deep .el-collapse-item__header.is-active {
+     border-bottom-color: transparent;
+     background-image: url(../../assets/image/course/bottom.svg);
 }
+ ::v-deep .el-icon-arrow-right:before {
+     content: none;
+     border: none;
+}
+ ::v-deep .el-collapse-item__arrow.is-active {
+     content: none;
+}
+ 
 </style>

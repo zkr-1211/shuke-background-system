@@ -24,49 +24,48 @@
                 />
               </template>
               <template v-else>
-                <router-link to="/course/laddersTemplateDesign">
+                <router-link to="/course/ladderstemplatedesign">
                   <div
-                  class="course-item"
-                  v-for="(item, index) in 2"
-                  :key="index"
-                >
-                  <div class="checkbox">
-                    <a href="/course/workDetail">
-                      <div class="name">UI设计赛程</div>
-                    </a>
+                    class="course-item"
+                    v-for="(item, index) in 2"
+                    :key="index"
+                  >
+                    <div class="checkbox">
+                      <a href="/course/workdetail">
+                        <div class="name">UI设计赛程</div>
+                      </a>
 
-                    <div v-if="isCheckBox">
-                      <CheckBox />
+                      <div v-if="isCheckBox">
+                        <CheckBox />
+                      </div>
+                    </div>
+                    <div class="create">创建者：张老师</div>
+                    <div class="bottom-message">
+                      <div class="classnum">任务数：20</div>
+                      <div class="dot-bottom">
+                        <div class="num">起止时间：2021/10/15-2021/10/16</div>
+                        <div class="dot" v-if="isCheckBox"></div>
+                        <el-dropdown
+                          trigger="click"
+                          placement="bottom-end"
+                          v-else
+                        >
+                          <span class="el-dropdown-link">
+                            <Dot />
+                          </span>
+                          <el-dropdown-menu slot="dropdown">
+                            <div @click="editDV = true">
+                              <el-dropdown-item>重命名</el-dropdown-item>
+                            </div>
+                            <div @click="deleteDV = true">
+                              <el-dropdown-item>删除</el-dropdown-item>
+                            </div>
+                          </el-dropdown-menu>
+                        </el-dropdown>
+                      </div>
                     </div>
                   </div>
-                  <div class="create">创建者：张老师</div>
-                  <div class="bottom-message">
-                    <div class="classnum">任务数：20</div>
-                    <div class="dot-bottom">
-                      <div class="num">起止时间：2021/10/15-2021/10/16</div>
-                      <div class="dot" v-if="isCheckBox"></div>
-                      <el-dropdown
-                        trigger="click"
-                        placement="bottom-end"
-                        v-else
-                      >
-                        <span class="el-dropdown-link">
-                          <Dot />
-                        </span>
-                        <el-dropdown-menu slot="dropdown">
-                          <div @click="editDV = true">
-                            <el-dropdown-item>重命名</el-dropdown-item>
-                          </div>
-                          <div @click="deleteDV = true">
-                            <el-dropdown-item>删除</el-dropdown-item>
-                          </div>
-                        </el-dropdown-menu>
-                      </el-dropdown>
-                    </div>
-                  </div>
-                </div>
                 </router-link>
-                
               </template>
             </div>
             <router-link to="">
@@ -237,17 +236,16 @@ export default {
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
   line-height: 0rem;
-
   .section {
     margin-top: 0.3rem;
     .course-span {
-      font-size: 16px;
+      font-size: 0.16rem;
       color: #666666;
     }
   }
 }
 ::v-deep .el-dialog__header {
-  padding-top: 10px;
+  padding-top: 0.1rem;
 }
 .cancel-button {
   border: none;
@@ -271,20 +269,20 @@ export default {
 }
 ::v-deep .el-select .el-input__inner {
   width: 21vw;
-  margin-left: 15px;
+  margin-left: 0.15rem;
   cursor: pointer;
-  padding-right: 35px;
+  padding-right: 0.35rem;
   border: none;
   border-bottom: 0.01rem solid #e0e0e0 !important;
 }
 .breadcrumb {
-  margin-bottom: 12px;
+  margin-bottom: 0.12rem;
 }
 .left {
-  height: 936px;
+  height: 9.36rem;
   opacity: 1;
-  border-radius: 4px;
-  margin-bottom: 12px;
+  border-radius: 0.04rem;
+  margin-bottom: 0.12rem;
   .left-top {
   }
   .left-bottom {
@@ -322,7 +320,7 @@ export default {
         background: #ffffff;
         box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
         padding-bottom: 0.3rem;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 0.01rem solid #e0e0e0;
         .img {
           width: 2.91rem;
           height: 1.68rem;
@@ -352,7 +350,6 @@ export default {
           padding-left: 0.1rem;
           margin: 0.2rem 0.15rem 0.2rem 0rem;
         }
-
         .create {
           font-size: 0.16rem;
           line-height: 0.27rem;
@@ -418,99 +415,97 @@ export default {
   }
 }
 .right {
-  // width: 1338px;
-  height: 843px;
+  // width: 13.38rem;
+  height: 8.43rem;
   // background: #994545;
   opacity: 1;
-  border-radius: 4px;
+  border-radius: 0.04rem;
   // position: relative;
   .right-top {
-    // width: 1338px;
-    height: 74px;
+    // width: 13.38rem;
+    height: 0.74rem;
     background: #ffffff;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+    box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
     opacity: 1;
-    margin-bottom: 20px;
-
+    margin-bottom: 0.2rem;
     .top-bar {
-      // margin-top: 12px;
-      // width: 1584px;
-      height: 80px;
+      // margin-top: 0.12rem;
+      // width: 15.84rem;
+      height: 0.8rem;
       background: #ffffff;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+      box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
       position: relative;
       display: flex;
       align-items: center;
-
       .title {
         // background-color: #2a77ff;
         width: 100%;
-        // height: 200px;
-        margin: 20px;
-        font-size: 20px;
+        // height: 2rem;
+        margin: 0.2rem;
+        font-size: 0.2rem;
         font-weight: bold;
-        line-height: 34px;
+        line-height: 0.34rem;
         color: #666666;
-        border-left: 8px solid #5592fe;
+        border-left: 0.08rem solid #5592fe;
         .name {
-          margin-left: 12px;
+          margin-left: 0.12rem;
         }
       }
       .buttons {
         display: flex;
         margin-right: 0.3rem;
-        font-size: 14px;
+        font-size: 0.14rem;
         font-weight: bold;
         color: #f4f4f4;
         position: absolute;
         right: 0.3rem;
         .Button {
-          margin-left: 20px;
+          margin-left: 0.2rem;
         }
       }
     }
   }
   .right-bottom {
-    // width: 1338px;
-    padding: 60px;
-    height: 843px;
+    // width: 13.38rem;
+    padding: 0.6rem;
+    height: 8.43rem;
     background: #ffffff;
     opacity: 1;
-    border-radius: 4px;
+    border-radius: 0.04rem;
     position: relative;
     .cover {
-      margin-top: 16px;
-      width: 240px;
-      height: 136px;
+      margin-top: 0.16rem;
+      width: 2.4rem;
+      height: 1.36rem;
       background: rgba(0, 0, 0, 1);
       opacity: 1;
-      border-radius: 8px;
+      border-radius: 0.08rem;
       overflow: hidden;
-      margin-bottom: 40px;
+      margin-bottom: 0.4rem;
       img {
         object-fit: cover;
-        width: 240px;
-        height: 136px;
+        width: 2.4rem;
+        height: 1.36rem;
       }
     }
     .button {
-      // margin-top: 57px;
+      // margin-top: 0.57rem;
       display: flex;
       align-items: center;
       justify-content: center;
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
-      bottom: 60px;
+      bottom: 0.6rem;
       .cancel {
-        margin-right: 30px;
+        margin-right: 0.3rem;
         min-width: 0.8rem;
         height: 0.4rem;
         background: #ffffff;
-        border: 1px solid #e0e0e0;
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.01);
-        border-radius: 4px;
-        // width: 36px;
+        border: 0.01rem solid #e0e0e0;
+        box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.01);
+        border-radius: 0.04rem;
+        // width: 0.36rem;
         font-size: 0.14rem;
         font-weight: bold;
         color: #666666;
@@ -526,52 +521,52 @@ export default {
     }
   }
   .right-bottom1 {
-    // width: 1338px;
-    // padding: 60px;
-    height: 843px;
+    // width: 13.38rem;
+    // padding: 0.6rem;
+    height: 8.43rem;
     // background: #ffffff;
     opacity: 1;
-    border-radius: 4px;
+    border-radius: 0.04rem;
     .cover {
-      margin-top: 16px;
-      width: 240px;
-      height: 136px;
+      margin-top: 0.16rem;
+      width: 2.4rem;
+      height: 1.36rem;
       background: rgba(0, 0, 0, 1);
       opacity: 1;
-      border-radius: 8px;
+      border-radius: 0.08rem;
       overflow: hidden;
-      margin-bottom: 40px;
+      margin-bottom: 0.4rem;
       img {
         object-fit: cover;
-        width: 240px;
-        height: 136px;
+        width: 2.4rem;
+        height: 1.36rem;
       }
     }
   }
   .input {
     width: 100%;
-    height: 42px;
+    height: 0.42rem;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 0.01rem solid #e0e0e0;
     opacity: 1;
-    border-radius: 4px;
-    padding-left: 30px;
+    border-radius: 0.04rem;
+    padding-left: 0.3rem;
     // line-height: 0;
     display: flex;
-    margin-top: 16px;
-    margin-bottom: 40px;
+    margin-top: 0.16rem;
+    margin-bottom: 0.4rem;
   }
   .textarea {
-    margin-top: 16px;
+    margin-top: 0.16rem;
     width: 100%;
-    height: 160px;
+    height: 1.6rem;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 0.01rem solid #e0e0e0;
     opacity: 1;
-    border-radius: 4px;
+    border-radius: 0.04rem;
     resize: none;
-    padding-left: 30px;
-    padding-top: 25px;
+    padding-left: 0.3rem;
+    padding-top: 0.25rem;
   }
   .isPay {
     opacity: 0.5;
@@ -579,10 +574,10 @@ export default {
   .type {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 0.4rem;
     // justify-content: center;
     .select-class {
-      margin-left: 20px;
+      margin-left: 0.2rem;
       // width: 2rem;
       // height: 0.8rem;
       background: #ffffff;
@@ -608,25 +603,24 @@ export default {
       }
     }
   }
-
   .button1 {
-    margin-left: 5px;
+    margin-left: 0.05rem;
     display: flex;
     align-items: center;
     // justify-content: center;
     // position: absolute;
     // left: 50%;
-    // bottom: 60px;
+    // bottom: 0.6rem;
     .cancel {
-      margin-right: 30px;
+      margin-right: 0.3rem;
       min-width: 0.8rem;
       width: 1rem;
       height: 0.4rem;
       background: #ffffff;
-      border: 1px solid #e0e0e0;
-      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.01);
-      border-radius: 4px;
-      // width: 36px;
+      border: 0.01rem solid #e0e0e0;
+      box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.01);
+      border-radius: 0.04rem;
+      // width: 0.36rem;
       font-size: 0.14rem;
       font-weight: bold;
       color: #666666;
@@ -641,9 +635,9 @@ export default {
     }
   }
   .image {
-    margin-top: 30px;
+    margin-top: 0.3rem;
     width: 50%;
-    height: 425px;
+    height: 4.25rem;
     background: #f7f6fa;
     opacity: 1;
     display: flex;
@@ -658,76 +652,74 @@ export default {
         display: flex;
         align-items: center;
         img {
-          width: 100px;
-          height: 100px;
+          width: 1rem;
+          height: 1rem;
         }
       }
       .text {
-        margin-top: 12px;
-        font-size: 14px;
+        margin-top: 0.12rem;
+        font-size: 0.14rem;
         color: #666666;
       }
     }
   }
   .content-img {
-    margin-top: 10px;
+    margin-top: 0.1rem;
     // width: 100%;
     // height: 100%;
     img {
-      // width: 640px;
-      // height: 740px;
+      // width: 6.4rem;
+      // height: 7.4rem;
       opacity: 1;
     }
   }
   .is-pay {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 0.18rem;
     color: #333333;
-    margin-bottom: 40px;
-
+    margin-bottom: 0.4rem;
     .el-radio {
-      margin-left: 20px;
-      font-size: 18px;
+      margin-left: 0.2rem;
+      font-size: 0.18rem;
       color: #333333;
     }
   }
   .course-money {
-    width: 280px;
-    // min-width: 240px;
-
-    height: 42px;
+    width: 2.8rem;
+    // min-width: 2.4rem;
+    height: 0.42rem;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 0.01rem solid #e0e0e0;
     opacity: 1;
-    border-radius: 4px;
-    padding-left: 30px;
+    border-radius: 0.04rem;
+    padding-left: 0.3rem;
     // line-height: 0;
     display: flex;
-    margin-top: 16px;
-    margin-bottom: 40px;
+    margin-top: 0.16rem;
+    margin-bottom: 0.4rem;
   }
 }
 ::v-deep .el-radio__inner {
   border-radius: 0%;
-  width: 20px;
-  height: 20px;
+  width: 0.2rem;
+  height: 0.2rem;
   background: #5592fe;
-  border: 2px solid #999999;
-  border-radius: 2px;
+  border: 0.02rem solid #999999;
+  border-radius: 0.02rem;
   background-color: #fff;
   cursor: pointer;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 ::v-deep .el-radio__label {
-  font-size: 18px;
+  font-size: 0.18rem;
   color: #333333;
-  padding-left: 10px;
+  padding-left: 0.1rem;
 }
 // 选中后的图片添加
 ::v-deep .el-radio__input.is-checked .el-radio__inner {
-  border: 1.5px solid #2a77ff;
+  border: 1.05rem solid #2a77ff;
   background: none;
   background-repeat: no-repeat;
   background-size: cover;

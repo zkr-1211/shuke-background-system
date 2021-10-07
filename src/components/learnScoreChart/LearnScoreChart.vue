@@ -216,11 +216,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 #LearnScoreChart {
-  min-width: 400px;
+  min-width: 4rem;
   width: 100%;
-  //   max-width: 500px;
-  // width: 500px;
-  height: 290px;
-  //   background: #000;
+  height: 2.9rem;
 }
 </style>

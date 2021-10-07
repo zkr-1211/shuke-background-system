@@ -78,132 +78,131 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
-  // height: 3rem;
-  line-height: 0rem;
+     line-height: 0rem;
 }
-.top-bar {
-  margin-top: 0.12rem;
-  // width: 15.84rem;
-  height: 0.8rem;
-  background: #ffffff;
-  box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
-  display: flex;
-  align-items: center;
-  position: relative;
-  .title {
-    // background-color: #2a77ff;
-    width: 100%;
-    // height: 2rem;
-    margin: 0.2rem;
-    font-size: 0.2rem;
-    font-weight: bold;
-    line-height: 0.34rem;
-    color: #666666;
-    border-left: 0.08rem solid #5592fe;
-    .name {
-      margin-left: 0.12rem;
+ .top-bar {
+     margin-top: 0.12rem;
+     // width: 15.84rem;
+     height: 0.8rem;
+     background: #ffffff;
+     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+     display: flex;
+     align-items: center;
+     position: relative;
+     .title {
+         // background-color: #2a77ff;
+         width: 100%;
+         // height: 2rem;
+         margin: 0.2rem;
+         font-size: 0.2rem;
+         font-weight: bold;
+         line-height: 0.34rem;
+         color: #666666;
+         border-left: 0.08rem solid #5592fe;
+         .name {
+             margin-left: 0.12rem;
+        }
     }
-  }
-  .evaluation {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 1.12rem;
-    vertical-align: bottom;
-    .text {
-      margin-top: 0.1rem;
-      font-size: 0.14rem;
-      color: #666666;
-    }
-    .num {
-      margin-left: 0.12rem;
-      font-size: 0.36rem;
-      font-weight: bold;
-      color: #333333;
-    }
-    .icon {
-      margin-left: 0.18rem;
-      font-size: 0.25rem;
-      el-rate {
-      }
-    }
-  }
-}
-.bottom {
-  padding: 62px 112px 224px 112px;
-  //   width: 1584px;
-  margin-top: 32px;
-  height: 820px;
-  background: #ffffff;
-  opacity: 1;
-  border-radius: 4px;
-
-  .main-content {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: auto;
-    height: 6rem;
-    .content {
-      padding: 40px;
-      width: 430px;
-      height: 180px;
-      background: #f6f6f8;
-      opacity: 1;
-      border-radius: 4px;
-      font-size: 0.14rem;
-      color: #666666;
-      margin-right: 20px;
-      margin-bottom: 20px;
-      // height: 1.2rem;
-      // overflow: auto;
-      .des {
-        height: 70px;
-        overflow: auto;
-        line-height: 0.24rem;
-      }
-      .bottom-content {
-        margin-top: 0.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .bottom-msg {
-          // margin-left: 0.3rem;
-          display: flex;
-          align-items: center;
-          font-size: 0.12rem;
-          color: #999999;
-          .header {
-            width: 0.24rem;
-            height: 0.24rem;
-            background: rgba(151, 3, 250, 1);
-            border-radius: 50%;
-            img {
-              width: 0.24rem;
-              height: 0.24rem;
-              border-radius: 50%;
+     .evaluation {
+         display: flex;
+         align-items: center;
+         position: absolute;
+         right: 1.12rem;
+         vertical-align: bottom;
+         .text {
+             margin-top: 0.1rem;
+             font-size: 0.14rem;
+             color: #666666;
+        }
+         .num {
+             margin-left: 0.12rem;
+             font-size: 0.36rem;
+             font-weight: bold;
+             color: #333333;
+        }
+         .icon {
+             margin-left: 0.18rem;
+             font-size: 0.25rem;
+             el-rate {
             }
-          }
-          .name {
-            margin-left: 0.12rem;
-          }
-          .time {
-            margin-top: 0.025rem;
-            margin-left: 0.12rem;
-          }
         }
-        .delete-img {
-          height: 0.24rem;
-          margin-top: 0.025rem;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-        }
-      }
     }
-  }
-  .el-pagination {
-    margin-top: 0.5rem;
-    text-align: center;
-  }
 }
+ .bottom {
+     padding: 0.62rem 1.12rem 2.24rem 1.12rem;
+     // width: 15.84rem;
+     margin-top: 0.32rem;
+     height: 8.2rem;
+     background: #ffffff;
+     opacity: 1;
+     border-radius: 0.04rem;
+     .main-content {
+         display: flex;
+         flex-wrap: wrap;
+         overflow: auto;
+         height: 6rem;
+         .content {
+             padding: 0.4rem;
+             width: 4.3rem;
+             height: 1.8rem;
+             background: #f6f6f8;
+             opacity: 1;
+             border-radius: 0.04rem;
+             font-size: 0.14rem;
+             color: #666666;
+             margin-right: 0.2rem;
+             margin-bottom: 0.2rem;
+             // height: 1.2rem;
+             // overflow: auto;
+             .des {
+                 height: 0.7rem;
+                 overflow: auto;
+                 line-height: 0.24rem;
+            }
+             .bottom-content {
+                 margin-top: 0.2rem;
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between;
+                 .bottom-msg {
+                     // margin-left: 0.3rem;
+                     display: flex;
+                     align-items: center;
+                     font-size: 0.12rem;
+                     color: #999999;
+                     .header {
+                         width: 0.24rem;
+                         height: 0.24rem;
+                         background: rgba(151, 3, 250, 1);
+                         border-radius: 50%;
+                         img {
+                             width: 0.24rem;
+                             height: 0.24rem;
+                             border-radius: 50%;
+                        }
+                    }
+                     .name {
+                         margin-left: 0.12rem;
+                    }
+                     .time {
+                         margin-top: 0.025rem;
+                         margin-left: 0.12rem;
+                    }
+                }
+                 .delete-img {
+                     height: 0.24rem;
+                     margin-top: 0.025rem;
+                     border-radius: 50%;
+                     display: flex;
+                     align-items: center;
+                }
+            }
+        }
+    }
+     .el-pagination {
+         margin-top: 0.5rem;
+         text-align: center;
+    }
+}
+ 
 </style>

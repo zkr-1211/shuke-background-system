@@ -360,10 +360,7 @@ export default {
         .people-num {
           margin-right: 1rem;
           text-align: center;
-          // background-color: red;
-          line-height: 10px;
-          // display: flex;
-          // align-items: center;
+          line-height: 0.1rem;
           .num {
             font-size: 0.2rem;
             font-weight: bold;
@@ -385,11 +382,9 @@ export default {
     }
     .right-bottom {
       margin-top: 0.32rem;
-      // width: 11.24rem;
       height: 4.28rem;
       background: #ffffff;
       .nav {
-        // width: 11.24rem;
         height: 0.8rem;
         background: #edeff3;
         font-size: 0.2rem;

@@ -11,7 +11,7 @@
             placement="top"
           >
             <div class="checkbox">
-              <a href="/course/classDetail"
+              <a href="/course/classdetail"
                 ><div class="name">UI设计1班UI设计1班UI设计1班UI设计1班</div></a
               >
               <div v-if="isCheckBox">

@@ -97,21 +97,21 @@ export default {
 .body {
   .top {
     width: 100%;
-    height: 64px;
+    height: 0.64rem;
     background: #ffffff;
     display: flex;
     align-items: center;
     .logo {
       display: flex;
       margin: 0 auto;
-      width: 1000px;
+      width: 10rem;
       img {
       }
     }
   }
   .center {
-    margin: 50px auto 24px;
-    width: 1000px;
+    margin: 0.5rem auto 0.24rem;
+    width: 10rem;
     text-align: center;
     .content-title {
       position: relative;
@@ -122,8 +122,8 @@ export default {
         align-items: center;
         .img {
           display: flex;
-          width: 32px;
-          height: 32px;
+          width: 0.32rem;
+          height: 0.32rem;
           background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
           background-repeat: no-repeat;
           background-size: cover;
@@ -135,52 +135,51 @@ export default {
           background-image: url(../../../assets/image/home/ic_back_p.svg) !important;
         }
         span {
-          margin-left: 12px;
-          font-size: 16px;
-          line-height: 27px;
+          margin-left: 0.12rem;
+          font-size: 0.16rem;
+          line-height: 0.27rem;
           color: #333333;
         }
       }
       .title {
-        font-size: 20px;
+        font-size: 0.2rem;
         font-weight: bold;
-        line-height: 34px;
+        line-height: 0.34rem;
         color: #666666;
       }
     }
   }
   .bottom {
-    margin: 0px auto;
-    width: 1000px;
-    height: 820px;
+    margin: 0rem auto;
+    width: 10rem;
+    height: 8.2rem;
     background: #ffffff;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.16);
+    box-shadow: 0rem 0.03rem 0.04rem rgba(0, 0, 0, 0.16);
     overflow: hidden;
     .Tabs {
-      margin-top: 15px;
+      margin-top: 0.15rem;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      //   background-color: red;
+      // background-color: red;
       //消息内容
     }
     .notice-message {
-      margin: 20px auto 0;
-      height: 600px;
-      width: 800px;
+      margin: 0.2rem auto 0;
+      height: 6rem;
+      width: 8rem;
       overflow: hidden;
-      //   background-color: red;
-      padding-right: 30px;
-
+      // background-color: red;
+      padding-right: 0.3rem;
       .notice {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid #e0e0e0;
-        padding: 20px 20px 20px 20px;
-        height: 56px;
-        // line-height: 56px;
+        border-bottom: 0.01rem solid #e0e0e0;
+        padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+        height: 0.56rem;
+        // line-height: 0.56rem;
         cursor: pointer;
         &:hover {
           background-color: #e8e8e8;
@@ -193,60 +192,59 @@ export default {
           align-items: center;
           .img {
             display: flex;
-            width: 15px;
-            height: 15px;
+            width: 0.15rem;
+            height: 0.15rem;
             // background-color: #2a77ff;
             img {
-              width: 15px;
-              height: 15px;
+              width: 0.15rem;
+              height: 0.15rem;
             }
           }
           .info {
             width: 100%;
-            font-size: 14px;
+            font-size: 0.14rem;
             font-weight: 400;
             color: #333334;
-            margin-left: 15px;
+            margin-left: 0.15rem;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3;
             overflow: hidden;
           }
         }
-
         .time {
           min-width: 10%;
           text-align: right;
-          font-size: 14px;
+          font-size: 0.14rem;
           color: #c3c3c3;
         }
       }
     }
     .pagination {
-      margin-top: 20px;
-      //   width: 200px;
+      margin-top: 0.2rem;
+      // width: 2rem;
       display: flex;
       justify-content: center;
-      //    background-color: red;
+      // background-color: red;
     }
   }
 }
 ::v-deep .el-pager li.active {
   color: #ffffff;
   background: #2a77ff;
-  border-radius: 2px;
+  border-radius: 0.02rem;
   cursor: default;
 }
 ::v-deep .el-pager li {
-  padding: 0 4px;
+  padding: 0 0.04rem;
   background: #fff;
-  font-size: 13px;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
+  font-size: 0.13rem;
+  width: 0.32rem;
+  height: 0.32rem;
+  line-height: 0.32rem;
   box-sizing: border-box;
   text-align: center;
-  margin-right: 3px;
-  margin-left: 3px;
+  margin-right: 0.03rem;
+  margin-left: 0.03rem;
 }
 </style>

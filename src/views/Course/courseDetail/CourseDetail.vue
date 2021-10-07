@@ -77,7 +77,7 @@
     <div class="center">
       <el-row :gutter="60" class="el-row">
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/course/taskSituation">
+          <a href="/course/tasksituation">
             <div class="img-item">
               <img
                 src="@/assets/image/course/icon_course_correction.svg"
@@ -107,7 +107,7 @@
           </a>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/homePage/myClass">
+          <a href="/homePage/myclass">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_class.svg" alt="" />
               <span>班级</span>
@@ -126,7 +126,7 @@
           </a>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/homePage/myTeam">
+          <a href="/homePage/myteam">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_team.svg" alt="" />
               <span>我的团队</span>

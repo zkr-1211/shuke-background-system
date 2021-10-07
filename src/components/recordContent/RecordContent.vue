@@ -81,7 +81,7 @@ export default {
 
   methods: {
     toDetail() {
-      this.$router.push("course/courseDetail");
+      this.$router.push("course/coursedetail");
     },
   },
 };

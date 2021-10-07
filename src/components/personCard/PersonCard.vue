@@ -2,7 +2,7 @@
 <template>
   <div class="body">
     <div class="person-message">
-      <a href="/homePage/studentInfo">
+      <a href="/homePage/studentinfo">
         <div class="header"></div>
       </a>
 

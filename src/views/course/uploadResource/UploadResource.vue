@@ -38,9 +38,15 @@
                   </Button>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item @click.native="diskDv = true">从网盘中</el-dropdown-item>
-                  <el-dropdown-item @click.native="localDv = true">从本地中</el-dropdown-item>
-                  <el-dropdown-item @click.native="problemSetDv = true">从题集中</el-dropdown-item>
+                  <el-dropdown-item @click.native="diskDv = true"
+                    >从网盘中</el-dropdown-item
+                  >
+                  <el-dropdown-item @click.native="localDv = true"
+                    >从本地中</el-dropdown-item
+                  >
+                  <el-dropdown-item @click.native="problemSetDv = true"
+                    >从题集中</el-dropdown-item
+                  >
                 </el-dropdown-menu>
               </el-dropdown>
             </TopBar>
@@ -50,10 +56,18 @@
           <div class="right-content">
             <div class="course-title"><span>01：</span> 什么是web程序应用</div>
             <div class="topNav">
-              <div class="title" @click="isUpload = false" :style="{ backgroundColor: isUpload ? '#EDEFF3' : '' }">
+              <div
+                class="title"
+                @click="isUpload = false"
+                :style="{ backgroundColor: isUpload ? '#EDEFF3' : '' }"
+              >
                 全部
               </div>
-              <div class="title" @click="isUpload = true" :style="{ backgroundColor: isUpload ? '' : '#EDEFF3' }">
+              <div
+                class="title"
+                @click="isUpload = true"
+                :style="{ backgroundColor: isUpload ? '' : '#EDEFF3' }"
+              >
                 正在上传
               </div>
               <div class="totalFile">共0个文件</div>
@@ -61,7 +75,7 @@
             <div class="contentNav">
               <div class="select-all">
                 <!-- <el-checkbox :isIndeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-                <CheckBox v-model="isCheckedAll" @IsCheck='IsCheckAll' />
+                <CheckBox v-model="isCheckedAll" @IsCheck="IsCheckAll" />
               </div>
               <div class="file-name">文件名</div>
               <div class="file-size" v-if="!isUpload">大小</div>
@@ -70,36 +84,59 @@
             </div>
             <div class="tableContent">
               <div v-if="!isUpload">
-                <SectionOutline :isUploadResource="true" @isCheck="isCheckedAllTf" @lockClick="lockClick" :sectionOutlineList='sectionOutlineList'/>
+                <SectionOutline
+                  :isUploadResource="true"
+                  @isCheck="isCheckedAllTf"
+                  @lockClick="lockClick"
+                  :sectionOutlineList="sectionOutlineList"
+                />
               </div>
 
               <!-- isUpload -->
               <div v-else class="upload-content">
                 <div class="item" v-for="(item, index) in options" :key="index">
                   <div class="el-checkbox">
-                    <CheckBox v-model="item.isCheck" @IsCheck='IsCheck' />
+                    <CheckBox v-model="item.isCheck" @IsCheck="IsCheck" />
                   </div>
 
                   <div class="icon">
-                    <img src="@/assets/image/course/ic_locking_off.svg" alt="" />
+                    <img
+                      src="@/assets/image/course/ic_locking_off.svg"
+                      alt=""
+                    />
                   </div>
                   <div class="title">图标设计技巧.mp4</div>
                   <div class="size">
-                    <el-progress class="el-progress" :show-text="false" :stroke-width="12" :percentage="70"></el-progress>
+                    <el-progress
+                      class="el-progress"
+                      :show-text="false"
+                      :stroke-width="12"
+                      :percentage="70"
+                    ></el-progress>
                     <div style="text-align: left">100/200</div>
                   </div>
                   <div class="lock1" @click.stop="lockClick(index)">
-                    <img src="@/assets/image/course/ic_chapter_dowload.svg" alt="" />
+                    <img
+                      src="@/assets/image/course/ic_chapter_dowload.svg"
+                      alt=""
+                    />
                   </div>
                   <div class="look2">
-                    <img src="@/assets/image/course/ic_chapter_delete.svg" alt="" />
+                    <img
+                      src="@/assets/image/course/ic_chapter_delete.svg"
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
               <div class="upload-dialgo" v-if="!Open">
                 <div class="upload-num">正在上传（10/12）</div>
                 <div class="img">
-                  <img @click="Open = true" src="@/assets/image/course/icon_radio_n.svg" alt="" />
+                  <img
+                    @click="Open = true"
+                    src="@/assets/image/course/icon_radio_n.svg"
+                    alt=""
+                  />
                   <img src="@/assets/image/course/ic_delete.svg" alt="" />
                 </div>
               </div>
@@ -107,7 +144,11 @@
                 <div class="top">
                   <div class="upload-num">正在上传</div>
                   <div class="img">
-                    <img @click="Open = false" src="@/assets/image/course/ic_shrink.svg" alt="" />
+                    <img
+                      @click="Open = false"
+                      src="@/assets/image/course/ic_shrink.svg"
+                      alt=""
+                    />
                     <img src="@/assets/image/course/ic_delete.svg" alt="" />
                   </div>
                 </div>
@@ -120,7 +161,11 @@
                   </div>
                 </div>
                 <div class="content">
-                  <div class="item" v-for="(item, index) in options" :key="index">
+                  <div
+                    class="item"
+                    v-for="(item, index) in options"
+                    :key="index"
+                  >
                     <div class="file-icon">
                       <img src="@/assets/image/course/ic_wold.svg" alt="" />
                     </div>
@@ -141,7 +186,13 @@
       </el-col>
     </el-row>
     <!--从题集中选择上传  -->
-    <el-dialog title="" :visible.sync="problemSetDv" width="30%" :show-close="false" top="10vh">
+    <el-dialog
+      title=""
+      :visible.sync="problemSetDv"
+      width="30%"
+      :show-close="false"
+      top="10vh"
+    >
       <!-- <div class="what"><img src="@/assets/image/course/ic_button_unsee.svg" alt=""></div> -->
       <div class="d">
         <div>
@@ -166,12 +217,20 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <!-- <span class="delete-man">删除成员</span> -->
-        <el-button class="cancel-button" @click="problemSetDv = false">取 消</el-button>
+        <el-button class="cancel-button" @click="problemSetDv = false"
+          >取 消</el-button
+        >
         <el-button type="primary" @click="problemSetDv = false">添加</el-button>
       </span>
     </el-dialog>
     <!--从网盘中选择添加 -->
-    <el-dialog title="" :visible.sync="diskDv" width="30%" :show-close="false" top="10vh">
+    <el-dialog
+      title=""
+      :visible.sync="diskDv"
+      width="30%"
+      :show-close="false"
+      top="10vh"
+    >
       <!-- <div class="what"><img src="@/assets/image/course/ic_button_unsee.svg" alt=""></div> -->
       <div class="d">
         <div>
@@ -184,14 +243,43 @@
       <div class="quan-xian">
         <h2>全部</h2>
 
-        <el-tree :data="data" show-checkbox node-key="id" :default-expanded-keys="[2, 3]" :default-checked-keys="[5]" :props="defaultProps" :highlight-current="true" ref="trees">
+        <el-tree
+          :data="data"
+          show-checkbox
+          node-key="id"
+          :default-expanded-keys="[2, 3]"
+          :default-checked-keys="[5]"
+          :props="defaultProps"
+          :highlight-current="true"
+          ref="trees"
+        >
           <span class="custom-tree-node" slot-scope="{ data }">
             <div class="icon">
-              <img v-if="data.icon === 'wps'" src="@/assets/image/course/ic_wold.svg" alt="" />
-              <img v-else-if="data.icon === 'pdf'" src="@/assets/image/course/ic_ppt.svg" alt="" />
-              <img v-else-if="data.icon === 'mp4'" src="@/assets/image/course/ic_class_invitation.svg" alt="" />
-              <img v-else-if="data.icon === 'png'" src="@/assets/image/home/icon_shuke.svg" alt="" />
-              <img v-else-if="data.icon === 'jpg'" src="@/assets/image/course/ic_class_invitation.svg" alt="" />
+              <img
+                v-if="data.icon === 'wps'"
+                src="@/assets/image/course/ic_wold.svg"
+                alt=""
+              />
+              <img
+                v-else-if="data.icon === 'pdf'"
+                src="@/assets/image/course/ic_ppt.svg"
+                alt=""
+              />
+              <img
+                v-else-if="data.icon === 'mp4'"
+                src="@/assets/image/course/ic_class_invitation.svg"
+                alt=""
+              />
+              <img
+                v-else-if="data.icon === 'png'"
+                src="@/assets/image/home/icon_shuke.svg"
+                alt=""
+              />
+              <img
+                v-else-if="data.icon === 'jpg'"
+                src="@/assets/image/course/ic_class_invitation.svg"
+                alt=""
+              />
               <img v-else src="@/assets/image/course/ic_folder.svg" alt="" />
               <span>{{ data.label }}</span>
             </div>
@@ -201,7 +289,9 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <!-- <span class="delete-man">删除成员</span> -->
-        <el-button class="cancel-button" @click="diskDv = false">取 消</el-button>
+        <el-button class="cancel-button" @click="diskDv = false"
+          >取 消</el-button
+        >
         <el-button type="primary" @click="add()">添加</el-button>
       </span>
     </el-dialog>
@@ -320,7 +410,7 @@ export default {
           ],
         },
       ],
-       sectionOutlineList: [
+      sectionOutlineList: [
         {
           city: "福州",
           isCheck: false,
@@ -409,7 +499,6 @@ export default {
   height: 0.2rem;
   background-color: #fff;
   z-index: 1;
-
   -webkit-transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
     background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
   transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
@@ -475,25 +564,24 @@ export default {
 }
 .lock-what {
   // background-color: firebrick;
-  // line-height: 35px;
+  // line-height: 0.35rem;
   img {
     margin-left: 0.12rem;
-    padding-top: 5px;
+    padding-top: 0.05rem;
     // margin-right: 0.12rem;
-    // width: 20px;
-    // height: 20px;
+    // width: 0.2rem;
+    // height: 0.2rem;
   }
 }
 .what {
   display: flex;
   align-items: center;
   // background-color: firebrick;
-
   img {
     margin-right: 0.12rem;
     display: flex;
-    // width: 20px;
-    // height: 20px;
+    // width: 0.2rem;
+    // height: 0.2rem;
   }
 }
 .quan-xian {
@@ -507,15 +595,14 @@ export default {
     margin-bottom: 0.2rem;
     font-size: 0.15rem;
   }
-
   .icon {
     display: flex;
     align-items: center;
     img {
-      margin-right: 14px;
-      margin-left: 6px;
-      width: 30px;
-      height: 30px;
+      margin-right: 0.14rem;
+      margin-left: 0.06rem;
+      width: 0.3rem;
+      height: 0.3rem;
     }
   }
   .title {
@@ -539,11 +626,10 @@ export default {
     }
     .checkbox {
       position: absolute;
-      right: 50px;
+      right: 0.5rem;
     }
   }
 }
-
 .select-num {
   font-size: 0.16rem;
   color: #2a77ff;
@@ -607,18 +693,18 @@ export default {
     position: relative;
     .delete-select {
       cursor: pointer;
-      margin-right: 20px;
+      margin-right: 0.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 0.14rem;
       font-family: Source Han Sans CN;
       font-weight: bold;
       color: #666666;
-      width: 104px;
-      height: 40px;
+      width: 1.04rem;
+      height: 0.4rem;
       background: #ffffff;
-      box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
+      box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.16);
       opacity: 1;
     }
     .course-outline {
@@ -647,7 +733,6 @@ export default {
         color: #2a77fb;
       }
     }
-
     .topNav {
       cursor: pointer;
       margin-top: 0.12rem;
@@ -675,36 +760,34 @@ export default {
       }
     }
     .contentNav {
-      //   width: 328px;
+      // width: 3.28rem;
       width: 100%;
-      height: 48px;
+      height: 0.48rem;
       background: #f6f6f8;
       opacity: 1;
       font-size: 0.16rem;
       font-weight: bold;
-      //   line-height: 27px;
+      // line-height: 0.27rem;
       color: #666666;
       display: flex;
       align-items: center;
-
       .select-all {
         margin-left: 0.28rem;
-        width: 90px;
+        width: 0.9rem;
         margin-top: 0.02rem;
       }
       .file-name {
         white-space: nowrap;
-        width: 340px;
+        width: 3.4rem;
       }
       .file-size {
         white-space: nowrap;
       }
-
       .operate {
         white-space: nowrap;
         text-align: center;
-        width: 350px;
-        padding-left: 95px;
+        width: 3.5rem;
+        padding-left: 0.95rem;
       }
     }
     .tableContent {
@@ -716,15 +799,15 @@ export default {
         width: 100%;
         position: absolute;
         bottom: 0.1rem;
-        height: 400px;
+        height: 4rem;
         background: #ffffff;
-        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0rem 0.03rem 0.2rem rgba(0, 0, 0, 0.1);
         .upload-num {
-          margin-left: 18px;
-          font-size: 16px;
+          margin-left: 0.18rem;
+          font-size: 0.16rem;
           font-family: PingFang SC;
           font-weight: 600;
-          line-height: 48px;
+          line-height: 0.48rem;
           color: #7c878e;
           opacity: 1;
         }
@@ -734,7 +817,7 @@ export default {
           // background-color: #2a77ff;
           img {
             cursor: pointer;
-            margin-right: 14px;
+            margin-right: 0.14rem;
           }
         }
         .top {
@@ -747,25 +830,25 @@ export default {
           align-items: center;
           justify-content: space-between;
           width: 100%;
-          height: 50px;
+          height: 0.5rem;
           background: #2980ff;
           opacity: 0.49;
-          font-size: 16px;
+          font-size: 0.16rem;
           font-weight: 600;
           color: #ffffff;
-          padding: 20px;
+          padding: 0.2rem;
           img {
             display: flex;
           }
         }
         .content {
-          height: 300px;
+          height: 3rem;
           overflow: auto;
           .item {
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 50px;
+            height: 0.5rem;
             .file-icon {
               // background-color: #2a77ff;
               img {
@@ -773,28 +856,28 @@ export default {
               }
             }
             .file-name {
-              width: 153px;
-              height: 22px;
+              width: 1.53rem;
+              height: 0.22rem;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              font-size: 16px;
+              font-size: 0.16rem;
               font-family: Microsoft YaHei;
               font-weight: 400;
-              line-height: 19px;
+              line-height: 0.19rem;
               color: #020202;
               opacity: 1;
             }
             .file-size {
-              width: 60px;
-              font-size: 16px;
+              width: 0.6rem;
+              font-size: 0.16rem;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
             }
             .class-name {
-              width: 144px;
-              font-size: 16px;
+              width: 1.44rem;
+              font-size: 0.16rem;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
@@ -803,12 +886,12 @@ export default {
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              width: 180px;
-              height: 22px;
-              font-size: 16px;
+              width: 1.8rem;
+              height: 0.22rem;
+              font-size: 0.16rem;
               font-family: Microsoft YaHei;
               font-weight: 400;
-              line-height: 19px;
+              line-height: 0.19rem;
               color: #7c878e;
               opacity: 1;
             }
@@ -817,7 +900,7 @@ export default {
               display: flex;
               img {
                 display: flex;
-                margin-left: 15px;
+                margin-left: 0.15rem;
               }
             }
           }
@@ -827,21 +910,21 @@ export default {
         position: absolute;
         bottom: 0.1rem;
         width: 100%;
-        height: 48px;
+        height: 0.48rem;
         z-index: 9;
         background-color: #ffffff;
-        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
-        border-left: 6px solid #2a77ff;
+        box-shadow: 0rem 0.03rem 0.2rem rgba(0, 0, 0, 0.16);
+        border-left: 0.06rem solid #2a77ff;
         display: flex;
         justify-content: space-between;
         .upload-num {
-          margin-left: 18px;
-          font-size: 16px;
+          margin-left: 0.18rem;
+          font-size: 0.16rem;
           font-family: PingFang SC;
           font-weight: 600;
-          line-height: 48px;
+          line-height: 0.48rem;
           color: #7c878e;
-          //   letter-spacing: 2px;
+          // letter-spacing: 0.02rem;
           opacity: 1;
         }
         .img {
@@ -850,7 +933,7 @@ export default {
           // background-color: #2a77ff;
           img {
             cursor: pointer;
-            margin-right: 14px;
+            margin-right: 0.14rem;
           }
         }
       }
@@ -858,37 +941,36 @@ export default {
         .item {
           display: flex;
           align-items: center;
-          height: 50px;
-          padding: 30px 30px 30px 28px;
-          border-bottom: 1px solid #e0e0e0;
+          height: 0.5rem;
+          padding: 0.3rem 0.3rem 0.3rem 0.28rem;
+          border-bottom: 0.01rem solid #e0e0e0;
           .el-checkbox {
-            //   margin-left: 15;
+            // margin-left: 15;
           }
           .icon {
             margin-left: 0.15rem;
             display: flex;
-
             img {
               width: 0.3rem;
               height: 0.3rem;
             }
           }
           .title {
-            width: 315px;
-            font-size: 16px;
+            width: 3.15rem;
+            font-size: 0.16rem;
             color: #333333;
             opacity: 1;
             white-space: nowrap;
           }
           .size {
-            width: 70px;
-            //   display: none;
-            font-size: 16px;
+            width: 0.7rem;
+            // display: none;
+            font-size: 0.16rem;
             .el-progress {
               display: flex;
               align-items: center;
-              //   width: 120px;
-              margin-bottom: 5px;
+              // width: 1.2rem;
+              margin-bottom: 0.05rem;
               ::v-deep .el-progress-bar__inner {
                 position: absolute;
                 left: 0;
@@ -896,7 +978,7 @@ export default {
                 height: 100%;
                 background-color: #409eff;
                 text-align: right;
-                border-radius: 0px !important;
+                border-radius: 0rem !important;
                 line-height: 1;
                 white-space: nowrap;
                 transition: width 0.6s ease;

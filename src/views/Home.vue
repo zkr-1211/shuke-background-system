@@ -165,12 +165,12 @@
                   <span>课程</span>
                 </el-menu-item>
                 <el-menu-item
-                  @click="saveNavState('/recordVideo')"
-                  index="/recordVideo"
-                  :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''"
+                  @click="saveNavState('/recordvideo')"
+                  index="/recordvideo"
+                  :class="selectIndex == '/recordvideo' ? 'selectStyle' : ''"
                 >
                   <img
-                    v-if="selectIndex == '/recordVideo'"
+                    v-if="selectIndex == '/recordvideo'"
                     src="@/assets/image/leftbar/leftbar_recordvideo_s.svg"
                     alt=""
                   />
@@ -202,7 +202,9 @@
             </el-col>
           </el-row>
           <div class="aside-progress">
-            <div><el-progress :percentage="50" :show-text='false'></el-progress></div>
+            <div>
+              <el-progress :percentage="50" :show-text="false"></el-progress>
+            </div>
             <div class="text">
               <div class="capacity">已用2.6GB/20GB</div>
               <div class="add-capacity">扩容</div>
@@ -247,7 +249,7 @@
           />
           <img v-else src="@/assets/image/leftbar/leftbar_home_n.svg" alt="" />
           <!-- <i class="el-icon-menu"></i> -->
-          <span style="marginLeft: 0.2rem">首页</span>
+          <span style="marginleft: 0.2rem">首页</span>
         </el-menu-item>
 
         <el-menu-item
@@ -265,15 +267,15 @@
             src="@/assets/image/leftbar/leftbar_course_n.svg"
             alt=""
           />
-          <span style="marginLeft: 0.2rem">课程</span>
+          <span style="marginleft: 0.2rem">课程</span>
         </el-menu-item>
         <el-menu-item
-          @click="saveNavState('/recordVideo')"
-          index="/recordVideo"
-          :class="selectIndex == '/recordVideo' ? 'selectStyle' : ''"
+          @click="saveNavState('/recordvideo')"
+          index="/recordvideo"
+          :class="selectIndex == '/recordvideo' ? 'selectStyle' : ''"
         >
           <img
-            v-if="selectIndex == '/recordVideo'"
+            v-if="selectIndex == '/recordvideo'"
             src="@/assets/image/leftbar/leftbar_recordvideo_s.svg"
             alt=""
           />
@@ -282,7 +284,7 @@
             src="@/assets/image/leftbar/leftbar_recordvideo_n.svg"
             alt=""
           />
-          <span style="marginLeft: 0.2rem">录播资源</span>
+          <span style="marginleft: 0.2rem">录播资源</span>
         </el-menu-item>
         <el-menu-item
           @click="saveNavState('/recovery')"
@@ -299,26 +301,27 @@
             src="@/assets/image/leftbar/leftbar_recovery_n.svg"
             alt=""
           />
-          <span style="marginLeft: 0.2rem">课程回收站</span>
+          <span style="marginleft: 0.2rem">课程回收站</span>
         </el-menu-item>
       </el-menu>
-       <div class="aside-progress">
-            <div><el-progress :percentage="50" :show-text='false'></el-progress></div>
-            <div class="text">
-              <div class="capacity">已用2.6GB/20GB</div>
-              <div class="add-capacity">扩容</div>
-            </div>
-          </div>
-          <div class="aside-bottom">
-            <div>树课社区</div>
-            <div>客服帮助</div>
-          </div>
+      <div class="aside-progress">
+        <div>
+          <el-progress :percentage="50" :show-text="false"></el-progress>
+        </div>
+        <div class="text">
+          <div class="capacity">已用2.6GB/20GB</div>
+          <div class="add-capacity">扩容</div>
+        </div>
+      </div>
+      <div class="aside-bottom">
+        <div>树课社区</div>
+        <div>客服帮助</div>
+      </div>
     </el-drawer>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import "element-ui/lib/theme-chalk/display.css";
 
@@ -425,39 +428,47 @@ export default {
 </script>
 <style lang="scss" scoped>
 //抽屉需要样式抽出来
-  .aside-progress {
-    position: absolute;
-    left: .38rem;
-    text-align: center;
-    bottom: 2rem;
-    width: 70%;
-    font-size: 0.14rem;
-    color: #666666;
-    .text{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: .1rem;
-    }
-  }
-//抽屉需要样式抽出来
-  .aside-bottom {
-    position: absolute;
-    bottom: 1.5rem;
-    left: .38rem;
+.aside-progress {
+  position: absolute;
+  left: 0.38rem;
+  text-align: center;
+  bottom: 2rem;
+  width: 70%;
+  font-size: 0.14rem;
+  color: #666666;
+  .text {
     display: flex;
-    width: 70%;
-    justify-content: center;
-    font-size: 0.14rem;
-    color: #666666;
-    > div:nth-of-type(1) {
-      cursor: pointer;
-    }
-    > div:nth-of-type(2) {
-      margin-left: 0.48rem;
-      cursor: pointer;
-    }
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.1rem;
   }
+  .capacity {
+    color: #7c878e;
+  }
+  .add-capacity {
+    cursor: pointer;
+    font-size: 0.14rem;
+    color: #2980ff;
+  }
+}
+//抽屉需要样式抽出来
+.aside-bottom {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0.38rem;
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  font-size: 0.14rem;
+  color: #666666;
+  > div:nth-of-type(1) {
+    cursor: pointer;
+  }
+  > div:nth-of-type(2) {
+    margin-left: 0.48rem;
+    cursor: pointer;
+  }
+}
 .home {
   height: 100vh;
   width: 100%;
@@ -490,7 +501,7 @@ export default {
   .nav_drawer {
     position: absolute;
     left: 0.2rem;
-    bottom: -12px;
+    bottom: -0.12rem;
     margin-left: 0.15rem;
     display: none;
     cursor: pointer;
@@ -505,13 +516,12 @@ export default {
     }
     .shuke-logo {
       margin-left: 0.9rem !important;
-     
     }
   }
   @media only screen and (max-width: 550px) {
     .shuke-logo {
       font-size: 0.12rem !important;
-      padding-right: .5rem;
+      padding-right: 0.5rem;
     }
   }
 
@@ -689,7 +699,7 @@ export default {
   padding: 0.1rem 0;
   margin: 0.05rem 0;
   background-color: #fff;
-  border: 1px solid #ebeef5;
+  border: .01rem solid #ebeef5;
   border-radius: 0.04rem;
   box-shadow: 0rem 0.03rem 0.04rem rgba(0, 0, 0, 0.16);
   .notices {
@@ -779,16 +789,14 @@ export default {
   height: 4.95rem;
   width: 100%;
   overflow: auto;
-  padding-right: 30px;
-  // padding-left: 30px;
-  // padding-right: 0.3rem;
+  padding-right:.3rem;
   .notice {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 0.7rem;
-    padding: 10px 0px 10px 0px;
+    padding: .1rem 0 .1rem 0;
     &:hover {
       background-color: #e8e8e8;
     }

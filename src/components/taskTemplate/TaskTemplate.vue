@@ -191,279 +191,280 @@ export default {
 </script>
 <style lang='scss' scoped>
 .content {
-  // width: 70%;
-  margin: 0.32rem auto 0;
-  .item {
-    margin-top: 0.32rem;
-    position: relative;
-    .top {
-      //   position: relative;
-      height: 80px;
-      width: 100%;
-      background: #edeff3;
-      opacity: 1;
-      display: flex;
-      align-items: center;
-      .index {
-        width: 80px;
-        height: 80px;
-        background: #2a77ff;
-        opacity: 1;
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff;
-        text-align: center;
-        line-height: 80px;
-      }
-      .text {
-        margin-left: 40px;
-        font-size: 18px;
-        font-family: Source Han Sans CN;
-        font-weight: bold;
-        line-height: 31px;
-        color: #333333;
-        opacity: 1;
-      }
-      .span {
-        margin-left: 51px;
-        font-size: 18px;
-        font-family: Source Han Sans CN;
-        font-weight: bold;
-        line-height: 31px;
-        color: #333333;
-        opacity: 1;
-      }
-      .dot {
-        position: absolute;
-        top: 28px;
-        right: 20px;
-      }
-    }
-    .el-collapse-item {
-      position: relative;
-      .top1 {
-        height: 60px;
-        background: #edeff3;
-        opacity: 1;
-        display: flex;
-        align-items: center;
-        margin-left: 120px;
-        .index {
-          width: 60px;
-          height: 60px;
-          background: #ffbc13;
-          opacity: 1;
-          font-size: 20px;
-          font-weight: bold;
-          color: #ffffff;
-          text-align: center;
-          line-height: 60px;
-        }
-        .text {
-          margin-left: 40px;
-          font-size: 18px;
-          font-family: Source Han Sans CN;
-          font-weight: bold;
-          line-height: 31px;
-          color: #333333;
-          opacity: 1;
-        }
-        .span {
-          margin-left: 51px;
-          font-size: 18px;
-          font-family: Source Han Sans CN;
-          font-weight: bold;
-          line-height: 31px;
-          color: #333333;
-          opacity: 1;
-        }
-        .dot {
-          position: absolute;
-          top: 6px;
-          right: 20px;
-        }
-      }
-    }
-    .task-desc {
-      margin-left: 120px;
-      .title {
-        font-size: 16px;
-        font-family: Source Han Sans CN;
-        font-weight: bold;
-        // line-height: 27px;
-        color: #666666;
-        opacity: 1;
-      }
-      .size {
-        font-size: 16px;
-        font-family: Source Han Sans CN;
-        font-weight: 400;
-        // line-height: 27px;
-        color: #666666;
-        opacity: 1;
-      }
-    }
-    .add-task {
-      display: flex;
-      align-items: center;
-      font-size: 16px;
-      font-family: Source Han Sans CN;
-      font-weight: 400;
-      line-height: 27px;
-      color: #999999;
-      opacity: 1;
-      //   margin-left: 800px;
-      position: absolute;
-      right: 60px;
-      .text {
-        margin-left: 16px;
-      }
-      img {
-        display: flex;
-        width: 24px;
-        height: 24px;
-      }
-    }
-    .two-el-collapse-item {
-      ::v-deep .el-collapse-item__header {
-        height: 60px;
-      }
-      ::v-deep .el-icon-arrow-right:before {
-        left: 10px;
-        bottom: 5px;
-      }
-      ::v-deep .el-collapse-item__arrow.is-active {
-        left: 0px;
-        top: 5px;
-      }
-      .c-content {
-        margin: 0.3rem 0rem 0rem 2.25rem;
-        width: 7rem;
-        height: 3rem;
-        .button {
-          margin-top: 0.25rem;
-        }
-        .type {
-          span {
-            margin-right: 0.3rem;
-            font-size: 0.15rem;
-          }
-        }
-        .des {
-          margin-top: 0.3rem;
-          width: 8.86rem;
-          border-radius: 0.04rem;
-          display: flex;
-          .span {
-            margin-right: 0.3rem;
-            white-space: nowrap;
-            font-size: 0.15rem;
-          }
-          input {
-            width: 25vw;
-            height: 0.01rem;
-            background: #ffffff;
-            border: 0.01rem solid #e0e0e0;
-            border-radius: 0.04rem;
-            padding: 0.16rem;
-            font-size: 0.16rem;
-            color: #999999;
-            resize: none;
-          }
-        }
-        .goal {
-          margin-top: 0.3rem;
-          width: 8.86rem;
-          border-radius: 0.04rem;
-          display: flex;
-          .span {
-            margin-right: 0.3rem;
-            font-size: 0.15rem;
-          }
-          input {
-            width: 100%;
-            height: 0.01rem;
-            background: #ffffff;
-            border: 0.01rem solid #e0e0e0;
-            border-radius: 0.04rem;
-            padding: 0.16rem;
-            font-size: 0.16rem;
-            color: #999999;
-            resize: none;
-          }
-        }
-        .select {
-          display: flex;
-          align-items: center;
-          span {
-            font-size: 0.15rem;
-            margin-right: 0.3rem;
-          }
-          .item {
-            cursor: pointer;
-            width: 154px;
-            height: 44px;
-            border: 1px solid #e0e0e0;
-            opacity: 1;
-            opacity: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .img {
-              display: flex;
-              align-items: center;
-              img {
-                width: 0.2rem;
-                height: 0.2rem;
-              }
+     // width: 70%;
+     margin: 0.32rem auto 0;
+     .item {
+         margin-top: 0.32rem;
+         position: relative;
+         .top {
+             // position: relative;
+             height: 0.8rem;
+             width: 100%;
+             background: #edeff3;
+             opacity: 1;
+             display: flex;
+             align-items: center;
+             .index {
+                 width: 0.8rem;
+                 height: 0.8rem;
+                 background: #2a77ff;
+                 opacity: 1;
+                 font-size: 0.2rem;
+                 font-weight: bold;
+                 color: #ffffff;
+                 text-align: center;
+                 line-height: 0.8rem;
             }
-            .text {
-              line-height: 0.44rem;
-              font-size: 0.14rem;
-              color: #666666;
-              margin-left: 0.1rem;
+             .text {
+                 margin-left: 0.4rem;
+                 font-size: 0.18rem;
+                 font-family: Source Han Sans CN;
+                 font-weight: bold;
+                 line-height: 0.31rem;
+                 color: #333333;
+                 opacity: 1;
             }
-          }
+             .span {
+                 margin-left: 0.51rem;
+                 font-size: 0.18rem;
+                 font-family: Source Han Sans CN;
+                 font-weight: bold;
+                 line-height: 0.31rem;
+                 color: #333333;
+                 opacity: 1;
+            }
+             .dot {
+                 position: absolute;
+                 top: 0.28rem;
+                 right: 0.2rem;
+            }
         }
-      }
+         .el-collapse-item {
+             position: relative;
+             .top1 {
+                 height: 0.6rem;
+                 background: #edeff3;
+                 opacity: 1;
+                 display: flex;
+                 align-items: center;
+                 margin-left: 1.2rem;
+                 .index {
+                     width: 0.6rem;
+                     height: 0.6rem;
+                     background: #ffbc13;
+                     opacity: 1;
+                     font-size: 0.2rem;
+                     font-weight: bold;
+                     color: #ffffff;
+                     text-align: center;
+                     line-height: 0.6rem;
+                }
+                 .text {
+                     margin-left: 0.4rem;
+                     font-size: 0.18rem;
+                     font-family: Source Han Sans CN;
+                     font-weight: bold;
+                     line-height: 0.31rem;
+                     color: #333333;
+                     opacity: 1;
+                }
+                 .span {
+                     margin-left: 0.51rem;
+                     font-size: 0.18rem;
+                     font-family: Source Han Sans CN;
+                     font-weight: bold;
+                     line-height: 0.31rem;
+                     color: #333333;
+                     opacity: 1;
+                }
+                 .dot {
+                     position: absolute;
+                     top: 0.06rem;
+                     right: 0.2rem;
+                }
+            }
+        }
+         .task-desc {
+             margin-left: 1.2rem;
+             .title {
+                 font-size: 0.16rem;
+                 font-family: Source Han Sans CN;
+                 font-weight: bold;
+                 // line-height: 0.27rem;
+                 color: #666666;
+                 opacity: 1;
+            }
+             .size {
+                 font-size: 0.16rem;
+                 font-family: Source Han Sans CN;
+                 font-weight: 400;
+                 // line-height: 0.27rem;
+                 color: #666666;
+                 opacity: 1;
+            }
+        }
+         .add-task {
+             display: flex;
+             align-items: center;
+             font-size: 0.16rem;
+             font-family: Source Han Sans CN;
+             font-weight: 400;
+             line-height: 0.27rem;
+             color: #999999;
+             opacity: 1;
+             // margin-left: 8rem;
+             position: absolute;
+             right: 0.6rem;
+             .text {
+                 margin-left: 0.16rem;
+            }
+             img {
+                 display: flex;
+                 width: 0.24rem;
+                 height: 0.24rem;
+            }
+        }
+         .two-el-collapse-item {
+             ::v-deep .el-collapse-item__header {
+                 height: 0.6rem;
+            }
+             ::v-deep .el-icon-arrow-right:before {
+                 left: 0.1rem;
+                 bottom: 0.05rem;
+            }
+             ::v-deep .el-collapse-item__arrow.is-active {
+                 left: 0rem;
+                 top: 0.05rem;
+            }
+             .c-content {
+                 margin: 0.3rem 0rem 0rem 2.25rem;
+                 width: 7rem;
+                 height: 3rem;
+                 .button {
+                     margin-top: 0.25rem;
+                }
+                 .type {
+                     span {
+                         margin-right: 0.3rem;
+                         font-size: 0.15rem;
+                    }
+                }
+                 .des {
+                     margin-top: 0.3rem;
+                     width: 8.86rem;
+                     border-radius: 0.04rem;
+                     display: flex;
+                     .span {
+                         margin-right: 0.3rem;
+                         white-space: nowrap;
+                         font-size: 0.15rem;
+                    }
+                     input {
+                         width: 25vw;
+                         height: 0.01rem;
+                         background: #ffffff;
+                         border: 0.01rem solid #e0e0e0;
+                         border-radius: 0.04rem;
+                         padding: 0.16rem;
+                         font-size: 0.16rem;
+                         color: #999999;
+                         resize: none;
+                    }
+                }
+                 .goal {
+                     margin-top: 0.3rem;
+                     width: 8.86rem;
+                     border-radius: 0.04rem;
+                     display: flex;
+                     .span {
+                         margin-right: 0.3rem;
+                         font-size: 0.15rem;
+                    }
+                     input {
+                         width: 100%;
+                         height: 0.01rem;
+                         background: #ffffff;
+                         border: 0.01rem solid #e0e0e0;
+                         border-radius: 0.04rem;
+                         padding: 0.16rem;
+                         font-size: 0.16rem;
+                         color: #999999;
+                         resize: none;
+                    }
+                }
+                 .select {
+                     display: flex;
+                     align-items: center;
+                     span {
+                         font-size: 0.15rem;
+                         margin-right: 0.3rem;
+                    }
+                     .item {
+                         cursor: pointer;
+                         width: 1.54rem;
+                         height: 0.44rem;
+                         border: 0.01rem solid #e0e0e0;
+                         opacity: 1;
+                         opacity: 1;
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+                         .img {
+                             display: flex;
+                             align-items: center;
+                             img {
+                                 width: 0.2rem;
+                                 height: 0.2rem;
+                            }
+                        }
+                         .text {
+                             line-height: 0.44rem;
+                             font-size: 0.14rem;
+                             color: #666666;
+                             margin-left: 0.1rem;
+                        }
+                    }
+                }
+            }
+        }
+         ::v-deep .el-collapse-item__header {
+             display: flex;
+             align-items: center;
+             height: 0.9rem;
+             line-height: 0.3rem;
+             background: #edeff3;
+             color: #303133;
+             cursor: pointer;
+             border-bottom: 0.01rem solid #ebeef5;
+             font-size: 0.13rem;
+             font-weight: 500;
+             transition: border-bottom-color 0.3s;
+             outline: 0;
+             position: relative;
+             background-image: url(../../assets/image/course/right.svg);
+             background-repeat: no-repeat;
+             background-position: 0.1rem;
+             background-size: 0.5rem;
+        }
+         ::v-deep .el-collapse-item__header.is-active {
+             border-bottom-color: transparent;
+             background-image: url(../../assets/image/course/bottom.svg);
+        }
+         ::v-deep .el-icon-arrow-right:before {
+             content: none;
+             border: none;
+        }
+         ::v-deep .el-collapse-item__arrow.is-active {
+             content: none;
+        }
+         ::v-deep .el-icon-arrow-right:before {
+             content: none;
+             border: none;
+        }
+         ::v-deep .el-collapse-item__arrow.is-active {
+             content: none;
+        }
     }
-    ::v-deep .el-collapse-item__header {
-      display: flex;
-      align-items: center;
-      height: 90px;
-      line-height: 30px;
-      background: #edeff3;
-      color: #303133;
-      cursor: pointer;
-      border-bottom: 1px solid #ebeef5;
-      font-size: 13px;
-      font-weight: 500;
-      transition: border-bottom-color 0.3s;
-      outline: 0;
-      position: relative;
-      background-image: url(../../assets/image/course/right.svg);
-      background-repeat: no-repeat;
-      background-position: 0.1rem;
-      background-size: 0.5rem;
-    }
-    ::v-deep .el-collapse-item__header.is-active {
-      border-bottom-color: transparent;
-      background-image: url(../../assets/image/course/bottom.svg);
-    }
-    ::v-deep .el-icon-arrow-right:before {
-      content: none;
-      border: none;
-    }
-    ::v-deep .el-collapse-item__arrow.is-active {
-      content: none;
-    }
-    ::v-deep .el-icon-arrow-right:before {
-      content: none;
-      border: none;
-    }
-    ::v-deep .el-collapse-item__arrow.is-active {
-      content: none;
-    }
-  }
 }
+ 
 </style>

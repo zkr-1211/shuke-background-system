@@ -274,33 +274,37 @@ export default {
         {
           value: "选项2",
           label: "双皮奶",
-          fileName: "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
+          fileName:
+            "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
         },
         {
           value: "选项3",
           label: "蚵仔煎",
-          fileName: "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
+          fileName:
+            "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
         },
         {
           value: "选项4",
           label: "龙须面",
-          fileName: "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
+          fileName:
+            "高等数学复习资料2高等数学复习资料等数学复习等数学复习等数学复习等数学复习",
         },
         {
           value: "选项5",
           label: "北京烤鸭",
           fileName: "高等数学复习资料2",
         },
-         {
+        {
           value: "选项5",
           label: "北京烤鸭",
           fileName: "高等数学复习资料2",
         },
-         {
+        {
           value: "选项5",
           label: "北京烤鸭",
           fileName: "高等数学复习资料2",
-        }, {
+        },
+        {
           value: "选项5",
           label: "北京烤鸭",
           fileName: "高等数学复习资料2",
@@ -335,35 +339,24 @@ export default {
   display: flex;
 }
 .lock-what {
-  // background-color: firebrick;
-  // line-height: 35px;
   img {
     margin-left: 0.12rem;
-    padding-top: 5px;
-    // margin-right: 0.12rem;
-    // width: 20px;
-    // height: 20px;
+    padding-top: 0.05rem;
   }
 }
 .what {
   display: flex;
   align-items: center;
-  // background-color: firebrick;
-
   img {
     margin-right: 0.12rem;
     display: flex;
-    // width: 20px;
-    // height: 20px;
   }
 }
 .quan-xian {
-  // width: 5.3rem;
   height: 4.9rem;
   overflow-y: auto;
   position: relative;
   margin-top: 0.12rem;
-
   .cancel-button {
     border: none;
     background: #fff !important;
@@ -396,7 +389,6 @@ export default {
     height: 0.5rem;
   }
 }
-
 .select-num {
   font-size: 0.16rem;
   color: #2a77ff;
@@ -460,18 +452,18 @@ export default {
     position: relative;
     .delete-select {
       cursor: pointer;
-      margin-right: 20px;
+      margin-right: 0.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 0.14rem;
       font-family: Source Han Sans CN;
       font-weight: bold;
       color: #666666;
-      width: 104px;
-      height: 40px;
+      width: 1.04rem;
+      height: 0.4rem;
       background: #ffffff;
-      box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
+      box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.16);
       opacity: 1;
     }
     .course-outline {
@@ -500,7 +492,6 @@ export default {
         color: #2a77fb;
       }
     }
-
     .topNav {
       cursor: pointer;
       margin-top: 0.12rem;
@@ -528,36 +519,34 @@ export default {
       }
     }
     .contentNav {
-      //   width: 328px;
+      // width: 3.28rem;
       width: 100%;
-      height: 48px;
+      height: 0.48rem;
       background: #f6f6f8;
       opacity: 1;
       font-size: 0.16rem;
       font-weight: bold;
-      //   line-height: 27px;
+      // line-height: 0.27rem;
       color: #666666;
       display: flex;
       align-items: center;
-
       .select-all {
         margin-left: 0.3rem;
-        width: 70px;
+        width: 0.7rem;
         margin-top: 0.02rem;
       }
       .file-name {
         white-space: nowrap;
-        width: 335px;
+        width: 3.35rem;
       }
       .file-size {
         white-space: nowrap;
       }
-
       .operate {
         white-space: nowrap;
         text-align: center;
-        width: 350px;
-        padding-left: 95px;
+        width: 3.5rem;
+        padding-left: 0.95rem;
       }
     }
     .tableContent {
@@ -569,15 +558,15 @@ export default {
         width: 100%;
         position: absolute;
         bottom: 0.1rem;
-        height: 400px;
+        height: 4rem;
         background: #ffffff;
-        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0rem 0.03rem 0.2rem rgba(0, 0, 0, 0.1);
         .upload-num {
-          margin-left: 18px;
-          font-size: 16px;
+          margin-left: 0.18rem;
+          font-size: 0.16rem;
           font-family: PingFang SC;
           font-weight: 600;
-          line-height: 48px;
+          line-height: 0.48rem;
           color: #7c878e;
           opacity: 1;
         }
@@ -587,7 +576,7 @@ export default {
           background-color: #2a77ff;
           img {
             cursor: pointer;
-            margin-right: 14px;
+            margin-right: 0.14rem;
           }
         }
         .top {
@@ -600,25 +589,25 @@ export default {
           align-items: center;
           justify-content: space-between;
           width: 100%;
-          height: 50px;
+          height: 0.5rem;
           background: #2980ff;
           opacity: 0.49;
-          font-size: 16px;
+          font-size: 0.16rem;
           font-weight: 600;
           color: #ffffff;
-          padding: 20px;
+          padding: 0.2rem;
           img {
             display: flex;
           }
         }
         .content {
-          height: 300px;
+          height: 3rem;
           overflow: auto;
           .item {
             display: flex;
             align-items: center;
             justify-content: space-around;
-            height: 50px;
+            height: 0.5rem;
             .file-icon {
               background-color: #2a77ff;
               img {
@@ -626,28 +615,28 @@ export default {
               }
             }
             .file-name {
-              width: 153px;
-              height: 22px;
+              width: 1.53rem;
+              height: 0.22rem;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              font-size: 16px;
+              font-size: 0.16rem;
               font-family: Microsoft YaHei;
               font-weight: 400;
-              line-height: 19px;
+              line-height: 0.19rem;
               color: #020202;
               opacity: 1;
             }
             .file-size {
-                width: 60px;
-              font-size: 16px;
+              width: 0.6rem;
+              font-size: 0.16rem;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
             }
             .class-name {
-                 width: 144px;
-              font-size: 16px;
+              width: 1.44rem;
+              font-size: 0.16rem;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
@@ -656,12 +645,12 @@ export default {
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
-              width: 180px;
-              height: 22px;
-              font-size: 16px;
+              width: 1.8rem;
+              height: 0.22rem;
+              font-size: 0.16rem;
               font-family: Microsoft YaHei;
               font-weight: 400;
-              line-height: 19px;
+              line-height: 0.19rem;
               color: #7c878e;
               opacity: 1;
             }
@@ -670,7 +659,7 @@ export default {
               display: flex;
               img {
                 display: flex;
-                margin-left: 15px;
+                margin-left: 0.15rem;
               }
             }
           }
@@ -680,21 +669,21 @@ export default {
         position: absolute;
         bottom: 0.1rem;
         width: 100%;
-        height: 48px;
+        height: 0.48rem;
         z-index: 9;
         background-color: #ffffff;
-        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
-        border-left: 6px solid #2a77ff;
+        box-shadow: 0rem 0.03rem 0.2rem rgba(0, 0, 0, 0.16);
+        border-left: 0.06rem solid #2a77ff;
         display: flex;
         justify-content: space-between;
         .upload-num {
-          margin-left: 18px;
-          font-size: 16px;
+          margin-left: 0.18rem;
+          font-size: 0.16rem;
           font-family: PingFang SC;
           font-weight: 600;
-          line-height: 48px;
+          line-height: 0.48rem;
           color: #7c878e;
-          //   letter-spacing: 2px;
+          // letter-spacing: 0.02rem;
           opacity: 1;
         }
         .img {
@@ -703,7 +692,7 @@ export default {
           background-color: #2a77ff;
           img {
             cursor: pointer;
-            margin-right: 14px;
+            margin-right: 0.14rem;
           }
         }
       }
@@ -711,37 +700,36 @@ export default {
         .item {
           display: flex;
           align-items: center;
-          height: 50px;
-          padding: 30px 30px 30px 28px;
-          border-bottom: 1px solid #e0e0e0;
+          height: 0.5rem;
+          padding: 0.3rem 0.3rem 0.3rem 0.28rem;
+          border-bottom: 0.01rem solid #e0e0e0;
           .el-checkbox {
-            //   margin-left: 15;
+            // margin-left: 15;
           }
           .icon {
             margin-left: 0.15rem;
             display: flex;
-
             img {
               width: 0.3rem;
               height: 0.3rem;
             }
           }
           .title {
-            width: 320px;
-            font-size: 16px;
+            width: 3.2rem;
+            font-size: 0.16rem;
             color: #333333;
             opacity: 1;
             white-space: nowrap;
           }
           .size {
-            width: 80px;
-            //   display: none;
-            font-size: 16px;
+            width: 0.8rem;
+            // display: none;
+            font-size: 0.16rem;
             .el-progress {
               display: flex;
               align-items: center;
-              //   width: 120px;
-              margin-bottom: 5px;
+              // width: 1.2rem;
+              margin-bottom: 0.05rem;
               ::v-deep .el-progress-bar__inner {
                 position: absolute;
                 left: 0;
@@ -749,7 +737,7 @@ export default {
                 height: 100%;
                 background-color: #409eff;
                 text-align: right;
-                border-radius: 0px !important;
+                border-radius: 0rem !important;
                 line-height: 1;
                 white-space: nowrap;
                 transition: width 0.6s ease;

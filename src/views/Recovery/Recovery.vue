@@ -179,199 +179,203 @@ export default {
 </script>
 <style lang='scss' scoped>
 ::v-deep .el-dialog {
-  // height: 3rem;
-  line-height: 0rem;
+     // height: 3rem;
+     line-height: 0rem;
 }
-::v-deep .el-dialog__title {
-  font-size: 0.2rem;
-  font-weight: bold;
-  line-height: 0.4rem;
-  color: #2a77ff;
-  margin-left: 0.43rem;
+ ::v-deep .el-dialog__title {
+     font-size: 0.2rem;
+     font-weight: bold;
+     line-height: 0.4rem;
+     color: #2a77ff;
+     margin-left: 0.43rem;
 }
-h2 {
-  position: absolute;
-  top: 0.48rem;
-  color: #000000;
-  font-size: 0.2rem;
+ h2 {
+     position: absolute;
+     top: 0.48rem;
+     color: #000000;
+     font-size: 0.2rem;
 }
-.course-input {
-  font-size: 0.2rem;
-  color: #666666;
-  padding: 0.1rem 0rem 0.1rem 0rem;
-  width: 100%;
-  border-bottom: 0.01rem solid #e0e0e0 !important;
-  border: none;
+ .course-input {
+     font-size: 0.2rem;
+     color: #666666;
+     padding: 0.1rem 0rem 0.1rem 0rem;
+     width: 100%;
+     border-bottom: 0.01rem solid #e0e0e0 !important;
+     border: none;
 }
-.cancel-button {
-  border: none;
-  background: #fff !important;
-  box-shadow: 0 !important;
-  font-size: 0.14rem;
-  font-weight: bold;
-  color: #666666;
-  margin-right: 0.15rem;
+ .cancel-button {
+     border: none;
+     background: #fff !important;
+     box-shadow: 0 !important;
+     font-size: 0.14rem;
+     font-weight: bold;
+     color: #666666;
+     margin-right: 0.15rem;
 }
-.el-button {
-  margin-top: 0.4rem;
-  background: #2a77ff;
-  // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
-  &:hover {
-    background: #5592fe;
-  }
-  &:active {
-    background: #2065e0;
-  }
-}
-.delete-text {
-  font-size: 0.14rem;
-  line-height: 0.02rem;
-  color: #666666;
-}
-.body {
-  // height: 90vh;
-  // overflow: hidden;
-}
-.top-bar {
-  margin-top: 12px;
-  // width: 1584px;
-  height: 80px;
-  background: #ffffff;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-  // position: relative;
-  display: flex;
-  align-items: center;
-  .title {
-    // background-color: #2a77ff;
-    width: 100%;
-    // height: 200px;
-    margin: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 34px;
-    color: #666666;
-    border-left: 8px solid #5592fe;
-    .name {
-      margin-left: 12px;
+ .el-button {
+     margin-top: 0.4rem;
+     background: #2a77ff;
+     // box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+     &:hover {
+         background: #5592fe;
     }
-  }
-  .button {
-    display: flex;
-    margin-right: 0.3rem;
-    font-size: 14px;
-    font-weight: bold;
-    color: #f4f4f4;
-    position: absolute;
-    right: 0.3rem;
-    .Button {
-      margin-left: 20px;
+     &:active {
+         background: #2065e0;
     }
-  }
 }
-.navigation {
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  // background-color: #2a77ff;
-  position: relative;
-
-  .right-search {
-    width: 650px;
-    margin-bottom: 12px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    > div {
-      font-size: 16px;
-      font-weight: bold;
-      color: #c3c3c3;
-      margin-right: 30px;
-      input {
-        width: 366px;
-        height: 38px;
-        background: #ffffff;
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
-        border-radius: 35px;
-        border: none;
-        padding-left: 20px;
-        font-size: 14px;
-        color: #999999;
-        line-height: 138px;
-      }
-      .el-icon-search {
-        font-size: 20px;
-        position: absolute;
-        right: 50px;
-        top: 10px;
-        font-weight: 900;
-      }
-      ::-webkit-input-placeholder {
-        font-size: 14px;
-        line-height: 24px;
-        color: #999999;
-      } /* 使用webkit内核的浏览器 */
-      :-moz-placeholder {
-        font-size: 14px;
-        line-height: 24px;
-        color: #999999;
-      } /* Firefox版本4-18 */
-      ::-moz-placeholder {
-        font-size: 14px;
-        line-height: 24px;
-        color: #999999;
-      } /* Firefox版本19+ */
-      :-ms-input-placeholder {
-        font-size: 14px;
-        line-height: 24px;
-        color: #999999;
-      } /* IE浏览器 */
-    }
-  }
-  .empty {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // transform: translate(-50%, -50%);
-    margin: 200px 600px 200px 200px;
-    height: 330px;
-    // width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    // background-color: #2a77ff;
-    .img {
-      width: 300px;
-      height: 191px;
-      img {
-        width: 300px;
-        height: 191px;
-      }
-    }
-    .text {
-      font-size: 20px;
-      font-weight: bold;
-      color: #999999;
-    }
-    .button {
-      font-size: 14px;
-      font-weight: bold;
-      color: #f4f4f4;
-      .el-button {
-        background: #2a77ff;
-        box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
-        &:hover {
-          background: #5592fe;
+ .delete-text {
+     font-size: 0.14rem;
+     line-height: 0.02rem;
+     color: #666666;
+}
+ .body {
+     // height: 90vh;
+     // overflow: hidden;
+}
+ .top-bar {
+     margin-top: 0.12rem;
+     // width: 15.84rem;
+     height: 0.8rem;
+     background: #ffffff;
+     box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+     // position: relative;
+     display: flex;
+     align-items: center;
+     .title {
+         // background-color: #2a77ff;
+         width: 100%;
+         // height: 2rem;
+         margin: 0.2rem;
+         font-size: 0.2rem;
+         font-weight: bold;
+         line-height: 0.34rem;
+         color: #666666;
+         border-left: 0.08rem solid #5592fe;
+         .name {
+             margin-left: 0.12rem;
         }
-        &:active {
-          background: #2065e0;
-        }
-      }
     }
-  }
+     .button {
+         display: flex;
+         margin-right: 0.3rem;
+         font-size: 0.14rem;
+         font-weight: bold;
+         color: #f4f4f4;
+         position: absolute;
+         right: 0.3rem;
+         .Button {
+             margin-left: 0.2rem;
+        }
+    }
 }
+ .navigation {
+     margin-top: 0.3rem;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     // background-color: #2a77ff;
+     position: relative;
+     .right-search {
+         width: 6.5rem;
+         margin-bottom: 0.12rem;
+         position: absolute;
+         right: 0;
+         top: 0;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         > div {
+             font-size: 0.16rem;
+             font-weight: bold;
+             color: #c3c3c3;
+             margin-right: 0.3rem;
+             input {
+                 width: 3.66rem;
+                 height: 0.38rem;
+                 background: #ffffff;
+                 box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
+                 border-radius: 0.35rem;
+                 border: none;
+                 padding-left: 0.2rem;
+                 font-size: 0.14rem;
+                 color: #999999;
+                 line-height: 1.38rem;
+            }
+             .el-icon-search {
+                 font-size: 0.2rem;
+                 position: absolute;
+                 right: 0.5rem;
+                 top: 0.1rem;
+                 font-weight: 900;
+            }
+             ::-webkit-input-placeholder {
+                 font-size: 0.14rem;
+                 line-height: 0.24rem;
+                 color: #999999;
+            }
+            /* 使用webkit内核的浏览器 */
+             :-moz-placeholder {
+                 font-size: 0.14rem;
+                 line-height: 0.24rem;
+                 color: #999999;
+            }
+            /* Firefox版本4-18 */
+             ::-moz-placeholder {
+                 font-size: 0.14rem;
+                 line-height: 0.24rem;
+                 color: #999999;
+            }
+            /* Firefox版本19+ */
+             :-ms-input-placeholder {
+                 font-size: 0.14rem;
+                 line-height: 0.24rem;
+                 color: #999999;
+            }
+            /* IE浏览器 */
+        }
+    }
+     .empty {
+         // position: absolute;
+         // top: 0;
+         // left: 0;
+         // transform: translate(-50%, -50%);
+         margin: 2rem 6rem 2rem 2rem;
+         height: 3.3rem;
+         // width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-between;
+         // background-color: #2a77ff;
+         .img {
+             width: 3rem;
+             height: 1.91rem;
+             img {
+                 width: 3rem;
+                 height: 1.91rem;
+            }
+        }
+         .text {
+             font-size: 0.2rem;
+             font-weight: bold;
+             color: #999999;
+        }
+         .button {
+             font-size: 0.14rem;
+             font-weight: bold;
+             color: #f4f4f4;
+             .el-button {
+                 background: #2a77ff;
+                 box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+                 &:hover {
+                     background: #5592fe;
+                }
+                 &:active {
+                     background: #2065e0;
+                }
+            }
+        }
+    }
+}
+ 
 </style>

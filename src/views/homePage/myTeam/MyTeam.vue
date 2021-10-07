@@ -423,7 +423,6 @@ export default {
       this.teamList.forEach((item) => {
         item.select = flag;
       });
-      
     },
     //点击下方item check
     IsCheck() {
@@ -566,7 +565,6 @@ export default {
   border-bottom: 0.01rem solid #e0e0e0;
   color: #999999;
   font-size: 0.16rem;
-
   .set {
     // background-color: #666666;
     position: relative;
@@ -602,49 +600,52 @@ export default {
     width: 2.58rem;
     height: 0.4rem;
     background: #f9f9fa;
-    // border: 1px solid #eef0f1;
+    // border: 0.01rem solid #eef0f1;
     opacity: 1;
-    // border-radius: 4px;
+    // border-radius: 0.04rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .copy-text {
       input {
         border: 0;
-        line-height: 40px;
-        padding-left: 15px;
+        line-height: 0.4rem;
+        padding-left: 0.15rem;
         width: 2.5rem;
-        height: 40px;
+        height: 0.4rem;
         // background-color: red;
         background-color: #f9f9fa;
-        overflow: hidden; /*超出部分隐藏*/
-        white-space: nowrap; /*不换行*/
-        text-overflow: ellipsis; /*超出部分文字以...显示*/
+        overflow: hidden;
+        /*超出部分隐藏*/
+        white-space: nowrap;
+        /*不换行*/
+        text-overflow: ellipsis;
+        /*超出部分文字以...显示*/
         // background-color: red;
       }
     }
   }
   .copyFinish {
     background: #5592fe !important;
-    box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
+    box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.16);
     opacity: 1;
   }
   .copy {
     display: flex;
     align-items: center;
     justify-content: center;
-    // min-width: 80px;
+    // min-width: 0.8rem;
     min-width: 1rem;
-    height: 40px;
+    height: 0.4rem;
     background: #2a77ff;
-    box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.16);
+    box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.16);
     opacity: 1;
-    font-size: 14px;
+    font-size: 0.14rem;
     font-weight: bold;
     color: #f4f4f4;
     opacity: 1;
     margin-left: 0.12rem;
-    border-radius: 6px;
+    border-radius: 0.06rem;
     &:hover {
       opacity: 0.8;
       cursor: pointer;
@@ -656,8 +657,8 @@ export default {
   }
 }
 .time {
-  margin-top: 35px;
-  font-size: 14px;
+  margin-top: 0.35rem;
+  font-size: 0.14rem;
   font-family: Source Han Sans CN;
   color: #666666;
   opacity: 1;
@@ -671,11 +672,11 @@ export default {
   height: 1.5rem;
   overflow: auto;
   .item {
-    width: 168px;
-    height: 56px;
+    width: 1.68rem;
+    height: 0.56rem;
     // background: #edeff3;
     opacity: 1;
-    border-radius: 4px;
+    border-radius: 0.04rem;
     display: flex;
     // align-items: center;
     margin-bottom: 0.3rem;
@@ -688,8 +689,8 @@ export default {
       align-items: center;
       .header {
         img {
-          width: 40px;
-          height: 40px;
+          width: 0.4rem;
+          height: 0.4rem;
           background: #2a77ff;
           border-radius: 50%;
         }
@@ -878,7 +879,7 @@ h2 {
           margin-left: 0.3rem;
         }
         .id {
-          //  margin-left: 0.1rem;
+          // margin-left: 0.1rem;
         }
         .quanxian {
           margin-right: 1.9rem;
@@ -949,7 +950,6 @@ h2 {
                 width: 100%;
               }
             }
-
             .me {
               margin-left: 0.15rem;
               width: 1.48rem;

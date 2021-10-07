@@ -1033,15 +1033,12 @@ export default {
   }
   .evaluation-board {
     margin-top: 0.4rem;
-    // width: 1052px;
     padding: 0.31rem 0.4rem 0.31rem 0.4rem;
     height: 100%;
-    // background: #8a2fe6;
     background: #fbfafc;
     opacity: 1;
     .right-top-text {
       display: flex;
-      // background-color: red;
       span:nth-of-type(1) {
         font-size: 0.18rem;
         font-weight: bold;
@@ -1050,12 +1047,8 @@ export default {
     }
     .comment {
       margin-top: 0.4rem;
-      // width: 74%;
-      // height: 100%;
-      // background: #ffffff;
       opacity: 1;
       .nav {
-        // width: 7.52rem;
         height: 0.6rem;
         background: #f6f6f8;
         opacity: 1;

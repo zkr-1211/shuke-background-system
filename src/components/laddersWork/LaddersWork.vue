@@ -11,7 +11,7 @@
             placement="top"
           >
             <div class="checkbox">
-              <a href="/course/LaddersTaskDesign">
+              <a href="/course/ladderstaskdesign">
                 <div
                   class="name"
                   :class="[

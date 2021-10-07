@@ -108,116 +108,115 @@ export default {
   methods: {
     tabsIndex(index) {
       this.tabIndex = index;
-      //   console.log("index", index);
     },
   },
 };
 </script>
 <style lang='scss' scoped>
 .body {
-  .top {
-    width: 100%;
-    height: 64px;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    .logo {
-      display: flex;
-      margin: 0 auto;
-      width: 1000px;
-      img {
-      }
+     .top {
+         width: 100%;
+         height: 0.64rem;
+         background: #ffffff;
+         display: flex;
+         align-items: center;
+         .logo {
+             display: flex;
+             margin: 0 auto;
+             width: 10rem;
+             img {
+            }
+        }
     }
-  }
-  .center {
-    margin: 50px auto 24px;
-    width: 1000px;
-    text-align: center;
-    .content-title {
-      position: relative;
-      .left-item {
-        position: absolute;
-        left: 0;
-        display: flex;
-        align-items: center;
-        .img {
-          width: 32px;
-          height: 32px;
-          background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
-          background-repeat: no-repeat;
-          background-size: cover;
+     .center {
+         margin: 0.5rem auto 0.24rem;
+         width: 10rem;
+         text-align: center;
+         .content-title {
+             position: relative;
+             .left-item {
+                 position: absolute;
+                 left: 0;
+                 display: flex;
+                 align-items: center;
+                 .img {
+                     width: 0.32rem;
+                     height: 0.32rem;
+                     background-image: url(../../../assets/image/home/ic_back_n.svg) !important;
+                     background-repeat: no-repeat;
+                     background-size: cover;
+                }
+                 &:hover .img {
+                     background-image: url(../../../assets/image/home/ic_back_h.svg) !important;
+                }
+                 &:active .img {
+                     background-image: url(../../../assets/image/home/ic_back_p.svg) !important;
+                }
+                 span {
+                     margin-left: 0.12rem;
+                     font-size: 0.16rem;
+                     line-height: 0.27rem;
+                     color: #333333;
+                }
+            }
+             .title {
+                 font-size: 0.2rem;
+                 font-weight: bold;
+                 line-height: 0.34rem;
+                 color: #666666;
+            }
         }
-        &:hover .img {
-          background-image: url(../../../assets/image/home/ic_back_h.svg) !important;
-        }
-        &:active .img {
-          background-image: url(../../../assets/image/home/ic_back_p.svg) !important;
-        }
-        span {
-          margin-left: 12px;
-          font-size: 16px;
-          line-height: 27px;
-          color: #333333;
-        }
-      }
-      .title {
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 34px;
-        color: #666666;
-      }
     }
-  }
-  .bottom {
-    margin: 0px auto;
-    width: 1000px;
-    height: 820px;
-    background: #ffffff;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.16);
-    overflow: hidden;
-    .notice-message {
-      margin: 60px auto 0;
-      height: 670px;
-      width: 700px;
-      overflow: hidden;
-      // background-color: red;
-      padding-right: 30px;
-      .message {
-        width: 700px;
-        height: 56px;
-        // background: red;
-        opacity: 1;
-        display: flex;
-        align-items: center;
-        .label {
-          width: 150px;
-          font-size: 14px;
-          font-weight: bold;
-          color: #333334;
+     .bottom {
+         margin: 0rem auto;
+         width: 10rem;
+         height: 8.2rem;
+         background: #ffffff;
+         box-shadow: 0rem 0.03rem 0.04rem rgba(0, 0, 0, 0.16);
+         overflow: hidden;
+         .notice-message {
+             margin: 0.6rem auto 0;
+             height: 6.7rem;
+             width: 7rem;
+             overflow: hidden;
+             // background-color: red;
+             padding-right: 0.3rem;
+             .message {
+                 width: 7rem;
+                 height: 0.56rem;
+                 // background: red;
+                 opacity: 1;
+                 display: flex;
+                 align-items: center;
+                 .label {
+                     width: 1.5rem;
+                     font-size: 0.14rem;
+                     font-weight: bold;
+                     color: #333334;
+                }
+                 .content {
+                     font-size: 0.14rem;
+                     color: #666666;
+                }
+            }
         }
-        .content {
-          font-size: 14px;
-          color: #666666;
+         .button {
+             width: 100%;
+             text-align: center;
+             font-size: 0.14rem;
+             font-weight: bold;
+             color: #f4f4f4;
+             .el-button {
+                 background: #2a77ff;
+                 box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
+                 &:hover {
+                     background: #5592fe;
+                }
+                 &:active {
+                     background: #2065e0;
+                }
+            }
         }
-      }
     }
-    .button {
-      width: 100%;
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-      color: #f4f4f4;
-      .el-button {
-        background: #2a77ff;
-        box-shadow: 0px 3px 6px rgba(42, 119, 255, 0.2);
-        &:hover {
-          background: #5592fe;
-        }
-        &:active {
-          background: #2065e0;
-        }
-      }
-    }
-  }
 }
 </style>

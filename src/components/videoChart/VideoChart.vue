@@ -203,9 +203,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 #myChart {
-  min-width: 400px;
-  width: 100%;
-  // width: 500px;
-  height: 290px;
+ min-width: 4rem;
+ width: 100%;
+ height: 2.9rem;
 }
 </style>

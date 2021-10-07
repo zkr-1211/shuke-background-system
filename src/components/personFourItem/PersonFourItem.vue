@@ -15,7 +15,7 @@
             </div>
           </el-col>
           <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-            <router-link to="/homePage/myClass">
+            <router-link to="/homePage/myclass">
               <div class="item">
                 <div class="tiaozi"></div>
                 <div class="img">
@@ -27,7 +27,7 @@
             </router-link>
           </el-col>
           <el-col :xs="6" :sm="6" :md="6" :lg="6" :xl="6">
-            <router-link to="/homePage/myTeam">
+            <router-link to="/homePage/myteam">
               <div class="item">
                 <div class="tiaozi"></div>
                 <div class="img">

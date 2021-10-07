@@ -78,7 +78,7 @@
                 <Empty />
               </template>
               <template v-else>
-                <router-link to="/course/courseDetail">
+                <router-link to="/course/coursedetail">
                   <div
                     class="course-item"
                     v-for="(item, index) in 6"

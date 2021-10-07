@@ -33,7 +33,10 @@
                 <el-button type="primary">
                   <div class="icon-button">
                     <div>
-                      <img src="@/assets/image/course/ic_button_unsee.svg" alt="" />
+                      <img
+                        src="@/assets/image/course/ic_button_unsee.svg"
+                        alt=""
+                      />
                     </div>
                     <div>隐藏选中</div>
                   </div>
@@ -43,7 +46,10 @@
                 <el-button type="primary">
                   <div class="icon-button">
                     <div>
-                      <img src="@/assets/image/course/ic_button_see.svg" alt="" />
+                      <img
+                        src="@/assets/image/course/ic_button_see.svg"
+                        alt=""
+                      />
                     </div>
                     <div>可见选中</div>
                   </div>
@@ -61,21 +67,33 @@
             <div class="contentNav">
               <div class="select-all">
                 <!-- <el-checkbox :isIndeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange"></el-checkbox> -->
-                <CheckBox v-model="isCheckedAll" @IsCheck='IsCheck'/>
+                <CheckBox v-model="isCheckedAll" @IsCheck="IsCheck" />
               </div>
               <div class="file-name">文件名</div>
               <div class="file-size">大小</div>
               <div class="operate">操作</div>
             </div>
             <div class="tableContent">
-              <SectionOutline :ChapterIssue="true" :checkAll="checkAll" @isCheck="isCheckedAllTf" @lockClick="lockClick" :sectionOutlineList="sectionOutlineList" />
+              <SectionOutline
+                :ChapterIssue="true"
+                :checkAll="checkAll"
+                @isCheck="isCheckedAllTf"
+                @lockClick="lockClick"
+                :sectionOutlineList="sectionOutlineList"
+              />
             </div>
           </div>
         </div>
       </el-col>
     </el-row>
     <!--权限设置  -->
-    <el-dialog title="" :visible.sync="lockDV" width="30%" :show-close="false" top="10vh">
+    <el-dialog
+      title=""
+      :visible.sync="lockDV"
+      width="30%"
+      :show-close="false"
+      top="10vh"
+    >
       <!-- <div class="what"><img src="@/assets/image/course/ic_button_unsee.svg" alt=""></div> -->
       <div class="d">
         <div>
@@ -107,7 +125,9 @@
       </div>
       <span slot="footer" class="dialog-footer">
         <!-- <span class="delete-man">删除成员</span> -->
-        <el-button class="cancel-button" @click="lockDV = false">取 消</el-button>
+        <el-button class="cancel-button" @click="lockDV = false"
+          >取 消</el-button
+        >
         <el-button type="primary" @click="lockDV = false">确 认</el-button>
       </span>
     </el-dialog>
@@ -186,16 +206,16 @@ export default {
       this.lockDV = true;
     },
     IsCheck() {
-      let flag = this.isCheckedAll
+      let flag = this.isCheckedAll;
       this.sectionOutlineList.forEach((item) => {
         item.isCheck = flag;
       });
     },
     isCheckedAllTf(e) {
-      if(e){
-        this.isCheckedAll = true
-      }else{
-        this.isCheckedAll = false
+      if (e) {
+        this.isCheckedAll = true;
+      } else {
+        this.isCheckedAll = false;
       }
     },
   },
@@ -210,35 +230,25 @@ export default {
   display: flex;
 }
 .lock-what {
-  // background-color: firebrick;
-  // line-height: 35px;
   img {
     margin-left: 0.12rem;
-    padding-top: 5px;
-    // margin-right: 0.12rem;
-    // width: 20px;
-    // height: 20px;
+    padding-top: 0.05rem;
   }
 }
 .what {
   display: flex;
   align-items: center;
   // background-color: firebrick;
-
   img {
     margin-right: 0.12rem;
     display: flex;
-    // width: 20px;
-    // height: 20px;
   }
 }
 .quan-xian {
-  // width: 5.3rem;
   height: 4.9rem;
   overflow-y: auto;
   position: relative;
   margin-top: 0.12rem;
-
   .cancel-button {
     border: none;
     background: #fff !important;
@@ -271,7 +281,6 @@ export default {
     height: 0.5rem;
   }
 }
-
 .select-num {
   font-size: 0.16rem;
   color: #2a77ff;
@@ -352,7 +361,6 @@ export default {
               margin-right: 0.05rem;
             }
           }
-
           &:hover {
             background: #5592fe;
           }
@@ -368,7 +376,6 @@ export default {
         font-size: 0.14rem;
         font-weight: bold;
         color: #f4f4f4;
-
         .el-button {
           background: #2a77ff;
           box-shadow: 0rem 0.03rem 0.06rem rgba(42, 119, 255, 0.2);
@@ -380,7 +387,6 @@ export default {
               margin-right: 0.05rem;
             }
           }
-
           &:hover {
             background: #5592fe;
           }
@@ -441,18 +447,17 @@ export default {
       }
     }
     .contentNav {
-      //   width: 328px;
+      // width: 3.28rem;
       width: 100%;
-      height: 48px;
+      height: 0.48rem;
       background: #f6f6f8;
       opacity: 1;
       font-size: 0.16rem;
       font-weight: bold;
-      //   line-height: 27px;
+      // line-height: 0.27rem;
       color: #666666;
       display: flex;
       align-items: center;
-
       .select-all {
         margin-left: 0.28rem;
         margin-top: 0.02rem;
@@ -466,7 +471,6 @@ export default {
         width: 1.7rem;
         text-align: center;
       }
-
       .operate {
         text-align: center;
         width: 3rem;

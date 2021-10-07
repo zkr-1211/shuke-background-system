@@ -27,7 +27,7 @@
         </el-col>
         <el-col :xs="12" :sm="12" :md="12" :lg="3" :xl="3">
           <div class="item-2">
-            <router-link to="/course/chapterIssue">
+            <router-link to="/course/chapterissue">
               <div class="content">
                 <div class="img">
                   <img
@@ -356,10 +356,8 @@ export default {
   margin: 0.4rem 0.3rem 0.2rem 0.3rem;
 }
 .contentDv {
-  // margin-left: 0.3rem;
   width: 90%;
   margin: 0px auto;
-  // background-color: red;
   height: 3.85rem;
   .dialog-footer {
     text-align: right;

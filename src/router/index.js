@@ -40,7 +40,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: '/course/WorkDesign',
+    redirect: '/course/workdesign',
     children: [
       {
         path: '/main',
@@ -53,7 +53,7 @@ const routes = [
         component: Course
       },
       {
-        path: '/recordVideo',
+        path: '/recordvideo',
         component: RecordVideo
       },
       {
@@ -61,23 +61,23 @@ const routes = [
         component: Recovery
       },
       {
-        path: '/course/courseDetail',
+        path: '/course/coursedetail',
         component: CourseDetail
       },
       {
-        path: '/homePage/myClass',
+        path: '/homepage/myclass',
         component: MyClass
       },
       {
-        path: '/homePage/myTeam',
+        path: '/homepage/myteam',
         component: MyTeam
       },
       {
-        path: '/course/classDetail',
+        path: '/course/classdetail',
         component: ClassDetail
       },
       {
-        path: '/homePage/studentInfo',
+        path: '/homepage/studentinfo',
         component: StudentInfo
       },
       {
@@ -85,19 +85,19 @@ const routes = [
         component: Work
       },
       {
-        path: '/course/workDetail',
+        path: '/course/workdetail',
         component: WorkDetail
       },
       {
-        path: '/course/taskSituation',
+        path: '/course/tasksituation',
         component: TaskSituation
       },
       {
-        path: '/course/goupingSituation',
+        path: '/course/goupingsituation',
         component: GoupingSituation
       },
       {
-        path: '/course/Setting',
+        path: '/course/setting',
         component: Setting
       },
       {
@@ -109,35 +109,35 @@ const routes = [
         component: Ladders
       },
       {
-        path: '/course/chapterIssue',
+        path: '/course/chapterissue',
         component: ChapterIssue
       },
       {
-        path: '/course/laddersTemplateDesign',
+        path: '/course/ladderstemplatedesign',
         component: LaddersTemplateDesign
       },
       {
-        path: '/course/laddersTaskDesign',
+        path: '/course/ladderstaskdesign',
         component: LaddersTaskDesign
       },
       {
-        path: '/course/workDesign',
+        path: '/course/workdesign',
         component: WorkDesign
       },
       {
-        path: '/course/editProblem',
+        path: '/course/editproblem',
         component: EditProblem
       },
       {
-        path: '/course/problemDetail',
+        path: '/course/problemdetail',
         component: ProblemDetail
       },
       {
-        path: '/course/uploadResource',
+        path: '/course/uploadresource',
         component: UploadResource
       },
       {
-        path: '/course/uploadResourceOther',
+        path: '/course/uploadresourceother',
         component: UploadResourceOther
       }
 
@@ -185,25 +185,9 @@ const router = new VueRouter({
 import { setCookie, getCookie } from '@/utils/cookieUtil'
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  // console.log("Vue", Vue)
-  setCookie('token', 123)
-  let token = getCookie('token')
-  // console.log("totototototo", to.path,to.fullPath)
-  // const token = localStorage.getItem('token')
-  //如果是登录页面路径，就直接next()
-  if (token) {
-    next();
-  } else {
-    if (to.path == '/main') {
-      next();
-    } else { //不然就跳转到登录；
-      next({
-        path: '/main',
-        // query: {
-        //   redirect: to.fullPath
-        // }
-      })
-    }
-  }
+  if (to.path === '/main') return next()
+  const token = store.getters.getToken;
+  if(!token) return next('/main')
+  next()
 });
 export default router
