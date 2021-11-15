@@ -165,7 +165,7 @@ export default {
     }, 1500);
 
     // const { name, xData, yData } = this;
-    this.$refs.myChart.drawLine();
+    // this.$refs.myChart.drawLine();
     var arr1 = [2, 9, 7, 9];
     var arr2 = [9, 7, 8, 1];
     // target = 9;

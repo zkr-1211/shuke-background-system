@@ -185,9 +185,9 @@ const router = new VueRouter({
 import { setCookie, getCookie } from '@/utils/cookieUtil'
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  if (to.path === '/main') return next()
-  const token = store.getters.getToken;
-  if(!token) return next('/main')
+  // if (to.path === '/main') return next()
+  // const token = store.getters.getToken;
+  // if(!token) return next('/main')
   next()
 });
 export default router

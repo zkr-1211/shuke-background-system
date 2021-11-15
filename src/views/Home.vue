@@ -216,7 +216,10 @@
           </div>
         </el-aside>
         <el-main>
-          <router-view />
+          <div class="center">
+             <router-view />
+          </div>
+         
         </el-main>
       </el-container>
     </el-container>
@@ -648,6 +651,10 @@ export default {
   margin-left: 0.2rem;
   overflow-y: auto;
   overflow-x: hidden;
+  .center{
+    // min-width: 13.66rem;
+    // overflow: auto;
+  }
 }
 .el-container:nth-child(5) .el-aside,
 .el-container:nth-child(6) .el-aside {

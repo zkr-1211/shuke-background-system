@@ -148,10 +148,6 @@ export default {
   computed: {},
 
   mounted() {
-    this.$refs.myChart.LearnScoreChart();
-    this.$refs.myChart1.drawLine();
-    this.$refs.myChart2.WorkDataChartData();
-    this.$refs.myChart3.WorkDataChartData1();
   },
 
   methods: {},
