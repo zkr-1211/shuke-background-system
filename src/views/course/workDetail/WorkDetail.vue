@@ -269,7 +269,7 @@ export default {
         // background-color: red !important;
         // min-width: 3.7rem;
 
-        overflow: auto;
+        overflow: overlay;
         .item {
           // width: 86%;
           display: flex;
@@ -324,7 +324,7 @@ export default {
       align-items: center;
       flex-wrap: wrap;
       justify-content: space-between;
-      overflow: auto;
+      overflow: overlay;
       .right-top-left {
         display: flex;
         align-items: center;

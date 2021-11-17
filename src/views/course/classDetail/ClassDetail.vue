@@ -364,7 +364,7 @@ export default {
   }
   .jiaowu {
     height: 3.1rem;
-    overflow: auto;
+    overflow: overlay;
   }
 }
 .yaoqingma {
@@ -388,7 +388,7 @@ export default {
 .biaoge {
   height: 3.1rem;
   width: 100%;
-  overflow: auto;
+  overflow: overlay;
   overflow-y: hidden;
   .xiazai {
     margin-top: 0.2rem;
@@ -812,7 +812,7 @@ h2 {
       .content {
         // display: flex;
         height: 5.8rem;
-        overflow: auto;
+        overflow: overlay;
         // width: 100%;
         .item {
           // background-color: chartreuse;

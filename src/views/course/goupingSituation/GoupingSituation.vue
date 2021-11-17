@@ -132,7 +132,7 @@ export default {
          .content {
              // display: flex;
              height: 5.8rem;
-             overflow: auto;
+             overflow: overlay;
              // width: 100%;
              .item {
                  // background-color: chartreuse;

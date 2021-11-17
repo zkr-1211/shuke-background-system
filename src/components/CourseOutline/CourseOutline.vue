@@ -123,6 +123,7 @@ export default {
  .course-outline {
      width: 100%;
      overflow-x: hidden;
+     overflow: overlay;
      margin: 0 auto;
      .outline-item {
          background: #ffffff;

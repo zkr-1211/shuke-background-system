@@ -185,7 +185,7 @@ export default {
           width: 100%;
           height: 1.8rem;
           background: #ffffff;
-          overflow: auto;
+          overflow: overlay;
           overflow-x: hidden;
           .item {
             // width: 4.5rem;
@@ -222,7 +222,7 @@ export default {
           width: 100%;
           height: 1.8rem;
           background: #ffffff;
-          overflow: auto;
+          overflow: overlay;
           overflow-x: hidden;
           .item {
             cursor: pointer;

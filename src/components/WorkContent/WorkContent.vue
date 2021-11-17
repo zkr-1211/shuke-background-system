@@ -137,7 +137,7 @@ h2 {
   margin-top: -0.15rem;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  overflow: overlay;
   display: flex;
   flex-wrap: wrap;
   .course-item {

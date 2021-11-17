@@ -232,12 +232,14 @@
 import Dot from "@/components/Dot/Dot.vue";
 import Button from "@/components/Button/Button.vue";
 import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import fullScreenMixins from '@/mixins/fullScreenMixins'
 export default {
   components: {
     Dot,
     Button,
     HeaderTitle,
   },
+  mixins:[fullScreenMixins],
   data() {
     return {
       commitImgList: [],
@@ -275,29 +277,6 @@ export default {
     };
   },
   computed: {},
-  mounted() {
-    let isFullscreen =
-      document.fullscreenElement ||
-      document.mozFullScreenElement ||
-      document.webkitFullscreenElement ||
-      document.fullScreen ||
-      document.mozFullScreen ||
-      document.webkitIsFullScreen;
-    isFullscreen = !!isFullscreen;
-    let that = this;
-    document.addEventListener("fullscreenchange", () => {
-      that.isFullScren = !that.isFullScren;
-    });
-    document.addEventListener("mozfullscreenchange", () => {
-      that.isFullScren = !that.isFullScren;
-    });
-    document.addEventListener("webkitfullscreenchange", () => {
-      that.isFullScren = !that.isFullScren;
-    });
-    document.addEventListener("msfullscreenchange", () => {
-      that.isFullScren = !that.isFullScren;
-    });
-  },
 
   methods: {
     handleClick(tab, event) {
@@ -305,34 +284,6 @@ export default {
     },
     selectMember(index) {
       this.memberId = index;
-    },
-    // 全屏事件
-    fullScreenEvent() {
-      //全屏
-      // let el = document.documentElement;
-      //局部全屏
-      let el = document.getElementById("work-content");
-      if (this.isFullScren) {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
-        } else if (document.webkitCancelFullScreen) {
-          document.webkitCancelFullScreen();
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        }
-      } else {
-        if (el.requestFullscreen) {
-          el.requestFullscreen();
-        } else if (el.mozRequestFullScreen) {
-          el.mozRequestFullScreen();
-        } else if (el.webkitRequestFullScreen) {
-          el.webkitRequestFullScreen();
-        } else if (el.msRequestFullscreen) {
-          el.msRequestFullscreen();
-        }
-      }
     },
     handleRemove(file, commitImgList) {
       console.log(file, commitImgList);
@@ -664,7 +615,7 @@ export default {
             height: 90%;
             // background: rgb(110, 152, 167);
             opacity: 1;
-            overflow: auto;
+            overflow: overlay;
             position: relative;
             .look-image {
               width: 7.52rem;
@@ -752,7 +703,7 @@ export default {
             height: 4.23rem;
             // background: rgb(110, 152, 167);
             opacity: 1;
-            overflow: auto;
+            overflow: overlay;
 
             .look-image {
               width: 7.52rem;
@@ -886,7 +837,7 @@ export default {
             // margin-left: 0.12rem;
             flex-wrap: wrap;
             // transition: all 1s;
-            overflow: auto;
+            overflow: overlay;
             .img-item {
               position: relative;
               overflow: hidden;

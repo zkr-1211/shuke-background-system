@@ -532,7 +532,7 @@ export default {
       margin-top: 0.28rem;
       border-radius: 0.08rem;
       // display: flex;
-      // overflow: auto;
+      // overflow: overlay;
       // .map {
       // display: flex;
       flex-direction: column;

@@ -30,9 +30,9 @@
       :courseContentList="courseContentList"
       v-if="tabIndex == 0"
     />
-    <WorkContent v-if="tabIndex == 1" />
-    <ProblemSetDetail v-if="tabIndex == 2" />
-    <ProblemSet v-if="tabIndex == 3" />
+    <WorkContent v-else-if="tabIndex == 1" />
+    <ProblemSetDetail v-else-if="tabIndex == 2" />
+    <ProblemSet v-else-if="tabIndex == 3" />
     <!-- </div> -->
 
     <!-- 创建课程 -->

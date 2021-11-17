@@ -169,7 +169,7 @@ export default {
      height: 4.2rem;
 }
  .course-outline {
-     overflow: auto;
+     overflow: overlay;
      width: 100%;
      // height: 4.2rem;
      overflow-y: hidden;

@@ -49,7 +49,7 @@ export default {
 .el-tabs {
      // min-width: 16rem;
      width: 100%;
-     // overflow: auto;
+     // overflow: overlay;
      height: 100%;
      position: relative;
      // background-color: rgb(175, 139, 139);

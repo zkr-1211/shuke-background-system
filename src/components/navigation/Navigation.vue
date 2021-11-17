@@ -36,8 +36,8 @@
               </template>
 
               <div>
-                <input type="text" placeholder="搜索你想要的班级" />
-                <i class="el-icon-search"></i>
+                <input type="text" placeholder="搜索你想要的班级" v-model.trim="value" @keyup.enter="search"/>
+                <i class="el-icon-search" @click="search"></i>
               </div>
             </div>
           </div>
@@ -70,6 +70,7 @@ export default {
   data() {
     return {
       tabIndex: 0,
+      value
     };
   },
   computed: {},
@@ -79,8 +80,11 @@ export default {
   methods: {
     tabsIndex(index) {
       this.$emit("tabsIndex", index);
-      console.log("this.tabIndex", index, this.$parent.$parent);
     },
+    search(){
+      this.$emit("search", this.value);
+      console.log('搜索的内容是===',this.value)
+    }
   },
 };
 </script>

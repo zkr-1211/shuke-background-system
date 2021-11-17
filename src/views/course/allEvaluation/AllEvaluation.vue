@@ -139,7 +139,7 @@ export default {
      .main-content {
          display: flex;
          flex-wrap: wrap;
-         overflow: auto;
+         overflow: overlay;
          height: 6rem;
          .content {
              padding: 0.4rem;
@@ -153,10 +153,10 @@ export default {
              margin-right: 0.2rem;
              margin-bottom: 0.2rem;
              // height: 1.2rem;
-             // overflow: auto;
+             // overflow: overlay;
              .des {
                  height: 0.7rem;
-                 overflow: auto;
+                 overflow: overlay;
                  line-height: 0.24rem;
             }
              .bottom-content {

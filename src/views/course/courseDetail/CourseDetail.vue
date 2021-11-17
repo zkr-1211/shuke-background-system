@@ -214,7 +214,6 @@ export default {
   computed: {},
 
   mounted() {
-    this.$refs.myChart.drawLine();
   },
 
   methods: {
@@ -402,7 +401,7 @@ export default {
             font-size: 0.14rem;
             color: #666666;
             height: 1.25rem;
-            overflow: auto;
+            overflow: overlay;
             .bottom-content {
               margin-top: 0.2rem;
               display: flex;
@@ -512,20 +511,6 @@ export default {
               background: #2065e0;
             }
           }
-        }
-      }
-      .course-outline {
-        width: 5.78rem;
-        height: 4.2rem;
-        overflow-x: hidden;
-        margin: 0 auto;
-        .outline-item {
-          width: 5.78rem;
-          background: #ffffff;
-          padding: 0.24rem 0.3rem 0rem 0.3rem;
-          font-size: 0.16rem;
-          line-height: 0.27rem;
-          color: #666666;
         }
       }
     }

@@ -551,7 +551,7 @@ export default {
     }
     .tableContent {
       height: 7rem;
-      overflow: auto;
+      overflow: overlay;
       position: relative;
       .upload-dialgo-open {
         z-index: 999999;
@@ -602,7 +602,7 @@ export default {
         }
         .content {
           height: 3rem;
-          overflow: auto;
+          overflow: overlay;
           .item {
             display: flex;
             align-items: center;

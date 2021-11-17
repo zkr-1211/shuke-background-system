@@ -156,7 +156,7 @@ h2 {
   width: 100%;
   // width: 90%;
   // min-height: 18rem;
-  overflow: auto;
+  overflow: overlay;
   // background-color: red;
   display: flex;
   // align-items: center;
