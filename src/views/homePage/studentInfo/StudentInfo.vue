@@ -114,13 +114,13 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
-import ChartLine from "@/components/chartLint/ChartLint.vue";
-import PersonCard from "@/components/personCard/PersonCard.vue";
-import PersonFourItem from "@/components/personFourItem/PersonFourItem.vue";
-import LearnScoreChart from "@/components/learnScoreChart/LearnScoreChart.vue";
-import WorkDataChart from "@/components/workDataChart/WorkDataChart.vue";
-import WorkDataChart1 from "@/components/workDataChart1/WorkDataChart1.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import ChartLine from "@/components/ChartLint/ChartLint.vue";
+import PersonCard from "@/components/PersonCard/PersonCard.vue";
+import PersonFourItem from "@/components/PersonFourItem/PersonFourItem.vue";
+import LearnScoreChart from "@/components/LearnScoreChart/LearnScoreChart.vue";
+import WorkDataChart from "@/components/WorkDataChart/WorkDataChart.vue";
+import WorkDataChart1 from "@/components/WorkDataChart1/WorkDataChart1.vue";
 export default {
   components: {
     HeaderTitle,

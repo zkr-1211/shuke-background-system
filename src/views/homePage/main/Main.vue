@@ -128,11 +128,11 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
-import ChartLine from "@/components/chartLint/ChartLint.vue";
-import PersonCard from "@/components/personCard/PersonCard.vue";
-import PersonFourItem from "@/components/personFourItem/PersonFourItem.vue";
-import Empty from "@/components/empty/Empty.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import ChartLine from "@/components/ChartLint/ChartLint.vue";
+import PersonCard from "@/components/PersonCard/PersonCard.vue";
+import PersonFourItem from "@/components/PersonFourItem/PersonFourItem.vue";
+import Empty from "@/components/Empty/Empty.vue";
 export default {
   components: {
     HeaderTitle,

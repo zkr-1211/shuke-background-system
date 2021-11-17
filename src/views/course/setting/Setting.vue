@@ -161,11 +161,11 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
-import Button from "@/components/button/Button.vue";
-import SmallHeaderTitle from "@/components/smallHeaderTitle/SmallHeaderTitle.vue";
-import Navigation from "@/components/navigation/Navigation.vue";
-import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import Button from "@/components/Button/Button.vue";
+import SmallHeaderTitle from "@/components/SmallHeaderTitle/SmallHeaderTitle.vue";
+import Navigation from "@/components/Navigation/Navigation.vue";
+import ProblemSetDetail from "@/components/ProblemSetDetail/ProblemSetDetail.vue";
 export default {
   components: {
     HeaderTitle,

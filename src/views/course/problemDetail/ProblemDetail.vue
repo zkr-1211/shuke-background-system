@@ -105,10 +105,10 @@
 </template>
 
 <script>
-import TopBar from "@/components/topBar/TopBar";
-import Button from "@/components/button/Button";
-import SmallHeaderTitle from "@/components/smallHeaderTitle/SmallHeaderTitle";
-import CheckBox from "@/components/checkBox/CheckBox";
+import TopBar from "@/components/TopBar/TopBar";
+import Button from "@/components/Button/Button";
+import SmallHeaderTitle from "@/components/SmallHeaderTitle/SmallHeaderTitle";
+import CheckBox from "@/components/CheckBox/CheckBox";
 export default {
   components: { TopBar, Button, SmallHeaderTitle, CheckBox },
   data() {

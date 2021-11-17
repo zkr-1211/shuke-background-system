@@ -84,11 +84,11 @@
 </template>
 
 <script>
-import TopBar from "@/components/topBar/TopBar";
-import DataTimeStartEnd from "@/components/dataTimeStartEnd/DataTimeStartEnd";
-import UseClass from "@/components/useClass/UseClass";
-import Button from "@/components/button/Button";
-import Dot from "@/components/dot/Dot";
+import TopBar from "@/components/TopBar/TopBar";
+import DataTimeStartEnd from "@/components/DataTimeStartEnd/DataTimeStartEnd";
+import UseClass from "@/components/UseClass/UseClass";
+import Button from "@/components/Button/Button";
+import Dot from "@/components/Dot/Dot";
 export default {
   components: { TopBar, DataTimeStartEnd, UseClass, Button, Dot },
   data() {

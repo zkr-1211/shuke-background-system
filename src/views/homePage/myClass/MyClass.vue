@@ -52,14 +52,14 @@
 </template>
 
 <script>
-import Tabs from "@/components/tabs/Tabs.vue";
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
-import Navigation from "@/components/navigation/Navigation.vue";
-import CourseContent from "@/components/courseContent/CourseContent.vue";
-import ProblemSet from "@/components/problemSet/ProblemSet.vue";
-import WorkContent from "@/components/workContent/WorkContent.vue";
-import ProblemSetDetail from "@/components/problemSetDetail/ProblemSetDetail.vue";
-import ClassContent from "@/components/classContent/ClassContent.vue";
+import Tabs from "@/components/Tabs/Tabs.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import Navigation from "@/components/Navigation/Navigation.vue";
+import CourseContent from "@/components/CourseContent/CourseContent.vue";
+import ProblemSet from "@/components/ProblemSet/ProblemSet.vue";
+import WorkContent from "@/components/WorkContent/WorkContent.vue";
+import ProblemSetDetail from "@/components/ProblemSetDetail/ProblemSetDetail.vue";
+import ClassContent from "@/components/ClassContent/ClassContent.vue";
 export default {
   components: {
     Tabs,

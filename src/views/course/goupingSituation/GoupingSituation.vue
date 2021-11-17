@@ -48,8 +48,8 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
-import Dot from "@/components/dot/Dot.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import Dot from "@/components/Dot/Dot.vue";
 export default {
   components: {
     HeaderTitle,

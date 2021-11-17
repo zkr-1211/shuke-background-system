@@ -135,10 +135,10 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
-import CourseOutline from "@/components/courseOutline/CourseOutline.vue";
-import SectionOutline from "@/components/sectionOutline/SectionOutline.vue";
-import CheckBox from "@/components/checkBox/CheckBox.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
+import CourseOutline from "@/components/CourseOutline/CourseOutline.vue";
+import SectionOutline from "@/components/SectionOutline/SectionOutline.vue";
+import CheckBox from "@/components/CheckBox/CheckBox.vue";
 const cityOptions = ["上海"];
 export default {
   components: {

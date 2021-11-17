@@ -85,10 +85,10 @@
 
 <script>
 import draggable from "vuedraggable";
-import TopBar from "@/components/topBar/TopBar";
-import Button from "@/components/button/Button";
-import CheckBox from "@/components/checkBox/CheckBox";
-import SmallHeaderTitle from "@/components/smallHeaderTitle/SmallHeaderTitle";
+import TopBar from "@/components/TopBar/TopBar";
+import Button from "@/components/Button/Button";
+import CheckBox from "@/components/CheckBox/CheckBox";
+import SmallHeaderTitle from "@/components/SmallHeaderTitle/SmallHeaderTitle";
 import { quillEditor } from "vue-quill-editor";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";

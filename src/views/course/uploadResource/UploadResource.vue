@@ -299,11 +299,11 @@
 </template>
 
 <script>
-import TopBar from "@/components/topBar/TopBar.vue";
-import CourseOutline from "@/components/courseOutline/CourseOutline.vue";
-import SectionOutline from "@/components/sectionOutline/SectionOutline.vue";
-import Button from "@/components/button/Button.vue";
-import CheckBox from "@/components/checkBox/CheckBox.vue";
+import TopBar from "@/components/TopBar/TopBar.vue";
+import CourseOutline from "@/components/CourseOutline/CourseOutline.vue";
+import SectionOutline from "@/components/SectionOutline/SectionOutline.vue";
+import Button from "@/components/Button/Button.vue";
+import CheckBox from "@/components/CheckBox/CheckBox.vue";
 const cityOptions = ["上海"];
 export default {
   components: {

@@ -291,9 +291,9 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle";
-import Dot from "@/components/dot/Dot";
-import CheckBox from "@/components/checkBox/CheckBox";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle";
+import Dot from "@/components/Dot/Dot";
+import CheckBox from "@/components/CheckBox/CheckBox";
 export default {
   components: {
     HeaderTitle,

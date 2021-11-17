@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle";
 export default {
   components: {
     HeaderTitle,

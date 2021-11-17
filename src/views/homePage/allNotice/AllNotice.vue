@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import Tabs from "@/components/tabs/Tabs.vue";
+import Tabs from "@/components/Tabs/Tabs.vue";
 export default {
   components: {
     Tabs,

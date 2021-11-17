@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import HeaderTitle from "@/components/headerTitle/HeaderTitle.vue";
+import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
 export default {
   components: {
     HeaderTitle,
