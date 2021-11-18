@@ -152,6 +152,8 @@ export default {
   },
   data() {
     return {
+      value:'',
+      options:[],
       startTime: "",
       endTime: "",
       desc: "大师傅士大夫士大撒地方撒旦夫",

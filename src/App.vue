@@ -8,5 +8,5 @@
 
 <style lang="scss">
 //引入公共样式
-@import 'assets/css/main.css';
+@import 'assets/style/main.css';
 </style>

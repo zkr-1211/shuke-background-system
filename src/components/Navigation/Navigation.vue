@@ -70,7 +70,7 @@ export default {
   data() {
     return {
       tabIndex: 0,
-      value
+      value:'',
     };
   },
   computed: {},
