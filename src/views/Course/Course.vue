@@ -65,7 +65,7 @@ import CourseContent from "@/components/CourseContent/CourseContent.vue";
 import ProblemSet from "@/components/ProblemSet/ProblemSet.vue";
 import WorkContent from "@/components/WorkContent/WorkContent.vue";
 import ProblemSetDetail from "@/components/ProblemSetDetail/ProblemSetDetail.vue";
-import { getColumnList } from "@/api/home/home";
+import { getColumnList } from "@/api/home";
 export default {
   components: {
     Tabs,

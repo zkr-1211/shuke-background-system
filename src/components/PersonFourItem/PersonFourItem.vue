@@ -85,10 +85,9 @@ export default {
   align-items: center;
   justify-content: center;
   transition: all 1s;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   .my-message-item {
-    width: 90%;
+    padding: 0 0.3rem;
     height: 2.4rem;
     background: #ffffff;
     // box-shadow: 0rem 0.03rem 0.06rem rgba(0, 0, 0, 0.03);
