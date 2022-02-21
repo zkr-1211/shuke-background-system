@@ -2,13 +2,13 @@ import request from '@/utils/request/v4'
 
 export function getCourseList() {
   return request({
-    url: '/',
+    url: '',
     method: 'GET'
   })
 }
 export function createCourse(data) {
   return request({
-    url: '/',
+    url: '',
     method: 'POST',
     data
   })
@@ -16,17 +16,15 @@ export function createCourse(data) {
 
 export function editCourse(courseId, data) {
   return request({
-    url: '/',
+    url: `/${courseId}`,
     method: 'PUT',
     data,
-    params: { courseId }
   })
 }
 
 export function deleteCourse(courseId) {
   return request({
-    url: `/`,
+    url: `/${courseId}`,
     method: 'DELETE',
-    params: { courseId }
   })
 }

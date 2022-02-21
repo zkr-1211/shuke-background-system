@@ -5,19 +5,21 @@ import request from '@/utils/request/v4'
 //   editCourseTeam: '/teams'
 // }
 
-export function getCourseTeam(query) {
+export function getCourseTeam(course_id) {
   return request({
     url: '/teams',
     method: 'GET',
-    params: query
+    params: {
+      course_id
+    }
   })
 }
 
-export function editCourseTeam(teamId) {
+export function editCourseTeam(teamId, data) {
   return request({
-    url: '/teams',
+    url: `/teams/${teamId}`,
     method: 'PUT',
-    params: { teamId }
+    data
   })
 }
 
@@ -40,7 +42,7 @@ export function addTeamMembers(teamId, data) {
 export function deleteTeamMembers(teamId, data) {
   return request({
     url: `/teams/${teamId}/members`,
-    method: 'POST',
+    method: 'DELETE',
     data
   })
 }
@@ -55,9 +57,8 @@ export function editTeamMembersPermissions(teamId, data) {
 
 export function transferSuperAdministrator(teamId, data) {
   return request({
-    url: `/teams/${teamId}/members/settings`,
-    method: 'PUT',
+    url: `/teams/${teamId}/transfer/super-admin`,
+    method: 'POST',
     data
   })
 }
-

@@ -27,7 +27,7 @@
             <img src="@/assets/image/home/ic_team_setting.svg" alt="" />
           </span>
           <el-dropdown-menu slot="dropdown">
-            <div @click="editDV = true">
+            <div @click="editTeamName">
               <el-dropdown-item>重命名</el-dropdown-item>
             </div>
             <div @click="deleteDV = true">
@@ -54,13 +54,13 @@
           <!-- <img src="@/assets/image/home/ic_team_invitation.svg" alt="" /> -->
         </div>
         <div class="team-search">
-          <div class="team-name">
-            UI设计教育团队
-            <img @click="createDV = true" src="@/assets/image/home/ic_edit.svg" alt="" />
+          <div class="team-name" v-if="teamObj.team_name">
+            {{ teamObj.team_name }}
+            <img @click="editTeamName" src="@/assets/image/home/ic_edit.svg" alt="" />
           </div>
           <div class="search">
-            <input type="text" placeholder="搜索你想要的班级" />
-            <i class="el-icon-search"></i>
+            <input type="text" placeholder="搜索你想要的班级" v-model.trim="keyWord" @keyup.enter="search" />
+            <i class="el-icon-search" @click="search"></i>
           </div>
         </div>
         <div class="nav-title">
@@ -76,26 +76,26 @@
           </div>
         </div>
         <div class="content">
-          <div class="item" v-for="(item, index) in teamList" :key="index">
+          <div class="item" v-for="(item, index) in teamObj.members" :key="item.uid">
             <div class="check" :class="isChecked ? 'isChecked' : ''">
-              <CheckBox v-model="item.select" @IsCheck="IsCheck($event, item.id)" />
+              <CheckBox v-model="item.select" @IsCheck="IsCheck($event, item.uid)" />
             </div>
             <div class="person">
               <div class="header">
                 <img src="@/assets/image/home/ic_help.svg" alt="" />
               </div>
               <div class="person-message">
-                <div class="name">张克榕</div>
-                <div class="phone">187***811</div>
+                <div class="name">{{ item.realname }}</div>
+                <div class="phone">{{ item.phone }}</div>
               </div>
 
               <div class="me" v-if="index == 0">我</div>
             </div>
-            <div class="num">154455211</div>
-            <div class="guanliyuan" @click="quanXianDV = true">超级管理员</div>
+            <div class="num">{{ item.external_id }}</div>
+            <div class="guanliyuan" @click="quanXianDV = true">{{ item.display_identity }}</div>
             <div class="function" @click="quanXianDV = true">所有功能</div>
             <div class="set" :class="isChecked ? 'isChecked' : ''">
-              <img @click="noQuanXianDV = true" src="@/assets/image/home/ic_setup_n.svg" alt="" />
+              <img @click="setPermissions(item.uid)" src="@/assets/image/home/ic_setup_n.svg" alt="" />
             </div>
           </div>
         </div>
@@ -133,32 +133,39 @@
       <h2>移交</h2>
       <span class="delete-text">每个团队只有1位超级管理员，移交后你将变为管理员哦</span>
       <div class="people-team">
-        <div class="item" @click="selectPeople(item.id)" v-for="(item, index) in teamList" :key="index">
-          <div class="info">
-            <div class="header">
-              <img :src="item.avatar" alt="" v-if="!item.select" />
-              <img v-else src="@/assets/image/home/ic_help.svg" alt="" />
+        <template v-for="(item, index) in teamObj.members">
+          <div
+            :key="item.uid"
+            v-if="item.identity !== 'SUPER_ADMIN'"
+            :class="['item', item.select ? 'is-select' : '']"
+            @click="selectPeople(item.uid)"
+          >
+            <div class="info">
+              <div class="header">
+                <img :src="item.avatar" alt="" v-if="!item.select" />
+                <img v-else src="@/assets/image/home/ic_help.svg" alt="" />
+              </div>
+              <div class="name">{{ item.realname }}</div>
             </div>
-            <div class="name">{{ item.name }}</div>
           </div>
-        </div>
+        </template>
       </div>
       <span slot="footer" class="dialog-footer">
         <el-button class="cancel-button" @click="turnOverDv = false">取 消</el-button>
-        <el-button type="primary" @click="turnOverDv = false">确认移交</el-button>
+        <el-button type="primary" @click="confirmTurnOver">确认移交</el-button>
       </span>
     </el-dialog>
     <!-- 修改团队名称 -->
-    <el-dialog title="" :visible.sync="createDV" width="30%" :show-close="false" top="40vh">
+    <el-dialog title="" :visible.sync="editDV" width="30%" :show-close="false" top="40vh">
       <h2>修改团队名称</h2>
       <input class="course-input" type="text" v-model.trim="teamName" />
       <span slot="footer" class="dialog-footer">
-        <el-button class="cancel-button" @click="createDV = false">取 消</el-button>
+        <el-button class="cancel-button" @click="editDV = false">取 消</el-button>
         <el-button type="primary" @click="teamNameConfirm">确 认</el-button>
       </span>
     </el-dialog>
     <!-- 删除课程 -->
-    <el-dialog title="团队大佬" :visible.sync="deleteDV" width="30%" :show-close="false" top="40vh">
+    <el-dialog :title="teamObj.team_name" :visible.sync="deleteDV" width="30%" :show-close="false" top="40vh">
       <h2>解散</h2>
       <span class="delete-text">解散团队将无法找回，您确认要解散么？</span>
       <span slot="footer" class="dialog-footer">
@@ -189,17 +196,17 @@
       </div>
 
       <div class="quan-xian">
-        <div class="quanxian-item" v-for="(item, index) in teamList" :key="index">
+        <div class="quanxian-item" v-for="(item, index) in permissions" :key="item.permission_id">
           <div class="chick">
-            <CheckBox @IsCheck.native="IsCheck(item.id)" />
+            <CheckBox @IsCheck="perSelectClick($event, item.permission_id)" v-model="item.selected" />
           </div>
-          <div class="title">{{ item.name }}</div>
+          <div class="title">{{ item.display_name }}</div>
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
         <span class="delete-man" @click="deletePeople">删除成员</span>
         <el-button class="cancel-button" @click="quanXianDV = false">取 消</el-button>
-        <el-button type="primary" @click="confirm">确 认</el-button>
+        <el-button type="primary" @click="confirmPermissions">确 认</el-button>
       </span>
     </el-dialog>
   </div>
@@ -209,6 +216,15 @@
   import HeaderTitle from '@/components/HeaderTitle/HeaderTitle'
   import Dot from '@/components/Dot/Dot'
   import CheckBox from '@/components/CheckBox/CheckBox'
+  import {
+    getCourseTeam,
+    editCourseTeam,
+    searchTeamMembers,
+    transferSuperAdministrator,
+    editTeamMembersPermissions,
+    deleteTeamMembers
+  } from '@/api/team'
+
   export default {
     components: {
       HeaderTitle,
@@ -217,7 +233,7 @@
     },
     data() {
       return {
-        createDV: false,
+        editDV: false,
         deleteDV: false,
         addDv: false,
         turnOverDv: false,
@@ -229,94 +245,50 @@
         checked: false,
         options: [
           {
-            value: '选项1',
-            label: '黄金糕'
+            value: 'ADMIN',
+            label: '管理员'
           },
           {
-            value: '选项2',
-            label: '双皮奶'
-          },
-          {
-            value: '选项3',
-            label: '蚵仔煎'
-          },
-          {
-            value: '选项4',
-            label: '龙须面'
-          },
-          {
-            value: '选项5',
-            label: '北京烤鸭'
+            value: 'MEMBER',
+            label: '成员'
           }
         ],
-        value: '',
+        value: 'MEMBER',
         shareUrl: 'https://blog.csdn.net/Tomhs3000/article/details/80334165',
-        teamList: [
-          {
-            id: 0,
-            avatar: '',
-            name: '张克榕',
-            select: false
-          },
-          {
-            id: 1,
-            avatar: '',
-            name: '成龙会',
-            select: false
-          },
-          {
-            id: 2,
-            avatar: '',
-            name: '张三',
-            select: false
-          },
-          {
-            id: 3,
-            avatar: '',
-            name: '张公',
-            select: false
-          },
-          {
-            id: 4,
-            avatar: '',
-            name: '张榕',
-            select: false
-          },
-          {
-            id: 5,
-            avatar: '',
-            name: '克榕',
-            select: false
-          },
-          {
-            id: 6,
-            avatar: '',
-            name: '克榕',
-            select: false
-          },
-          {
-            id: 7,
-            avatar: '',
-            name: '克榕',
-            select: false
-          }
-        ],
         selectIdList: [],
         isCopy: false,
-        teamName: ''
+        teamName: '',
+        keyWord: '',
+        teamObj: {},
+        course_id: 87,
+        selectUid: '',
+        permissions: []
       }
     },
     computed: {},
 
     mounted() {
-      // this.isCopy = false;
+      this.__getCourseTeam()
     },
 
     methods: {
-      selectPeople(id) {
-        this.teamList = this.teamList.map(item => {
-          if (item.id === id) {
-            item.select = !item.select
+      async __getCourseTeam() {
+        const res = await getCourseTeam(this.course_id)
+        console.log('getCourseTeam==', res)
+        res.members.forEach(item => {
+          item.select = false
+        })
+        this.teamObj = res
+      },
+
+      selectPeople(uid) {
+        this.teamObj.members = this.teamObj.members.map(item => {
+          // item.select = item.uid === uid
+          if (item.uid === uid) {
+            item.select = true
+            this.selectUid = item.uid
+          } else {
+            item.select = false
           }
           return item
         })
@@ -336,7 +308,7 @@
         } else {
           this.isChecked = false
         }
-        this.teamList.forEach(item => {
+        this.teamObj.members.forEach(item => {
           item.select = flag
         })
       },
@@ -344,11 +316,11 @@
       IsCheck(e, id) {
         console.log(e, id)
         //全部选中就显示全选按钮
-        let state = this.teamList.every(item => {
+        let state = this.teamObj.members.every(item => {
           return item.select
         })
         //有一个被选中就显示item
-        let state1 = this.teamList.some(item => {
+        let state1 = this.teamObj.members.some(item => {
           return item.select
         })
         if (state) {
@@ -362,29 +334,110 @@
           this.isChecked = false
         }
       },
-      deletePeople() {
-        this.teamList.map(item => {
-          item.select && this.selectIdList.push(item.id)
-        })
-        console.log(this.selectIdList)
+      async deletePeople() {
+        let data = {
+          uid: this.selectUid
+        }
+        try {
+        await deleteTeamMembers(this.teamObj.team_id, data)
+          
+        } catch (error) {
+            this.$message.error(`删除失败${error}`)
+          
+        }
+        // this.teamObj.member.map(item => {
+        //   item.select && this.selectIdList.push(item.id)
+        // })
+        // console.log(this.selectIdList)
       },
-      confirm() {
-        this.teamList.forEach(item => {
-          if (item.select === true) {
-            this.selectIdList.push(item.id)
-          }
+      // 权限设置确认
+      async confirmPermissions() {
+        // this.teamObj.member.forEach(item => {
+        //   if (item.select === true) {
+        //     this.selectIdList.push(item.id)
+        //   }
+        // })
+        let permissionsList = []
+        this.permissions.forEach(item => {
+          permissionsList.push({
+            permission_id: item.permission_id,
+            selected: item.selected
+          })
         })
+        let data = {
+          uid: this.selectUid,
+          identity: this.value,
+          permissions: permissionsList
+        }
+        try {
+          await editTeamMembersPermissions(this.teamObj.team_id, data)
+        } catch (error) {
+            this.$message.error(`${error}`)
+
+        }
+      },
+      editTeamName() {
+        this.editDV = true
+        this.teamName = this.teamObj.team_name
       },
       // 修改团队名称确认点击
-      teamNameConfirm() {
-        this.teamName ? alert(this.teamName) : alert('请输入名称')
-        this.teamName = ''
-        this.createDV = false
+      async teamNameConfirm() {
+        let data = {
+          name: this.teamName
+        }
+        try {
+          await editCourseTeam(this.teamObj.team_id, data)
+          this.__getCourseTeam()
+        } catch (error) {
+        } finally {
+          this.editDV = false
+        }
+      },
+      async search() {
+        let data = {
+          keyword: this.keyWord
+          // pageSize,
+          // pageNum
+        }
+        try {
+          const res = await searchTeamMembers(this.teamObj.team_id, data)
+          console.log('searchTeamMembers==', res)
+          this.teamObj.members = res.list
+          // this.$set(this.teamObj,'member',res.list)
+          console.log(' this.teamObj.member==', this.teamObj)
+        } catch (error) {
+        } finally {
+        }
       },
       // 解散团队确认点击
       dissolveTeam() {
         alert('解散成功')
         this.deleteDV = false
+      },
+      // 权限选择点击
+      perSelectClick(e, id) {
+        this.permissions.forEach(item => {
+          if (item.permission_id === id) {
+            item.selected = e
+          }
+        })
+      },
+      async confirmTurnOver() {
+        let data = {
+          uid: this.selectUid
+        }
+        try {
+          await transferSuperAdministrator(this.teamObj.team_id, data)
+        } catch (error) {}
+      },
+      setPermissions(uid) {
+        this.selectUid = uid
+        this.quanXianDV = true
+        this.teamObj.members.forEach(item => {
+          if (item.uid === uid) {
+            this.permissions = item.permissions
+          }
+        })
       }
     }
   }
@@ -598,6 +651,9 @@
     flex-wrap: wrap;
     height: 1.5rem;
     overflow: overlay;
+    .is-select {
+      background: #edeff3;
+    }
     .item {
       width: 1.68rem;
       height: 0.56rem;
@@ -894,9 +950,11 @@
               margin-right: 0.5rem;
             }
             .guanliyuan {
+              white-space: nowrap;
               margin-right: 0.5rem;
             }
             .function {
+              white-space: nowrap;
               margin-right: 2.1rem;
             }
             .set {

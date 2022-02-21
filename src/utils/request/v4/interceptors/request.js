@@ -4,7 +4,7 @@ export default (axios) => {
     axios.interceptors.request.use(
         (config) => {
             const token = store.getters.getToken;
-            const appSource = process.env.VUE_APP_SOURCE || 'shu.ke';
+            const appSource = process.env.VUE_APP_SOURCE || 'weixin';
             if (appSource) {
                 config.headers['app-source'] = appSource;
             }
