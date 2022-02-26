@@ -5,13 +5,14 @@
       <div class="course-item" v-for="(item, index) in courseContentList" :key="index">
         <div class="img" @click="toDetail()">
           <img src="@/assets/image/home/course_img1.svg" alt="" />
+          <!-- <img :src="item.cover_img" alt="" /> -->
         </div>
 
         <div class="checkbox">
-          <el-tooltip class="item" effect="dark" content="UI设计1班:第一次作业第一次作业" placement="top">
+          <el-tooltip class="item" effect="dark" :content="item.course_name" placement="top">
             <a href="/course/classdetail">
               <div class="name">
-                {{ item.courseName }}
+                {{ item.course_name }}
               </div>
             </a>
           </el-tooltip>
@@ -20,20 +21,20 @@
           </div>
         </div>
 
-        <div class="create">创建者：{{ item.createName }}</div>
+        <div class="create">创建者：{{ item.teams.team_name }}</div>
         <div class="bottom-message">
-          <div class="classnum">班级：{{ item.classNum }}</div>
-          <div class="num">学生数：{{ item.studentNum }}</div>
+          <div class="classnum">班级：100</div>
+          <div class="num">学生数：50</div>
           <div class="dot" v-if="isCheckBox"></div>
           <el-dropdown trigger="click" placement="bottom-end" v-else>
             <span class="el-dropdown-link">
               <Dot />
             </span>
             <el-dropdown-menu slot="dropdown">
-              <div @click="editName(item.id)">
+              <div @click="editName(item.course_id, item.course_name)">
                 <el-dropdown-item>重命名</el-dropdown-item>
               </div>
-              <div @click="deleteCourse(item.id,item.courseName)">
+              <div @click="deleteCourse(item.course_id, item.courseName)">
                 <el-dropdown-item>删除</el-dropdown-item>
               </div>
             </el-dropdown-menu>
@@ -42,13 +43,7 @@
       </div>
     </div>
     <!-- 删除课程 -->
-    <el-dialog
-      :title="deleteName"
-      :visible.sync="deleteDV"
-      width="30%"
-      :show-close="false"
-      top="40vh"
-    >
+    <el-dialog :title="deleteName" :visible.sync="deleteDV" width="30%" :show-close="false" top="40vh">
       <h2>删除</h2>
       <span class="delete-text">您确认删除课程么？该课程将移入回收站，30天内可前往恢复或清理。</span>
       <span slot="footer" class="dialog-footer">
@@ -57,13 +52,7 @@
       </span>
     </el-dialog>
     <!-- 重命名课程 -->
-    <el-dialog
-      title=""
-      :visible.sync="editDV"
-      width="30%"
-      :show-close="false"
-      top="40vh"
-    >
+    <el-dialog title="" :visible.sync="editDV" width="30%" :show-close="false" top="40vh">
       <h2>修改课程名称</h2>
       <input class="course-input" type="text" v-model.trim="courseName" />
       <span slot="footer" class="dialog-footer">
@@ -77,6 +66,8 @@
 <script>
   import Dot from '@/components/Dot/Dot.vue'
   import CheckBox from '@/components/CheckBox/CheckBox.vue'
+  import { editCourse, deleteCourse } from '@/api/course'
+
   export default {
     components: {
       Dot,
@@ -85,35 +76,7 @@
     props: {
       courseContentList: {
         type: Array,
-        default: [
-          {
-            id: 0,
-            courseName: 'UI设计课程',
-            createName: '张老师',
-            classNum: 100,
-            studentNum: 100,
-            time: '2021/09/21 19:45',
-            select: false
-          },
-          {
-            id: 1,
-            courseName: 'Python程序设计',
-            createName: '张老师',
-            classNum: 100,
-            studentNum: 100,
-            time: '2021/09/21 19:45',
-            select: false
-          },
-          {
-            id: 2,
-            courseName: 'Java面向对象',
-            createName: '张老师',
-            classNum: 100,
-            studentNum: 100,
-            time: '2021/09/21 19:45',
-            select: false
-          }
-        ]
+        default: []
       },
       isCheckBox: {
         type: Boolean,
@@ -126,7 +89,7 @@
         deleteDV: false,
         checked: false,
         courseName: '',
-        deleteName:'',
+        deleteName: '',
         selectId: null
       }
     },
@@ -142,29 +105,55 @@
         let selectIdList = []
         this.courseContentList.forEach(item => {
           if (item.select === true) {
-            selectIdList.push(item.id)
+            selectIdList.push(item.course_id)
           }
         })
         this.$emit('courseContentEven', selectIdList)
       },
-      editName(id) {
+      editName(id, name) {
         this.selectId = id
+        this.courseName = name
         this.editDV = true
       },
-      deleteCourse(id,name) {
+      deleteCourse(id, name) {
         this.selectId = id
         this.deleteDV = true
         this.deleteName = name
       },
-      deleteConfirm() {
-        alert(`删除=${this.selectId}`)
+      async deleteConfirm() {
+        try {
+          await deleteCourse(this.selectId)
+          this.$parent.__getCourseList()
+          this.$message({
+            message: '删除成功',
+            type: 'success'
+          })
+        } catch (error) {
+          this.$message.error('删除失败')
+        } finally {
+          this.deleteDV = false
+        }
       },
-      editConfirm() {
+      async editConfirm() {
         if (this.courseName.length > 0) {
-          alert(`成功=${this.selectId}`)
-          this.courseName = ''
-          this.editDV = false
-          this.selectId = null
+          let data = {
+            name: this.courseName
+          }
+          try {
+            await editCourse(this.selectId, data)
+            this.$parent.__getCourseList()
+
+            this.$message({
+              message: '修改成功',
+              type: 'success'
+            })
+          } catch (error) {
+            this.$message.error('修改失败')
+          } finally {
+            this.editDV = false
+            this.courseName = ''
+            this.selectId = null
+          }
         } else {
           alert(`请输入名称`)
         }

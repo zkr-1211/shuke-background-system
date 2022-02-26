@@ -6,9 +6,9 @@
       :class="ChapterIssue || isUploadResource ? '' : 'course-outline-h'"
     >
       <el-collapse v-model="activeName" accordion @change="changeCollapse">
-        <el-collapse-item :name="index" v-for="(item, index) in 5" :key="index">
+        <el-collapse-item :name="index" v-for="(item, index) in chapterList" :key="item.chapter_id">
           <template slot="title">
-            <div class="title">第一章：Python</div>
+            <div class="title">{{item.title}}</div>
            <el-dropdown trigger="click" placement="bottom-end" class="dot" >
                 <span class="el-dropdown-link" @click.stop>
                   <Dot/>
@@ -26,14 +26,14 @@
 
           <div
             class="outline-item"
-            v-for="(item1, index1) in item"
-            :key="index1"
+            v-for="(item1, index1) in item.sections"
+            :key="item1.section_id"
           >
             <div v-if="ChapterIssue || isUploadResource" class="dot">
               <Dot />
             </div>
             <span class="index">0{{ index1 + 1 }}:</span>
-            <span class="content">第一节：什么是web程序应用</span>
+            <span class="content">{{item1.name}}</span>
             <template v-if="!isEdit && ChapterIssue">
               <div class="lock" v-if="true">
                 <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
@@ -80,6 +80,11 @@ export default {
     isUploadResource: {
       type: Boolean,
       default: false,
+    },
+    //是否是上传资源大纲
+    chapterList: {
+      type: Array,
+      default: [],
     },
   },
   data() {
