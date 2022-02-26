@@ -21,27 +21,23 @@ export function createSection(chapter_id, data) {
 
 export function getSectionInfo(sectionId) {
   return request({
-    url: sectionApi,
+    url: `/section/${sectionId}`,
     method: 'GET',
-    params: { sectionId }
-
   })
 }
 
 export function editSection(sectionId, data) {
   return request({
-    url: sectionApi,
+    url: `/section/${sectionId}`,
     method: 'PUT',
     data,
-    params: { sectionId }
   })
 }
 
 export function deleteSection(sectionId) {
   return request({
-    url: `/section`,
-    method: 'DELETE',
-    params: { sectionId }
+    url: `/section/${sectionId}`,
+    method: 'DELETE'
   })
 }
 export function getDeletedsection(chapter_id) {

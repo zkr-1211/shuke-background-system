@@ -30,10 +30,9 @@ export function getChapterInfo(chapterId) {
 
 export function editChapter(chapterId, data) {
   return request({
-    url: chapterApi,
+    url: `/chapter/${chapterId}`,
     method: 'PUT',
     data,
-    params: { chapterId }
   })
 }
 
