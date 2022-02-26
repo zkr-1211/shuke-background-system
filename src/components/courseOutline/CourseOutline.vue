@@ -1,39 +1,32 @@
 <!--  -->
 <template>
   <div class="body">
-    <div
-      class="course-outline"
-      :class="ChapterIssue || isUploadResource ? '' : 'course-outline-h'"
-    >
+    <div class="course-outline" :class="ChapterIssue || isUploadResource ? '' : 'course-outline-h'">
       <el-collapse v-model="activeName" accordion @change="changeCollapse">
         <el-collapse-item :name="index" v-for="(item, index) in chapterList" :key="item.chapter_id">
           <template slot="title">
-            <div class="title">{{item.title}}</div>
-           <el-dropdown trigger="click" placement="bottom-end" class="dot" >
-                <span class="el-dropdown-link" @click.stop>
-                  <Dot/>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                  <div @click="editDV = true">
-                    <el-dropdown-item>重命名</el-dropdown-item>
-                  </div>
-                  <div @click="deleteDV = true">
-                    <el-dropdown-item>删除</el-dropdown-item>
-                  </div>
-                </el-dropdown-menu>
-              </el-dropdown>
+            <div class="title">{{ item.title }}</div>
+            <el-dropdown trigger="click" placement="bottom-end" class="dot">
+              <span class="el-dropdown-link" @click.stop>
+                <Dot />
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <div @click="editDV = true">
+                  <el-dropdown-item>重命名</el-dropdown-item>
+                </div>
+                <div @click="onDelete(item.chapter_id)">
+                  <el-dropdown-item>删除</el-dropdown-item>
+                </div>
+              </el-dropdown-menu>
+            </el-dropdown>
           </template>
 
-          <div
-            class="outline-item"
-            v-for="(item1, index1) in item.sections"
-            :key="item1.section_id"
-          >
+          <div class="outline-item" v-for="(item1, index1) in item.sections" :key="item1.section_id">
             <div v-if="ChapterIssue || isUploadResource" class="dot">
               <Dot />
             </div>
             <span class="index">0{{ index1 + 1 }}:</span>
-            <span class="content">{{item1.name}}</span>
+            <span class="content">{{ item1.name }}</span>
             <template v-if="!isEdit && ChapterIssue">
               <div class="lock" v-if="true">
                 <img src="@/assets/image/course/ic_locking_on.svg" alt="" />
@@ -65,161 +58,192 @@
 </template>
 
 <script>
-import Dot from "@/components/Dot/Dot.vue";
-export default {
-  components: {
-    Dot,
-  },
-  props: {
-    //是否是章节发布管理
-    ChapterIssue: {
-      type: Boolean,
-      default: false,
+  import Dot from '@/components/Dot/Dot.vue'
+  import {
+    createChapter,
+    getChapterInfo,
+    getChapterList,
+    editChapter,
+    deleteChapter,
+    getDeletedChapter
+  } from '@/api/course/chapter'
+  export default {
+    components: {
+      Dot
     },
-    //是否是上传资源大纲
-    isUploadResource: {
-      type: Boolean,
-      default: false,
+    props: {
+      //是否是章节发布管理
+      ChapterIssue: {
+        type: Boolean,
+        default: false
+      },
+      //是否是上传资源大纲
+      isUploadResource: {
+        type: Boolean,
+        default: false
+      },
+      //是否是上传资源大纲
+      chapterList: {
+        type: Array,
+        default: []
+      }
     },
-    //是否是上传资源大纲
-    chapterList: {
-      type: Array,
-      default: [],
+    data() {
+      return {
+        activeName: 0,
+        isEdit: false
+      }
     },
-  },
-  data() {
-    return {
-      activeName: 0,
-      isEdit: false,
-    };
-  },
-  computed: {},
+    computed: {},
 
-  mounted() {},
+    mounted() {},
 
-  methods: {
-    changeCollapse(e) {
-      console.log("e", e);
-    },
-  },
-};
+    methods: {
+      changeCollapse(e) {
+        console.log('e', e)
+      },
+      onDelete(id) {
+            this.$parent.__getChapter()
+        this.$confirm('此操作将永久删除该章节, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        })
+          .then(async () => {
+            await deleteChapter(id)
+            // console.log('this.$parent',this.$parent.__getChapter());
+            
+            // this.$parent.__getChapter()
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+          })
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
+          })
+      }
+    }
+  }
 </script>
-<style lang='scss' scoped>
-::v-deep .el-collapse-item__wrap {
-     will-change: height;
-     background-color: #fff;
-     overflow: hidden;
-     -webkit-box-sizing: border-box;
-     box-sizing: border-box;
-     border-bottom: none;
-}
- .el-collapse-item {
-     overflow: hidden;
-     transition: all 0s;
-     .dot {
-         position: absolute;
-         right: 0.2rem;
-         top: 0.15rem;
+<style lang="scss" scoped>
+  ::v-deep .el-collapse-item__wrap {
+    will-change: height;
+    background-color: #fff;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: none;
+  }
+  .el-collapse-item {
+    overflow: hidden;
+    transition: all 0s;
+    .dot {
+      position: absolute;
+      right: 0.2rem;
+      top: 0.15rem;
     }
-}
- .course-outline-h {
-     height: 4.2rem;
-}
- .course-outline {
-     width: 100%;
-     overflow-x: hidden;
-     overflow: overlay;
-     margin: 0 auto;
-     .outline-item {
-         background: #ffffff;
-         padding: 0.3rem 0.3rem 0rem 0.3rem;
-         font-size: 0.16rem;
-         color: #666666;
-         display: flex;
-         position: relative;
-         .dot {
-             position: absolute;
-             right: 0.2rem;
-             top: 0.32rem;
+  }
+  .course-outline-h {
+    height: 4.2rem;
+  }
+  .course-outline {
+    width: 100%;
+    overflow-x: hidden;
+    overflow: overlay;
+    margin: 0 auto;
+    .outline-item {
+      background: #ffffff;
+      padding: 0.3rem 0.3rem 0rem 0.3rem;
+      font-size: 0.16rem;
+      color: #666666;
+      display: flex;
+      position: relative;
+      .dot {
+        position: absolute;
+        right: 0.2rem;
+        top: 0.32rem;
+      }
+      .lock {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.27rem;
+        img {
+          width: 0.34rem;
+          height: 0.34rem;
+          background: #ffffff;
         }
-         .lock {
-             position: absolute;
-             right: 0.5rem;
-             top: 0.27rem;
-             img {
-                 width: 0.34rem;
-                 height: 0.34rem;
-                 background: #ffffff;
-            }
+      }
+      .look {
+        position: absolute;
+        right: 1rem;
+        top: 0.27rem;
+        img {
+          width: 0.34rem;
+          height: 0.34rem;
+          background: #ffffff;
         }
-         .look {
-             position: absolute;
-             right: 1rem;
-             top: 0.27rem;
-             img {
-                 width: 0.34rem;
-                 height: 0.34rem;
-                 background: #ffffff;
-            }
-        }
-         .index {
-             font-size: 0.16rem;
-             color: #2065e0;
-        }
-         .content {
-             margin-left: 0.05rem;
-        }
+      }
+      .index {
+        font-size: 0.16rem;
+        color: #2065e0;
+      }
+      .content {
+        margin-left: 0.05rem;
+      }
     }
-     .add {
-         cursor: pointer;
-         margin-top: 0.3rem;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         .img {
-             display: flex;
-             width: 0.3rem;
-             height: 0.3rem;
-        }
-         .add-item {
-             margin-left: 0.08rem;
-             font-size: 0.2rem;
-             line-height: 0.34rem;
-             color: #666666;
-             opacity: 1;
-        }
+    .add {
+      cursor: pointer;
+      margin-top: 0.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .img {
+        display: flex;
+        width: 0.3rem;
+        height: 0.3rem;
+      }
+      .add-item {
+        margin-left: 0.08rem;
+        font-size: 0.2rem;
+        line-height: 0.34rem;
+        color: #666666;
+        opacity: 1;
+      }
     }
-}
- ::v-deep .el-collapse-item__header {
-     display: flex;
-     align-items: center;
-     line-height: 0.6rem;
-     cursor: pointer;
-     transition: border-bottom-color 0.3s;
-     outline: 0;
-     width: 100%;
-     height: 0.6rem;
-     background: #f6f6f8;
-     font-size: 0.2rem;
-     color: #333333;
-     padding-left: 0.65rem;
-     border: none;
-     padding-right: 0.3rem;
-     position: relative;
-     background-image: url(../../assets/image/course/right.svg);
-     background-repeat: no-repeat;
-     background-position: 0.1rem;
-}
- ::v-deep .el-collapse-item__header.is-active {
-     border-bottom-color: transparent;
-     background-image: url(../../assets/image/course/bottom.svg);
-}
- ::v-deep .el-icon-arrow-right:before {
-     content: none;
-     border: none;
-}
- ::v-deep .el-collapse-item__arrow.is-active {
-     content: none;
-}
- 
+  }
+  ::v-deep .el-collapse-item__header {
+    display: flex;
+    align-items: center;
+    line-height: 0.6rem;
+    cursor: pointer;
+    transition: border-bottom-color 0.3s;
+    outline: 0;
+    width: 100%;
+    height: 0.6rem;
+    background: #f6f6f8;
+    font-size: 0.2rem;
+    color: #333333;
+    padding-left: 0.65rem;
+    border: none;
+    padding-right: 0.3rem;
+    position: relative;
+    background-image: url(../../assets/image/course/right.svg);
+    background-repeat: no-repeat;
+    background-position: 0.1rem;
+  }
+  ::v-deep .el-collapse-item__header.is-active {
+    border-bottom-color: transparent;
+    background-image: url(../../assets/image/course/bottom.svg);
+  }
+  ::v-deep .el-icon-arrow-right:before {
+    content: none;
+    border: none;
+  }
+  ::v-deep .el-collapse-item__arrow.is-active {
+    content: none;
+  }
 </style>

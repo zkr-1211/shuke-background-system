@@ -10,6 +10,8 @@
         <el-breadcrumb-item>章节发放管理</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
+            <CourseOutline :ChapterIssue="true" :chapterList="chapterList"/>
+
     <el-row :gutter="32" class="el-row">
       <el-col :xs="24" :sm="24" :md="24" :lg="9" :xl="9">
         <div class="left">
@@ -20,7 +22,6 @@
                 <el-button type="primary">编辑大纲</el-button>
               </div>
             </div>
-            <CourseOutline :ChapterIssue="true" :chapterList="chapterList"/>
           </div>
         </div>
       </el-col>
@@ -245,7 +246,7 @@ export default {
         sort: undefined,
       },
       formLabelWidth: "100px",
-      course_id: 86,
+      course_id: 81,
       chapterList:[]
     };
   },
@@ -262,7 +263,7 @@ export default {
     async __getChapter() {
       const res = await getChapterList(this.course_id)
       this.chapterList =  res.chapters
-      console.log('res',res);
+      console.log('__getChapter',res);
     },
     handleCheckAllChange(val) {
       this.isIndeterminate = false;

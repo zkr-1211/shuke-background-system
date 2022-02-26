@@ -21,6 +21,7 @@ figure {
 
 html,
 body {
+    line-height: 0;
     height: 100%;
     box-sizing: border-box !important;
     -webkit-box-sizing: border-box !important;

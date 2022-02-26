@@ -37,11 +37,10 @@ export function editChapter(chapterId, data) {
   })
 }
 
-export function deleteChapter(courseId) {
+export function deleteChapter(chapterId) {
   return request({
-    url: `/chapter`,
+    url: `/chapter/${chapterId}`,
     method: 'DELETE',
-    params: { courseId }
   })
 }
 export function getDeletedChapter(course_id) {
