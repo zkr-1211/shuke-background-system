@@ -16,11 +16,11 @@
           <div class="bottom-left">
             <HeaderTitle name="课程大纲" />
             <div class="nav">
-              <div class="button">
+              <div class="button" @click="dialogFormVisible = true">
                 <el-button type="primary">编辑大纲</el-button>
               </div>
             </div>
-            <CourseOutline :ChapterIssue="true" />
+            <CourseOutline :ChapterIssue="true" :chapterList="chapterList"/>
           </div>
         </div>
       </el-col>
@@ -131,6 +131,45 @@
         <el-button type="primary" @click="lockDV = false">确 认</el-button>
       </span>
     </el-dialog>
+    <!-- 新建章节 -->
+    <el-dialog title="新建章节" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="章节标题" :label-width="formLabelWidth">
+          <el-input
+            v-model="form.title"
+            autocomplete="off"
+            placeholder="请输入标题"
+          ></el-input>
+        </el-form-item>
+        <el-form-item label="章节描述" :label-width="formLabelWidth">
+          <el-input
+            type="textarea"
+            :rows="2"
+            placeholder="请输入描述内容（可选输入）"
+            v-model="form.describe"
+          >
+          </el-input>
+        </el-form-item>
+        <el-form-item label="章节是否可见" :label-width="formLabelWidth">
+          <el-select v-model="form.hidden" placeholder="选择是否可见">
+            <el-option label="是" :value = true></el-option>
+            <el-option label="否" :value = false></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="章节排序值" :label-width="formLabelWidth">
+          <el-input
+            placeholder="请输入描述内容（可选输入）"
+            v-model.number="form.sort"
+            autocomplete="off"
+            type="number"
+          ></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="addChapterConfirm">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -139,6 +178,15 @@ import HeaderTitle from "@/components/HeaderTitle/HeaderTitle.vue";
 import CourseOutline from "@/components/CourseOutline/CourseOutline.vue";
 import SectionOutline from "@/components/SectionOutline/SectionOutline.vue";
 import CheckBox from "@/components/CheckBox/CheckBox.vue";
+import {
+  createChapter,
+  getChapterInfo,
+  getChapterList,
+  editChapter,
+  deleteChapter,
+  getDeletedChapter,
+} from "@/api/course/chapter";
+
 const cityOptions = ["上海"];
 export default {
   components: {
@@ -189,6 +237,16 @@ export default {
           isCheck: false,
         },
       ],
+      dialogFormVisible: false,
+      form: {
+        title: "",
+        describe: "",
+        hidden: undefined,
+        sort: undefined,
+      },
+      formLabelWidth: "100px",
+      course_id: 86,
+      chapterList:[]
     };
   },
   computed: {
@@ -196,9 +254,16 @@ export default {
     //   return this.sectionOutlineList.every(item => item.isCheck)
     // }
   },
-  mounted() {},
+  mounted() {
+     this.__getChapter()
+  },
 
   methods: {
+    async __getChapter() {
+      const res = await getChapterList(this.course_id)
+      this.chapterList =  res.chapters
+      console.log('res',res);
+    },
     handleCheckAllChange(val) {
       this.isIndeterminate = false;
     },
@@ -216,6 +281,24 @@ export default {
         this.isCheckedAll = true;
       } else {
         this.isCheckedAll = false;
+      }
+    },
+    async addChapterConfirm() {
+      if (this.form.title.split(" ").join("").length <= 0) {
+        this.$message.error("请输入标题");
+        return;
+      }
+      try {
+        console.log(this.form);
+        await createChapter(this.course_id, this.form);
+        this.__getChapter()
+        this.dialogFormVisible = false;
+        this.$message({
+          message: "新建成功",
+          type: "success",
+        });
+      } catch (error) {
+        this.$message.error(`${error}`);
       }
     },
   },

@@ -3,10 +3,11 @@ import request from '@/utils/request/v4'
 const chapterApi = '/chapter'
 
 
-export function getChapterList() {
+export function getChapterList(course_id) {
   return request({
     url: chapterApi,
-    method: 'GET'
+    method: 'GET',
+    params: { course_id }
   })
 }
 export function createChapter(course_id, data) {
