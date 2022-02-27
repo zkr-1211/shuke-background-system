@@ -11,8 +11,8 @@
                 <Dot />
               </span>
               <el-dropdown-menu slot="dropdown">
-                <div @click="onEdit(item)">
-                  <el-dropdown-item>修改章节</el-dropdown-item>
+                <div @click="editDV = true">
+                  <el-dropdown-item>重命名</el-dropdown-item>
                 </div>
                 <div @click="onDelete(item.chapter_id)">
                   <el-dropdown-item>删除</el-dropdown-item>
@@ -21,26 +21,10 @@
             </el-dropdown>
           </template>
 
-          <div
-            class="outline-item"
-            v-for="(item1, index1) in item.sections"
-            :key="item1.section_id"
-            @click="secItemClick(index1, item1.section_id)"
-          >
-            <el-dropdown trigger="click" placement="bottom-end" class="dot" v-if="ChapterIssue || isUploadResource">
-              <span class="el-dropdown-link" @click.stop>
-                <Dot />
-              </span>
-              <el-dropdown-menu slot="dropdown">
-                <div @click="onEditSec(item1)">
-                  <el-dropdown-item>修改小节</el-dropdown-item>
-                </div>
-                <div @click="onDeleteSec(item1.section_id)">
-                  <el-dropdown-item>删除</el-dropdown-item>
-                </div>
-              </el-dropdown-menu>
-            </el-dropdown>
-
+          <div class="outline-item" v-for="(item1, index1) in item.sections" :key="item1.section_id">
+            <div v-if="ChapterIssue || isUploadResource" class="dot">
+              <Dot />
+            </div>
             <span class="index">0{{ index1 + 1 }}:</span>
             <span class="content">{{ item1.name }}</span>
             <template v-if="!isEdit && ChapterIssue">
@@ -61,8 +45,7 @@
               </div>
             </template>
           </div>
-          <div class="add" @click="addSection(item.chapter_id)">
-            <!-- <div class="add" v-if="isUploadResource"> -->
+          <div class="add" v-if="isUploadResource">
             <div class="img">
               <img src="@/assets/image/course/icon_add_n.svg" alt="" />
             </div>
@@ -76,6 +59,14 @@
 
 <script>
   import Dot from '@/components/Dot/Dot.vue'
+  import {
+    createChapter,
+    getChapterInfo,
+    getChapterList,
+    editChapter,
+    deleteChapter,
+    getDeletedChapter
+  } from '@/api/course/chapter'
   export default {
     components: {
       Dot
@@ -94,7 +85,7 @@
       //是否是上传资源大纲
       chapterList: {
         type: Array,
-        default: () => []
+        default: []
       }
     },
     data() {
@@ -108,40 +99,32 @@
     mounted() {},
 
     methods: {
-      changeCollapse(e) {},
+      changeCollapse(e) {
+        console.log('e', e)
+      },
       onDelete(id) {
-        this.$confirm('此操作将删除该章节, 是否继续?', '提示', {
+            this.$parent.__getChapter()
+        this.$confirm('此操作将永久删除该章节, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         })
-          .then(() => {
-            this.$emit('onDelete', id)
+          .then(async () => {
+            await deleteChapter(id)
+            // console.log('this.$parent',this.$parent.__getChapter());
+            
+            // this.$parent.__getChapter()
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
           })
-          .catch(() => {})
-      },
-      onEdit(item) {
-        this.$emit('onEdit', item)
-      },
-      onDeleteSec(id) {
-        this.$confirm('此操作将删除该小节, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        })
-          .then(() => {
-            this.$emit('onDeleteSec', id)
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
           })
-          .catch(() => {})
-      },
-      onEditSec(item) {
-        this.$emit('onEditSec', item)
-      },
-      addSection(id) {
-        this.$emit('addSection', id)
-      },
-      secItemClick(index, id) {
-        this.$emit('secItemClick', index, id)
       }
     }
   }
