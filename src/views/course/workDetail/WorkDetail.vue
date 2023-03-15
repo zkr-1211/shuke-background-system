@@ -43,7 +43,7 @@
                     <div class="item" v-for="(item, index) in 30" :key="index" :class="index % 2 == 1 ? 'item-background' : ''">
                       <div class="left-message">
                         <div class="header"></div>
-                        <div class="name">张克榕</div>
+                        <div class="name">张老板</div>
                       </div>
                       <div class="num">已提交</div>
                       <div class="process-num">90分</div>

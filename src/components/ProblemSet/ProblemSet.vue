@@ -11,10 +11,10 @@
             content="UI设计1班:第一次作业第一次作业"
             placement="top"
           >
-            <a href="/course/classdetail"
+            <router-link to="/course/classdetail"
               ><div class="name">
               {{item.name}}
-              </div></a
+              </div></router-link
             >
           </el-tooltip>
           <div v-if="isCheckBox" class="el-checkbox">

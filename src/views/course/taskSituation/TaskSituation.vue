@@ -147,7 +147,7 @@
                       <div class="nav">
                         <span>作业评价</span>
                         <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="commitImgList" list-type="picture">
-                          <a href="javascript:void(0);">添加图片</a>
+                          <router-link to="javascript:void(0);">添加图片</router-link>
                         </el-upload>
                       </div>
                       <div class="content">
@@ -209,7 +209,7 @@
                 <div class="comment" v-for="(item, index) in 3" :key="index">
                   <div class="nav">
                     <span>评语板{{ index + 1 }}</span>
-                    <a href="">删除</a>
+                    <router-link to="">删除</router-link>
                   </div>
                   <div class="content">
                     <!-- <input  v-model="commentDes"   type="text" name="" id=""> -->

@@ -8,11 +8,11 @@
     <div class="center">
       <div class="content-title">
         <div class="left-item">
-         <a href="/main">
+         <router-link to="/main">
             <div class="img">
               <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
             </div>
-          </a>
+          </router-link>
           <span>返回首页</span>
         </div>
         <div class="title">账号信息</div>
@@ -25,7 +25,7 @@
       <div class="notice-message" v-if="true">
         <div class="message">
           <div class="label">用户名</div>
-          <div class="content">张克榕</div>
+          <div class="content">张老板</div>
         </div>
         <div class="message">
           <div class="label">微信</div>
@@ -33,7 +33,7 @@
         </div>
         <div class="message">
           <div class="label">备注</div>
-          <div class="content">张克榕</div>
+          <div class="content">张老板</div>
           <div class="edit">修改备注</div>
         </div>
         <div class="message">
@@ -45,7 +45,7 @@
       <div class="notice-message" v-else>
         <div class="message">
           <div class="label">用户名</div>
-          <div class="content">张克榕</div>
+          <div class="content">张老板</div>
         </div>
         <div class="message">
           <div class="label">微信</div>

@@ -63,15 +63,15 @@
                           <div class="person-message">
                             <div class="header"><img src="" alt="" /></div>
                             <div class="message">
-                              <div class="name">张克榕</div>
-                              <div class="num">182718144</div>
+                              <div class="name">张老板</div>
+                              <div class="num">110110110</div>
                             </div>
                           </div>
                           <div class="VS">VS</div>
                           <div class="person-message">
                             <div class="message1">
-                              <div class="name">张克榕</div>
-                              <div class="num">182718144</div>
+                              <div class="name">张老板</div>
+                              <div class="num">110110110</div>
                             </div>
                             <div class="header"><img src="" alt="" /></div>
                           </div>

@@ -8,11 +8,11 @@
     <div class="center">
       <div class="content-title">
         <div class="left-item">
-          <a href="/main">
+          <router-link to="/main">
             <div class="img">
               <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
             </div>
-          </a>
+          </router-link>
           <span>返回首页</span>
         </div>
         <div class="title">学校/机构信息</div>
@@ -33,7 +33,7 @@
         </div>
         <div class="message">
           <div class="label">注册人</div>
-          <div class="content">张克榕</div>
+          <div class="content">张老板</div>
         </div>
         <div class="message">
           <div class="label">认证时间</div>
@@ -55,7 +55,7 @@
         </div>
         <div class="message">
           <div class="label">注册人</div>
-          <div class="content">张克榕</div>
+          <div class="content">张老板</div>
         </div>
         <div class="message">
           <div class="label">身份证</div>

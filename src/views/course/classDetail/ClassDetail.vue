@@ -99,7 +99,7 @@
                             {{ index + 1 }}
                           </div>
                           <div class="header"><img src="" alt="" /></div>
-                          <div class="name">张克榕</div>
+                          <div class="name">张老板</div>
                         </div>
                         <div class="avg-score">平均分：70分</div>
                         <div class="rank">进步2名</div>
@@ -110,9 +110,9 @@
                 <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
                   <div class="work-data">
                     <HeaderTitle name="作业数据" />
-                    <a href="/course/work">
+                    <router-link to="/course/work">
                       <div class="button"><Button name="查看作业" /></div>
-                    </a>
+                    </router-link>
                     <div>
                       <WorkDataChart ref="myChart1" />
                     </div>
@@ -144,9 +144,9 @@
               >
                 <div class="left-message">
                   <div class="header"></div>
-                  <div class="name">张克榕</div>
+                  <div class="name">张老板</div>
                 </div>
-                <div class="num">182718144</div>
+                <div class="num">110110110</div>
                 <div class="process-num">1845545655</div>
                 <el-dropdown trigger="click" placement="bottom-end" class="dot3">
                   <span class="el-dropdown-link" @click.stop>

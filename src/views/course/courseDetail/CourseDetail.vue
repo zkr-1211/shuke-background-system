@@ -36,7 +36,7 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <div class="top-right">
             <HeaderTitle name="学员评价" />
-            <a href="/course/all_evaluation">共有100条评价>></a>
+            <router-link to="/course/all_evaluation">共有100条评价>></router-link>
             <div class="center-content">
               <el-carousel :interval="10000" arrow="always" indicator-position="none">
                 <el-carousel-item v-for="item in 1" :key="item">
@@ -48,7 +48,7 @@
                         <div class="header">
                           <img src="@/assets/image/home/course_img1.svg" alt="" />
                         </div>
-                        <div class="name">张克榕</div>
+                        <div class="name">张老板</div>
                         <div class="time">2019/10/15 12:20:23</div>
                       </div>
                       <div class="rate">
@@ -70,52 +70,52 @@
     <div class="center">
       <el-row :gutter="60" class="el-row">
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/course/tasksituation">
+          <router-link to="/course/tasksituation">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_correction.svg" alt="" />
               <span>作业/任务批改</span>
             </div>
-          </a>
+          </router-link>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="">
+          <router-link to="">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_exercises.svg" alt="" />
               <span>题库</span>
             </div>
-          </a>
+          </router-link>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/course/ladders">
+          <router-link to="/course/ladders">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_match.svg" alt="" />
               <span>天梯赛</span>
             </div>
-          </a>
+          </router-link>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/homePage/myclass">
+          <router-link to="/homePage/myclass">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_class.svg" alt="" />
               <span>班级</span>
             </div>
-          </a>
+          </router-link>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="">
+          <router-link to="">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_homework.svg" alt="" />
               <span>发布作业</span>
             </div>
-          </a>
+          </router-link>
         </el-col>
         <el-col :xs="12" :sm="8" :md="8" :lg="4" :xl="4">
-          <a href="/homePage/myteam">
+          <router-link to="/homePage/myteam">
             <div class="img-item">
               <img src="@/assets/image/course/icon_course_team.svg" alt="" />
               <span>我的团队</span>
             </div>
-          </a>
+          </router-link>
         </el-col>
       </el-row>
     </div>

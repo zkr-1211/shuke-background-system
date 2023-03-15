@@ -31,9 +31,9 @@
                     :key="index"
                   >
                     <div class="checkbox">
-                      <a href="/course/workdetail">
+                      <router-link to="/course/workdetail">
                         <div class="name">UI设计赛程</div>
-                      </a>
+                      </router-link>
 
                       <div v-if="isCheckBox">
                         <CheckBox />

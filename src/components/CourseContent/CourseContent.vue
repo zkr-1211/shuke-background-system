@@ -10,11 +10,11 @@
 
         <div class="checkbox">
           <el-tooltip class="item" effect="dark" :content="item.course_name" placement="top">
-            <a href="/course/classdetail">
+            <router-link to="/course/classdetail">
               <div class="name">
                 {{ item.course_name }}
               </div>
-            </a>
+            </router-link>
           </el-tooltip>
           <div v-if="isCheckBox" class="el-checkbox">
             <CheckBox v-model="item.select" @IsCheck="IsCheck" />

@@ -11,7 +11,7 @@
             placement="top"
           >
             <div class="checkbox">
-              <a href="/course/ladderstaskdesign">
+              <router-link to="/course/ladderstaskdesign">
                 <div
                   class="name"
                   :class="[
@@ -22,7 +22,7 @@
                 >
                   UI设计赛程
                 </div>
-              </a>
+              </router-link>
 
               <div v-if="isCheckBox">
                 <CheckBox />

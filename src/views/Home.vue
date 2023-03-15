@@ -18,14 +18,14 @@
                 </div>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <a href="/accountInfomation">
+                <router-link to="/accountInfomation">
                   <el-dropdown-item>账户信息</el-dropdown-item>
-                </a>
+                </router-link>
 
                 <el-dropdown-item>退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <div class="name">张克榕</div>
+            <div class="name">张老板</div>
             <div class="message">
               <el-dropdown trigger="click" placement="bottom-end">
                 <span class="el-dropdown-link">
@@ -40,9 +40,9 @@
                 <el-dropdown-menu slot="dropdown">
                   <div class="notices">
                     <div class="time-img">
-                      <a href="/allNotice">
+                      <router-link to="/allNotice">
                         <div class="img1"></div>
-                      </a>
+                      </router-link>
                     </div>
                     <el-tabs
                       value="first"

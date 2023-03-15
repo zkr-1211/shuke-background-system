@@ -47,17 +47,17 @@
             <div v-if="false">
               <div class="school-name">福州大学阳光学院</div>
               <div class="button">
-                <a href="/organization">
+                <router-link to="/organization">
                   <el-button type="primary">查看管理</el-button>
-                </a>
+                </router-link>
               </div>
             </div>
             <div v-else>
               <div class="school-name">暂无归属学校/机构</div>
               <div class="button">
-                <a href="/organization">
+                <router-link to="/organization">
                   <el-button type="primary">加入认证</el-button>
-                </a>
+                </router-link>
               </div>
             </div>
           </div>

@@ -8,11 +8,11 @@
     <div class="center">
       <div class="content-title">
         <div class="left-item">
-          <a href="/main">
+          <router-link to="/main">
             <div class="img">
               <!-- <img src="@/assets/image/home/ic_back_n.svg" alt="" /> -->
             </div>
-          </a>
+          </router-link>
 
           <span>返回首页</span>
         </div>

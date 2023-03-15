@@ -34,9 +34,9 @@
               <div class="header">
                 <img src="@/assets/image/home/img_empty_big.svg" alt="" />
               </div>
-              <div class="name">张克榕</div>
+              <div class="name">张老板</div>
             </div>
-            <div class="num">182718144</div>
+            <div class="num">110110110</div>
             <div class="dot3">
               <Dot />
             </div>

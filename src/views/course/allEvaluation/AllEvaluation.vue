@@ -37,7 +37,7 @@
                   <div class="header">
                     <img src="@/assets/image/home/course_img1.svg" alt="" />
                   </div>
-                  <div class="name">张克榕</div>
+                  <div class="name">张老板</div>
                   <div class="time">2019/10/15 12:20:23</div>
                 </div>
                 <div class="delete-img">
